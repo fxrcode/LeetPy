@@ -1,4 +1,5 @@
 """
+✅ GOOD (1st time input data scale as condition)
 Tag: Medium, Hash, Bisect
 Lookback:
 - Worst students start solving w/o fully understand the problem (include conditions, questions)
