@@ -1,6 +1,6 @@
 """
 ✅ GOOD BFS (bi-directional)
-Tag: Medium, BFS, logic
+Tag: Medium, BFS, logic, DFS
 Lookback:
 - Insight: prune logic based on symmetry, meaning (x, y), (-x, y), (x, -y), (-x, -y) will have the same results.
 """
@@ -11,7 +11,15 @@ from collections import deque
 
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
+        def idontknoooo_dp():
+            """
+            Top-down DP
+            """
+
         def idontknoooo_bfs():
+            """
+            basic BFS w/ logic: symmetric & prune
+            """
             nonlocal x, y
             # no need to have (-1, -2) and (-2, -1) since it only goes 1 direction
             DIR = [(1, 2), (2, 1), (1, -2), (2, -1), (-1, 2), (-2, 1)]
