@@ -1,5 +1,6 @@
 """
 ✅ GOOD BFS (bi-directional)
+✅ GOOD DP (memo-DFS)
 Tag: Medium, BFS, logic, DFS
 Lookback:
 - Insight: prune logic based on symmetry, meaning (x, y), (-x, y), (x, -y), (-x, -y) will have the same results.
@@ -7,14 +8,30 @@ Lookback:
 
 
 from collections import deque
+from functools import cache
 
 
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
         def idontknoooo_dp():
             """
-            Top-down DP
+            Runtime: 88 ms, faster than 84.58% of Python3 online submissions for Minimum Knight Moves.
+
+            Top-down DP => memo DFS => backward thinking.
+            Goal: origin -> target
+            Backward: target -> origin
+            - Backward thinking in ALL recursion (Balloon, TSP DP), as well in #991
             """
+
+            @cache
+            def dp(x, y):
+                if x + y == 0:
+                    return 0
+                elif x + y == 2:
+                    return 2
+                return min(dp(abs(x - 1), abs(y - 2)), dp(abs(x - 2), abs(y - 1))) + 1
+
+            return dp(abs(x), abs(y))
 
         def idontknoooo_bfs():
             """
