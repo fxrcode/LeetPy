@@ -2,17 +2,11 @@
 ✅ GOOD MST (PQ + UF)
 Tag: Medium, MST, Graph, UF, Greedy
 Lookback:
-- Kruskal
-- Prim
+- Kruskal: heapq + UF
+- Prim: heapq Greedy, init pq = [(0, (0,0))]
 https://leetcode.com/explore/learn/card/graph/621/algorithms-to-construct-minimum-spanning-tree/3857/
 Leetcode Explore Graph: MST
-
-You are given an array points representing integer coordinates of some points on a 2D-plane, where points[i] = [xi, yi].
-Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
-
 """
-
-
 from heapq import heappop, heappush
 from typing import List
 
