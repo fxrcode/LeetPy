@@ -4,8 +4,7 @@ Tag: Medium, MST, Graph, UF, Greedy
 Lookback:
 - Kruskal: heapq + UF
 - Prim: heapq Greedy, init pq = [(0, (0,0))]
-https://leetcode.com/explore/learn/card/graph/621/algorithms-to-construct-minimum-spanning-tree/3857/
-Leetcode Explore Graph: MST
+- MST vs TSP
 """
 from heapq import heappop, heappush
 from typing import List
