@@ -1,18 +1,18 @@
-'''
+"""
 ✅ GOOD Dijkstra augment
+Tag: Medium, Graph
+Lookback:
 
+TODO: BFS+Binary Search, Union-Find.
 https://leetcode.com/explore/learn/card/graph/622/single-source-shortest-path-algorithm/3952/
 Leetcode Explore Graph: SSSP
 
-You're a hiker!
-
-TODO: BFS+Binary Search, Union-Find.
-'''
+"""
 
 
 from collections import defaultdict
+from heapq import heappop, heappush
 from typing import List
-from heapq import heappush, heappop
 
 
 class Solution:
@@ -40,7 +40,7 @@ class Solution:
             """
             m, n = len(heights), len(heights[0])
             dist = [[INF] * n for _ in range(m)]
-            src, dst = (0, 0), (m-1, n-1)
+            src, dst = (0, 0), (m - 1, n - 1)
             pq = [(0, src)]  # dist, row/col
             while pq:
                 d, (r, c) = heappop(pq)
@@ -49,15 +49,15 @@ class Solution:
                 if (r, c) == dst:
                     return d
                 for i in range(4):
-                    xx, yy = r+DIR[i][0], c+DIR[i][1]
+                    xx, yy = r + DIR[i][0], c + DIR[i][1]
                     if not (0 <= xx < m and 0 <= yy < n):
                         continue
-                    new_dist = max(d, abs(heights[xx][yy]-heights[r][c]))
+                    new_dist = max(d, abs(heights[xx][yy] - heights[r][c]))
                     if dist[xx][yy] > new_dist:
                         dist[xx][yy] = new_dist
                         heappush(pq, (new_dist, (xx, yy)))
 
-        '''
+        """
         BUG: misunderstood the condition: minimize the maxximum absolute difference
         def dijkstra_fxr():
             def eff(c0, c1):
@@ -98,7 +98,7 @@ class Solution:
 
             print(dist)
             return dist[dst]
-        '''
+        """
 
         return dijkstra_hiepit()
 
