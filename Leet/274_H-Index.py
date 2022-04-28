@@ -1,9 +1,10 @@
 """
 ✅ GOOD Sort
-tag: medium, sort
+Tag: Medium, Sort
 Lookback:
 - draw a plot to find inner property!
 - when range limit => use bucket sort (optimize via Discretization)
+- usage: #1608
 """
 
 from typing import List
