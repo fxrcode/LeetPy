@@ -3,7 +3,7 @@ Tag: Easy
 Lookback:
 - partition sum: counter-part, or segment sum pre-computed
 Similar:
-- #1423 
+- #1423
 """
 
 from typing import List
