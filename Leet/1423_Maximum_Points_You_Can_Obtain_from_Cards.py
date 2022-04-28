@@ -3,6 +3,8 @@
 tag: Medium, DP, Slide-window 
 Lookback:
 - common re-state: two sides max <=> inner min
+Similar:
+- 1013. three equal segments => sum = tot//3
 """
 
 from functools import cache
