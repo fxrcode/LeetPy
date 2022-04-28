@@ -14,18 +14,16 @@ class Solution:
     def hIndex(self, citations: List[int]) -> int:
         def os_sort():
             """
-            Runtime: 36 ms, faster than 94.71% of Python3 online submissions for H-Index.
+            Runtime: 48 ms, faster than 59.68% of Python3 online submissions for H-Index.
 
             T: O(NlogN)
             """
             citations.sort(reverse=True)
-            h = 0
-            for i, c in enumerate(citations):
-                if c > i:
-                    h += 1
-                else:
-                    break
-            return h
+            i = 0
+            while i < len(citations) and citations[i] > i:
+                i += 1
+            # now we got i paper has citations greater or equal to i.
+            return i
 
         return os_sort()
 
