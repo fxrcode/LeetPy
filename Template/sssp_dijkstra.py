@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD (augmented to find longest path)
 https://leetcode.com/discuss/interview-question/1180110/Google-Finding-Longest-Path-in-Directed-Graph-with-cycle/920711
 https://leetcode.com/discuss/interview-question/389939/Google-or-Phone-Screen-or-Longest-Path-in-DAG/351183
@@ -23,8 +23,15 @@ All fail if negative cycle!
     
 - How
 If SSSP given negative cycle, you can only use backtrack
-'''
-from heapq import heappush, heappop
+
+
+# eg
+- 778. Swim in Rising Water
+- 1631. Path With Minimum Effort
+- 1514. Path with Maximum Probability
+- 1102. Path With Maximum Minimum Value 
+"""
+from heapq import heappop, heappush
 
 
 def main():
@@ -55,12 +62,12 @@ def main():
     heappush(pq, (0, s))
 
     # sort the pairs by non-decreasing distance from s
-    while (len(pq) > 0):  # main loop
+    while len(pq) > 0:  # main loop
         d, u = heappop(pq)  # shortest unvisited u
-        if (d > dist[u]):
+        if d > dist[u]:
             continue  # a very important check
         for v, w in AL[u]:  # all edges from u
-            if (dist[u] + w >= dist[v]):
+            if dist[u] + w >= dist[v]:
                 continue  # not improving, skip
             dist[v] = dist[u] + w  # relax operation
             heappush(pq, (dist[v], v))
