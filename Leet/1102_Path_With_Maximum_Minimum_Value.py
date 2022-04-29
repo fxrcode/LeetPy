@@ -8,7 +8,9 @@ Lookback:
 - Minimax as greedy option in Dijkstra
 - 1st time seen UF usage in this way :-)
 Similar:
-- #778
+- 778. Swim in Rising Water
+- 1631. Path With Minimum Effort
+- 1514. Path with Maximum Probability
 """
 from heapq import heappop, heappush
 from typing import List
@@ -97,4 +99,9 @@ class Solution:
 
 
 sl = Solution()
-assert sl.maximumMinimumPath(grid=[[3, 4, 6, 3, 4], [0, 2, 1, 1, 7], [8, 8, 3, 2, 7], [3, 2, 4, 9, 8], [4, 1, 2, 0, 0], [4, 6, 5, 4, 3]]) == 3
+assert (
+    sl.maximumMinimumPath(
+        grid=[[3, 4, 6, 3, 4], [0, 2, 1, 1, 7], [8, 8, 3, 2, 7], [3, 2, 4, 9, 8], [4, 1, 2, 0, 0], [4, 6, 5, 4, 3]]
+    )
+    == 3
+)
