@@ -1,16 +1,18 @@
 """
 ✅ GOOD Dijkstra augment
-Tag: Medium, Graph
+Tag: Medium, Graph, Dijkstra, BFS/DFS, Bisect
 Lookback:
-
-TODO: BFS+Binary Search, Union-Find.
+- Dijkstra Variation
+- Binary search + BFS/DFS
+Similar:
+- (Coinbase) 1514. Path with Maximum Probability https://leetcode.com/problems/path-with-maximum-probability/discuss/731767/JavaPython-3-2-codes%3A-Bellman-Ford-and-Dijkstra's-algorithm-w-brief-explanation-and-analysis
+- 778. Swim in Rising Water
+- 1631. Path With Minimum Effort
+- 1514. Path with Maximum Probability
+- 1102. Path With Maximum Minimum Value 
 https://leetcode.com/explore/learn/card/graph/622/single-source-shortest-path-algorithm/3952/
 Leetcode Explore Graph: SSSP
-
 """
-
-
-from collections import defaultdict
 from heapq import heappop, heappush
 from typing import List
 
@@ -18,11 +20,40 @@ from typing import List
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         DIR = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        INF = 1e7
+        INF = 2e9
+
+        def dbabichev_bisect_dfs():
+            """
+            Runtime: 5816 ms, faster than 5.47% of Python3 online submissions for Path With Minimum Effort.
+            T: O(MNlog(max(height)))
+            """
+            m, n = len(heights), len(heights[0])
+
+            def dfs(LIMIT, i, j):
+                vis.add((i, j))
+                for dx, dy in DIR:
+                    x, y = i + dx, j + dy
+                    if 0 <= x < m and 0 <= y < n and (x, y) not in vis:
+                        if abs(heights[i][j] - heights[x][y]) <= LIMIT:
+                            dfs(LIMIT, x, y)
+
+            l, r = 0, max(max(heights, key=max))
+            while l < r:
+                mid = (l + r) // 2
+                vis = set()
+                dfs(mid, 0, 0)
+                if (m - 1, n - 1) in vis:
+                    r = mid
+                else:
+                    l = mid + 1
+            return l
+
+        return dbabichev_bisect_dfs()
 
         def dijkstra_hiepit():
             """
-            Your runtime beats 58.75 % of python3 submissions.
+            Runtime: 823 ms, faster than 83.58% of Python3 online submissions for Path With Minimum Effort.
+
             REF: https://leetcode.com/problems/path-with-minimum-effort/discuss/909017/JavaPython-Dijikstra-Binary-search-Clean-and-Concise
             https://leetcode.com/problems/path-with-minimum-effort/discuss/913076/python-Using-union-find-(Anyone-else-use-this-approach)
             https://leetcode.com/problems/path-with-minimum-effort/discuss/909002/JavaPython-3-3-codes%3A-Binary-Search-Bellman-Ford-and-Dijkstra-w-brief-explanation-and-analysis.
@@ -48,8 +79,8 @@ class Solution:
                     continue
                 if (r, c) == dst:
                     return d
-                for i in range(4):
-                    xx, yy = r + DIR[i][0], c + DIR[i][1]
+                for dx, dy in DIR:
+                    xx, yy = r + dx, c + dy
                     if not (0 <= xx < m and 0 <= yy < n):
                         continue
                     new_dist = max(d, abs(heights[xx][yy] - heights[r][c]))
@@ -57,6 +88,7 @@ class Solution:
                         dist[xx][yy] = new_dist
                         heappush(pq, (new_dist, (xx, yy)))
 
+        return dijkstra_hiepit()
         """
         BUG: misunderstood the condition: minimize the maxximum absolute difference
         def dijkstra_fxr():
@@ -100,8 +132,10 @@ class Solution:
             return dist[dst]
         """
 
-        return dijkstra_hiepit()
-
 
 sl = Solution()
 print(sl.minimumEffortPath(heights=[[1, 2, 2], [3, 8, 2], [5, 3, 5]]))
+print(sl.minimumEffortPath(heights=[[1, 2, 3], [3, 8, 4], [5, 3, 5]]))
+print(
+    sl.minimumEffortPath(heights=[[1, 2, 1, 1, 1], [1, 2, 1, 2, 1], [1, 2, 1, 2, 1], [1, 2, 1, 2, 1], [1, 1, 1, 2, 1]])
+)
