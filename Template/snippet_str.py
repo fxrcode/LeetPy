@@ -3,6 +3,7 @@ Common snippets for Str problems
 - Palindrome
 - Parentheses
 - Substr
+- Groupby
 """
 
 
@@ -48,7 +49,7 @@ def validPalindrome(s):
 
 
 def rle_groupby(s):
-    # 809, 914
+    # 809, 914, 830
     l, r = 0, 0
     res = []
     while l < len(s):
