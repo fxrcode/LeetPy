@@ -12,7 +12,7 @@ from typing import List
 
 class Solution:
     def countPairs(self, deliciousness: List[int]) -> int:
-        def ye15_onepass():
+        def ye15_1pass():
             """
             Runtime: 4326 ms, faster than 17.85% of Python3 online submissions for Count Good Meals.
             https://leetcode-cn.com/problems/count-good-meals/solution/gong-shui-san-xie-xiang-jie-san-chong-gu-nn4f/

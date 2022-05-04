@@ -1,4 +1,5 @@
 """
+✅ GOOD Hash (Counting)
 Tag: Medium, Hash, Sort
 Lookback:
 - bad in counting problems
@@ -10,6 +11,25 @@ from typing import List
 
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
+        def hiepit_1pass():
+            """
+            Runtime: 1099 ms, faster than 18.45% of Python3 online submissions for Max Number of K-Sum Pairs.
+
+            https://leetcode.com/problems/max-number-of-k-sum-pairs/discuss/1023159/C%2B%2BPython-HashMap-one-pass-Clean-and-Concise-O(N)
+            """
+            seen = Counter()
+            res = 0
+            for b in nums:
+                a = k - b
+                if seen[a] > 0:
+                    res += 1
+                    seen[a] -= 1
+                else:
+                    seen[b] += 1
+            return res
+
+        return hiepit_1pass()
+
         def os_2sum():
             """
             Runtime: 743 ms, faster than 73.22% of Python3 online submissions for Max Number of K-Sum Pairs.
@@ -30,15 +50,11 @@ class Solution:
                     l, r = l + 1, r - 1
             return res
 
-        return os_2sum()
-
         def dbabichev():
             freq, res = Counter(nums), 0
             for n in freq:
                 res += min(freq[n], freq[k - n])
             return res // 2
-
-        return dbabichev()
 
         def fxr():
             freq = Counter(nums)
