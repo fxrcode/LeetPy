@@ -4,7 +4,7 @@ tag: Easy, BST, DFS, FB
 Lookback
 - Still sucks in DFS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 - clever param pass into dfs base on left vs right
-
+- 1st time diff param for diff dfs
 [ ] REDO
 
 """
@@ -19,7 +19,7 @@ class TreeNode:
 
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        def lee215():
+        def lee215_dfs():
             """
             Runtime: 24 ms, faster than 98.44% of Python3 online submissions for Increasing Order Search Tree.
 
@@ -46,7 +46,7 @@ class Solution:
 
             return dfs(root)
 
-        return lee215()
+        return lee215_dfs()
 
         def dbabichev():
             """
