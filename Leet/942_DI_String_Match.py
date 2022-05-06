@@ -1,7 +1,10 @@
 """
-tag: easy, logic
+✅ GOOD Greedy
+Tag: Easy, 2ptr, Logic
 Lookback:
 - understand problem by walk through given eg, rather play w/ random str by yourself, cuz they might not be valid.
+Similar:
+- follow up: 484 (lexical order)
 """
 
 from typing import List
@@ -17,7 +20,7 @@ class Solution:
             n = len(s)
             lo, hi = 0, n
             res = []
-            for i, c in enumerate(s):
+            for c in s:
                 if c == "I":
                     res.append(lo)
                     lo += 1
