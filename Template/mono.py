@@ -5,14 +5,15 @@
 https://www.bilibili.com/video/BV17z4y1y7tS
 PPT: https://docs.google.com/presentation/d/1r4uWF4SkO8jQlZkqnJ57ZWP2p-T-OOZh8_jMCotYsPI/edit#slide=id.p
 
-496. Next Greater Element I
-503. Next Greater Element II
 1019. Next Greater Node In Linked List
-739. Daily Temperatures
-316. Remove Duplicate Letters
 1081. Smallest Subsequence of Distinct Characters
+316. Remove Duplicate Letters
 402. Remove K Digits
 42. Trapping Rain Water
+456. 132 Pattern
+496. Next Greater Element I
+503. Next Greater Element II
+739. Daily Temperatures
 84. Largest Rectangle in Histogram
 
 ---
