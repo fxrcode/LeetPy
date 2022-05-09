@@ -1,31 +1,24 @@
-'''
+"""
+Tag: Medium, Backtrack
+Lookback:
+Similar:
+- WC292 Q3.
 https://leetcode.com/explore/learn/card/recursion-ii/507/beyond-recursion/2905/
 Leetcode explore Recursion II: Conclusion
 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
-'''
+"""
 
 
 from typing import List
 
-MP = {
-    '2': 'abc',
-    '3': 'def',
-    '4': 'ghi',
-    '5': 'jkl',
-    '6': 'mno',
-    '7': 'pqrs',
-    '8': 'tuv',
-    '9': 'wxyz'
-}
+d = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"}
 
 
 class Solution:
-
     def letterCombinations(self, digits: str) -> List[str]:
         def bt_archit91_a(i, path, res):
             """
-            XXX: This is the right way!
-            Your runtime beats 96.76 % of python3 submissions.
+            Runtime: 33 ms, faster than 79.69% of Python3 online submissions for Letter Combinations of a Phone Number.
 
             https://leetcode.com/problems/letter-combinations-of-a-phone-number/discuss/1148252/Short-and-Easy-Solutions-or-Multiple-Approaches-Explained-or-Beats-100
             Lets consider digits = "253"
@@ -50,10 +43,17 @@ class Solution:
             4. Again, extend previous combination by taking from each previously formed combination and combining it with all the letters mapped with the digit under current iteration (3).
             """
             if i == len(digits):
-                res.append(path[:])
+                res.append("".join(path))
                 return
-            for c in MP[digits[i]]:
-                bt_archit91_a(i+1, path+c, res)
+            for c in d[digits[i]]:
+                bt_archit91_a(i + 1, path + [c], res)
+
+        res = []
+        if digits == "":
+            return res
+        # bt_fxr1(0, '', res)
+        bt_archit91_a(0, [], res)
+        return res
 
         def bt_fxr1(start_idx, path, res):
             """
@@ -75,22 +75,15 @@ class Solution:
                 #       This is not subset, since we have make choice for each digit! Therefore we can skip! So not using start_idx!
                 #       In stead, we use simple i (as pos of digits)
                 # candidates for cur i-th digit:
-                for c in MP[digits[i]]:
+                for c in d[digits[i]]:
                     # BUG: no need of visited, because each candidate will pick once only
                     # if c in visited:
                     #     continue
                     # visited.add(c)
-                    bt_fxr1(i + 1, path+c, res)
+                    bt_fxr1(i + 1, path + c, res)
                     # visited.remove(c)
-
-        res = []
-        if digits == '':
-            return res
-        # bt_fxr1(0, '', res)
-        bt_archit91_a(0, '', res)
-        return res
 
 
 # print(Solution.choices('9'))
 sl = Solution()
-print(sl.letterCombinations('23'))
+print(sl.letterCombinations("23"))
