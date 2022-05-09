@@ -3,7 +3,9 @@
 tag: Medium, Design
 Lookback:
 - Greedy vs Lazy
+- Learn generator, exception
 
+[ ] REDO
 Google, TuSimple prerequisite
 https://leetcode.com/discuss/interview-question/345744/Google-or-Onsite-or-Merge-K-Sorted-Iterators
 """
@@ -27,6 +29,45 @@ https://leetcode.com/discuss/interview-question/345744/Google-or-Onsite-or-Merge
 #         Returns the next element in the iteration.
 #         :rtype: int
 #         """
+
+
+class PeekingIterator:
+    """
+    https://leetcode.com/problems/peeking-iterator/solution/
+    """
+
+    def __init__(self, iterator):
+        """
+        Initialize your data structure here.
+        :type iterator: Iterator
+        """
+        self._nxt = iterator.next()
+        self._it = iterator
+
+    def peek(self):
+        """
+        Return the next element in the iteration without advancing the iterator.
+        :rtype: int
+        """
+        return self._nxt
+
+    def next(self):
+        """
+        :rtype: int
+        """
+        if self._nxt is None:
+            raise StopIteration()
+        to_return = self._nxt
+        self._nxt = None
+        if self._it.hasNext():
+            self._nxt = self._it.next()
+        return to_return
+
+    def hasNext(self):
+        """
+        :rtype: bool
+        """
+        return self._nxt is not None
 
 
 class PeekingIterator_Greedy:

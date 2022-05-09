@@ -1,9 +1,10 @@
 """
-❌💡 GOOD BST (Iterator)
+✅ GOOD BST (Iterator)
 Tag: Medium, BST
 Lookback:
-- harder than #173, due to hasPre
+- more difficult than #173, due to hasPre
 - needs additional var: arr & pointer
+[ ] REDO
 """
 
 from typing import Optional
