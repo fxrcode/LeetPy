@@ -1,14 +1,14 @@
 """
-tag: Medium, DFS, BFS, Heap
+Tag: Medium, DFS, DP, Heap
 Lookback:
 - SSSP: Dijkstra
-similar:
-- 1376. Longest path
+Similar:
+- 1376. Time Needed to Inform All Employees
+- 2039. The Time When the Network Becomes Idle
+- 2045. Second Minimum Time to Reach Destination
 
 https://leetcode.com/explore/learn/card/graph/622/single-source-shortest-path-algorithm/3863/
 Leetcode Explore Graph: SSSP
-
-
 """
 
 
@@ -19,41 +19,40 @@ from typing import List
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        """
-        Runtime: 440 ms, faster than 94.57% of Python3 online submissions for Network Delay Time.
+        def fxr_dijkstra():
+            """
+            Runtime: 440 ms, faster than 94.57% of Python3 online submissions for Network Delay Time.
+            AC in 1. CP4's impl of Dijkstra is clean.
+            T: O(ElogV)
+            M: O(V)
+            """
+            INF = 1e6
 
+            def dijk_dp():
+                dist = [0] + [INF] * n
+                dist[k] = 0
+                pq = [(0, k)]  # (dist,node)
 
-        AC in 1. CP4's impl of Dijkstra is clean.
-        T: O(ElogV)
-        M: O(V)
-        """
-        INF = 1e6
-
-        def dijkstra():
-            dist = [0] + [INF] * n
-            dist[k] = 0
-            pq = [(0, k)]  # (dist,node)
-
-            G = defaultdict(dict)
-            for u, v, w in times:
-                G[u][v] = w
-            while pq:
-                # greedy: get shortest unvisited vertex
-                d, u = heappop(pq)
-                # THIS IS VERY IMPORTANT
-                if d > dist[u]:
-                    continue
-                for v in G[u]:  # all outgoing edges from u
-                    if dist[u] + G[u][v] < dist[v]:
-                        dist[v] = dist[u] + G[u][v]  # relax operation
-                        heappush(pq, (dist[v], v))
-
-            for d in dist:
-                if d == INF:
+                G = defaultdict(dict)
+                for u, v, w in times:
+                    G[u][v] = w
+                while pq:
+                    # greedy: get shortest unvisited vertex
+                    d, u = heappop(pq)
+                    # THIS IS VERY IMPORTANT
+                    if d > dist[u]:
+                        continue
+                    for v in G[u]:  # all outgoing edges from u
+                        if d + G[u][v] < dist[v]:
+                            dist[v] = d + G[u][v]  # relax operation
+                            heappush(pq, (dist[v], v))
+                if max(dist) == INF:
                     return -1
-            return max(dist)
+                return max(dist)
 
-        return dijkstra()
+            return dijk_dp()
+
+        return fxr_dijkstra()
 
         """
             G = defaultdict(list)
