@@ -3,6 +3,7 @@ Daily Challenge (Nov 1)
 
 '''
 from typing import List
+
 DIR = [[0, 1], [0, -1], [1, 0], [-1, 0]]
 
 
