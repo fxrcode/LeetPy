@@ -6,6 +6,8 @@ Lookback:
 Similar:
 - [ ] I've seen one before ?!
 - 200 (DFS CC, hiepit impl)
+- 711. Number of Distinct Islands II (allows rotate/reflection)
+
 """
 
 from typing import List
@@ -32,6 +34,7 @@ class Solution:
                 dfs(i - 1, j, "U")
                 dfs(i, j + 1, "R")
                 dfs(i, j - 1, "L")
+                # 'x' means backtrack
                 path_signature.append("x")
 
             # repeatedly start DFS as long as there're islands remaining

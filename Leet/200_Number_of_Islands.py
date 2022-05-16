@@ -21,6 +21,8 @@ class Solution:
             """
             Runtime: 483 ms, faster than 30.66% of Python3 online submissions for Number of Islands.
             T/M: O(MN)
+
+            XXX: nice DFS CC w/ return 0/1
             """
             m, n = len(grid), len(grid[0])
 
