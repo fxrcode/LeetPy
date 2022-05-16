@@ -1,53 +1,52 @@
-'''
+"""
+Tag: Medium, BFS
+Lookback:
+- common trick in DFS/BFS in grid: in-place update to 1 to indicate visited, rather extra vis set.
+- given start & end, we can do bi-directional BFS to speed up.
+
 https://leetcode.com/explore/learn/card/graph/620/breadth-first-search-in-graph/3896/
 Leetcode Explore Graph: BFS
-
-Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1.
-
-The length of a clear path is the number of visited cells of this path.
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-        """
-        Your runtime beats 51.57 % of python3 submissions.
+        def fxr():
+            """
+            Runtime: 754 ms, faster than 63.45% of Python3 online submissions for Shortest Path in Binary Matrix.
 
-        T: O(N) since each node is visited once at most
-        M: O(N) for the visited set
-        AC in 1st.
-        """
-        DIR = [(-1, 0), (-1, 1), (0, 1), (1, 1),
-               (1, 0), (1, -1), (0, -1), (-1, -1)]
+            T: O(N) since each node is visited once at most
+            M: O(N) for the visited set
+            """
+            DIR = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
+            R, C = len(grid), len(grid[0])
 
-        if not grid or grid[0][0] != 0:
+            src, dst = (0, 0), (R - 1, C - 1)
+            q = deque([src])
+            if grid[0][0] == 1:
+                return -1
+            grid[0][0] = 1
+            step = 1
+            while q:
+                for _ in range(len(q)):
+                    i, j = q.popleft()
+                    # process cur
+                    if (i, j) == dst:
+                        return step
+                    for dx, dy in DIR:
+                        x, y = i + dx, j + dy
+                        if not (0 <= x < R and 0 <= y < C and grid[x][y] == 0):
+                            continue
+                        grid[x][y] = 1
+                        q.append((x, y))
+                step += 1
             return -1
 
-        R, C = len(grid), len(grid[0])
-
-        source, target = (0, 0), (R-1, C-1)
-        q = deque([source])
-        visited = set([source])
-        step = 1
-        while q:
-            qlen = len(q)
-            for _ in range(qlen):
-                x, y = q.popleft()
-                # process cur
-                if (x, y) == target:
-                    return step
-                for dx, dy in DIR:
-                    xx, yy = x+dx, y+dy
-                    if not (0 <= xx < R and 0 <= yy < C and grid[xx][yy] == 0 and (xx, yy) not in visited):
-                        continue
-                    q.append((xx, yy))
-                    visited.add((xx, yy))
-            step += 1
-        return -1
+        return fxr()
 
 
 sl = Solution()
