@@ -3,6 +3,10 @@
 Tag: Medium, DFS, Hash
 Lookback:
 - classic Grid Path Signature
+- or use normalization + hash (frozenset)
+    - this is easier to be extend to 711
+- same as 711, we don't need path arg for dfs, just init it before dfs call
+
 Similar:
 - [ ] I've seen one before ?!
 - 200 (DFS CC, hiepit impl)
@@ -15,6 +19,34 @@ from typing import List
 
 class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
+        def os_normalize():
+            """
+            A frozenset is an immutable set.
+            T: O(MN)
+            """
+            m, n = len(grid), len(grid[0])
+
+            def dfs(i, j):
+                if not (0 <= i < m and 0 <= j < n) or grid[i][j] == 0:
+                    return
+                grid[i][j] = 0
+                path.add((i - row_ori, j - col_ori))
+                for dx, dy in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                    dfs(i + dx, j + dy)
+
+            unique_islands = set()
+            for i in range(m):
+                for j in range(n):
+                    path = set()
+                    row_ori, col_ori = i, j
+                    dfs(i, j)
+                    if path:
+                        unique_islands.add(frozenset(path))
+            print(unique_islands)
+            return len(unique_islands)
+
+        return os_normalize()
+
         def os_path_signature():
             """
             Runtime: 303 ms, faster than 41.78% of Python3 online submissions for Number of Distinct Islands.
