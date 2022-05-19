@@ -34,20 +34,20 @@ class Solution:
                 dfs(i - 1, j, "U")
                 dfs(i, j + 1, "R")
                 dfs(i, j - 1, "L")
-                # 'x' means backtrack
-                path_signature.append("x")
+                # '.' means backtrack
+                path_signature.append(".")
 
             # repeatedly start DFS as long as there're islands remaining
             vis = set()
-            unique_islands = set()
+            unique_islands = {}
             for i in range(m):
                 for j in range(n):
                     path_signature = []
                     dfs(i, j, "")
                     if path_signature:
                         sig = "".join(path_signature)
-                        unique_islands.add(sig)
-            # print(unique_islands)
+                        unique_islands[sig] = None
+            print(unique_islands)
             return len(unique_islands)
 
         return os_path_signature()

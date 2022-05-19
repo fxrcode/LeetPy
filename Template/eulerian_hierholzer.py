@@ -1,7 +1,8 @@
-'''
+"""
 TODO: how does this iterative algs works
+Leetcode #332
 https://github.com/stevenhalim/cpbook-code/blob/master/ch4/hierholzer.py
-'''
+"""
 
 
 def hierholzer(s, AL, N):

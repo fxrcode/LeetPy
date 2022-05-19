@@ -7,14 +7,17 @@
     "--line-length",
     "121"
   ],
-  "python.sortImports.args": [
-    "--profile=black"
-  ],
   "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true,
-    }
+      "source.organizeImports": true
+    },
   },
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
   "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   // "python.analysis.typeCheckingMode": "basic",
@@ -24,7 +27,6 @@
   //     "--max-line-length=100"
   // ],
   // "editor.parameterHints": true,
-  "editor.formatOnSave": true,
   // "editor.hover.enabled": false,
   "vim.handleKeys": {
     "<C-c>": false,
@@ -36,9 +38,6 @@
     "<C-b>": false,
     "<C-a>": false,
   },
-  "cSpell.words": [
-    "heapify"
-  ],
   "editor.fontFamily": "Iosevka", // "Fira Code"
   "editor.fontSize": 13,
   "terminal.integrated.fontFamily": "Iosevka Term", // "MesloLGM Nerd Font"

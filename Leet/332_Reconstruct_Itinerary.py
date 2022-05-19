@@ -1,15 +1,19 @@
-'''
+"""
 ✅ GOOD Graph (Eulerian Path)
 💡insight
 
+Tag: Medium,
+Lookback:
+- graph path problem
+
 https://leetcode.com/explore/learn/card/graph/619/depth-first-search-in-graph/3901/
 Leetcode Explore Graph: DFS
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict, deque
-from heapq import heappush, heappop
+from heapq import heappop, heappush
+from typing import List
 
 
 class Solution:
@@ -21,6 +25,7 @@ class Solution:
         The OS explain is so good, give more insights into the algorithms, so I fully understand it:
         step 1: DFS from cur node, until we stuck with no unvisited (aka removed from pq)
         """
+
         def bt(G, res: deque[int], cur: str) -> None:
             # XXX: when no choice to make, regular backtrack requires this update sol step, but here we don't need
             # NOOPS
@@ -39,7 +44,7 @@ class Solution:
             heappush(G[s], e)
         res = deque()
 
-        bt(G, res, 'JFK')
+        bt(G, res, "JFK")
         return list(res)
 
     def findItinerary_bt(self, tickets: List[List[str]]) -> List[str]:
@@ -66,22 +71,22 @@ class Solution:
             visitedMap[s] = [False] * len(dests)
 
         def bt(cur, routes, res):
-            if len(routes) == len(tickets)+1:
+            if len(routes) == len(tickets) + 1:
                 res.append(routes[:])
                 return True
             for i, neig in enumerate(G[cur]):
                 if not visitedMap[cur][i]:
                     visitedMap[cur][i] = True
-                    if bt(neig, routes+[neig], res):
+                    if bt(neig, routes + [neig], res):
                         return True
                     visitedMap[cur][i] = False
             return False
 
         res = []
-        bt('JFK', ['JFK'], res)
+        bt("JFK", ["JFK"], res)
         return res[0]
 
-        '''
+        """
         BUG: flights may contains duplicate: this TSP has 2 same flights in diff time (TIA, ANU)
 
         defaultdict(int,
@@ -112,7 +117,7 @@ class Solution:
         res = []
         bt('JFK', set(), ['JFK'], res)
         return res[0]
-        '''
+        """
 
     '''
     def findItinerary_fxr_WA(self, tickets: List[List[str]]) -> List[str]:
@@ -155,8 +160,17 @@ class Solution:
 
 
 sl = Solution()
-print(sl.findItinerary_Hierholzer(tickets=[["JFK", "SFO"], ["JFK", "ATL"], [
-      "SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]))
+print(
+    sl.findItinerary_Hierholzer(
+        tickets=[
+            ["JFK", "SFO"],
+            ["JFK", "ATL"],
+            ["SFO", "ATL"],
+            ["ATL", "JFK"],
+            ["ATL", "SFO"],
+        ]
+    )
+)
 
 # print(sl.findItinerary_Hierholzer([["EZE", "AXA"], ["TIA", "ANU"], ["ANU", "JFK"], ["JFK", "ANU"], [
 #       "ANU", "EZE"], ["TIA", "ANU"], ["AXA", "TIA"], ["TIA", "JFK"], ["ANU", "TIA"], ["JFK", "TIA"]]))
