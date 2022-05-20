@@ -1,4 +1,8 @@
 """
+Tag: 
+Lookback:
+Similar
+- 322
 https://leetcode.com/explore/learn/card/queue-stack/231/practical-application-queue/1371/
 Queue & Stack - Queue and BFS
 
@@ -7,10 +11,10 @@ Given an integer n, return the least number of perfect square numbers that sum t
 A perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are not.
 """
 import math
-from typing import List
+import timeit
 from collections import deque
 from functools import cache, lru_cache
-import timeit
+from typing import List
 
 
 class Solution:
@@ -20,14 +24,14 @@ class Solution:
 
         similar to 139. Word Break
         """
-        squares = [i**2 for i in range(int(math.sqrt(n))+1)]
-        dp = [n]*(n+1)
+        squares = [i**2 for i in range(int(math.sqrt(n)) + 1)]
+        dp = [n] * (n + 1)
         dp[0] = 0
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             for sqr in squares:
                 if i < sqr:
                     break
-                dp[i] = min(dp[i], dp[i-sqr]+1)
+                dp[i] = min(dp[i], dp[i - sqr] + 1)
         return dp[n]
 
     def numSquares_bfs(self, n: int) -> int:
@@ -59,9 +63,9 @@ class Solution:
         if n <= 0:
             return 0
         f = [0] + [4] * n
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             for j in range(math.isqrt(n), 0, -1):
-                f[i] = min(f[i], f[i-j**2]+1)
+                f[i] = min(f[i], f[i - j**2] + 1)
         return f[n]
 
     @cache
@@ -77,7 +81,7 @@ class Solution:
             return 1
         res = 4
         for i in range(int(n**0.5), 0, -1):
-            res = min(res, self.numSquares_DFS_recur(n-i**2)+1)
+            res = min(res, self.numSquares_DFS_recur(n - i**2) + 1)
         return res
 
     @lru_cache(maxsize=None)
@@ -88,7 +92,7 @@ class Solution:
         """
         if n <= 0:
             return 0
-        if n ** 0.5 % 2 == 0:
+        if n**0.5 % 2 == 0:
             return 1
         minS = 4
         # BUG: for i in range(1, n), will skip for n = 1!
@@ -97,7 +101,7 @@ class Solution:
             # XXX: [Previous line repeated 494 more times]. If I recurse from small recur(n), it can't use overlap result.
             # So I should loop reversely, from small recur(n) to large.
             # for i in range(1, math.isqrt(n)+1):
-            minS = min(minS, self.numSquares_DP1(n-i**2)+1)
+            minS = min(minS, self.numSquares_DP1(n - i**2) + 1)
         return minS
 
     def numSquares_1st_BFS(self, n: int) -> int:
@@ -105,7 +109,7 @@ class Solution:
         Runtime: 5200 ms, faster than 25.11% of Python3 online submissions for Perfect Squares.
         AC in 1st try, XXX: But took long time to get code correct. Need to practice BFS more!
         """
-        '''
+        """
         def sqs(n):
             res = []
             for i in range(1, 101):
@@ -113,14 +117,14 @@ class Solution:
                     break
                 res.append(i)
             return res
-        '''
+        """
 
         def neighbors(n):
             res = []
             for i in range(1, n):
-                if i ** 2 > n:
+                if i**2 > n:
                     break
-                res.append(n-i**2)
+                res.append(n - i**2)
             return res
 
         def bfs(n):
@@ -138,18 +142,18 @@ class Solution:
                     # loop level
                     for n in neighbors(cur):
                         pred[n] = cur
-                        '''
+                        """
                         BUG: DON'T process neighbor! process cur! when pop from q!
                         if n == 0:
                             print(pred)
                             return step
-                        '''
+                        """
                         if n not in visited:
                             q.append(n)
                             visited.add(n)
                 step += 1
 
-                '''
+                """
                 BUG: 0th try, not familiar to BFS template!
                 for i in squares:
                     if i > cur:
@@ -165,7 +169,7 @@ class Solution:
                         visited.add(left)
                 # finished this level
                 step += 1
-                '''
+                """
 
             # after bfs, no left == 0, so not perfect squares
             return step
@@ -179,9 +183,24 @@ for i in [12, 13, 3, 11]:  # [12]:  #
     print("DP:", sl.numSquares_DP_recur(i))
 
 # XXX: how to use timeit: https://stackoverflow.com/questions/8727108/python-timeit-and-global-name-is-not-defined
-print(timeit.timeit(stmt='sl.numSquares(7927)',
-      setup='from __main__ import Solution; sl = Solution()', number=3))
-print(timeit.timeit(stmt='sl.numSquares_DP_recur(7927)',
-      setup='from __main__ import Solution; sl = Solution()', number=3))
-print(timeit.timeit(stmt='sl.numSquares_DP2(7927)',
-      setup='from __main__ import Solution; sl = Solution()', number=3))
+print(
+    timeit.timeit(
+        stmt="sl.numSquares(7927)",
+        setup="from __main__ import Solution; sl = Solution()",
+        number=3,
+    )
+)
+print(
+    timeit.timeit(
+        stmt="sl.numSquares_DP_recur(7927)",
+        setup="from __main__ import Solution; sl = Solution()",
+        number=3,
+    )
+)
+print(
+    timeit.timeit(
+        stmt="sl.numSquares_DP2(7927)",
+        setup="from __main__ import Solution; sl = Solution()",
+        number=3,
+    )
+)

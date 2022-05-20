@@ -1,13 +1,13 @@
 """
 ✅ GOOD Logic (Backward)
-tag: medium, logic
+Tag: Medium, logic
 Lookback:
 - Work Backwards!
-
-Similar:
-1654.
 Daily Challenge (Mar 23, 2022)
 
+Similar:
+- 1654
+- 322
 """
 
 from collections import deque

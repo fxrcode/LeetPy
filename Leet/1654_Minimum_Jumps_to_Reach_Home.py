@@ -1,15 +1,14 @@
 """
 ✅ GOOD Logic (BFS/DFS)
-Kevin
-
-tag: medium
+Tag: Medium, Math, BFS
 Lookback
 - Bezout's Identity is what I'm thinking of ![](../pics/1654-bezout.png)
 - Piecewise analysis from leetcode-cn
 - BFS/DFS visited set deep dive
 
 Similar:
-991: Broken Calculator
+- 991. Broken Calculator
+- 322. Coin Change
 """
 
 from collections import deque
@@ -79,10 +78,10 @@ class Solution:
             dfs(0, 0, False)
             return -1 if res[0] == 1e6 else res[0]
 
-        def fxr_bfs():
+        def dbabichev_bfs():
             """
             Runtime: 100 ms, faster than 85.19% of Python3 online submissions for Minimum Jumps to Reach Home.
-
+            https://leetcode.com/problems/minimum-jumps-to-reach-home/discuss/936440/JavaPython-3-BFS-clean-codes-w-brief-explanation-and-analysis.
             https://leetcode-cn.com/problems/minimum-jumps-to-reach-home/solution/python3-bfs-he-dfsjie-fa-by-captaintec/
             https://leetcode-cn.com/problems/minimum-jumps-to-reach-home/solution/dao-jia-de-zui-shao-tiao-yue-ci-shu-zui-duan-lu-zh/
 

@@ -1,5 +1,9 @@
-'''
+"""
 ✅ GOOD DP (formula design)
+Tag: Medium, DP
+Lookback:
+- [ ] REDO
+
 Daily Challenge (Jan 1)
 
 https://leetcode.com/problems/burst-balloons/discuss/970727/Python-5-lines-dp-explained
@@ -7,10 +11,10 @@ Similar:
 664 Strange Printer
 546 Remove Boxes
 1000 Minimum Cost to Merge Stones
-'''
+"""
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -28,14 +32,14 @@ class Solution:
                 if l > r:
                     return 0
                 ans = 0
-                for i in range(l, r+1):
+                for i in range(l, r + 1):
                     # i-th balloon is the last to burst!
-                    gain = A[l-1] * A[i] * A[r+1]
-                    remain = dfs(l, i-1) + dfs(i+1, r)
+                    gain = A[l - 1] * A[i] * A[r + 1]
+                    remain = dfs(l, i - 1) + dfs(i + 1, r)
                     ans = max(ans, gain + remain)
                 return ans
 
-            return dfs(1, len(A)-2)
+            return dfs(1, len(A) - 2)
 
         def fxr_bf():
             """
@@ -43,13 +47,14 @@ class Solution:
 
             T: O(N!)
             """
+
             def lr(i):
                 lv, rv = 1, 1
-                for l in range(i-1, -1, -1):
+                for l in range(i - 1, -1, -1):
                     if N[l] != -1:
                         lv = N[l]
                         break
-                for r in range(i+1, len(N)):
+                for r in range(i + 1, len(N)):
                     if N[r] != -1:
                         rv = N[r]
                         break
@@ -66,7 +71,7 @@ class Solution:
                     l, r = lr(i)
                     ori = N[i]
                     N[i] = -1
-                    bf(left-1, coins + l*ori*r, gain)
+                    bf(left - 1, coins + l * ori * r, gain)
                     N[i] = ori
 
             gain = []
