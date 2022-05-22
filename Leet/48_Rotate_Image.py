@@ -1,5 +1,5 @@
 """
-tag: medium, skills
+Tag: Medium, Skills
 Lookback
 - must be strong in basic skill
 Similar:
@@ -12,8 +12,6 @@ Top 100 Liked Questions
 
 TODO: diagonal
 """
-
-
 from typing import List
 
 
@@ -41,7 +39,12 @@ class Solution:
                 # A,B,C,D = D,A,B,C
                 # RHS evaluated first, then assign to LHS
                 # Swapping Values WithoutUsing a Temporary Variable
-                M[i][j], M[j][n - i - 1], M[n - i - 1][n - j - 1], M[n - j - 1][i] = M[n - j - 1][i], M[i][j], M[j][n - i - 1], M[n - i - 1][n - j - 1]
+                M[i][j], M[j][n - i - 1], M[n - i - 1][n - j - 1], M[n - j - 1][i] = (
+                    M[n - j - 1][i],
+                    M[i][j],
+                    M[j][n - i - 1],
+                    M[n - i - 1][n - j - 1],
+                )
 
 
 """
@@ -54,9 +57,6 @@ def left_up_quarter(n):
 
 sl = Solution()
 # matrix = [[1, 2], [3, 4]]
-# sl.rotate(matrix)
-# print(matrix)
-
 matrix = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
 sl.rotate(matrix)
 print(matrix)

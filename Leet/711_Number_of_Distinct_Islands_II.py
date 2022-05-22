@@ -23,7 +23,7 @@ class Solution:
             T: O(MN)
             https://leetcode.com/problems/number-of-distinct-islands-ii/discuss/1515867/Python3-O(mn)-Well-Explained%3A-DFS-%2B-Hash-Set-of-Relative-Transformed-Coordinates
             4 for rotate: rotate_0 = [+r, +c]; rotate_90 = [-c, +r]; rotate_180 = [-r, -c]; rotate_270 = [+c, -r]
-            4 for reflect: reflecte_r = [-r, +c]; reflect_c = [+r, -c]; reflect_rc = [+c, +r]; reflect_minus_rc = [-c, -r]
+            4 for reflect: reflect_r = [-r, +c]; reflect_c = [+r, -c]; reflect_rc = [+c, +r]; reflect_minus_rc = [-c, -r]
                                    |     * (-2, 1) of 90 deg
              (-1, -2) of 180 deg   |
                         *          |

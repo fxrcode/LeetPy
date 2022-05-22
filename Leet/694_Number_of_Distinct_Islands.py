@@ -11,7 +11,6 @@ Similar:
 - [ ] I've seen one before ?!
 - 200 (DFS CC, hiepit impl)
 - 711. Number of Distinct Islands II (allows rotate/reflection)
-
 """
 
 from typing import List
@@ -44,8 +43,6 @@ class Solution:
                         unique_islands.add(frozenset(path))
             print(unique_islands)
             return len(unique_islands)
-
-        return os_normalize()
 
         def os_path_signature():
             """
@@ -83,6 +80,7 @@ class Solution:
             return len(unique_islands)
 
         return os_path_signature()
+        # return os_normalize()
 
 
 sl = Solution()
@@ -92,5 +90,6 @@ grid = [
     [0, 1, 0, 0, 1, 1, 0, 1, 0],
     [0, 1, 1, 0, 1, 0, 0, 1, 0],
 ]
+# grid = [[1, 1, 0, 0, 0], [1, 1, 0, 0, 0], [0, 0, 0, 1, 1], [0, 0, 0, 1, 1]]
 # grid=[[1, 1, 0, 1, 1], [1, 0, 0, 0, 0], [0, 0, 0, 0, 1], [1, 1, 0, 1, 1]]
 print(sl.numDistinctIslands(grid))

@@ -1,5 +1,5 @@
 """
-tag: easy, linked-list
+Tag: Easy, linked-list
 Lookback:
 - iter vs recur (backward thinking)
 
@@ -8,8 +8,6 @@ Recursion I
 https://leetcode.com/explore/featured/card/recursion-i/251/scenario-i-recurrence-relation/2378/
 """
 # Definition for singly-linked list.
-
-
 from typing import Optional
 
 
