@@ -3,34 +3,31 @@
 tag: Medium, Logic
 Lookback:
 - insight: every knows can reduce one person from candidate, so O(N-1) to remove N-1 candidates
-- similar logic to #169. Boyce-Moore Algorithms
+- similar logic to #169. Boyce-Moore Majority Algorithms
 """
-
-# The knows API is already defined for you.
-# return a bool, whether a knows b
-# def knows(a: int, b: int) -> bool:
-
-from secrets import choice
 
 
 class Solution:
     def findCelebrity(self, n: int) -> int:
         def knows(a, b) -> bool:
+            # The knows API is already defined for you.
+            # return a bool, whether a knows b
+            # def knows(a: int, b: int) -> bool:
             # GIVEN API
-            return choice([True, False])
+            return True
 
         def os_logic():
             """
-            Runtime: 1895 ms, faster than 56.44% of Python3 online submissions for Find the Celebrity.
+            Runtime: 1890 ms, faster than 50.85% of Python3 online submissions for Find the Celebrity.
 
             T: O(N) = step1: O(N-1) + step2: O(N)
             """
 
-            def is_celebrity(i):
-                for j in range(n):
-                    if i == j:
+            def is_celebrity(cand):
+                for o in range(n):
+                    if cand == o:
                         continue
-                    if knows(i, j) or not knows(j, i):
+                    if knows(cand, o) or not knows(o, cand):
                         return False
                 return True
 
