@@ -1,20 +1,17 @@
 """
-Tag: 
+GOOD DP
+Tag: Medium, DP, BFS
 Lookback:
 Similar
 - 322
 https://leetcode.com/explore/learn/card/queue-stack/231/practical-application-queue/1371/
 Queue & Stack - Queue and BFS
 
-Given an integer n, return the least number of perfect square numbers that sum to n.
-
-A perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself. For example, 1, 4, 9, and 16 are perfect squares while 3 and 11 are not.
 """
 import math
 import timeit
 from collections import deque
-from functools import cache, lru_cache
-from typing import List
+from functools import cache
 
 
 class Solution:
