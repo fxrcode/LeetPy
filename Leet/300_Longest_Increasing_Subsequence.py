@@ -1,7 +1,5 @@
-'''
-classic
-✅ GOOD Bisect
-✅ GOOD DP
+"""
+✅ GOOD DP (LIS)
 
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
@@ -9,11 +7,13 @@ Day 8: DP on String
 
 similar:
 - LIS in Disguise: 2111. Minimum Operations to Make the Array K-Increasing
+- 673
+- 354 (2D LIS)
 
-'''
+"""
+from bisect import bisect_left
 from collections import defaultdict
 from typing import List
-from bisect import bisect_left
 
 
 class Solution:
@@ -26,7 +26,6 @@ class Solution:
 
             [ ] REDO. Must be familiar with classic DP! LCS/LIS/EditDist/Tiling/SSSP/Coin/SubsetSum
             O: T(n^2)
-
             """
             # T, m = defaultdict(lambda: 1), len(nums)
             m = len(nums)

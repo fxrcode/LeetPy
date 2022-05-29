@@ -1,15 +1,15 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 9: DP on String
 
 [ ] REDO: simplify logic/code
-'''
+"""
 from collections import defaultdict
+from heapq import heappop, heappush
 from typing import List
-from heapq import heappush, heappop
 
-
+"""
 class Mxheap:
     def __init__(self) -> None:
         self.heap = []
@@ -29,10 +29,17 @@ class Mxheap:
 
     def empty(self):
         return len(self.heap) == 0
+"""
 
 
 class Solution:
     def findNumberOfLIS(self, nums: List[int]) -> int:
+        def os_dp():
+            """
+            based upon #300 (LIS)
+            T: O(N^2)
+            """
+
         def fxr():
             """
             Runtime: 1400 ms, faster than 50.41% of Python3 online submissions for Number of Longest Increasing Subsequence.
@@ -66,7 +73,7 @@ class Solution:
                         cnt += tu[1]
                     else:
                         break
-                T[i] = [mxlen+1, cnt]
+                T[i] = [mxlen + 1, cnt]
 
             mxlis = max([T[i] for i in range(m)], key=lambda tu: (tu[0]))
             # print(T)

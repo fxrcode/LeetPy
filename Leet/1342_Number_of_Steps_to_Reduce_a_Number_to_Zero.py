@@ -1,8 +1,10 @@
-'''
+"""
+Tag: Easy, Math
+Lookback:
 Teaching Kids & Wife Programming (Day 385)
-similar: Weekly contest 376 (Q2)
-'''
-from math import log2
+Similar
+- Weekly contest 376 (Q2)
+"""
 
 
 class Solution:
@@ -16,7 +18,7 @@ class Solution:
             steps = 0
             binary = bin(num)[2:]
             for bit in binary:
-                if bit == '1':
+                if bit == "1":
                     steps += 2
                 else:
                     steps += 1
