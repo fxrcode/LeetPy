@@ -41,5 +41,9 @@
   "editor.fontFamily": "Iosevka", // "Fira Code"
   "editor.fontSize": 13,
   "terminal.integrated.fontFamily": "Iosevka Term", // "MesloLGM Nerd Font"
-  "terminal.integrated.fontSize": 12, // "MesloLGM Nerd Font"
+  "terminal.integrated.fontSize": 12,
+  "cSpell.words": [
+    "Lookback",
+    "popleft"
+  ], // "MesloLGM Nerd Font"
 }

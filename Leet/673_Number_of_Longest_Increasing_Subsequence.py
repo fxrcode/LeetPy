@@ -1,44 +1,48 @@
 """
+✅ GOOD DP (LIS)
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 9: DP on String
-
-[ ] REDO: simplify logic/code
 """
 from collections import defaultdict
+from functools import cache
 from heapq import heappop, heappush
 from typing import List
-
-"""
-class Mxheap:
-    def __init__(self) -> None:
-        self.heap = []
-
-    def push(self, tu):
-        mxlen, cnt = tu
-        neg_tu = [-mxlen, cnt]
-        heappush(self.heap, neg_tu)
-
-    def pop(self):
-        neg_maxlen, cnt = heappop(self.heap)
-        return [-neg_maxlen, cnt]
-
-    def top(self):
-        neg_maxlen, cnt = self.heap[0]
-        return -neg_maxlen
-
-    def empty(self):
-        return len(self.heap) == 0
-"""
 
 
 class Solution:
     def findNumberOfLIS(self, nums: List[int]) -> int:
-        def os_dp():
+        def neetcode_dp():
             """
-            based upon #300 (LIS)
+            https://www.youtube.com/watch?v=Tuc-rjJbsXU
+            Runtime: 1726 ms, faster than 45.76% of Python3 online submissions for Number of Longest Increasing Subsequence.
+
             T: O(N^2)
             """
+            lenLIS, res = 0, 0
+
+            @cache
+            def dfs(i):
+                mxlen, mxcnt = 1, 1
+                for j in range(i + 1, len(nums)):
+                    if nums[j] > nums[i]:
+                        length, count = dfs(j)
+                        if length + 1 > mxlen:
+                            mxlen, mxcnt = length + 1, count
+                        elif length + 1 == mxlen:
+                            mxcnt += count
+                nonlocal lenLIS, res
+                if mxlen > lenLIS:
+                    lenLIS, res = mxlen, mxcnt
+                elif mxlen == lenLIS:
+                    res += mxcnt
+                return (mxlen, mxcnt)
+
+            for i in range(len(nums)):
+                dfs(i)
+            return res
+
+        return neetcode_dp()
 
         def fxr():
             """
@@ -86,5 +90,5 @@ class Solution:
 
 
 sl = Solution()
-sl.findNumberOfLIS(nums=[1, 3, 5, 4, 7])
-sl.findNumberOfLIS(nums=[2, 2, 2, 2, 2])
+print(sl.findNumberOfLIS(nums=[1, 3, 5, 4, 7]))
+print(sl.findNumberOfLIS(nums=[2, 2, 2, 2, 2]))
