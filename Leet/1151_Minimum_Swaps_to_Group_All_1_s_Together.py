@@ -1,6 +1,9 @@
-'''
-https://leetcode.libaoj.in/minimum-swaps-to-group-all-1s-together.html
-Given a binary array data, return the minimum number of swaps required to group all 1’s present in the array together in any place in the array.
+"""
+✅ GOOD 2ptr (slide-window)
+Tag: Medium, 2ptr
+Lookback:
+- 3rd time facing this very problem, still not able to link it to slide-window!!!
+
 
 Example 1:
 Input: data = [1,0,1,0,1]
@@ -22,59 +25,60 @@ Hints:
 
 TODO: Followup: Minimum swaps required to bring all elements less than or equal to k together
 https://www.geeksforgeeks.org/minimum-swaps-required-bring-elements-less-equal-k-together/
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
-    def minSwaps_2ptr(self, data: List[int]) -> int:
-        """
-        Runtime: 1336 ms, faster than 5.06% of Python3 online submissions for Minimum Swaps to Group All 1's Together.
-        T: O(n)
-        XXX: the window of 1's is fixed. Just need to slide the window to find the window with max 1's
-        Approach 1: Sliding window using 2 pointers
-        and daleitai (staging) to update global max_ones with all window's cnt_one
-        """
-        ones = data.count(1)
-        n = len(data)
-        l, r = 0, 0
-        cnt_one, max_one = 0, 0
-        while r < n:
-            c = data[r]
-            r += 1
-            cnt_one += c
-            print(l, r, cnt_one, max_one)
-            while r-l > ones:
-                d = data[l]
-                l += 1
-                cnt_one -= d
-            # now r-l = ones
-            max_one = max(max_one, cnt_one)
-        return ones - max_one
+    def minSwaps(self, data: List[int]) -> int:
+        def os_slidewin():
+            """
+            Runtime: 1336 ms, faster than 5.06% of Python3 online submissions for Minimum Swaps to Group All 1's Together.
+            T: O(n)
+            XXX: the window of 1's is fixed. Just need to slide the window to find the window with max 1's
+            Approach 1: Sliding window using 2 pointers
+            and daleitai (staging) to update global max_ones with all window's cnt_one
+            """
+            ones = sum(data)
+            n = len(data)
+            l, r = 0, 0
+            cnt_one, max_one = 0, 0
+            while r < n:
+                c = data[r]
+                r += 1
+                cnt_one += c
+                # print(l, r, cnt_one, max_one)
+                while r - l > ones:
+                    d = data[l]
+                    l += 1
+                    cnt_one -= d
+                # now r-l = ones
+                max_one = max(max_one, cnt_one)
+            return ones - max_one
 
-    def minSwaps_deque(self, data: List[int]) -> int:
-        """
-        Approach 2: Sliding window with Deque
-        T: O(n). M: O(n) for the deque
-        """
-        ones = sum(data)
-        cnt_one = max_one = 0
-        q = deque()
-        for i in range(len(data)):
-            c = data[i]
-            q.append(c)
-            cnt_one += c
-            while len(q) > ones:
-                d = q.popleft()
-                cnt_one -= d
-            max_one = max(max_one, cnt_one)
-        return ones - max_one
+        def os_deque():
+            """
+            Approach 2: Sliding window with Deque
+            T: O(n). M: O(n) for the deque
+            """
+            ones = sum(data)
+            cnt_one = max_one = 0
+            q = deque()
+            for i in range(len(data)):
+                c = data[i]
+                q.append(c)
+                cnt_one += c
+                while len(q) > ones:
+                    d = q.popleft()
+                    cnt_one -= d
+                max_one = max(max_one, cnt_one)
+            return ones - max_one
+
+        return os_slidewin()
 
 
 sl = Solution()
-
-data = [1, 0, 1, 0, 1]
-print(sl.minSwaps(data))
+print(sl.minSwaps(data=[1, 0, 1, 0, 1]))
