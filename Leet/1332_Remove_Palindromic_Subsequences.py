@@ -1,5 +1,5 @@
 """
-tag: easy, logic
+Tag: easy, logic
 Lookback:
 - AC in  1
 """
