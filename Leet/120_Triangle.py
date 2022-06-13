@@ -10,6 +10,7 @@ Lookback:
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 """
+from functools import cache
 from typing import List
 
 
@@ -30,6 +31,16 @@ class Solution:
                 below_row = cur_row
             return below_row[0]
 
+        def os_memo():
+            @cache
+            def min_path(r, c):
+                path = triangle[r][c]
+                if r < len(triangle) - 1:
+                    path += min(min_path(r + 1, c), min_path(r + 1, c + 1))
+                return path
+
+            return min_path(0, 0)
+
         def fxr():
             """
             Runtime: 80 ms, faster than 36.28% of Python3 online submissions for Triangle.
@@ -48,7 +59,8 @@ class Solution:
             return min(triangle[-1])
 
         # return fxr()
-        return os_reverse_triangle()
+        return os_memo()
+        # return os_reverse_triangle()
 
 
 sl = Solution()
