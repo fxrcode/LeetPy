@@ -21,14 +21,14 @@ class Solution:
         if not nums:
             return -1
 
-        start, end = 0, len(nums)-1
+        start, end = 0, len(nums) - 1
 
         # must be start+1 < end!
         while start + 1 < end:
             # The result of division is always a float
             # mid = (start+end)/2
 
-            mid = (start+end) // 2
+            mid = (start + end) // 2
 
             # do <, =, > case first, then we can check if = can be merge into other case
             if nums[mid] < target:
@@ -49,7 +49,7 @@ class Solution:
         return -1
 
     def binary_search(array) -> int:
-        '''
+        """
         XXX: Most Generalized Binary Search: Minimize k, s.t. condition(k) is True
 
         [Python] Powerful Ultimate Binary Search Template. Solved many problems
@@ -60,22 +60,24 @@ class Solution:
         2) Decide return value. Is it return left or return left - 1?
             !Remember this: after exiting the while loop, left is the minimal k​ satisfying the condition function;
         3) Design the condition function. This is the most difficult and most beautiful part. Needs lots of practice.
-        '''
-        # i.e.
+
+        For the interval notation, Professor E.W. Dijkstra favors left closed right open interval notation and explained why we benefit from this notation in his post which was published in 1982.
+        https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+        """
         search_space = range(100)
 
-        def condition(value) -> bool:
+        def feasible(value) -> bool:
             pass
 
         # could be [0, n], [1, n] etc. Depends on problem
-        left, right = min(search_space), max(search_space)
-        while left < right:
-            mid = (left + right) // 2
-            if condition(mid):
-                right = mid
+        l, r = min(search_space), max(search_space)
+        while l < r:
+            mid = (l + r) // 2
+            if feasible(mid):
+                r = mid
             else:
-                left = mid + 1
-        return left
+                l = mid + 1
+        return l
 
     """
     XXX: Common snippet (bisect)
@@ -86,9 +88,10 @@ class Solution:
      or AWKWARD to use for common searching tasks. The following five functions
      show how to transform them into the standard lookups for sorted lists:
     """
+
     @staticmethod
     def index(a, x):
-        'Locate the leftmost value exactly equal to x'
+        "Locate the leftmost value exactly equal to x"
         i = bisect_left(a, x)
         if i != len(a) and a[i] == x:
             return i
@@ -96,23 +99,23 @@ class Solution:
 
     @staticmethod
     def find_lt(a, x):
-        'Find rightmost value less than x'
+        "Find rightmost value less than x"
         i = bisect_left(a, x)
         if i:
-            return a[i-1]
+            return a[i - 1]
         raise ValueError
 
     @staticmethod
     def find_le(a, x):
-        'Find rightmost value less than or equal to x'
+        "Find rightmost value less than or equal to x"
         i = bisect_right(a, x)
         if i:
-            return a[i-1]
+            return a[i - 1]
         raise ValueError
 
     @staticmethod
     def find_gt(a, x):
-        'Find leftmost value greater than x'
+        "Find leftmost value greater than x"
         i = bisect_right(a, x)
         if i != len(a):
             return a[i]
@@ -120,7 +123,7 @@ class Solution:
 
     @staticmethod
     def find_ge(a, x):
-        'Find leftmost item greater than or equal to x'
+        "Find leftmost item greater than or equal to x"
         i = bisect_left(a, x)
         if i != len(a):
             return a[i]
