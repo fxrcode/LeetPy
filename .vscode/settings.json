@@ -1,12 +1,8 @@
 {
-  // "python.formatting.provider": "yapf",
-  // "python.formatting.yapfArgs": [
-  //   "--style={based_on_style: google, column_limit: 200}"
+  // "python.formatting.blackArgs": [
+  //   "--line-length",
+  //   "121"
   // ],
-  "python.formatting.blackArgs": [
-    "--line-length",
-    "121"
-  ],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
