@@ -39,8 +39,6 @@ class Solution:
             Runtime: 1336 ms, faster than 5.06% of Python3 online submissions for Minimum Swaps to Group All 1's Together.
             T: O(n)
             XXX: the window of 1's is fixed. Just need to slide the window to find the window with max 1's
-            Approach 1: Sliding window using 2 pointers
-            and daleitai (staging) to update global max_ones with all window's cnt_one
             """
             ones = sum(data)
             n = len(data)
