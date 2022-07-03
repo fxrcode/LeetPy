@@ -3,9 +3,10 @@
 Tag: Medium, DP
 Lookback:
 - Study Plan: Dynamic Programming
-- 1st. notice the different of DP table definition compare to regular 1D DP (in common 1D DP, T[i] must ends with nums[i])
-        max up wiggle (end of up) using first i-elements, end at a certain position (no neccesory nums[i])!!!
-- 2nd. when you can't extend the length, you inherit from up[i-1]
+    - 1st. notice the different of DP table definition compare to regular 1D DP (in common 1D DP, T[i] must ends with nums[i])
+            max up wiggle (end of up) using first i-elements, end at a certain position (no neccesory nums[i])!!!
+    - 2nd. when you can't extend the length, you inherit from up[i-1]
+- Greedy: simply count all changes of direction (all peaks and valleys) and return that count +1
 """
 
 
