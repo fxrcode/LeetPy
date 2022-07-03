@@ -1,7 +1,9 @@
-'''
-Amazon Top50
+"""
 Tag: easy
-'''
+Lookback:
+- Amazon Top50
+
+"""
 
 from typing import List
 
