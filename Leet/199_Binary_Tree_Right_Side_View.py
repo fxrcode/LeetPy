@@ -1,13 +1,14 @@
 """
-https://leetcode.com/problem-list/79h8rn6/
-Top 100 Liked Questions
-
+Tag: Medium, DFS, BFS
+Lookback:
+- Top 100 Liked Questions
+- 1/3 of 545: Boundary of Binary Tree
 """
 # Definition for a binary tree node.
 
 
-from typing import List, Optional
 from collections import deque
+from typing import List, Optional
 
 
 class TreeNode:
@@ -19,6 +20,24 @@ class TreeNode:
 
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
+        def dfs_545():
+            res = []
+            if not root:
+                return res
+
+            def dfs(T: TreeNode):
+                if not T:
+                    return
+                if T.right:
+                    dfs(T.right)
+                else:
+                    dfs(T.left)
+                res.append(T.val)
+
+            dfs(root)
+
+            return res[::-1]
+
         def fxr():
             """
             Runtime: 24 ms, faster than 98.16% of Python3 online submissions for Binary Tree Right Side View.
@@ -37,7 +56,7 @@ class Solution:
                 for i in range(qlen):
                     cur = q.popleft()
                     # handle result
-                    if i == qlen-1:
+                    if i == qlen - 1:
                         res.append(cur.val)
                     if cur.left:
                         q.append(cur.left)
@@ -45,4 +64,5 @@ class Solution:
                         q.append(cur.right)
 
             return res
+
         return fxr()

@@ -1,8 +1,12 @@
 """
-每日一题打卡群 (12/8/2021)
+✅ GOOD DFS (Tree)
+Tag: Medium, DFS
+Lookback:
+- 每日一题打卡群 (12/8/2021)
+- use pre/in/post order DFS in 1 problem!
 """
-from typing import List, Optional
 from collections import defaultdict
+from typing import List, Optional
 
 
 class TreeNode:
@@ -17,37 +21,37 @@ class Solution:
         def clean_dfs():
             """
             show case pre/in/post order traversal in 1 problem~
-            Runtime: 36 ms, faster than 96.96% of Python3 online submissions for Boundary of Binary Tree.
+            Runtime: 48 ms, faster than 89.80% of Python3 online submissions for Boundary of Binary Tree.
 
             https://leetcode.com/problems/boundary-of-binary-tree/discuss/101308/python-dfs-solution
             """
 
-            def dfs_l(node):
-                if not node or not node.left and not node.right:
+            def dfs_l(T: TreeNode):
+                if not T or not T.left and not T.right:
                     return
-                boundary.append(node.val)
-                if node.left:
-                    dfs_l(node.left)
+                boundary.append(T.val)
+                if T.left:
+                    dfs_l(T.left)
                 else:
-                    dfs_l(node.right)
+                    dfs_l(T.right)
 
-            def leaves(node):
+            def leaves(T: TreeNode):
                 # why
-                if not node:
+                if not T:
                     return
-                leaves(node.left)
-                if node != root and not node.left and not node.right:
-                    boundary.append(node.val)
-                leaves(node.right)
+                leaves(T.left)
+                if T != root and not T.left and not T.right:
+                    boundary.append(T.val)
+                leaves(T.right)
 
-            def dfs_r(node):
-                if not node or not node.left and not node.right:
+            def dfs_r(T: TreeNode):
+                if not T or not T.left and not T.right:
                     return
-                if node.right:
-                    dfs_r(node.right)
+                if T.right:
+                    dfs_r(T.right)
                 else:
-                    dfs_r(node.left)
-                boundary.append(node.val)
+                    dfs_r(T.left)
+                boundary.append(T.val)
 
             if not root:
                 return []
