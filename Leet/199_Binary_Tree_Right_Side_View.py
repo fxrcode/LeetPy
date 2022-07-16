@@ -3,10 +3,8 @@ Tag: Medium, DFS, BFS
 Lookback:
 - Top 100 Liked Questions
 - 1/3 of 545: Boundary of Binary Tree
+[ ] REDO
 """
-# Definition for a binary tree node.
-
-
 from collections import deque
 from typing import List, Optional
 
@@ -20,7 +18,10 @@ class TreeNode:
 
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs_545():
+        def dfs_545_WA():
+            """
+            WA for [1,2,3,4]
+            """
             res = []
             if not root:
                 return res
@@ -40,9 +41,7 @@ class Solution:
 
         def fxr():
             """
-            Runtime: 24 ms, faster than 98.16% of Python3 online submissions for Binary Tree Right Side View.
-
-            AC in 1.
+            Runtime: 67 ms, faster than 13.37% of Python3 online submissions for Binary Tree Right Side View.
 
             """
             # bfs, add last in q to result

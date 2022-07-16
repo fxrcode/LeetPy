@@ -4,6 +4,8 @@ Tag: Medium, DFS
 Lookback:
 - 每日一题打卡群 (12/8/2021)
 - use pre/in/post order DFS in 1 problem!
+[ ] REDO
+
 """
 from collections import defaultdict
 from typing import List, Optional
@@ -85,13 +87,13 @@ class Solution:
 
             leaves = []
 
-            def dfs(node, ret):
-                if not node:
+            def dfs(T: TreeNode, res):
+                if not T:
                     return
-                if not node.left and not node.right:
-                    ret.append(node.val)
-                dfs(node.left, ret)
-                dfs(node.right, ret)
+                if not T.left and not T.right:
+                    res.append(T.val)
+                dfs(T.left, res)
+                dfs(T.right, res)
 
             if root.left or root.right:
                 # say: Tree: [1], so no leaves!
