@@ -1,12 +1,9 @@
 """
 ✅ GOOD String (Parentheses)
-FB tag (High Freq)
-tag: medium, stack, greedy
-
-Lookback
+Tag: Medium, stack, Greedy, FB
+Lookback:
 - Huifeng's greedy analysis is GREAT
-
-Similar
+Similar:
 - 301
 - 1963
 """
@@ -37,7 +34,7 @@ class Solution:
 
             https://www.youtube.com/watch?v=Sv5Xb-kfDok
             Q: How did Huifeng Guan analyze the Greedy correctness?
-            A: Use concrete example: s = (()))((
+            A: Use concrete example: s = '(()))(('
 
             Stack: (**)
             Greedy:  count-> # un-matched left '('
@@ -61,3 +58,9 @@ class Solution:
                     count = 0
             ret += count
             return ret
+
+        return huifeng_guan_greedy()
+
+
+sl = Solution()
+print(sl.minAddToMakeValid(s="(()))(("))
