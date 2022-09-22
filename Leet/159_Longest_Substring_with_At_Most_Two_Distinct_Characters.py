@@ -1,5 +1,5 @@
 """
-tag: Medium, slide-window
+Tag: Medium, slide-window
 Lookback:
 - classic slide-window, but what template should I use? (careful on indexing)
 """
