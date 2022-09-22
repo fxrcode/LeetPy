@@ -39,6 +39,7 @@
   "terminal.integrated.fontFamily": "Iosevka Term", // "MesloLGM Nerd Font"
   "terminal.integrated.fontSize": 12,
   "cSpell.words": [
+    "Leetcode",
     "Lookback",
     "popleft"
   ], // "MesloLGM Nerd Font"
