@@ -1,10 +1,11 @@
-'''
+"""
+✅ classic UF!
+Lookback:
 https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3911/
 Leetcode Explore Graph: Disjoint Set Union (DSU)
 You have a graph of n nodes. You are given an integer n and an array edges where edges[i] = [ai, bi] indicates that there is an edge between ai and bi in the graph.
-
 Return the number of connected components in the graph.
-'''
+"""
 
 
 from typing import List
@@ -12,6 +13,28 @@ from typing import List
 
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        def chrisZhang_dfs():
+            def dfs(n, g, visited):
+                if visited[n]:
+                    return
+                visited[n] = 1
+                for x in g[n]:
+                    dfs(x, g, visited)
+
+            visited = [0] * n
+            g = {x: set() for x in range(n)}
+            for x, y in edges:
+                g[x].add(y)
+                g[y].add(x)
+
+            ret = 0
+            for i in range(n):
+                if not visited[i]:
+                    dfs(i, g, visited)
+                    ret += 1
+
+            return ret
+
         def fxr_dsu():
             """
             BUG: T: O(E+VlogV), M: O(V)
@@ -20,20 +43,20 @@ class Solution:
 
             AC in 1. Because it's same as 547. Number of Provinces
             """
-            father = {i: i for i in range(n)}
+            uf = {i: i for i in range(n)}
 
             def find(x):
-                if x != father[x]:
-                    father[x] = find(father[x])
-                return father[x]
+                if x != uf[x]:
+                    uf[x] = find(uf[x])
+                return uf[x]
 
             for x, y in edges:
                 fx, fy = find(x), find(y)
                 if fx == fy:
                     continue
-                father[fy] = fx
+                uf[fy] = fx
 
-            return sum(i == f for i, f in father.items())
+            return sum(i == f for i, f in uf.items())
 
         def chrisZhang12240():
             """
@@ -44,7 +67,7 @@ class Solution:
             XXX: Nice solution. One remark is that this Union-Find algorithm uses Union by rank, otherwise the time complexity is O(log(N)) for each merge.
             Only with both Union by rank and path compression, we have ~O(1) time for each union/find operation, so it gives O(V + E) time in total.
             """
-            father, rank = {i: i for i in range(n)}, [0]*n
+            father, rank = {i: i for i in range(n)}, [0] * n
 
             def find(x):
                 if father[x] != x:
