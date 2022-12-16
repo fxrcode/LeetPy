@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
-'''
+"""
 from typing import List
 
 INF = 1e6
@@ -21,8 +21,9 @@ class Solution:
             m, n = len(mat), len(mat[0])
             for i in range(1, m):
                 for j in range(n):
-                    mat[i][j] += min(mat[i-1][k]
-                                     for k in (j-1, j, j+1) if 0 <= k < n)
+                    mat[i][j] += min(
+                        mat[i - 1][k] for k in (j - 1, j, j + 1) if 0 <= k < n
+                    )
             return min(mat[-1])
 
         def fxr_dp():
@@ -38,13 +39,14 @@ class Solution:
                 F[0][c] = mat[0][c]
             for r in range(1, m):
                 for c in range(n):
-                    prev = [F[(r-1) % 2][c]]
-                    if c-1 >= 0:
-                        prev.append(F[(r-1) % 2][c-1])
-                    if c+1 < n:
-                        prev.append(F[(r-1) % 2][c+1])
+                    prev = [F[(r - 1) % 2][c]]
+                    if c - 1 >= 0:
+                        prev.append(F[(r - 1) % 2][c - 1])
+                    if c + 1 < n:
+                        prev.append(F[(r - 1) % 2][c + 1])
                     F[r % 2][c] = mat[r][c] + min(prev)
-            return min(F[(m-1) % 2])
+            return min(F[(m - 1) % 2])
+
         # return fxr_dp()
         return clean_dibdidib()
 
