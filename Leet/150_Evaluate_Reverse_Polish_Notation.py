@@ -10,34 +10,52 @@ Leetcode Explore-Queue-Stack: Stack
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
 """
 
+import operator
 from typing import List
 
 
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
+        def rec_YogurtIvan():
+            operations_map = {
+                "+": operator.add,
+                "-": operator.sub,
+                "*": operator.mul,
+                "/": operator.truediv,
+            }
+
+            def rec(tokens: List[str]) -> int:
+                val = tokens.pop()
+                if val not in operations_map:
+                    return int(val)
+                right = rec(tokens)
+                left = rec(tokens)
+                return int(operations_map[val](left, right))
+
+            return rec(tokens)
+
+        return rec_YogurtIvan()
+
         def os_stk():
             """
-            Runtime: 108 ms, faster than 39.11% of Python3 online submissions for Evaluate Reverse Polish Notation.
+            Runtime: 66 ms, faster than 96.07% of Python3 online submissions for Evaluate Reverse Polish Notation.
 
+            O(N)TS
             """
-            ops = {
-                "+": lambda a, b: a + b,
-                "-": lambda a, b: a - b,
-                "*": lambda a, b: a * b,
-                "/": lambda a, b: int(a / b),
+            stack, ops = [], {
+                "+": operator.add,
+                "-": operator.sub,
+                "*": operator.mul,
+                "/": operator.truediv,
             }
-            stk = []
-            for tok in tokens:
-                if tok in ops:
-                    sec = stk.pop()
-                    fir = stk.pop()
-                    op = ops[tok]
-                    stk.append(op(fir, sec))
+            for t in tokens:
+                if str.isnumeric(t) or (len(t) > 1 and t[0] == "-"):
+                    stack += (int(t),)
                 else:
-                    stk.append(int(tok))
-            return stk[-1]
+                    fn, y, x = ops[t], stack.pop(), stack.pop()
+                    stack += (int(fn(x, y)),)
 
-        return os_stk()
+            return stack.pop()
 
         def fxr():
             """

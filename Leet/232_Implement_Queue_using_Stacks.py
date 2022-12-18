@@ -8,6 +8,11 @@ Follow-up: Can you implement the queue such that each operation is amortized O(1
 
 
 class MyQueue:
+    """
+    Runtime: 30 ms, faster than 94.00% of Python3 online submissions for Implement Queue using Stacks.
+
+    """
+
     def __init__(self):
         self.in_stk = []
         self.out_stk = []
