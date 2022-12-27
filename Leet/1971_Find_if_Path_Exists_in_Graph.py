@@ -1,4 +1,5 @@
 """
+tag: UF
 ✅ GOOD Graph DFS
 
 https://leetcode.com/explore/learn/card/graph/619/depth-first-search-in-graph/3893/
@@ -16,7 +17,38 @@ from collections import defaultdict, deque
 from typing import List
 
 
+class UnionFind:
+    def __init__(self, n):
+        self.root = list(range(n))
+        self.rank = [1] * n
+
+    def find(self, x):
+        if self.root[x] != x:
+            self.root[x] = self.find(self.root[x])
+        return self.root[x]
+
+    def union(self, x, y):
+        root_x, root_y = self.find(x), self.find(y)
+        if root_x != root_y:
+            if self.rank[root_x] > self.rank[root_y]:
+                root_x, root_y = root_y, root_x
+            # Modify the root of the smaller group as the root of the
+            # larger group, also increment the size of the larger group.
+            self.rank[root_y] += self.rank[root_x]
+            self.root[root_x] = root_y
+
+
 class Solution:
+    def validPath_UF(
+        self, n: int, edges: List[List[int]], source: int, destination: int
+    ) -> bool:
+        uf = UnionFind(n)
+
+        for a, b in edges:
+            uf.union(a, b)
+
+        return uf.find(source) == uf.find(destination)
+
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
         """
         Your runtime beats 73.72 % of python3 submissions.
@@ -422,4 +454,22 @@ print(
         53,
     )
 )
-print(sl.validPath(10, [[0, 7], [0, 8], [6, 1], [2, 0], [0, 4], [5, 8], [4, 7], [1, 3], [3, 5], [6, 5]], 7, 5))
+print(
+    sl.validPath_UF(
+        10,
+        [
+            [0, 7],
+            [0, 8],
+            [6, 1],
+            [2, 0],
+            [0, 4],
+            [5, 8],
+            [4, 7],
+            [1, 3],
+            [3, 5],
+            [6, 5],
+        ],
+        7,
+        5,
+    )
+)
