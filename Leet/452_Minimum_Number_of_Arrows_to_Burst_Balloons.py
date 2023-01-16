@@ -1,6 +1,6 @@
 """
 ✅ GOOD Greedy
-Daily Challenge (Jan 13)
+Daily Challenge (01/13/2022:01/04/2023)
 Labuladong P381: Greedy (Interval Scheduling)
 tag: medium, Greedy
 """
@@ -12,17 +12,21 @@ class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
         def intervalSchedule():
             """ "
+            https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/discuss/887690/Python-O(n-log-n)-solution-explained
             Runtime: 1236 ms, faster than 93.30% of Python3 online submissions for Minimum Number of Arrows to Burst Balloons.
 
             T: O(N)
             """
-            itvs = sorted(points, key=lambda li: li[1])
-            x_end = itvs[0][1]
-            count = 1
-            for start, end in itvs:
-                if start > x_end:
+            points.sort(key = lambda x: x[1])
+            n, count = len(points), 1
+            if n == 0: return 0
+            curr = points[0]
+
+            for i in range(n):
+                if curr[1] < points[i][0]:
                     count += 1
-                    x_end = end
+                    curr = points[i]
+
             return count
 
         return intervalSchedule()

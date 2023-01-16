@@ -1,6 +1,6 @@
 '''
 ✅ GOOD Logic
-Daily Challenge (Jan 21)
+Daily Challenge (01212022, 01072023)
 [ ] REDO
 '''
 
@@ -17,10 +17,8 @@ class Solution:
 
             T:O(N)
             """
-            N = len(gas)
-            total_tank, cur_tank = 0, 0
-            start = 0
-            for i in range(N):
+            start, total_tank, cur_tank = 0, 0, 0
+            for i in range(len(gas)):
                 total_tank += gas[i] - cost[i]
                 cur_tank += gas[i] - cost[i]
                 if cur_tank < 0:
