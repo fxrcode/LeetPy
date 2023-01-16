@@ -1,5 +1,6 @@
 """
 tag: medium, bisect
+date: 01162023
 Lookback:
 - how to break half (even vs odd). If odd, simply overlap w/ middle, rather break into left, middle, right. So we have unified logic
 """
@@ -32,8 +33,9 @@ class Solution:
             """
             n = reader.length()
             lo, hi = 0, n - 1
+
             while lo < hi:
-                mid = lo + (hi - lo) // 2
+                mid = (lo + hi) // 2
                 if (hi - lo + 1) % 2 == 0:
                     cmp = reader.compareSub(lo, mid, mid + 1, hi)
                 else:
