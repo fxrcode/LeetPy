@@ -1,8 +1,10 @@
-'''
+"""
+Date: 01172023
+Tag: Medium, DP, mono-queue, D&C
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 
-'''
+"""
 
 
 from typing import List
@@ -10,7 +12,36 @@ from typing import List
 
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
-        def maxSubarraySum(A: List[int]) -> int:
+        def hiepit_lee215():
+            def maximumSubArray(nums):
+                ans = nums[0]
+                sumSoFar = 0
+                for num in nums:
+                    sumSoFar += num
+                    ans = max(ans, sumSoFar)
+                    if sumSoFar < 0:
+                        sumSoFar = 0
+                return ans
+
+            def minimumSubArray(
+                nums,
+            ):  # the first element and the last element are exclusive!
+                if len(nums) <= 2:
+                    return 0
+                ans = nums[1]
+                sumSoFar = 0
+                for i in range(1, len(nums) - 1):
+                    sumSoFar += nums[i]
+                    ans = min(ans, sumSoFar)
+                    if sumSoFar > 0:
+                        sumSoFar = 0
+                return ans
+
+            return max(maximumSubArray(nums), sum(nums) - minimumSubArray(nums))
+
+        return hiepit_lee215()
+
+        def lee215():
             """
             Runtime: 552 ms, faster than 60.31% of Python3 online submissions for Maximum Sum Circular Subarray.
 
@@ -19,27 +50,15 @@ class Solution:
 
             REF: https://leetcode.com/problems/maximum-sum-circular-subarray/discuss/178422/One-Pass
             """
-            n = len(A)
-            F = [0] * n
-            F[0] = A[0]
-            ans = F[0]
-            for i in range(1, n):
-                F[i] = (F[i-1] if F[i-1] > 0 else 0) + A[i]
-                ans = max(ans, F[i])
-            return ans
-
-        maxSum = maxSubarraySum(nums)
-
-        negNums = [-1*v for v in nums]
-        maxNegSum = maxSubarraySum(negNums)
-        minSum = -maxNegSum
-
-        circMax = sum(nums) - minSum
-        print(maxSum, circMax)
-
-        if circMax == 0 and all([v <= 0 for v in nums]):
-            return maxSum
-        return max(maxSum, circMax)
+            A = nums
+            total, maxSum, curMax, minSum, curMin = 0, A[0], 0, A[0], 0
+            for a in A:
+                curMax = max(curMax + a, a)
+                maxSum = max(maxSum, curMax)
+                curMin = min(curMin + a, a)
+                minSum = min(minSum, curMin)
+                total += a
+            return max(maxSum, total - minSum) if maxSum > 0 else maxSum
 
 
 sl = Solution()
