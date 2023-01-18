@@ -32,21 +32,21 @@ class Solution:
             bisect find 1st pos st. compare >= 0: hi = mid (This is important, ow, WA in [1,2,1,1,1,1,1,1,1])
             """
             n = reader.length()
-            lo, hi = 0, n - 1
+            l, r = 0, n - 1
 
-            while lo < hi:
-                mid = (lo + hi) // 2
-                if (hi - lo + 1) % 2 == 0:
-                    cmp = reader.compareSub(lo, mid, mid + 1, hi)
+            while l < r:
+                mid = (l + r) // 2
+                if (r - l + 1) % 2 == 0:
+                    cmp = reader.compareSub(l, mid, mid + 1, r)
                 else:
-                    cmp = reader.compareSub(lo, mid, mid, hi)
+                    cmp = reader.compareSub(l, mid, mid, r)
 
                 if cmp >= 0:
-                    hi = mid
+                    r = mid
                 else:
-                    lo = mid + 1
+                    l = mid + 1
 
-            return lo
+            return l
 
         def fxr_TLE():
             lo, hi = 0, reader.length() - 1
