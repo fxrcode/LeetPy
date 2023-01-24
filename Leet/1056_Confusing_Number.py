@@ -1,9 +1,9 @@
-'''
+"""
 tag: Easy
+date:
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
-'''
-
+"""
 
 
 class Solution:
@@ -17,7 +17,8 @@ class Solution:
             x, y, cmap = N, 0, {0: 0, 1: 1, 6: 9, 8: 8, 9: 6}
             while N:
                 n, m = divmod(N, 10)
-                if m not in cmap: return False
+                if m not in cmap:
+                    return False
                 N, y = n, y * 10 + cmap[m]
             return x != y
 
@@ -32,7 +33,7 @@ class Solution:
             mp = {0: 0, 1: 1, 6: 9, 8: 8, 9: 6}
             # ns = ''
             ns = str(N)
-            ns_to_rev = ''
+            ns_to_rev = ""
             while N:
                 d = N % 10
                 if d not in [0, 1, 6, 8, 9]:
