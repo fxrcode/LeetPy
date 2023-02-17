@@ -1,5 +1,6 @@
 """
 ✅ String (Logic)
+date: 01312023
 Tag: Easy, Logic, str
 Lookback:
 - 1st time GCD of str
@@ -35,5 +36,9 @@ class Solution:
 sl = Solution()
 print(sl.gcdOfStrings(str1="ABCABC", str2="ABC"))
 print(sl.gcdOfStrings(str1="ABABAB", str2="ABAB"))
-print(sl.gcdOfStrings("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"))
+print(
+    sl.gcdOfStrings(
+        "TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"
+    )
+)
 print(sl.gcdOfStrings("AAAAAAAAA", "AAACCC"))

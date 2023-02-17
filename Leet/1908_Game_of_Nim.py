@@ -1,13 +1,13 @@
-'''
+"""
+
 ✅ GOOD Game DFS
 tag: Medium, Brainteaser, DFS, Game
-
 Lookback:
 + game theory DFS (decision tree), me must win === any(other loss)
-'''
+"""
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -25,6 +25,7 @@ class Solution:
             https://leetcode.com/problems/game-of-nim/discuss/1318191/Python-3%3A-memoization-with-sorted-tuple
             https://leetcode.com/problems/game-of-nim/discuss/1310391/Python3-memoization-short-code-with-comment(encode-to-string)
             """
+
             @cache
             def dfs(piles):
                 # state has no relation to order: [1,2,3]  = [2, 3,1] = ...

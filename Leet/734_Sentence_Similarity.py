@@ -1,15 +1,19 @@
-'''
+"""
+date: 01312023
+tag: easy, hash
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
 
 
 class Solution:
-    def areSentencesSimilar(self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]) -> bool:
+    def areSentencesSimilar(
+        self, sentence1: List[str], sentence2: List[str], similarPairs: List[List[str]]
+    ) -> bool:
         def fxr():
             """
             Runtime: 48 ms, faster than 64.79% of Python3 online submissions for Sentence Similarity.

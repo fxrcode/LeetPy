@@ -1,5 +1,6 @@
 """
-Tag: Easy, BST
+date: 02162023
+Tag: Easy, BST, DFS
 Lookback:
 - This question is the same as 530: https://leetcode.com/problems/minimum-absolute-difference-in-bst/
 - AC in 5min
@@ -23,16 +24,17 @@ class Solution:
 
             """
             mn = float("inf")
-            prev = None
+            prev: Optional[TreeNode] = None
 
             def ino(T: TreeNode):
-                if T:
-                    ino(T.left)
-                    nonlocal prev, mn
-                    if prev:
-                        mn = min(mn, T.val - prev.val)
-                    prev = T
-                    ino(T.right)
+                if not T:
+                    return
+                ino(T.left)
+                nonlocal prev, mn
+                if prev:
+                    mn = min(mn, T.val - prev.val)
+                prev = T
+                ino(T.right)
 
             ino(root)
             return mn

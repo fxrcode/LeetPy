@@ -1,7 +1,12 @@
 """
+tag: Easy, DP,
+takeaway:
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 """
+
+
+from functools import cache
 
 
 class Solution:
@@ -10,17 +15,14 @@ class Solution:
         Runtime: 32 ms, faster than 57.59% of Python3 online submissions for N-th Tribonacci Number.
 
         """
-        F = {}
 
+        @cache
         def rec(i):
-            if i in F:
-                return F[i]
             if i < 3:
-                # XXX: clean code fomr OS
                 return 1 if i else 0
-            ans = rec(i-1)+rec(i-2)+rec(i-3)
-            F[i] = ans
+            ans = rec(i - 1) + rec(i - 2) + rec(i - 3)
             return ans
+
         return rec(n)
 
 
