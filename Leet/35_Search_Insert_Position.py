@@ -1,6 +1,7 @@
-'''
+"""
+date: 02192023
 tag: Easy, Bisect
-'''
+"""
 
 from typing import List
 

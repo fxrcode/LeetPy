@@ -1,10 +1,12 @@
-'''
+"""
 ✅ GOOD Design
 HARDER than LRU
 
+date: 02162023
+tag: Hard
 https://stackoverflow.com/questions/34305003/difference-between-dictionary-and-ordereddict
 From 3.8+, orderedDict is no need any more! Dict = OrderedDict!
-'''
+"""
 
 from collections import defaultdict
 
@@ -16,7 +18,7 @@ class Node:
         self.f = frq
 
     def __repr__(self) -> str:
-        return ','.join([str(self.k), str(self.v), str(self.f)])
+        return ",".join([str(self.k), str(self.v), str(self.f)])
 
 
 class LFUCache:
@@ -27,6 +29,7 @@ class LFUCache:
     ["LFUCache","put","get"]
     [[0],[0,0],[0]]
     """
+
     def __init__(self, capacity: int):
         self.cap = capacity
         self.k2n = dict()
@@ -74,7 +77,7 @@ class LFUCache:
         self.mnf = 1
         return
 
-    ''' BUGGGGY
+    """ BUGGGGY
     def get(self, key: int) -> int:
         if key not in self.k2n:
             return -1
@@ -100,4 +103,4 @@ class LFUCache:
         self.k2n[key] = node
         self.f2n[1][key] = node
         self.mnf = 1
-    '''
+    """
