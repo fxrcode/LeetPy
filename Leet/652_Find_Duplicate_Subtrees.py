@@ -1,4 +1,5 @@
-'''
+"""
+date: 02282023
 ✅ GOOD Tree DFS + Encoding
 
 https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1127/
@@ -10,16 +11,14 @@ Two trees are duplicate if they have the same structure with the same node value
 
 XXX: kevinko1788's preorder recursion with global data vs basic calculator-like deque solution on 297. serialize and deserialize binary tree.
 https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/396124/Python-very-easy-to-understand-recursive-preorder-with-comments
-
-'''
+"""
 # Definition for a binary tree node.
 
-from collections import deque, defaultdict
+from collections import defaultdict, deque
 from typing import List, Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -30,8 +29,9 @@ class TreeNode:
 
 
 class Solution:
-
-    def findDuplicateSubtrees_global_name_numbering(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+    def findDuplicateSubtrees_global_name_numbering(
+        self, root: Optional[TreeNode]
+    ) -> List[Optional[TreeNode]]:
         """
         Runtime: 60 ms, faster than 83.35% of Python3 online submissions for Find Duplicate Subtrees.
 
@@ -42,10 +42,10 @@ class Solution:
         """
         self.ans = []
 
-        def numbering(r: TreeNode, exp2num: dict, exp2freq: dict, globalnum: List[int]) -> int:
-            """
-
-            """
+        def numbering(
+            r: TreeNode, exp2num: dict, exp2freq: dict, globalnum: List[int]
+        ) -> int:
+            """ """
             if not r:
                 return 0
             num_l = numbering(r.left, exp2num, exp2freq, globalnum)
@@ -68,7 +68,9 @@ class Solution:
         numbering(root, e2n, exp2freq, globalnum)
         return self.ans
 
-    def findDuplicateSubtrees_postorder_serial(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+    def findDuplicateSubtrees_postorder_serial(
+        self, root: Optional[TreeNode]
+    ) -> List[Optional[TreeNode]]:
         """
         Your runtime beats 36.57 % of python3 submissions.
         XXX: The above time complexity is O(n^2). We can improve this to O(n) by replacing full serializations with serial ids instead.
@@ -86,11 +88,11 @@ class Solution:
             The way to construct serial is preorder.
             """
             if not root:
-                return 'x'
+                return "x"
             pre_l = postorder(root.left, d)
             pre_r = postorder(root.right, d)
             # XXX: string concat's T is O(len)
-            serial = ','.join([str(root.val), pre_l, pre_r])
+            serial = ",".join([str(root.val), pre_l, pre_r])
             d[serial].append(root)
             # XXX: if len(d[pre]) > 1: # if I do this, I need to save root into set(), then convert to list as final ans!
             if len(d[serial]) == 2:
@@ -100,7 +102,9 @@ class Solution:
         postorder(root, d)
         return list(ans)
 
-    def findDuplicateSubtrees_fxr(self, root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
+    def findDuplicateSubtrees_fxr(
+        self, root: Optional[TreeNode]
+    ) -> List[Optional[TreeNode]]:
         """
         Runtime: 2174 ms, faster than 5.01% of Python3 online submissions for Find Duplicate Subtrees.
 
@@ -116,7 +120,7 @@ class Solution:
                     cur = q.popleft()
                     # handle cur
                     if not cur:
-                        ser.append('#')
+                        ser.append("#")
                     else:
                         ser.append(str(cur.val))
                         q.append(cur.left)
@@ -129,7 +133,7 @@ class Solution:
             if not root:
                 return
             b = bfs(root)
-            bs = ','.join(b)
+            bs = ",".join(b)
             treed[bs].append(root)
 
             # left/right sub recur
@@ -149,7 +153,9 @@ class Solution:
 #                 right=TreeNode(3, left=TreeNode(2, left=TreeNode(4)),
 #                                right=TreeNode(4)))
 # root = TreeNode(2, left=TreeNode(1), right=TreeNode(1))
-root = TreeNode(2, left=TreeNode(20, left=TreeNode(3)), right=TreeNode(20, left=TreeNode(3)))
+root = TreeNode(
+    2, left=TreeNode(20, left=TreeNode(3)), right=TreeNode(20, left=TreeNode(3))
+)
 
 sl = Solution()
 print(sl.findDuplicateSubtrees_global_name_numbering(root))

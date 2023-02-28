@@ -1,7 +1,8 @@
-'''
+"""
+date: 02252023
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming II
-'''
+"""
 
 
 from typing import List
@@ -19,9 +20,10 @@ class Solution:
             buy = prices[0]
             ans = 0
             for i in range(1, len(prices)):
-                ans = max(ans, prices[i]-buy)
+                ans = max(ans, prices[i] - buy)
                 buy = min(buy, prices[i])
             return ans
+
         return fxr()
 
 
