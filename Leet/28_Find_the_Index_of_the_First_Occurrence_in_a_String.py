@@ -1,6 +1,7 @@
 """
+date: 03032023
 ✅ GOOD Roll-Hash
-tag: easy, roll-hash
+tag: Medium, KMP, roll-hash
 Lookback:
 - 1st time use good roll-hash template, use sys.maxsize for MOD.
     * will get WA for long needle if MOD not big enought (2e9 got WA)
@@ -15,6 +16,34 @@ import sys
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
+        def kmp_baby_groot():
+            """
+            https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/discuss/12814/My-answer-by-Python/144649
+            """
+
+            def kmp(s: str):
+                b, prefix = 0, [0]
+                for i in range(1, len(s)):
+                    while b > 0 and s[i] != s[b]:
+                        b = prefix[b - 1]
+                    if s[b] == s[i]:
+                        b += 1
+                    else:
+                        b = 0
+                    prefix.append(b)
+                return prefix
+
+            str_ = kmp(needle + "#" + haystack)
+            n = len(needle)
+            if n == 0:
+                return n
+            for i in range(n + 1, len(str_)):
+                if str_[i] == n:
+                    return i - 2 * n
+            return -1
+
+        return kmp_baby_groot()
+
         def lccn345():
             """
             Runtime: 68 ms, faster than 57.49% of Python3 online submissions for Implement strStr().
@@ -26,7 +55,12 @@ class Solution:
                 return ord(c) - ord("a")
 
             # ! careful on d,m, original ord(z)-ord(A), 2e9 cuz -1! and super slow!
-            N, H, D, MOD = len(needle), len(haystack), ord("z") - ord("a") + 1, sys.maxsize
+            N, H, D, MOD = (
+                len(needle),
+                len(haystack),
+                ord("z") - ord("a") + 1,
+                sys.maxsize,
+            )
             if N > H:
                 return -1
             DN, hash_n, hash_h = D ** (N - 1), 0, 0
@@ -36,12 +70,12 @@ class Solution:
             if hash_n == hash_h:
                 return 0
             for i in range(1, H - N + 1):
-                hash_h = (D * (hash_h - f(haystack[i - 1]) * DN) + f(haystack[i + N - 1])) % MOD  # e.g. 10*(1234-1*10**3)+5=2345
+                hash_h = (
+                    D * (hash_h - f(haystack[i - 1]) * DN) + f(haystack[i + N - 1])
+                ) % MOD  # e.g. 10*(1234-1*10**3)+5=2345
                 if hash_n == hash_h:
                     return i
             return -1
-
-        return lccn345()
 
         def fxr_brute():
             """
@@ -107,4 +141,9 @@ sl = Solution()
 print(sl.strStr(haystack="hello", needle="ll"))
 print(sl.strStr(haystack="aaaaa", needle="bba"))
 print(sl.strStr("ababcaababcaabc", "ababcaabc"))
-print(sl.strStr("baabbaaaaaaabbaaaaabbabbababaabbabbbbbabbabbbbbbabababaabbbbbaaabbbbabaababababbbaabbbbaaabbaababbbaabaabbabbaaaabababaaabbabbababbabbaaabbbbabbbbabbabbaabbbaa", "bbaaaababa"))
+print(
+    sl.strStr(
+        "baabbaaaaaaabbaaaaabbabbababaabbabbbbbabbabbbbbbabababaabbbbbaaabbbbabaababababbbaabbbbaaabbaababbbaabaabbabbaaaabababaaabbabbababbabbaaabbbbabbbbabbabbaabbbaa",
+        "bbaaaababa",
+    )
+)

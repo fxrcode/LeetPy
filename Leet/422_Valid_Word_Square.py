@@ -1,8 +1,10 @@
-'''
+"""
+date: 03022023
+tag:
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
@@ -49,8 +51,8 @@ class Solution:
             """
             for i, word in enumerate(words):
                 row = word
-                col = ''
-                for w in words[:len(word)]:
+                col = ""
+                for w in words[: len(word)]:
                     if i >= len(w):
                         return False
                     print(i, w)
