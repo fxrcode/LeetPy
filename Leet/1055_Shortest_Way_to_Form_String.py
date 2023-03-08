@@ -1,4 +1,5 @@
-'''
+"""
+date: 03082023
 ✅ GOOD DP (Subsequence)
 ✅ GOOD Logic
 [ ] REDO: copied ans to finish Study Plan on last day (Dec 1)
@@ -12,9 +13,9 @@ Day 12: DP on String
 
 Metacognition:
 * totally no clue!!!
-'''
+"""
+from bisect import bisect_right
 from collections import defaultdict
-from bisect import bisect_left, bisect_right
 
 
 class Solution:

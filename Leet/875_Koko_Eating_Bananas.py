@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Binary Search  济公学院 Example I.
 https://leetcode.com/discuss/interview-question/354854/Facebook-or-Phone-Screen-or-Cut-Wood
 
@@ -18,10 +18,10 @@ similar:
 - 1231 [Divide Chocolate](https://leetcode.com/problems/divide-chocolate/discuss/408503/Python-Binary-Search)
 - 1011 [Capacity To Ship Packages In N Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/discuss/256729/javacpython-binary-search/351188?page=3)
 - 410 [Split Array Largest Sum](https://leetcode.com/problems/split-array-largest-sum/)
-'''
+"""
 
-from typing import List
 from math import ceil
+from typing import List
 
 
 class Solution:
@@ -33,7 +33,19 @@ class Solution:
             or say: f(x) maps x to FFTT!
         eg. 138. Wood Cut's largest segment.
         """
+
         def bin_search():
+            def f(x: int) -> bool:
+                """
+                math.ceil is quite handy!
+                if p < x, then p/x < 1, so ceil => 1
+                if p >= x, say p/x = 2.5, then ceil => 3
+                """
+                hr = 0
+                for p in piles:
+                    hr += ceil(p / x)
+                return hr <= h
+
             l, r = 1, max(piles)
             while l < r:
                 x = (l + r) // 2
@@ -44,17 +56,6 @@ class Solution:
                 else:
                     l = x + 1
             return l
-
-        def f(x: int) -> bool:
-            """
-            math.ceil is quite handy!
-            if p < x, then p/x < 1, so ceil => 1
-            if p >= x, say p/x = 2.5, then ceil => 3
-            """
-            hr = 0
-            for p in piles:
-                hr += ceil(p / x)
-            return hr <= h
 
         return bin_search()
 
