@@ -1,15 +1,16 @@
 """
+date: 03092023
+tag: Medium, Reservoir-sampling
 ✅ GOOD Reservoir Sampling
 Daily Challenge (Jan 7)
 """
 
 # Definition for singly-linked list.
-from typing import Optional
 from random import random
+from typing import Optional
 
 
 class ListNode:
-
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
@@ -36,20 +37,20 @@ class Solution:
 
     """
 
-    def __init__(self, head: ListNode) -> None:
-        self.h = head
+    def __init__(self, head: ListNode):
+        self.head = head
 
-    def getRandom(self) -> int:
-        cur = self.h
-        scope = 0
-        x = -1
+    def getRandom(self):
+        n, k = 1, 1
+        head, ans = self.head, self.head
+        while head.next:
+            n += 1
+            head = head.next
+            if random.random() < k / n:
+                ans = ans.next
+                k += 1
 
-        while cur:
-            scope += 1
-            if random.random() < 1 / scope:
-                x = cur.val
-            cur = cur.next
-        return x
+        return ans.val
 
 
 class Solution_fxr:
