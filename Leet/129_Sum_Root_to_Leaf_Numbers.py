@@ -1,14 +1,14 @@
-'''
+"""
+date: 03132023
 Tag: Medium, DFS
 Lookback: need more practice on DFS 230+ problems
 [ ] TODO: iterative impl
-'''
+"""
 
 from typing import Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -16,14 +16,12 @@ class TreeNode:
 
 
 class Solution:
-
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-
         def fxr_predfs():
             """
             Runtime: 52 ms, faster than 28.65% of Python3 online submissions for Sum Root to Leaf Numbers.
 
-            XXX: 
+            XXX:
             """
 
             def dfs(r: TreeNode, presum: int) -> int:
