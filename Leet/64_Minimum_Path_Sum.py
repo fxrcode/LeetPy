@@ -23,7 +23,7 @@ class Solution:
             AC in 1.
             """
             m, n = len(grid), len(grid[0])
-            F = [[0]*n for _ in range(m)]
+            F = [[0] * n for _ in range(m)]
             F[0][0] = grid[0][0]
             # for c in range(1, n):
             #     F[0][c] = F[0][c-1]+grid[0][c]
@@ -35,13 +35,13 @@ class Solution:
                     if i + j == 0:
                         continue
                     elif i == 0:
-                        F[i][j] = F[i][j-1] + grid[i][j]
+                        F[i][j] = F[i][j - 1] + grid[i][j]
                     elif j == 0:
-                        F[i][j] = F[i-1][j] + grid[i][j]
+                        F[i][j] = F[i - 1][j] + grid[i][j]
                     else:
-                        F[i][j] = min(F[i-1][j], F[i][j-1]) + grid[i][j]
+                        F[i][j] = min(F[i - 1][j], F[i][j - 1]) + grid[i][j]
 
-            return F[m-1][n-1]
+            return F[m - 1][n - 1]
 
         return fxr()
 
