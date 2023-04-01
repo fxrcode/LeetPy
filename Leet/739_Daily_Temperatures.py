@@ -1,4 +1,5 @@
 """
+date: 03312023
 tag: Medium, Mono-Stack
 Lookback:
 - OS: Monotonic stacks are a good option when a problem involves comparing the size of numeric elements, with their order being relevant.

@@ -1,5 +1,6 @@
 """
 Daily Challenge (Mar 26, 2022)
+date: 03312023
 tag: easy, bisect
 Lookback:
 - how to implement bisect_left, bisect_right
