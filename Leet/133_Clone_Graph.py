@@ -5,11 +5,12 @@ Leetcode Explore Queue & Stack: DFS
 https://leetcode.com/explore/learn/card/graph/619/depth-first-search-in-graph/3900/
 Leetcode Explore Graph: DFS
 
+date: 04082023
 tag: medium, DFS
 Lookback
 - clear mindset rather memoize, do problem as NEW challenge everytime!
 """
-from typing import List, Optional, Set
+from typing import List, Optional
 
 
 class Node:

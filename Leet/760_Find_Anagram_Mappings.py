@@ -1,8 +1,10 @@
-'''
+"""
+date: 04082023
+tag: Easy, Hashmap
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
@@ -30,7 +32,6 @@ class Solution:
 
 
 sl = Solution()
-print(sl.anagramMappings(
-    nums1=[12, 28, 46, 32, 50], nums2=[50, 12, 32, 46, 28]))
+print(sl.anagramMappings(nums1=[12, 28, 46, 32, 50], nums2=[50, 12, 32, 46, 28]))
 print(sl.anagramMappings(nums1=[84, 46], nums2=[84, 46]))
 print(sl.anagramMappings(nums1=[84, 46, 46], nums2=[46, 84, 46]))
