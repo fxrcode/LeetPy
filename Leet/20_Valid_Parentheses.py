@@ -1,13 +1,8 @@
 """
+date: 04102023
+tag: Easy, Stack
 https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1361/
 Explore-queue-stack: Stack LIFO
-Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-
-An input string is valid if:
-
-Open brackets must be closed by the same type of brackets.
-Open brackets must be closed in the correct order.
-
 """
 
 
