@@ -1,22 +1,53 @@
-'''
+"""
 ✅ GOOD Trie
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
+date: 05012023
+tag: Easy, String, Trie
 Lookback
 * DON'T Explicit implement Trie!
 * val = dict.setdefault(key, default)  # returns value or default!
+- Pythonic
 
 Similar:
 616. Add Bold Tag in String
-'''
+"""
 
+from functools import reduce
 from typing import List
 from collections import defaultdict
 
 
 class Solution:
     def indexPairs(self, text: str, words: List[str]) -> List[List[int]]:
+        def jummyEgg_pythonic():
+            """
+            https://leetcode.com/problems/index-pairs-of-a-string/discuss/367736/Clean-Python-Trie-Solution/467438
+            """
+
+            def Trie():
+                return defaultdict(Trie)
+
+            trie = Trie()
+            for word in words:
+                reduce(dict.__getitem__, word, trie)["END"] = word
+
+            ans = []
+
+            def dfs(text, T, start, end):
+                if "END" in T:
+                    ans.append([start, end - 1])
+                if text and text[0] in T:
+                    dfs(text[1:], T[text[0]], start, end + 1)
+
+            for i in range(len(text)):
+                dfs(text[i:], trie, i, i)
+
+            return ans
+
+        return jummyEgg_pythonic()
+
         def neat_trie():
             """
             Runtime: 40 ms, faster than 69.33% of Python3 online submissions for Index Pairs of a String.
@@ -32,7 +63,7 @@ class Solution:
                 p = root
                 for c in s:
                     p = p.setdefault(c, {})
-                p['#'] = s
+                p["#"] = s
 
             for w in words:
                 insert(w)
@@ -43,7 +74,7 @@ class Solution:
                     p = p.get(text[j])
                     if not p:
                         break
-                    if '#' in p:
+                    if "#" in p:
                         ans.append([i, j])
             return ans
 
@@ -55,8 +86,6 @@ class Solution:
                     res.append([i, i + len(w) - 1])
                     i = text.find(w, i + 1)
             return sorted(res)
-
-        return pythonic()
 
         def fxr_force():
             """
@@ -73,7 +102,7 @@ class Solution:
             ans = []
             for l in sorted(lend.keys()):
                 for i in range(len(text) - l + 1):
-                    if text[i:i + l] in lend[l]:
+                    if text[i : i + l] in lend[l]:
                         ans.append([i, i + l - 1])
             ans.sort(key=lambda tu: (tu[0], tu[1]))
             return ans
@@ -84,6 +113,7 @@ class Solution:
 
             T:O(n*n)
             """
+
             class Node:
                 def __init__(self) -> None:
                     self.children = {}
@@ -111,7 +141,7 @@ class Solution:
             ans = []
             for l in range(len(text)):
                 for r in range(l, len(text)):
-                    if search(text[l:r + 1]):
+                    if search(text[l : r + 1]):
                         ans.append([l, r])
                     # BUG: Can't early terminate in this case! Not the same as top-vote!
                     # else:
@@ -121,7 +151,12 @@ class Solution:
 
 sl = Solution()
 print(
-    sl.indexPairs(text="thestoryofleetcodeandme",
-                  words=["story", "fleet", "leetcode"]))
+    sl.indexPairs(text="thestoryofleetcodeandme", words=["story", "fleet", "leetcode"])
+)
 
-print(sl.indexPairs(text="ababa", words=["aba", "ab"]))
+assert sl.indexPairs(text="ababa", words=["aba", "ab"]) == [
+    [0, 1],
+    [0, 2],
+    [2, 3],
+    [2, 4],
+]

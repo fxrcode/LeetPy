@@ -1,7 +1,7 @@
-'''
-
+"""
+date: 04272023
 Tag: Math, Easy
-'''
+"""
 from math import isqrt
 
 

@@ -1,4 +1,5 @@
 """
+date: 0424023
 tag: Easy, Heapq
 Lookback:
 [ ] TODO: counting sort
@@ -10,6 +11,13 @@ from typing import List
 
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
+        def lee215_heapq():
+            h = [-x for x in stones]
+            heapify(h)
+            while len(h) > 1 and h[0] != 0:
+                heappush(h, heappop(h) - heappop(h))
+            return -h[0]
+
         def fxr():
             """
             Runtime: 52 ms, faster than 32.10% of Python3 online submissions for Last Stone Weight.
