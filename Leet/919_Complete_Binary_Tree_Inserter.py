@@ -1,13 +1,13 @@
-'''
+"""
 ✅ GOOD BFS
 FB tag (medium)
 
 Complete Tree
 [ ] REDO
-'''
+"""
 
-from typing import Optional
 from collections import deque
+from typing import Optional
 
 
 class TreeNode:
@@ -23,6 +23,7 @@ class CBTInserter:
 
     T: O(N)
     """
+
     def __init__(self, root):
         self.ps = deque()
         self.root = root

@@ -12,11 +12,10 @@ class Codec:
     """
 
     def encode(self, strs: [str]) -> str:
-        """Encodes a list of strings to a single string.
-        """
-        enc = ''
+        """Encodes a list of strings to a single string."""
+        enc = ""
         for s in strs:
-            enc += str(len(s)) + '#' + s
+            enc += str(len(s)) + "#" + s
         print(enc)
         return enc
 
@@ -24,10 +23,10 @@ class Codec:
         res, i = [], 0
         while i < len(s):
             j = i
-            while s[j] != '#':
+            while s[j] != "#":
                 j += 1
             length = int(s[i:j])
-            res.append(s[j+1:j+1+length])
+            res.append(s[j + 1 : j + 1 + length])
             i = j + 1 + length
         return res
 
@@ -76,12 +75,12 @@ class Codec:
     '''
 
 
-'''
+"""
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.decode(codec.encode(strs))
-'''
+"""
 codec = Codec()
-print(codec.decode(codec.encode(['a\t\nb'])))
+print(codec.decode(codec.encode(["a\t\nb"])))
 print(codec.decode(codec.encode(["Hello", "World"])))
 print(codec.decode(codec.encode([""])))

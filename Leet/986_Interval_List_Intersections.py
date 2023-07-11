@@ -1,4 +1,4 @@
-'''
+"""
 Daily Challenge (Nov 24)
 06:44:39 left
 ✅ GOOD Interval (intersect)
@@ -7,14 +7,16 @@ Metacognition: I came up with the direct not (not intersect) trick to get inters
 
 Lookback: Colin Galen (wisdom?) #1: "If you can't re-solve a problem that you did before, you didn't learn enough from it"
 <Candidate Master in 1 Year - This Strategy Works Amazingly> https://youtu.be/9M5voWYmie4?t=26
-'''
+"""
 
 
 from typing import List
 
 
 class Solution:
-    def intervalIntersection(self, fl: List[List[int]], sl: List[List[int]]) -> List[List[int]]:
+    def intervalIntersection(
+        self, fl: List[List[int]], sl: List[List[int]]
+    ) -> List[List[int]]:
         def os():
             f, s = 0, 0
             res = []
@@ -40,7 +42,7 @@ class Solution:
                 s0, s1 = sl[s]
                 if not (f1 < s0 or s1 < f0):
                     res.append([max(s0, f0), min(s1, f1)])
-                    f, s = f+1, s+1
+                    f, s = f + 1, s + 1
                 # BUG: no idea what's the condition for incr pointers
                 elif f1 <= s0:
                     f += 1
@@ -58,5 +60,6 @@ class Solution:
 
 
 sl = Solution()
-sl.intervalIntersection(fl=[[0, 2], [5, 10], [13, 23], [24, 25]],
-                        sl=[[1, 5], [8, 12], [15, 24], [25, 26]])
+sl.intervalIntersection(
+    fl=[[0, 2], [5, 10], [13, 23], [24, 25]], sl=[[1, 5], [8, 12], [15, 24], [25, 26]]
+)

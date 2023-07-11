@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD DP (1D) XXX: why memo is one loop, but tabulation is double loops?
 https://leetcode.com/problem-list/79h8rn6/
 Top 100 Liked Questions
@@ -20,7 +20,7 @@ Quality problems worth doing based on Linear Dynamic Programming (1-D Dp) :
 
 Similar
 95. Unique Binary Search Trees II
-'''
+"""
 
 from functools import cache
 
@@ -34,18 +34,19 @@ class Solution:
         Solution - III (Dynamic Programming - Tabulation)
         TODO: need to redo in 1 week.
         """
+
         def dp():
             # G[i]: numTrees with n length sequence
-            G = [0]*(n+1)
+            G = [0] * (n + 1)
             G[0] = G[1] = 1
-            for i in range(2, n+1):  # with len of i nodes
-                for j in range(1, i+1):  # select j as root (from node 1 to node i)
-                    G[i] += G[j-1] * G[i-j]
+            for i in range(2, n + 1):  # with len of i nodes
+                for j in range(1, i + 1):  # select j as root (from node 1 to node i)
+                    G[i] += G[j - 1] * G[i - j]
             return G[n]
+
         return dp()
 
     def numTrees_memo(self, n: int) -> int:
-
         @cache
         def dp(l):
             """
@@ -57,8 +58,8 @@ class Solution:
             if l <= 1:
                 return 1
             ans = 0
-            for i in range(1, l+1):
-                ans += dp(i-1)*dp(l-i)
+            for i in range(1, l + 1):
+                ans += dp(i - 1) * dp(l - i)
             return ans
 
         return dp(n)
@@ -82,11 +83,11 @@ class Solution:
             ans = 0
             for i in range(x):
                 l = i
-                r = x-i-1
+                r = x - i - 1
                 # ans += fxr(l) + fxr(r)
                 lc, rc = fxr(l), fxr(r)
-                print('\t', l, r)
-                ans += lc*rc
+                print("\t", l, r)
+                ans += lc * rc
             memo[x] = ans
             print(x, ans)
             return ans

@@ -52,7 +52,12 @@ class Solution:
             nl1_nl2 = fxr(m1 + 1, r1, m2 + 1, r2)
             print(nh1_nh2, nh1_nl2, nl1_nh2, nl1_nl2)
 
-            ans = int(nh1_nh2) * pow(10, ((r1 - (m1 + 1) + 1) + (r2 - (m2 + 1) + 1))) + int(nh1_nl2) * pow(10, (r1 - (m1 + 1) + 1)) + int(nl1_nh2) * pow(10, (r2 - (m2 + 1) + 1)) + int(nl1_nl2)
+            ans = (
+                int(nh1_nh2) * pow(10, ((r1 - (m1 + 1) + 1) + (r2 - (m2 + 1) + 1)))
+                + int(nh1_nl2) * pow(10, (r1 - (m1 + 1) + 1))
+                + int(nl1_nh2) * pow(10, (r2 - (m2 + 1) + 1))
+                + int(nl1_nl2)
+            )
             return str(ans)
 
         # return fxr(0, len(num1) - 1, 0, len(num2) - 1)

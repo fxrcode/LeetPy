@@ -1,7 +1,7 @@
-from typing import List
-from random import randint
-from heapq import heappush, heappop
 from collections import Counter
+from heapq import heappop, heappush
+from random import randint
+from typing import List
 
 
 class Solution:
@@ -21,11 +21,11 @@ class Solution:
             return ans
 
         def fxr_sort():
-            '''
+            """
             Runtime: 86 ms, faster than 26.64% of Python3 online submissions for Find Subsequence of Length K With the Largest Sum.
 
             T: O(nlogn)
-            '''
+            """
             n = sorted(list((x, i) for i, x in enumerate(nums)))
             n = n[-k:]
             n = sorted(list((i, x) for x, i in n))
@@ -41,6 +41,7 @@ class Solution:
 
             T: O(N), M: O(N)
             """
+
             def partition(b, e):
                 r = randint(b, e)
                 swap(r, e)

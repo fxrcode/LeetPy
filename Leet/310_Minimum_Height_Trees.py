@@ -1,13 +1,13 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/graph/623/kahns-algorithm-for-topological-sorting/3953/
 Leetcode Explore Graph: Topological Sort
 
 A tree is an undirected graph in which any two vertices are connected by exactly one path. In other words, any connected graph without simple cycles is a tree.
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict, deque
+from typing import List
 
 
 class Solution:
@@ -52,6 +52,5 @@ class Solution:
 
 sl = Solution()
 print(sl.findMinHeightTrees(n=1, edges=[]))
-print(sl.findMinHeightTrees(n=6,
-                            edges=[[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]]))
+print(sl.findMinHeightTrees(n=6, edges=[[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]]))
 print(sl.findMinHeightTrees(n=4, edges=[[1, 0], [1, 2], [1, 3]]))

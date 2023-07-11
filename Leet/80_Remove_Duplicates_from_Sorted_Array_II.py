@@ -1,10 +1,10 @@
-'''
+"""
 ✅ GOOD Coding Skill
 Daily Challenge (Feb 6)
 Lookback
 - Stefan's logic is neat and crystal!
 - Easy to extend to K duplicates!
-'''
+"""
 from typing import List
 
 

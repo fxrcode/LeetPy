@@ -1,7 +1,7 @@
-'''
+"""
 Meta-cognition: Found it and thought it's close to Dec 18 Weekly contest Q4.
 But it's not. Q4 should be len(subarr) - lis(subarr)
-'''
+"""
 
 from typing import List
 

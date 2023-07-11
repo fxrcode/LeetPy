@@ -1,15 +1,15 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 13: Min/Max Path Sum
 
 Metacognition:
 * Always think about brute force first! Be asymmetrical!
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -34,9 +34,9 @@ class Solution:
             for r, row in enumerate(A):
                 for c, val in enumerate(row):
                     if val:
-                        T[r, c][0] = T[r, c-1][0] + 1
-                        T[r, c][1] = T[r-1, c][1] + 1
-                        T[r, c][2] = T[r-1, c-1][2] + 1
-                        T[r, c][3] = T[r-1, c+1][3] + 1
+                        T[r, c][0] = T[r, c - 1][0] + 1
+                        T[r, c][1] = T[r - 1, c][1] + 1
+                        T[r, c][2] = T[r - 1, c - 1][2] + 1
+                        T[r, c][3] = T[r - 1, c + 1][3] + 1
                         mx = max(mx, max(T[r, c]))
             return mx

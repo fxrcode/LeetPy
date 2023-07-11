@@ -1,4 +1,4 @@
-'''
+"""
 Daily Challenge (Nov 15)
 02:56:24 left
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
@@ -16,10 +16,10 @@ Some of its variants are : )
 1691. Maximum Height by Stacking Cuboids - https://leetcode.com/problems/maximum-height-by-stacking-cuboids/
 1909. Remove One Element to Make the Array Strictly Increasing - https://leetcode.com/problems/remove-one-element-to-make-the-array-strictly-increasing/
 
-'''
+"""
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -35,8 +35,7 @@ class Solution:
             EDS = {-1: set()}
             for x in nums:
                 # XXX: nice use max(iterable, key=lambda/builtin)
-                EDS[x] = max([EDS[k] for k in EDS
-                              if x % k == 0], key=len) | {x}
+                EDS[x] = max([EDS[k] for k in EDS if x % k == 0], key=len) | {x}
             return list(max(EDS.values(), key=len))
 
         def os_dp_itenary():
@@ -49,6 +48,7 @@ class Solution:
 
             T: O(N^2), M: O(N^2)
             """
+
             @cache
             def eds(i):
                 tail = nums[i]
@@ -92,8 +92,8 @@ class Solution:
                 for j in range(i):
                     if n % nums[j] == 0:
                         if F[j][1] + 1 > mx:
-                            mx = F[j][1]+1
-                            F[i] = [j, F[j][1]+1]
+                            mx = F[j][1] + 1
+                            F[i] = [j, F[j][1] + 1]
                             global_mx = max(global_mx, F[i][1])
                             if global_mx == F[i][1]:
                                 global_i = i
@@ -113,8 +113,8 @@ class Solution:
             ans = []
             cur = [nums[0]]
             for i in range(1, len(nums)):
-                if nums[i] % nums[i-1] == 0:
-                    F[i] = F[i-1]+1
+                if nums[i] % nums[i - 1] == 0:
+                    F[i] = F[i - 1] + 1
                     cur.append(nums[i])
                     mx = max(mx, F[i])
                     if mx == F[i]:

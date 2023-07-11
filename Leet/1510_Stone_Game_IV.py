@@ -1,9 +1,9 @@
-'''
+"""
 ✅ GOOD DFS (game)
 ✅ GOOD Zermelo's theorem
 Daily Challenge (Jan 21)
 Tag: Hard, Game theory, DFS
-'''
+"""
 from functools import cache
 from math import isqrt
 
@@ -16,6 +16,7 @@ class Solution:
 
             T: O(N* sqrt(N))
             """
+
             @cache
             def dfs(remain):
                 """

@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
-'''
+"""
 
 
 from typing import List
@@ -21,7 +21,7 @@ class Solution:
                 if p < stock:
                     stock = p
                     continue
-                ans += p-stock
+                ans += p - stock
                 stock = p
             return ans
 

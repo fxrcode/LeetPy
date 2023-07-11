@@ -29,6 +29,7 @@ class Solution:
         0.00001
         2147483647
         """
+
         def recur(x, n) -> float:
             if n == 0:
                 return 1

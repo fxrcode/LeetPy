@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3238/
 Leetcode explore - Array 101
 Explore Array & String: 2 pointer technique
@@ -6,7 +6,7 @@ Explore Array & String: 2 pointer technique
 Given a binary array nums, return the maximum number of consecutive 1's in the array.
 
 
-'''
+"""
 
 
 from typing import List

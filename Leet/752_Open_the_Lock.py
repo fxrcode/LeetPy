@@ -75,5 +75,10 @@ class Solution:
 sl = Solution()
 print(sl.openLock(deadends=["0201", "0101", "0102", "1212", "2002"], target="0202"))
 print(sl.openLock(deadends=["8888"], target="0009"))
-print(sl.openLock(deadends=["8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"], target="8888"))
+print(
+    sl.openLock(
+        deadends=["8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"],
+        target="8888",
+    )
+)
 print(sl.openLock(["0201", "0101", "0102", "1212", "2002"], "0000"))

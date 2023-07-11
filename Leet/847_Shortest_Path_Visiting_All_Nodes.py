@@ -27,7 +27,9 @@ class Solution:
             n = len(graph)
 
             # 1.初始化队列及标记数组，存入起点
-            q = deque((i, 1 << i, 0) for i in range(n))  # 三个属性分别为 idx, mask, dist；存入起点，起始距离0，标记
+            q = deque(
+                (i, 1 << i, 0) for i in range(n)
+            )  # 三个属性分别为 idx, mask, dist；存入起点，起始距离0，标记
             vis = {(i, 1 << i) for i in range(n)}  # 节点编号及当前状态
 
             # 开始搜索
@@ -101,7 +103,9 @@ class Solution:
                     return 0
                 cache[state] = float("inf")  # XXX: prevent DFS inf cycle
                 for v in graph[u]:
-                    if mask & (1 << v):  # b/c we are backward direction (topo-order: cur dp derived from past dp)
+                    if mask & (
+                        1 << v
+                    ):  # b/c we are backward direction (topo-order: cur dp derived from past dp)
                         visited = dp(v, mask)
                         not_visited = dp(v, mask ^ (1 << u))
                         cache[state] = 1 + min(cache[state], visited, not_visited)

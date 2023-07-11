@@ -112,11 +112,15 @@ class Solution:
         return check
 
 
-root = TreeNode(5, left=TreeNode(1), right=TreeNode(4, left=TreeNode(3), right=TreeNode(6)))
+root = TreeNode(
+    5, left=TreeNode(1), right=TreeNode(4, left=TreeNode(3), right=TreeNode(6))
+)
 
 root1 = TreeNode(5, left=TreeNode(14, left=TreeNode(1)))
 
-root2 = TreeNode(5, left=TreeNode(3), right=TreeNode(7, left=TreeNode(4), right=TreeNode(8)))
+root2 = TreeNode(
+    5, left=TreeNode(3), right=TreeNode(7, left=TreeNode(4), right=TreeNode(8))
+)
 sl = Solution()
 print(sl.isValidBST(root))
 print(sl.isValidBST(root1))

@@ -14,9 +14,9 @@ Similar:
 616. Add Bold Tag in String
 """
 
+from collections import defaultdict
 from functools import reduce
 from typing import List
-from collections import defaultdict
 
 
 class Solution:

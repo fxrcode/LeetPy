@@ -18,7 +18,6 @@ from typing import Optional
 
 
 class ListNode:
-
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
@@ -28,19 +27,17 @@ class ListNode:
 
 
 class Solution:
-
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         """
         REF: OS & https://leetcode.com/problems/sort-list/discuss/46710/Clean-python-code
         """
 
         def mergesort(head: Optional[ListNode]) -> Optional[ListNode]:
-
             def _middle(head: ListNode):
-                '''
+                """
                 Linked-list snippet. Return len//2 node as mid
                 XXX: don't forget to unlink prev.
-                '''
+                """
                 pre, s, f = None, head, head
                 while f and f.next:
                     pre, s, f = s, s.next, f.next.next
@@ -48,9 +45,9 @@ class Solution:
                 return s
 
             def _merge(l1: ListNode, l2: ListNode) -> ListNode:
-                '''
+                """
                 linked-list snippet: merge 2 sorted list.
-                '''
+                """
                 ptr = dummy = ListNode(None)
                 while l1 and l2:
                     # while both l1&l2, loop invariant: tail points to min(l1,l2)

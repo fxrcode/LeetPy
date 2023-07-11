@@ -50,7 +50,11 @@ class Solution:
                         return step
                     for dx, dy in DIR:
                         ii, jj = i + dx, j + dy
-                        if (ii, jj) not in vis and -1 <= ii <= x + 2 and -1 <= jj <= y + 2:
+                        if (
+                            (ii, jj) not in vis
+                            and -1 <= ii <= x + 2
+                            and -1 <= jj <= y + 2
+                        ):
                             vis.add((ii, jj))
                             q.append((ii, jj))
                 step += 1
@@ -68,7 +72,16 @@ class Solution:
             q1, q2 = set([(0, 0)]), set([(x, y)])
             step = 0
             vis = set([(0, 0), (x, y)])
-            DIR = [(1, 2), (2, 1), (2, -1), (1, -2), (-1, -2), (-2, -1), (-2, 1), (-1, 2)]
+            DIR = [
+                (1, 2),
+                (2, 1),
+                (2, -1),
+                (1, -2),
+                (-1, -2),
+                (-2, -1),
+                (-2, 1),
+                (-1, 2),
+            ]
             while q1:
                 if len(q1) > len(q2):
                     q1, q2 = q2, q1
@@ -82,7 +95,11 @@ class Solution:
                         # option2:  q1's neighbor as candidate
                         if (ii, jj) in q2:
                             return step + 1
-                        if (ii, jj) not in vis and -1 <= ii <= x + 2 and -1 <= jj <= y + 2:
+                        if (
+                            (ii, jj) not in vis
+                            and -1 <= ii <= x + 2
+                            and -1 <= jj <= y + 2
+                        ):
                             vis.add((ii, jj))
                             q1_nxt.add((ii, jj))
                 q1 = q1_nxt

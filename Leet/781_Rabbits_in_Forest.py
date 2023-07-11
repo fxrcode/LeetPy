@@ -1,10 +1,10 @@
-'''
+"""
 tag: Pigeonhole, Medium
 
 Lookback:
 - check 164. Maximum Gap
 
-'''
+"""
 
 from collections import Counter
 from typing import List

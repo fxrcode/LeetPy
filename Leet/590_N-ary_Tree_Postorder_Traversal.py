@@ -1,14 +1,15 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/n-ary-tree/130/traversal/926/
 N-ary Tree: Traversal
 Given the root of an n-ary tree, return the postorder traversal of its nodes' values.
 
 Nary-Tree input serialization is represented in their level order traversal. Each group of children is separated by the null value (See examples)
 
-'''
+"""
 
 # Definition for a Node.
 from typing import List
+
 import Util
 
 
@@ -19,7 +20,7 @@ class Node:
 
 
 class Solution:
-    def postorder(self, root: 'Node') -> List[int]:
+    def postorder(self, root: "Node") -> List[int]:
         """[summary]
         Your runtime beats 38.35 % of python3 submissions.
 

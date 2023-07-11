@@ -1,10 +1,11 @@
-'''
+"""
 FB tag (easy)
-'''
+"""
+
+from collections import defaultdict, deque
 
 # Definition for a binary tree node.
 from typing import List, Optional
-from collections import defaultdict, deque
 
 
 class TreeNode:

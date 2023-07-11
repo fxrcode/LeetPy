@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 9: DP on String
@@ -8,11 +8,11 @@ Day 9: DP on String
 Lookback:
 * Learn how to think out of box: check predessor by generation and check, so O(len(s))!
 * How to REALLY use existing knowledge? Ans: 化用思想!!! rather 呆板地复制以前的代码
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -30,7 +30,8 @@ class Solution:
             for w in words:
                 dp[w] = max(
                     # So smart!
-                    dp.get(w[:i] + w[i+1:], 0) + 1 for i in range(len(w))
+                    dp.get(w[:i] + w[i + 1 :], 0) + 1
+                    for i in range(len(w))
                 )
             return max(dp.values())
 
@@ -44,6 +45,7 @@ class Solution:
             metacognition:
             * simple variation of LIS, just need to write func to check if words[j] can become words[i] by insert 1 ch.
             """
+
             def is_pred(w1, w2):
                 if len(w1) + 1 != len(w2):
                     return False
@@ -69,11 +71,12 @@ class Solution:
             for i in range(1, n):
                 for j in range(i):
                     if is_pred(words[j], words[i]):
-                        T[i] = max(T[i], T[j]+1)
+                        T[i] = max(T[i], T[j] + 1)
             # print(T)
             if not T:
                 return 1
             return max(T.values())
+
         return fxr_lis()
 
 

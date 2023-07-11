@@ -1,9 +1,9 @@
-'''
+"""
 
 tag: Hash, Medium
 Lookback:
 - no pattern in adv compare to multi-patterns (438)
-'''
+"""
 
 from typing import List
 
@@ -11,11 +11,11 @@ from typing import List
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         def os_karp():
-            '''
+            """
             Runtime: 89 ms, faster than 50.03% of Python3 online submissions for Repeated DNA Sequences.
 
             XXX: Rabin-Karp rolling hash: Base-4 because contains 4 unique chars.
-            '''
+            """
             L, n = 10, len(s)
             if n <= L:
                 return []
@@ -25,7 +25,7 @@ class Solution:
             aL = pow(a, L)
 
             # convert str to list[int]
-            atoi = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+            atoi = {"A": 0, "C": 1, "G": 2, "T": 3}
             nums = [atoi[c] for c in s]
 
             h = 0
@@ -39,7 +39,7 @@ class Solution:
                         h = h * a + nums[i]
                 # update output and hashset of seen seq
                 if h in seen:
-                    output.add(s[start:start + L])
+                    output.add(s[start : start + L])
                 seen.add(h)
             return output
 

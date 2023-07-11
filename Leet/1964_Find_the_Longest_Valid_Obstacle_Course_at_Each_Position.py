@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD LIS (Binary Search)
 2111. Minimum Operations to Make the Array K-Increasing
 
@@ -10,11 +10,11 @@ To find the Longest Non-Decreasing Subsequence of an array, you can check follow
 300. Longest Increasing Subsequence - Longest Increasing Subsequence
 1964. Find the Longest Valid Obstacle Course at Each Position - Longest Non-Decreasing Subsequence
 
-'''
+"""
 
 
-from typing import List
 from bisect import bisect_right
+from typing import List
 
 
 class Solution:
@@ -30,7 +30,7 @@ class Solution:
             for i in range(1, m):
                 for j in range(i):
                     if obstacles[j] <= obstacles[i]:
-                        T[i] = max(T[i], T[j]+1)
+                        T[i] = max(T[i], T[j] + 1)
             return list(T.values())
 
         def patience_sort():

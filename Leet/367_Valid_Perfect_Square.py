@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/binary-search/137/conclusion/978/
 Leetcode Explore: Binary Search - Conclusion
 
 similar: 69
-'''
+"""
 
 
 class Solution:

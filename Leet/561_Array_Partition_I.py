@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/array-and-string/205/array-two-pointer-technique/1154/
 Explore Array & String: 2 pointer technique
 Given an integer array nums of 2n integers, group these integers into n pairs (a1, b1), (a2, b2), ..., (an, bn) such that the sum of min(ai, bi) for all i is maximized. Return the maximized sum.
-'''
+"""
 from typing import List
 
 

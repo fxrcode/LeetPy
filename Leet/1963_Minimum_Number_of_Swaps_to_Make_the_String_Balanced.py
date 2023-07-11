@@ -1,4 +1,4 @@
-'''
+"""
 tag: medium
 similar:
 - 921: min insert
@@ -6,15 +6,13 @@ similar:
 
 Lookback
 - min swaps similar to 1247, find optimal strategy using semi-abstract case
-'''
+"""
 
 from collections import deque
 
 
 class Solution:
-
     def minSwaps(self, s: str) -> int:
-
         def aayush912():
             """
             Runtime: 310 ms, faster than 99.06% of Python3 online submissions for Minimum Number of Swaps to Make the String Balanced.
@@ -23,7 +21,7 @@ class Solution:
             """
             l, r = 0, 0
             for c in s:
-                if c == '[':
+                if c == "[":
                     l += 1
                 else:
                     if l > 0:
@@ -41,7 +39,7 @@ class Solution:
             def isval(s):
                 l, r = 0, 0
                 for c in s:
-                    if c == '[':
+                    if c == "[":
                         l += 1
                     else:
                         if l > 0:
@@ -64,7 +62,7 @@ class Solution:
                                 continue
                             nei = list(cur)
                             nei[i], nei[j] = nei[j], nei[i]
-                            nei = ''.join(nei)
+                            nei = "".join(nei)
                             if nei not in seen:
                                 l, r = isval(nei)
                                 if (l, r) == (0, 0):
@@ -79,6 +77,6 @@ class Solution:
 
 
 sl = Solution()
-print(sl.minSwaps(s='][]['))
+print(sl.minSwaps(s="][]["))
 print(sl.minSwaps(s="]]][[["))
 print(sl.minSwaps(s="[]"))

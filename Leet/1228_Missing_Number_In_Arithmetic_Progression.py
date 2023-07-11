@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
@@ -18,15 +18,15 @@ class Solution:
             """
             diff = (arr[-1] - arr[0]) // len(arr)
             # l, r = 1, len(arr)-2
-            l, r = 0, len(arr)-1
+            l, r = 0, len(arr) - 1
             while l < r:
-                mid = (l+r)//2
+                mid = (l + r) // 2
                 # XXX: if curr val match with expected, then the missing must be in right side
-                if arr[mid] == arr[0] + diff*mid:
-                    l = mid+1
+                if arr[mid] == arr[0] + diff * mid:
+                    l = mid + 1
                 else:
                     r = mid
-            return arr[0] + diff*l
+            return arr[0] + diff * l
 
         def fxr_brute():
             """
@@ -37,14 +37,14 @@ class Solution:
             T: O(N)
             Edge: [0,0,0,0], should return 0
             """
-            for i in range(1, len(arr)-1):
-                a, b, c = arr[i-1:i+2]
-                if a-b == b-c:
+            for i in range(1, len(arr) - 1):
+                a, b, c = arr[i - 1 : i + 2]
+                if a - b == b - c:
                     continue
-                if abs(a-b) < abs(b-c):
-                    return (b+c)//2
+                if abs(a - b) < abs(b - c):
+                    return (b + c) // 2
                 else:
-                    return (a+b)//2
+                    return (a + b) // 2
             return arr[0]
 
         return os_bisect()

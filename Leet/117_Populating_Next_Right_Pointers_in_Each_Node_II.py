@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/data-structure-tree/133/conclusion/1016/
 Leetcode explore Binary Tree: Conclusion
 Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
@@ -6,13 +6,19 @@ Populate each next pointer to point to its next right node. If there is no next 
 Initially, all next pointers are set to NULL.
 XXX: Good question to understand variation top-down (aka preorder with recursion right before recursion left) recursion
 XXX: Draw the nice cases given in forum (leetcode, leetcode-cn to better understand why rec(right) before rec(left))
-'''
+"""
 # Definition for a Node.
 from collections import deque
 
 
 class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+    def __init__(
+        self,
+        val: int = 0,
+        left: "Node" = None,
+        right: "Node" = None,
+        next: "Node" = None,
+    ):
         self.val = val
         self.left = left
         self.right = right
@@ -20,7 +26,7 @@ class Node:
 
 
 class Solution:
-    def connect(self, root: 'Node') -> 'Node':
+    def connect(self, root: "Node") -> "Node":
         """
         Your runtime beats 55.96 % of python3 submissions.
 
@@ -80,6 +86,7 @@ class Solution:
                 if cur.right:
                     q.append(cur.right)
         return root
+
     '''
     def connect(self, root: 'Node') -> 'Node':
         """

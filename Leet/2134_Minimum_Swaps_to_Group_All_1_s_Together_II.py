@@ -1,6 +1,6 @@
-'''
+"""
 Weekly Contest 275 (Jan 8, 2022)
-'''
+"""
 from typing import List
 
 

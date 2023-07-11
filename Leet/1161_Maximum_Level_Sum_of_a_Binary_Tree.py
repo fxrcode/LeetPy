@@ -1,11 +1,11 @@
-'''
+"""
 
 GOOD BFS vs DFS
 FB tag (Medium)
 
-'''
-from typing import Optional
+"""
 from collections import defaultdict, deque
+from typing import Optional
 
 
 class TreeNode:
@@ -23,6 +23,7 @@ class Solution:
 
             T: O(N), M: O(N)
             """
+
             def inorder(r, level):
                 if r:
                     inorder(r.left, level + 1)

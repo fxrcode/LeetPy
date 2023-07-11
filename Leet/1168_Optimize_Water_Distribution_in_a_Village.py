@@ -16,7 +16,9 @@ from typing import List
 
 
 class Solution:
-    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+    def minCostToSupplyWater(
+        self, n: int, wells: List[int], pipes: List[List[int]]
+    ) -> int:
         """
         REF: official solution and lee215
         Runtime: 525 ms, faster than 56.99% of Python3 online submissions for Optimize Water Distribution in a Village.

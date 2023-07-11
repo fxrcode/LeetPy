@@ -29,6 +29,7 @@ class Solution:
         REF: https://leetcode.com/problems/reorder-list/discuss/1275393/Python-elegant-recursive-or-straightforward-iterative-approaches
         XXX: hat of 'reverse linked-list via recursion'. so post-order process
         """
+
         def rec(root: ListNode, cur: ListNode) -> ListNode:
             if not cur:
                 return root
@@ -47,6 +48,7 @@ class Solution:
                 postCurrInNewList.next = cur
                 cur.next = tmp
             return tmp
+
         return rec(head, head.next)
 
     def reorderList_os(self, head: Optional[ListNode]) -> None:
@@ -84,6 +86,7 @@ class Solution:
         BUG: 11 / 12 test cases passed.
         TLE!
         """
+
         def _mid(head):
             if not head:
                 return None
@@ -114,7 +117,8 @@ class Solution:
 
 
 # head = ListNode(1, next=ListNode(2, next=ListNode(3)))
-head = ListNode(1, next=ListNode(2, next=ListNode(3,
-                                                  next=ListNode(4, next=ListNode(5)))))
+head = ListNode(
+    1, next=ListNode(2, next=ListNode(3, next=ListNode(4, next=ListNode(5))))
+)
 sl = Solution()
 sl.reorderList_zcoder_93(head)

@@ -1,10 +1,10 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1121/
 Leetcode Explore: Hash Table. Practical Application - HashMap
 Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
 
 
-'''
+"""
 
 
 from typing import List
@@ -21,7 +21,7 @@ class Solution:
                 return True
             nearbyDup.add(n)
             if len(nearbyDup) > k:
-                nearbyDup.remove(nums[i-k])
+                nearbyDup.remove(nums[i - k])
         return False
 
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:

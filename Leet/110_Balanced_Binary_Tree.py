@@ -88,7 +88,9 @@ class Solution:
 '''
 
 
-root = TreeNode(3, left=TreeNode(9), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7)))
+root = TreeNode(
+    3, left=TreeNode(9), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7))
+)
 
 sl = Solution()
 print(sl.isBalanced(root))

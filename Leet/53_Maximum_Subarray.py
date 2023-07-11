@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 
 ✅ GOOD DP (1D) Kadane's Algs
-'''
+"""
 
 
 from functools import cache
@@ -20,7 +20,7 @@ class Solution:
             """
             cur_subarr = max_subarr = nums[0]
             for n in nums[1:]:
-                cur_subarr = max(n, n+cur_subarr)
+                cur_subarr = max(n, n + cur_subarr)
                 max_subarr = max(max_subarr, cur_subarr)
             return max_subarr
 
@@ -29,11 +29,13 @@ class Solution:
             Runtime: 1201 ms, faster than 8.71% of Python3 online submissions for Maximum Subarray.
 
             """
+
             @cache
             def opt(i):
                 if i == 0:
                     return nums[0]
-                return max(0, opt(i-1))+nums[i]
+                return max(0, opt(i - 1)) + nums[i]
+
             return max(map(opt, range(len(nums))))
 
         def fujiwaranoSai():
@@ -53,7 +55,7 @@ class Solution:
             F[0] = nums[0]
             ans = F[0]
             for i in range(1, n):
-                F[i] = (F[i-1] if F[i-1] > 0 else 0) + nums[i]
+                F[i] = (F[i - 1] if F[i - 1] > 0 else 0) + nums[i]
                 ans = max(ans, F[i])
             return ans
 
@@ -67,14 +69,14 @@ class Solution:
             1st attempt, this is O(N^2) due to min(array)
             """
             N = len(nums)
-            presum = [0] * (N+1)
+            presum = [0] * (N + 1)
             for i in range(N):
-                presum[i+1] = presum[i] + nums[i]
+                presum[i + 1] = presum[i] + nums[i]
             # print(presum)
             ans = -1e6
             min_j = 0
-            for j in range(1, N+1):
-                min_j = min(min_j, presum[j-1])
+            for j in range(1, N + 1):
+                min_j = min(min_j, presum[j - 1])
                 ans = max(ans, presum[j] - min_j)
                 # ans = max(ans, presum[j] - min(presum[:j]))
             return ans

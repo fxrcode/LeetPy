@@ -11,12 +11,12 @@ class Solution:
             Runtime: 128 ms, faster than 93.31% of Python3 online submissions for Ugly Number II.
 
             """
-            dp = [0]*1690
+            dp = [0] * 1690
             dp[0] = 1
             i2, i3, i5 = 0, 0, 0
             for i in range(1, n):
                 # XXX: 花了点时间来理解这里：因为ugly number都是由 smaller ugly & [2,3,5]构成。所以用pointer的思想。
-                tmp2, tmp3, tmp5 = 2*dp[i2], 3*dp[i3], 5*dp[i5]
+                tmp2, tmp3, tmp5 = 2 * dp[i2], 3 * dp[i3], 5 * dp[i5]
                 mn = min(tmp2, tmp3, tmp5)
                 dp[i] = mn
                 if dp[i] == tmp2:
@@ -25,7 +25,7 @@ class Solution:
                     i3 += 1
                 if dp[i] == tmp5:
                     i5 += 1
-            ans = dp[n-1]
+            ans = dp[n - 1]
             print(ans)
             return ans
 

@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/company/google/
 Easy
-'''
-from typing import List
+"""
 from collections import Counter
+from typing import List
 
 
 class Solution:
@@ -18,7 +18,7 @@ class Solution:
             for w in s1.split():
                 count[w] = count.get(w, 0) + 1
             for w in s2.split():
-                count[w] = count.get(w, 0)+1
+                count[w] = count.get(w, 0) + 1
 
             return [w for w in count if count[w] == 1]
 

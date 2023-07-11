@@ -1,7 +1,7 @@
-'''
+"""
 
 Weekly Special (Dec W3)
-'''
+"""
 
 
 from typing import List
@@ -20,11 +20,17 @@ class Solution:
             d = 0
             for i in range(1, len(arrays)):
                 arr = arrays[i]
-                d = max(d, abs(arr[0] - mx), abs(arr[-1]-mn),
-                        abs(arr[0]-mn), abs(arr[-1] - mx))
+                d = max(
+                    d,
+                    abs(arr[0] - mx),
+                    abs(arr[-1] - mn),
+                    abs(arr[0] - mn),
+                    abs(arr[-1] - mx),
+                )
                 mn = min(mn, arr[0])
                 mx = max(mx, arr[-1])
             return d
+
         return fxr()
 
 

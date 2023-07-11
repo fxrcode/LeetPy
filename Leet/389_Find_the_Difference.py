@@ -1,7 +1,7 @@
-'''
+"""
 Daily Challenge (Feb 7)
 tag: Easy
-'''
+"""
 
 from collections import Counter
 
@@ -35,5 +35,5 @@ class Solution:
 
 
 sl = Solution()
-print(sl.findTheDifference('abcd', 'abcde'))
-print(sl.findTheDifference('', 'y'))
+print(sl.findTheDifference("abcd", "abcde"))
+print(sl.findTheDifference("", "y"))

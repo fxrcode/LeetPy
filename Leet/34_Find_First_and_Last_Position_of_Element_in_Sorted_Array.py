@@ -1,21 +1,21 @@
-'''
+"""
 C3.ai phone
 https://leetcode.com/explore/learn/card/binary-search/135/template-iii/944/
 Leetcode Explore: Binary Search - Template III
 
 XXX: Common snippet
-'''
+"""
 
-from typing import List
 from bisect import bisect_left, bisect_right
+from typing import List
 
 
 class Solution:
-    def searchRange_template_iii(self, nums: List[int],
-                                 target: int) -> List[int]:
+    def searchRange_template_iii(self, nums: List[int], target: int) -> List[int]:
         """
         Your runtime beats 91.67 % of python3 submissions.
         """
+
         def bs(l, r, x):
             while l < r:
                 mid = (l + r) // 2
@@ -44,6 +44,7 @@ class Solution:
         [Python] Powerful Ultimate Binary Search Template. Solved many problems
         https://leetcode.com/discuss/general-discussion/786126/Python-Powerful-Ultimate-Binary-Search-Template.-Solved-many-problems
         """
+
         def find_first():
             l, r = 0, len(nums) - 1
             while l < r:
@@ -55,14 +56,14 @@ class Solution:
             return l
 
         def find_last():
-            '''
+            """
             Q: why search-space right is len(nums)?
             A: @mzbuddy The original search space is indeed [0, len(nums) - 1]. But we are returning left - 1,
             not left, so we need to set right = len(nums), otherwise, if we set right = len(nums) - 1, then
             len(nums) - 1 would never be returned, the maximum returned value is at most len(nums) - 2.
             That's not correct, since we don't include all possible values.
 
-            '''
+            """
             l, r = 0, len(nums)
             while l < r:
                 mid = (l + r) // 2

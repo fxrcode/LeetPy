@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Trie
 
 Explore Trie
@@ -9,7 +9,7 @@ Lookback:
 + augment default trie with top3 list.
 
 [ ] REDO
-'''
+"""
 from collections import Counter, defaultdict
 from typing import List
 
@@ -45,22 +45,25 @@ class AutocompleteSystem:
 
     https://leetcode.com/problems/design-search-autocomplete-system/discuss/1562242/Python-3-or-Trie-Variation-or-Explanation
     """
+
     def __init__(self, sentences: List[str], times: List[int]):
         self.d = Counter()  # keep tracking {sentence: time}
         self.trie = Trie()  # trie
-        self.node = self.trie.root  # pointer to root and move along with input characters
+        self.node = (
+            self.trie.root
+        )  # pointer to root and move along with input characters
         for s, t in zip(sentences, times):  # init trie
             self.d[s] += t
             self.trie.add(s, t)
-        self.buf = ''  # prefix
+        self.buf = ""  # prefix
         self.prefix_non = False  # True if prefix cannot be found
 
     def input(self, c: str) -> List[str]:
-        if c == '#':  # input ends
+        if c == "#":  # input ends
             self.node = self.trie.root
             self.d[self.buf] += 1
             self.trie.add(self.buf, self.d[self.buf])
-            self.buf = ''
+            self.buf = ""
             self.prefix_non = False  # reset flag
             return []
 

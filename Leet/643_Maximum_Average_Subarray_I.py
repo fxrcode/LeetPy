@@ -18,4 +18,3 @@ class Solution:
                 now += nums[i] - nums[i - k]
                 best = max(best, now)
             return best / k
-

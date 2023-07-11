@@ -19,7 +19,9 @@ class TreeNode:
 
 
 class Solution:
-    def closestKValues(self, root: Optional[TreeNode], target: float, k: int) -> List[int]:
+    def closestKValues(
+        self, root: Optional[TreeNode], target: float, k: int
+    ) -> List[int]:
         def google():
             """
             Runtime: 79 ms, faster than 39.46% of Python3 online submissions for Closest Binary Search Tree Value II.

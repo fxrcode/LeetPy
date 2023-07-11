@@ -93,7 +93,9 @@ class Solution:
                             if nei not in seen:
                                 q.append((nei, rm + 1))
                                 seen.add(nei)
-                if ans:  # ! if valid node met, other valid nodes also in same level, so we can terminate after this level
+                if (
+                    ans
+                ):  # ! if valid node met, other valid nodes also in same level, so we can terminate after this level
                     break
             return ans
 

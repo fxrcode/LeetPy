@@ -1,4 +1,4 @@
-'''
+"""
 Amazon Top50
 tag: Medium
 
@@ -7,7 +7,7 @@ Lookback:
 * pre-compute the components mapping
 * loop to use biggest val in mp that fits into num, find how many of the symbol.
 * loop until num = 0
-'''
+"""
 
 
 class Solution:
@@ -18,19 +18,19 @@ class Solution:
         https://leetcode.com/problems/integer-to-roman/solution/
         """
         mp = {
-            1000: 'M',
-            900: 'CM',
-            500: 'D',
-            400: 'CD',
-            100: 'C',
-            90: 'XC',
-            50: 'L',
-            40: 'XL',
-            10: 'X',
-            9: 'IX',
-            5: 'V',
-            4: 'IV',
-            1: 'I'
+            1000: "M",
+            900: "CM",
+            500: "D",
+            400: "CD",
+            100: "C",
+            90: "XC",
+            50: "L",
+            40: "XL",
+            10: "X",
+            9: "IX",
+            5: "V",
+            4: "IV",
+            1: "I",
         }
         rom = []
         x = num
@@ -39,7 +39,7 @@ class Solution:
                 break
             count, x = divmod(x, d)
             rom.append(r * count)
-        return ''.join(rom)
+        return "".join(rom)
 
 
 sl = Solution()

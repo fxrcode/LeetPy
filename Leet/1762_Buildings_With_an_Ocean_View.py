@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (medium)
-'''
+"""
 
 from typing import List
 

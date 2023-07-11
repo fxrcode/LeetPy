@@ -15,7 +15,9 @@ class TreeNode:
 
 
 class Solution:
-    def getDirections_votrubac(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+    def getDirections_votrubac(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
         """
         Runtime: 628 ms, faster than 100.00% of Python3 online submissions for Step-By-Step Directions From a Binary Tree Node to Another.
 
@@ -47,7 +49,9 @@ class Solution:
 
         return common_prefix()
 
-    def getDirections_fxr(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
+    def getDirections_fxr(
+        self, root: Optional[TreeNode], startValue: int, destValue: int
+    ) -> str:
         # lca
         def _lca(root: TreeNode, p, q):
             """

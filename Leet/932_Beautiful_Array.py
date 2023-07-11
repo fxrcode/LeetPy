@@ -29,7 +29,9 @@ class Solution:
             def dc(N):
                 if N == 1:
                     return [1]
-                return [2 * x - 1 for x in dc((N + 1) // 2)] + [2 * x for x in dc(N // 2)]
+                return [2 * x - 1 for x in dc((N + 1) // 2)] + [
+                    2 * x for x in dc(N // 2)
+                ]
 
             return dc(n)
 

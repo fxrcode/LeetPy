@@ -47,7 +47,7 @@ class Solution:
         head.prev = None
         return head
 
-    def flatten_recur(self, head: 'Node') -> 'Node':
+    def flatten_recur(self, head: "Node") -> "Node":
         """
         https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss/295912/C%2B%2B-Simple-5-line-recursive-solution-(with-diagram)
         Your runtime beats 5.45 % of python3 submissions.

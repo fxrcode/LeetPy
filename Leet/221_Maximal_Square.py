@@ -26,7 +26,7 @@ class Solution:
                 for j in range(n):
                     if M[i][j] == "0":
                         continue
-                    F[i, j] = min(F[i-1, j-1], F[i-1, j], F[i, j-1])+1
+                    F[i, j] = min(F[i - 1, j - 1], F[i - 1, j], F[i, j - 1]) + 1
                     mx = max(F[i, j], mx)
             pprint.pprint(F)
             return mx**2
@@ -44,16 +44,17 @@ class Solution:
             F = [[0] * n for _ in range(m)]
             for i in range(m):
                 for j in range(n):
-                    if i*j == 0:
-                        if M[i][j] == '1':
+                    if i * j == 0:
+                        if M[i][j] == "1":
                             F[i][j] = 1
                             self.max_sqr = max(self.max_sqr, 1)
 
-                    elif M[i][j] == '1':
-                        F[i][j] = min(F[i-1][j-1], F[i-1][j], F[i][j-1])+1
+                    elif M[i][j] == "1":
+                        F[i][j] = min(F[i - 1][j - 1], F[i - 1][j], F[i][j - 1]) + 1
                         self.max_sqr = max(self.max_sqr, F[i][j])
 
-            return self.max_sqr ** 2
+            return self.max_sqr**2
+
         # return fxr()
         return daily()
 

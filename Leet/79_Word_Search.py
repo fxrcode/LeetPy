@@ -20,8 +20,9 @@ class Solution:
             [["a","a"]]
             "aaa"
             """
+
             def bt(i, j, visited, path):
-                path_str = ''.join(path)
+                path_str = "".join(path)
                 if path_str not in hacky_trie:
                     return False
                 print(i, j, visited, path)
@@ -29,12 +30,12 @@ class Solution:
                     return True
                 ret = False
                 for dx, dy in DIR:
-                    xx, yy = i+dx, j+dy
+                    xx, yy = i + dx, j + dy
                     if not (0 <= xx < m and 0 <= yy < n) or (xx, yy) in visited:
                         continue
                     visited.add((xx, yy))
                     # XXX: OS: break instead of return directly to do some cleanup afterwards
-                    ret = bt(xx, yy, visited, path+[board[xx][yy]])
+                    ret = bt(xx, yy, visited, path + [board[xx][yy]])
                     if ret:
                         break
                     visited.remove((xx, yy))
@@ -62,8 +63,8 @@ class Solution:
                 return ret
 
             '''
-            hacky_trie = set([''])
-            for i in range(1, len(word)+1):
+            hacky_trie = set([""])
+            for i in range(1, len(word) + 1):
                 hacky_trie.add(word[:i])
 
             DIR = [(0, 1), (0, -1), (1, 0), (-1, 0)]

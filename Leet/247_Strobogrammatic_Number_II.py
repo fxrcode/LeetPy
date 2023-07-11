@@ -34,7 +34,12 @@ class Solution:
                 """
 
                 # if l == n and xy=='00', don't append.
-                return [xy[0] + n_2 + xy[1] for n_2 in dfs(l - 2) for xy in REV_PAIRS if not (l == n and xy == "00")]
+                return [
+                    xy[0] + n_2 + xy[1]
+                    for n_2 in dfs(l - 2)
+                    for xy in REV_PAIRS
+                    if not (l == n and xy == "00")
+                ]
 
             return dfs(n)
 

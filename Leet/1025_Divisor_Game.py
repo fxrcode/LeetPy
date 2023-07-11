@@ -1,6 +1,6 @@
-'''
+"""
 Tag: Math, Easy
-'''
+"""
 
 
 class Solution:

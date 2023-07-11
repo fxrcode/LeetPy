@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 from string import ascii_letters, digits
+from typing import List
 
 
 class StringIterator:
@@ -19,7 +19,7 @@ class StringIterator:
     def __init__(self, compressedString: str):
         self.ptr = 0
         self.num = 0
-        self.ch = ' '
+        self.ch = " "
         self.res = compressedString
 
     def dbg(self):
@@ -27,7 +27,7 @@ class StringIterator:
 
     def next(self) -> str:
         if not self.hasNext():
-            return ' '
+            return " "
         if self.num == 0:
             self.ch = self.res[self.ptr]
             self.ptr += 1
@@ -49,6 +49,7 @@ class StringIterator_fxr:
     AC after 30min debug
     FIXME: !TOOOOOO complicated
     """
+
     @staticmethod
     def f_get_digits(s, ori):
         v = 0
@@ -75,8 +76,8 @@ class StringIterator_fxr:
 
     def next(self) -> str:
         if not self.hasNext():
-            print('nah')
-            return ''
+            print("nah")
+            return ""
         _, c = self.chars[self.ci]
         self.left -= 1
         if self.left == 0:
@@ -84,7 +85,7 @@ class StringIterator_fxr:
             if self.hasNext():
                 # self.ci += 1
                 i, _ = self.chars[self.ci]
-                v = self.f_get_digits(self.cs, i+1)
+                v = self.f_get_digits(self.cs, i + 1)
                 self.left = v
                 # print(self.ci, self.left)
         print(c)
@@ -96,12 +97,12 @@ class StringIterator_fxr:
         return True
 
 
-'''
+"""
 # Your StringIterator object will be instantiated and called as such:
 # obj = StringIterator(compressedString)
 # param_1 = obj.next()
 # param_2 = obj.hasNext()
-'''
+"""
 # si = StringIterator("L1e2t1C1o1d1e1")
 # si.next()
 # si.next()

@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 from bisect import bisect_left
+from typing import List
 
 
 class Solution:
@@ -17,7 +17,7 @@ class Solution:
 
             XXX: using single binary search!
             """
-            k = len(nums)//2
+            k = len(nums) // 2
             if nums[k] != target:
                 return False
             lo = bisect_left(nums, target)
@@ -29,16 +29,16 @@ class Solution:
             Runtime: 36 ms, faster than 77.26% of Python3 online submissions
             T:O(logN) with 2 binary search
             """
-            l, r = bisect_left(nums, target), bisect_left(nums, target+1)
+            l, r = bisect_left(nums, target), bisect_left(nums, target + 1)
             print(l, r)
-            return len(nums)//2 < r-l
+            return len(nums) // 2 < r - l
 
         def fxr_WA():
-            '''
+            """
             nums=[1,2,3,4,5], target=3
-            '''
+            """
             n = len(nums)
-            mid = n//2
+            mid = n // 2
             if n % 2 == 0:
                 mid -= 1
             return target == nums[mid]

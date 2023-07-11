@@ -1,11 +1,11 @@
-'''
+"""
 FB tag (medium)
 
 Lookback:
 + think general case, then comes with algs.
 + only code with verified algs!
 + never patch code randomly for specific cases in interview!
-'''
+"""
 
 
 class Solution:
@@ -17,9 +17,9 @@ class Solution:
             XXX: DBabichev
             """
             for i in range(len(pal) // 2):
-                if pal[i] != 'a':
-                    return pal[:i] + 'a' + pal[i + 1:]
-            return pal[:-1] + 'b' if pal[:-1] else ''
+                if pal[i] != "a":
+                    return pal[:i] + "a" + pal[i + 1 :]
+            return pal[:-1] + "b" if pal[:-1] else ""
 
         return os()
 
@@ -32,25 +32,25 @@ class Solution:
             l = len(pal)
             ans = []
             if l == 1:
-                return ''
+                return ""
             i = 0
             while i < l - 1:
-                if pal[i] > 'a':
+                if pal[i] > "a":
                     break
                 i += 1
             if i == l // 2 and l % 2 == 1:
-                ans = pal[:-1] + 'b'
-                return ''.join(ans)
-            c = 'a'
-            if pal[i] == 'a':
-                c = 'b'
-            ans = pal[:i] + c + pal[i + 1:]
-            return ''.join(ans)
+                ans = pal[:-1] + "b"
+                return "".join(ans)
+            c = "a"
+            if pal[i] == "a":
+                c = "b"
+            ans = pal[:i] + c + pal[i + 1 :]
+            return "".join(ans)
 
         return fxr()
 
 
 sl = Solution()
-ss = ['abccba', 'aaa', 'aba', "aabaa"]
+ss = ["abccba", "aaa", "aba", "aabaa"]
 for s in ss:
     print(sl.breakPalindrome(s))

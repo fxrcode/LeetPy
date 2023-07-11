@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Coding Skill
 
 Facebook Tag
@@ -9,7 +9,7 @@ similar:
 2111. Minimum Operations to Make the Array K-Increasing
 80. Remove Duplicates from Sorted Array II
 
-'''
+"""
 
 from bisect import bisect_left
 from typing import List
@@ -23,6 +23,7 @@ class Solution:
 
             T: O(nlogn)
             """
+
             def lis(A):
                 """
                 From 300. Longest Increasing Subsequence
@@ -59,15 +60,18 @@ class Solution:
             """
             prev, drop = -1e5, False  # drop means we have saw drop or not
             for i, x in enumerate(nums):
-                if prev < x: prev = x
+                if prev < x:
+                    prev = x
                 else:
                     # if drop again, fail termination
-                    if drop: return False
+                    if drop:
+                        return False
                     drop = True
                     # Two cases
                     #   a) 1,3,2: remove 3, so update prev = 2 for next iter
                     #   b) 2,3,1: remove 1, so prev = 3 (stays) for next iter
-                    if i == 1 or nums[i - 2] < x: prev = x
+                    if i == 1 or nums[i - 2] < x:
+                        prev = x
             return True
 
         def fxr():
@@ -85,7 +89,7 @@ class Solution:
                     cand.extend([i - 1, i])
 
             def check(rm):
-                A = nums[:rm] + nums[rm + 1:]
+                A = nums[:rm] + nums[rm + 1 :]
                 for i in range(1, len(A)):
                     if A[i - 1] >= A[i]:
                         return False

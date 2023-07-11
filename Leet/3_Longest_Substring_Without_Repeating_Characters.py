@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1135/
 Leetcode Explore: Hash Table. Conclusion
 Given a string s, find the length of the longest substring without repeating characters.
 
-'''
+"""
 
 
 from collections import defaultdict
@@ -21,7 +21,7 @@ class Solution:
         """
         wind = defaultdict(int)  # char: count
         best = 0
-        ans = ''
+        ans = ""
         l, r = 0, 0  # [l,r)
         while r < len(s):
             c = s[r]
@@ -36,12 +36,12 @@ class Solution:
                 wind[d] -= 1
             # now wind is valid: wihtout repeating chars
             # update best, ans
-            if best < r-l:
+            if best < r - l:
                 best = r - l
                 ans = s[l:r]
         return best, ans
 
 
 sl = Solution()
-print(sl.lengthOfLongestSubstring('abcabcbb'))
+print(sl.lengthOfLongestSubstring("abcabcbb"))
 print(sl.lengthOfLongestSubstring("tmmzuxt"))

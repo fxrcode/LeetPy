@@ -1,15 +1,15 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/binary-search/136/template-analysis/1028/
 Leetcode Explore: Binary Search - Template Analysis
 
 Given the root of a binary search tree and a target value, return the value in the BST that is closest to the target.
-'''
+"""
 
 # Definition for a binary tree node.
 
 
-from typing import Optional
 from bisect import bisect_left
+from typing import Optional
 
 
 class TreeNode:
@@ -21,7 +21,7 @@ class TreeNode:
 
 class Solution:
     def closestValue(self, root: Optional[TreeNode], target: float) -> int:
-        self.closest = float('inf')
+        self.closest = float("inf")
 
         def shaneTsui_bin_search(cur: TreeNode):
             """
@@ -31,7 +31,7 @@ class Solution:
             """
             if not cur:
                 return
-            if abs(cur.val - target) < abs(self.closest-target):
+            if abs(cur.val - target) < abs(self.closest - target):
                 self.closest = cur.val
 
             if target < cur.val:
@@ -48,6 +48,7 @@ class Solution:
 
             T: O(N+logN). M: O(N)
             """
+
             def inord(cur: TreeNode):
                 if not cur:
                     return []
@@ -68,8 +69,9 @@ class Solution:
             elif i == len(ino):  # larger than any:
                 return ino[-1]
             else:
-                if ino[i] - target > target - ino[i-1]:
-                    return ino[i-1]
+                if ino[i] - target > target - ino[i - 1]:
+                    return ino[i - 1]
                 else:
                     return ino[i]
+
         return inord_bisect()

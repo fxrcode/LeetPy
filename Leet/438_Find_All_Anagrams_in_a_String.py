@@ -1,6 +1,6 @@
-'''
+"""
 tag: Medium, Sliding Window
-'''
+"""
 
 from collections import Counter
 from typing import List
@@ -15,7 +15,7 @@ class Solution:
             XXX: it's easier to use [0]*26 for all upper or all lower, cuz Counter[c] -= 1 will keep {c:0},
                 then counter(p) = {a:1, b:1, c:1}, will not equal to win = {a:1, b:1, c:1, d:0, e:0},
             """
-            o = lambda x: ord(x) - ord('a')
+            o = lambda x: ord(x) - ord("a")
             # C = Counter(p)
             C = [0] * 26
             win = [0] * 26

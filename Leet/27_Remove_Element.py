@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/526/deleting-items-from-an-array/3247/
 Leetcode Explore Array 101: Deleting Items from an Array
 Explore Array & String: 2 pointer technique
@@ -7,7 +7,7 @@ Given an integer array nums and an integer val, remove all occurrences of val in
 
 XXX: Classic 2 pointer pattern, also explained in labuladong
 XXX: read pointer always move faster than write pointer, because read traverse nums. while write only increase after candidate found
-'''
+"""
 
 
 from typing import List
@@ -23,7 +23,7 @@ class Solution:
         i, n = 0, len(nums)
         while i < n:
             if nums[i] == val:
-                nums[i] = nums[n-1]
+                nums[i] = nums[n - 1]
                 n -= 1
             else:
                 i += 1
@@ -41,7 +41,7 @@ class Solution:
             if nums[i] != val:
                 l += 1
                 nums[l] = nums[i]
-        return l+1
+        return l + 1
 
     def lomuto(self, nums: List[int]):
         """
@@ -50,12 +50,12 @@ class Solution:
         pivot = nums[-1]
         l = -1
         # XXX: loop-invariant: [0..l] < p
-        for i in range(len(nums)-1):
+        for i in range(len(nums) - 1):
             if nums[i] < pivot:
                 l += 1
                 nums[l], nums[i] = nums[i], nums[l]
-        nums[l+1], nums[-1] = nums[-1], nums[l+1]
-        return l+1
+        nums[l + 1], nums[-1] = nums[-1], nums[l + 1]
+        return l + 1
 
 
 sl = Solution()

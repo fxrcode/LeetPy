@@ -11,14 +11,12 @@ from typing import Optional
 
 
 class ListNode:
-
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
 
 class Solution:
-
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         """[summary]
         Runtime: 44 ms, faster than 46.12% of Python3 online submissions for Swap Nodes in Pairs.
@@ -46,7 +44,6 @@ class Solution:
         return dummy.next
 
     def swapPairs_recurive(self, head: Optional[ListNode]) -> Optional[ListNode]:
-
         def recur_me(head: Optional[ListNode]) -> Optional[ListNode]:
             """[summary]
             my impl in 1st try, got some here-and-there bugs on pointers, conditions...

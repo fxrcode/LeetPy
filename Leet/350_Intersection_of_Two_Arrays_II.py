@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1178/
 Leetcode Explore: Hash Table. Practical Application - HashMap
 
@@ -12,11 +12,11 @@ Follow up:
 2) What if nums1's size is small compared to nums2's size? Which algorithm is better?
 3) What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -75,7 +75,7 @@ class Solution:
             d1, d2 = d2, d1
         for n in d1:
             if n in d2:
-                res.extend([n]*min(d1[n], d2[n]))
+                res.extend([n] * min(d1[n], d2[n]))
 
         return res
 

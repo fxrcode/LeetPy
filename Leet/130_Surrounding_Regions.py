@@ -1,7 +1,7 @@
-'''
+"""
 Daily Challenge (Nov 1)
 
-'''
+"""
 from typing import List
 
 DIR = [[0, 1], [0, -1], [1, 0], [-1, 0]]
@@ -12,6 +12,7 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
+
         def labuladong():
             """
             Runtime: 128 ms, faster than 96.14% of Python3 online submissions for Surrounded Regions.
@@ -24,7 +25,13 @@ class Solution:
                 board[row][col] = "Z"
                 for dr, dc in (-1, 0), (0, 1), (1, 0), (0, -1):
                     nr, nc = row + dr, col + dc
-                    if nr < 0 or nr >= rows or nc < 0 or nc >= cols or board[nr][nc] != 'O':
+                    if (
+                        nr < 0
+                        or nr >= rows
+                        or nc < 0
+                        or nc >= cols
+                        or board[nr][nc] != "O"
+                    ):
                         continue
                     dfs(nr, nc)
 
@@ -38,12 +45,12 @@ class Solution:
 
             for row in [0, rows - 1]:
                 for col in range(cols):
-                    if board[row][col] == 'O':
+                    if board[row][col] == "O":
                         dfs(row, col)
 
             for col in [0, cols - 1]:
                 for row in range(1, rows - 1):
-                    if board[row][col] == 'O':
+                    if board[row][col] == "O":
                         dfs(row, col)
 
             flip()
@@ -57,25 +64,25 @@ class Solution:
             m, n = len(board), len(board[0])
 
             def dfs(i, j):
-                print('dfs', i, j)
-                if board[i][j] == 'X':
+                print("dfs", i, j)
+                if board[i][j] == "X":
                     return
                 flip = False
                 for dx, dy in DIR:
-                    ii, jj = i+dx, j+dy
-                    if 0 <= ii < m and 0 <= jj < n and board[ii][jj] == 'X':
+                    ii, jj = i + dx, j + dy
+                    if 0 <= ii < m and 0 <= jj < n and board[ii][jj] == "X":
                         flip = True
                         break
                 if flip:
-                    board[i][j] = 'X'
+                    board[i][j] = "X"
                 else:
                     return
                 for dx, dy in DIR:
-                    x, y = i+dx, j+dy
-                    if 0 <= x < m and 0 <= y < n and board[x][y] == 'O':
+                    x, y = i + dx, j + dy
+                    if 0 <= x < m and 0 <= y < n and board[x][y] == "O":
                         dfs(x, y)
 
-            for i in range(1, m-1):
-                for j in range(1, n-1):
-                    if board[i][j] == 'O':
+            for i in range(1, m - 1):
+                for j in range(1, n - 1):
+                    if board[i][j] == "O":
                         dfs(i, j)

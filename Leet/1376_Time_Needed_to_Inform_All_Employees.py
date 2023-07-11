@@ -12,7 +12,9 @@ from typing import List
 
 
 class Solution:
-    def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
+    def numOfMinutes(
+        self, n: int, headID: int, manager: List[int], informTime: List[int]
+    ) -> int:
         def fxr():
             """
             Runtime: 1192 ms, faster than 99.23% of Python3 online submissions for Time Needed to Inform All Employees.
@@ -65,6 +67,18 @@ class Solution:
 
 
 sl = Solution()
-print(sl.numOfMinutes(n=6, headID=2, manager=[2, 2, -1, 2, 2, 2], informTime=[0, 0, 1, 0, 0, 0]))
+print(
+    sl.numOfMinutes(
+        n=6, headID=2, manager=[2, 2, -1, 2, 2, 2], informTime=[0, 0, 1, 0, 0, 0]
+    )
+)
 assert sl.numOfMinutes(n=1, headID=0, manager=[-1], informTime=[0]) == 0
-assert sl.numOfMinutes(n=11, headID=4, manager=[5, 9, 6, 10, -1, 8, 9, 1, 9, 3, 4], informTime=[0, 213, 0, 253, 686, 170, 975, 0, 261, 309, 337]) == 2560
+assert (
+    sl.numOfMinutes(
+        n=11,
+        headID=4,
+        manager=[5, 9, 6, 10, -1, 8, 9, 1, 9, 3, 4],
+        informTime=[0, 213, 0, 253, 686, 170, 975, 0, 261, 309, 337],
+    )
+    == 2560
+)

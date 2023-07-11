@@ -1,9 +1,9 @@
-'''
+"""
 tag: easy
 
 Lookback:
 - Python str not familiar
-'''
+"""
 
 
 class Solution:
@@ -14,8 +14,18 @@ class Solution:
 
             """
             M = [
-                "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-                "Oct", "Nov", "Dec"
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
             ]
             d, m, y = date.split()
-            return f'{y}-{(M.index(m)+1):02d}-{int(d[:-2]):02d}'
+            return f"{y}-{(M.index(m)+1):02d}-{int(d[:-2]):02d}"

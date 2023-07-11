@@ -1,5 +1,4 @@
 class Solution:
-
     def knapsack_01(self):
         """
         Knapsack 0/1 - `O(nW)`

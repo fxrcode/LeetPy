@@ -7,25 +7,24 @@ TODO: classic DFS's usage: connectivity, cycle detection (3-color-variant), Hier
 import pprint
 from collections import defaultdict
 from typing import List
-'''
+
+"""
 # dfs in DPV book
 def dfs(G, u):
     seen.add(u)
     for v in G[u]:
         if v not in seen:
             dfs(G, v)
-'''
+"""
 
 
 class TreeNode:
-
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
 
 
 def preorder(root: TreeNode):
-
     def logic(root):
         # XXX: here's the specific logic in each problem
         # eg. 437. Path Sum III
@@ -86,7 +85,9 @@ def validPath(G: defaultdict(set), start: int, target: int) -> bool:
         return False
 
 
-def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+def leadsToDestination(
+    self, n: int, edges: List[List[int]], source: int, destination: int
+) -> bool:
     """
     XXX: 1st time learning CLRS 3-color-variant DFS for cycle detection
     1059. All Paths from Source lead to Destination
@@ -170,10 +171,10 @@ def findItinerary_Hierholzer(tickets: List[List[str]]) -> List[str]:
             dfs(v)
         route.append(u)
 
-    dfs('A')
+    dfs("A")
     print(route)
     return route[::-1]
 
 
-T = [['A', 'B'], ['B', 'C'], ['C', 'D'], ['B', 'E'], ['E', 'B']]
+T = [["A", "B"], ["B", "C"], ["C", "D"], ["B", "E"], ["E", "B"]]
 print(findItinerary_Hierholzer(T))

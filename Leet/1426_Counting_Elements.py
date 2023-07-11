@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
-'''
+"""
 
 
 from typing import List
@@ -19,8 +19,8 @@ class Solution:
             run_len = 1
             cnt = 0
             for i in range(len(arr)):
-                if arr[i-1] != arr[i]:
-                    if arr[i-1]+1 == arr[i]:
+                if arr[i - 1] != arr[i]:
+                    if arr[i - 1] + 1 == arr[i]:
                         cnt += run_len
                     run_len = 0
                 run_len = 1
@@ -41,8 +41,8 @@ class Solution:
                 j = i
                 while j < len(arr) and arr[j] == c:
                     j += 1
-                if arr[j] == c+1:
-                    cnt += j-i
+                if arr[j] == c + 1:
+                    cnt += j - i
                 i = j
             return cnt
 
@@ -56,7 +56,7 @@ class Solution:
             sa = set(arr)
             cnt = 0
             for a in arr:
-                if a+1 in sa:
+                if a + 1 in sa:
                     cnt += 1
             return cnt
 

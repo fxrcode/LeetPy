@@ -1,10 +1,10 @@
-'''
+"""
 💡insight
 Daily Challenge (Jan 22)
 tag: sliding window
 
 [ ] REDO
-'''
+"""
 
 from typing import List
 
@@ -16,12 +16,12 @@ class Solution:
             Runtime: 32 ms, faster than 62.30% of Python3 online submissions for Sequential Digits.
 
             """
-            sample = '123456789'
+            sample = "123456789"
             n = 10
             nums = []
             for le in range(len(str(low)), len(str(high)) + 1):
                 for start in range(n - le):
-                    v = int(sample[start:start + le])
+                    v = int(sample[start : start + le])
                     if low <= v <= high:
                         nums.append(v)
             return nums

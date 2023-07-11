@@ -36,7 +36,7 @@ class Solution:
             return res
 
         return zitaowang()
-        '''
+        """
         def fxr():
             ans = 0
             l = 0
@@ -49,7 +49,7 @@ class Solution:
             for r, s in enumerate(seats, start=l+1):
                 if s == 0:
                     ans = max(ans, r-l)
-        '''
+        """
 
 
 sl = Solution()

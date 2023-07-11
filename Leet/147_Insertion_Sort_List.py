@@ -1,11 +1,11 @@
-'''
+"""
 Daily Challenge (Dec 15)
 
 Thoughts from a Google interviewer
 https://leetcode.com/problems/insertion-sort-list/discuss/46429/Thoughts-from-a-Google-interviewer
 
 TODO: iterative
-'''
+"""
 
 from typing import List, Optional
 
@@ -18,7 +18,6 @@ class ListNode:
 
 class Solution:
     def insertionSortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-
         def fxr(node: ListNode):
             """
             Runtime: 1227 ms, faster than 61.95% of Python3 online submissions for Insertion Sort List.

@@ -4,7 +4,7 @@ class Solution:
             # Your runtime beats 31.17 % of python3 submissions.
             s = str(n)
             s = s[::-1]
-            res = '.'.join(s[i:i + 3] for i in range(0, len(s), 3))
+            res = ".".join(s[i : i + 3] for i in range(0, len(s), 3))
             return res[::-1]
 
         return srushti22()
@@ -22,9 +22,9 @@ class Solution:
             for i in range(len(s)):
                 ret[i] = s[i]
                 if (i + 1) % 3 == 0:
-                    ret[i] += '.'
-            ans = ''.join(ret)[::-1]
-            if ans[0] == '.':
+                    ret[i] += "."
+            ans = "".join(ret)[::-1]
+            if ans[0] == ".":
                 return ans[1:]
             return ans
 

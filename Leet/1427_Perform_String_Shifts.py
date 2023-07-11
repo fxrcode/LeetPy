@@ -1,11 +1,11 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
 Metacognition:
 * I directly recognize it's like circular buffer, then shift accordingly to get the final starting point.
 * But I do the % during shift, rather get the total shift, then do 1-time % as in OS.
-'''
+"""
 
 
 from typing import List
@@ -24,7 +24,7 @@ class Solution:
                     a = -a
                 left_shift += a
             left_shift %= len(s)
-            r = s[left_shift:]+s[:left_shift]
+            r = s[left_shift:] + s[:left_shift]
             return r
 
         def fxr():
@@ -39,9 +39,9 @@ class Solution:
                 if d == 0:
                     p = (p + n + a) % n
                 else:
-                    p = (p+n-a) % n
+                    p = (p + n - a) % n
             ret = s[p:] + s[:p]
-            return ''.join(ret)
+            return "".join(ret)
 
         return fxr()
 

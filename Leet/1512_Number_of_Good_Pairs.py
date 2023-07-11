@@ -1,7 +1,7 @@
-'''
+"""
 Google tag
 tag: Easy
-'''
+"""
 
 from collections import Counter
 from typing import List

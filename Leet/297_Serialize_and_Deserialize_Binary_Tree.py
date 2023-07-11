@@ -37,7 +37,9 @@ class Codec:
         if not root:
             return "x"
         else:
-            return ",".join([str(root.val), self.serialize(root.left), self.serialize(root.right)])
+            return ",".join(
+                [str(root.val), self.serialize(root.left), self.serialize(root.right)]
+            )
 
     def deserialize(self, data):
         def dfs():
@@ -71,7 +73,9 @@ class Codec_Pre_Order_SelfData:
         if not root:
             return "x"
         else:
-            return ",".join([str(root.val), self.serialize(root.left), self.serialize(root.right)])
+            return ",".join(
+                [str(root.val), self.serialize(root.left), self.serialize(root.right)]
+            )
 
     def deserialize(self, data):
         """Decodes your encoded data to tree."""

@@ -1,15 +1,15 @@
-'''
+"""
 Weekly Special (Nov 22)
 
 ✅ GOOD Data Structure Design
 
 Lookback:
 - OrderedDict, next(iter(od))
-'''
+"""
 
+from collections import OrderedDict, deque
 from email.policy import default
 from typing import List
-from collections import deque, OrderedDict
 
 
 class ListNode:
@@ -23,7 +23,7 @@ d = {1: None, 3: None, 5: None}
 it = iter(d)
 
 for i in range(5):
-    v = next(it, 'EOF')
+    v = next(it, "EOF")
     print(i, v)
 
 
@@ -35,6 +35,7 @@ class FirstUnique:
     Runtime: 1765 ms, faster than 12.33% of Python3 online submissions for First Unique Number.
 
     """
+
     def __init__(self, nums: List[int]):
         self.q = OrderedDict()
         self.is_uniq = {}
@@ -73,6 +74,7 @@ class FirstUnique_os_dict:
 
     M: O(N)
     """
+
     def __init__(self, nums=List[int]) -> None:
         self.q = deque(nums)
         self.is_uniq = {}
@@ -107,6 +109,7 @@ class FirstUnique_fxr_complicate:
 
     AC in 2nd.
     """
+
     def _dedup(self, v):
         if v in self.uniq:
             self.uniq.remove(v)

@@ -70,6 +70,10 @@ class Solution:
         return fxr()
 
 
-root = TreeNode(5, left=TreeNode(5, left=TreeNode(5), right=TreeNode(5)), right=TreeNode(5, right=TreeNode(5)))
+root = TreeNode(
+    5,
+    left=TreeNode(5, left=TreeNode(5), right=TreeNode(5)),
+    right=TreeNode(5, right=TreeNode(5)),
+)
 sl = Solution()
 print(sl.longestUnivaluePath(root))

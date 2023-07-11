@@ -1,4 +1,4 @@
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 
 class Example:
@@ -46,8 +46,7 @@ class Heap:
         heappush(self.minheap, (val, index))
 
     def _lazy_deletion(self):
-        """internal method to improve default heap as binary heap
-        """
+        """internal method to improve default heap as binary heap"""
         while self.minheap and self.minheap[0][1] in self.deleted_set:
             heappop(self.minheap)
 

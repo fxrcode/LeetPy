@@ -1,11 +1,11 @@
-'''
+"""
 Jingying Mock (Dec 9, 2021)
 Q1
 
 ✅ GOOD Backtrack (actually NEVER backtrack due to property)
 💡insight M-Coloring Problem, given constraint (M=4 and max degree = 3)
 
-'''
+"""
 
 
 from turtle import reset
@@ -64,11 +64,11 @@ class Solution:
             def bt(u):
                 if u == N:
                     return True
-                for c in range(1, 4+1):
+                for c in range(1, 4 + 1):
                     if valid(u, c):
                         res[u] = c
                         # XXX: first time seeing linear type recursion, actually still regular recursion, just neighbor = n+1
-                        if bt(u+1):
+                        if bt(u + 1):
                             return True
                         res[u] = 0
                 return False

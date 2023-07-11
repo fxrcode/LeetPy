@@ -1,5 +1,5 @@
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -17,15 +17,15 @@ class Solution:
             for j in range(i, len(s)):
                 op = s[j]
                 dx, dy = 0, 0
-                if op == 'L':
+                if op == "L":
                     dx, dy = 0, -1
-                elif op == 'R':
+                elif op == "R":
                     dx, dy = 0, 1
-                elif op == 'U':
+                elif op == "U":
                     dx, dy = -1, 0
                 else:
                     dx, dy = 1, 0
-                x, y = x+dx, y+dy
+                x, y = x + dx, y + dy
                 if 0 <= x < n and 0 <= y < n:
                     ans[i] += 1
                 else:
@@ -39,27 +39,26 @@ class Solution:
         d = defaultdict(set)
         for i, n in enumerate(arr):
             d[n].add(i)
-        ans = [0]*len(arr)
+        ans = [0] * len(arr)
         for n in d:
             diffs = list(d[n])
             for i in d[n]:
-
                 ans[i] = sum(diffs)
         return ans
 
     def recoverArray(self, nums: List[int]) -> List[int]:
         snums = sorted(list(set(nums)))
         mn_mx = min(snums) + max(snums)
-        kmax = (max(snums)-min(snums))//2
+        kmax = (max(snums) - min(snums)) // 2
         mn_mn = min(snums) + 1
         mx_mx = max(snums) - kmax
-        N = len(nums)//2
+        N = len(nums) // 2
         ans = []
 
         for k in range(1, kmax):
-            for v in range(mn_mn, mx_mx+1):
-                for i in range(-(N-1), (N+1)):
-                    n = v + k*i
+            for v in range(mn_mn, mx_mx + 1):
+                for i in range(-(N - 1), (N + 1)):
+                    n = v + k * i
                     if n < mn_mn or n > mx_mx:
                         break
                     if n not in snums:

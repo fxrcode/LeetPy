@@ -1,11 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
+
 """
 The read4 API is already defined for you.
 
@@ -36,37 +37,37 @@ class Solution:
 
             This is more clean clean
             """
-            buf4 = ['']*4
+            buf4 = [""] * 4
             copied = 0
             while copied < n:
                 got = read4(buf4)
                 if got == 0:
                     break
-                got = min(got, n-copied)
+                got = min(got, n - copied)
                 # can copy short list to long list, no need ending for long, since it'll copy len(got)
                 buf[copied:] = buf4[:got]
                 copied += got
             return copied
 
         def fxr():
-            '''
+            """
             Runtime: 28 ms, faster than 87.95% of Python3 online submissions for Read N Characters Given Read4.
             AC in 1.
             But took some time to handle edge case.
-            '''
-            buf4 = [0]*4
+            """
+            buf4 = [0] * 4
 
-            chunks = n//4 + (1 if n % 4 else 0)
+            chunks = n // 4 + (1 if n % 4 else 0)
             actual = 0
             for c in range(chunks):
                 l = read4(buf4)
                 if l == 0:
                     break
-                if c*4+l > n:
-                    buf[c*4:n] = buf4[:n-c*4]
+                if c * 4 + l > n:
+                    buf[c * 4 : n] = buf4[: n - c * 4]
                     actual = n
                     break
                 else:
-                    buf[c*4:c*4+l] = buf4[:l]
+                    buf[c * 4 : c * 4 + l] = buf4[:l]
                     actual += l
             return actual

@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/binary-search/125/template-i/950/
 Leetcode Explore: Binary Search - Template I
 
 Given a non-negative integer x, compute and return the square root of x.
-'''
+"""
 
 
 class Solution:

@@ -12,7 +12,9 @@ from typing import List
 
 
 class Solution:
-    def findReplaceString(self, s: str, indices: List[int], sources: List[str], targets: List[str]) -> str:
+    def findReplaceString(
+        self, s: str, indices: List[int], sources: List[str], targets: List[str]
+    ) -> str:
         def lee215():
             """
             Runtime: 42 ms, faster than 77.50% of Python3 online submissions for Find And Replace in String.
@@ -56,7 +58,19 @@ class Solution:
 
 
 sl = Solution()
-print(sl.findReplaceString(s="abcd", indices=[0, 2], sources=["a", "cd"], targets=["eee", "ffff"]))
-print(sl.findReplaceString(s="abcd", indices=[0, 2], sources=["ab", "ec"], targets=["eee", "ffff"]))
-print(sl.findReplaceString("vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"]))
+print(
+    sl.findReplaceString(
+        s="abcd", indices=[0, 2], sources=["a", "cd"], targets=["eee", "ffff"]
+    )
+)
+print(
+    sl.findReplaceString(
+        s="abcd", indices=[0, 2], sources=["ab", "ec"], targets=["eee", "ffff"]
+    )
+)
+print(
+    sl.findReplaceString(
+        "vmokgggqzp", [3, 5, 1], ["kg", "ggq", "mo"], ["s", "so", "bfr"]
+    )
+)
 print(sl.findReplaceString("abcde", [2, 2], ["cdef", "bc"], ["f", "fe"]))

@@ -1,17 +1,17 @@
-'''
+"""
 WC 276
-'''
+"""
 from collections import defaultdict, deque
-from typing import List
 from functools import cache
 from heapq import heapify, heappop, heappush
+from typing import List
 
 
 class Solution:
     def divideString(self, s: str, k: int, fill: str) -> List[str]:
         ans = []
         for i in range(0, len(s), k):
-            ans.append(s[i:i + k])
+            ans.append(s[i : i + k])
         if len(ans[-1]) < k:
             ans[-1] += fill * (k - len(ans[-1]))
         return ans
@@ -59,8 +59,7 @@ class Solution:
         def dp(i):
             if i >= len(questions):
                 return 0
-            return max(dp(i + 1),
-                       dp(i + questions[i][1] + 1) + questions[i][0])
+            return max(dp(i + 1), dp(i + questions[i][1] + 1) + questions[i][0])
 
         return dp(0)
 
@@ -68,6 +67,7 @@ class Solution:
         """
         Failed in 12, [11, 89, 16, 32, 70, 67, 35, 35, 31, 24, 41, 29, 6, 53, 78, 83]
         """
+
         def mx_push(pq, v):
             heappush(pq, -v)
 
@@ -115,5 +115,5 @@ sl = Solution()
 # print(sl.maxRunTime(n=2, batteries=[3, 3, 3]))
 # print(sl.maxRunTime(n=2, batteries=[1, 1, 1, 1]))
 print(
-    sl.maxRunTime(
-        12, [11, 89, 16, 32, 70, 67, 35, 35, 31, 24, 41, 29, 6, 53, 78, 83]))
+    sl.maxRunTime(12, [11, 89, 16, 32, 70, 67, 35, 35, 31, 24, 41, 29, 6, 53, 78, 83])
+)

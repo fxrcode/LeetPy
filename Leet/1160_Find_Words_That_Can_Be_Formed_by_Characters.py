@@ -6,8 +6,8 @@ Must Do Easy Questions
 """
 
 
-from typing import List
 from collections import Counter
+from typing import List
 
 
 class Solution:
@@ -32,10 +32,10 @@ class Solution:
                     # The else clause executes after the loop completes normally. book.pythontips.com
                     ans += len(word)
             return ans
+
         return fxr_brute()
 
 
 sl = Solution()
 print(sl.countCharacters(words=["cat", "bt", "hat", "tree"], chars="atach"))
-print(sl.countCharacters(
-    words=["hello", "world", "leetcode"], chars="welldonehoneyr"))
+print(sl.countCharacters(words=["hello", "world", "leetcode"], chars="welldonehoneyr"))

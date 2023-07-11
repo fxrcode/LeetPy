@@ -23,5 +23,9 @@ class Solution:
 
 
 sl = Solution()
-print(sl.destCity(paths=[["London", "New York"], ["New York", "Lima"], ["Lima", "Sao Paulo"]]))
+print(
+    sl.destCity(
+        paths=[["London", "New York"], ["New York", "Lima"], ["Lima", "Sao Paulo"]]
+    )
+)
 print(sl.destCity(paths=[["B", "C"], ["D", "B"], ["C", "A"]]))

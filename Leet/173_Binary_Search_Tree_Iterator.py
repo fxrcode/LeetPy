@@ -78,7 +78,9 @@ class BSTIterator_pochmann:
 # Your BSTIterator object will be instantiated and called as such:
 
 
-root = TreeNode(7, left=TreeNode(3), right=TreeNode(15, left=TreeNode(9), right=TreeNode(20)))
+root = TreeNode(
+    7, left=TreeNode(3), right=TreeNode(15, left=TreeNode(9), right=TreeNode(20))
+)
 obj = BSTIterator(root)
 n1 = obj.next()
 hn1 = obj.hasNext()

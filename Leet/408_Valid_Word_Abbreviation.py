@@ -20,7 +20,7 @@ class Solution:
             i, num = 0, 0
             for j, ch in enumerate(abbr):
                 if ch.isdigit():
-                    if num == 0 and ch == '0':
+                    if num == 0 and ch == "0":
                         return False
                     num = num * 10 + int(ch)
                 else:
@@ -31,7 +31,7 @@ class Solution:
             return (i + num) == len(word)
 
         return sgxu79()
-        '''
+        """
         def fxr():
             i, j = 0, 0
             k = 0
@@ -53,7 +53,7 @@ class Solution:
                     first = False
                 i += 1
             return j + k == len(word)
-        '''
+        """
 
 
 sl = Solution()

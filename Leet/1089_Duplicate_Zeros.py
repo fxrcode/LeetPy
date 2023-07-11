@@ -1,10 +1,10 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3245/
 Leetcode explore: Array 101
 Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the remaining elements to the right.
 
 XXX: many similar questions of in-place shifting values in array. Common use of 2 pointers.
-'''
+"""
 
 
 from typing import List
@@ -18,14 +18,14 @@ class Solution:
         """
         zeros = arr.count(0)
         n = len(arr)
-        for i in range(n-1, -1, -1):
+        for i in range(n - 1, -1, -1):
             if i + zeros < n:
-                arr[i+zeros] = arr[i]
+                arr[i + zeros] = arr[i]
             if arr[i] == 0:
                 zeros -= 1
                 if i + zeros < n:
                     # XXX: move non-zero 1 time, and zero twice because we need duplicate zeros
-                    arr[i+zeros] = 0
+                    arr[i + zeros] = 0
 
     def duplicateZeros_fxr(self, arr: List[int]) -> None:
         """
@@ -35,7 +35,7 @@ class Solution:
         N = len(arr)
         zeros = 0
 
-        i = N-1
+        i = N - 1
         while i >= 0 and arr[i] == 0:
             i -= 1
         if i == -1:

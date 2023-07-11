@@ -1,10 +1,10 @@
-'''
+"""
 tag: Probability, Medium
 
 [ ] REDO
-'''
-from math import ceil
+"""
 from functools import cache
+from math import ceil
 
 
 class Solution:
@@ -19,15 +19,24 @@ class Solution:
               f(a-4,b) means that we take the first operation: Serve 100 ml of soup A and 0 ml of soup B.
               f(a-3,b-1), f(a-2,b-2), f(a-1,b-3) are other 3 operations.
             """
+
             @cache
             def dp(a, b):
-                if a <= 0 and b > 0: return 1
-                elif a <= 0 and b <= 0: return 0.5
-                elif a > 0 and b <= 0: return 0
-                return 0.25*(dp(a - 4, b) + dp(a - 3, b - 1) + dp(a - 2, b - 2) \
-                    + dp(a-1,b-3))
+                if a <= 0 and b > 0:
+                    return 1
+                elif a <= 0 and b <= 0:
+                    return 0.5
+                elif a > 0 and b <= 0:
+                    return 0
+                return 0.25 * (
+                    dp(a - 4, b)
+                    + dp(a - 3, b - 1)
+                    + dp(a - 2, b - 2)
+                    + dp(a - 1, b - 3)
+                )
 
-            if n > 5000: return 1
+            if n > 5000:
+                return 1
             n = ceil(n / 25)
             return dp(n, n)
 

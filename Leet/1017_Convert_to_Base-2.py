@@ -1,8 +1,8 @@
-'''
+"""
 ✅ GOOD Logic
 tag: Math, Medium
 [ ] REDO
-'''
+"""
 
 
 class Solution:
@@ -17,7 +17,7 @@ class Solution:
             while x:
                 res.append(x & 1)
                 x = -(x >> 1)
-            return ''.join(map(str, res[::-1] or [0]))
+            return "".join(map(str, res[::-1] or [0]))
 
         return lee215()
 

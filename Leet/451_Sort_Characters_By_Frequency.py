@@ -1,7 +1,7 @@
-'''
+"""
 ✅ GOOD Bucket Sort
 FB tag (Medium)
-'''
+"""
 from collections import Counter, defaultdict
 
 
@@ -27,7 +27,7 @@ class Solution:
                     continue
                 for c in buckets[b_size]:
                     sb.append(c * b_size)
-            return ''.join(sb)
+            return "".join(sb)
 
         def os_mostcommon():
             """
@@ -39,7 +39,7 @@ class Solution:
             sb = []
             for c, f in cnt.most_common():
                 sb.append(c * f)
-            return ''.join(sb)
+            return "".join(sb)
 
         def fxr():
             """
@@ -51,10 +51,10 @@ class Solution:
             ans = []
             for k, v in sorted(cnt.items(), key=lambda cf: (-cf[1], cf[0])):
                 ans += [k] * v
-            return ''.join(ans)
+            return "".join(ans)
 
         fxr()
 
 
 sl = Solution()
-print(sl.frequencySort(s='tree'))
+print(sl.frequencySort(s="tree"))

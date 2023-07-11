@@ -82,5 +82,9 @@ class Solution:
 
 
 sl = Solution()
-print(sl.countNegatives(G=[[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]]))
+print(
+    sl.countNegatives(
+        G=[[4, 3, 2, -1], [3, 2, 1, -1], [1, 1, -1, -2], [-1, -1, -2, -3]]
+    )
+)
 print(sl.countNegatives([[3, 2], [1, 0]]))

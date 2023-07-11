@@ -1,4 +1,4 @@
-'''
+"""
 Daily Challenge (Feb 8, 2022)
 tag: Medium
 
@@ -7,11 +7,11 @@ Lookback:
 - need practice more on 2pointer logic: eg. 1996, 1909, etc
 
 [ ] REDO: 2ptr
-'''
+"""
 
+from bisect import bisect_right
 from collections import Counter
 from typing import List
-from bisect import bisect_right
 
 
 class Solution:
@@ -20,11 +20,11 @@ class Solution:
             """
             Runtime: 104 ms, faster than 54.35% of Python3 online submissions for K-diff Pairs in an Array.
 
-            XXX: so good in logic. 
-            core idea is sliding window: expand if y-x < k, contract y-x>k. 
+            XXX: so good in logic.
+            core idea is sliding window: expand if y-x < k, contract y-x>k.
             Careful on y-x=k, and how to prevent count duplicates
-            
-            T: O(nlogn), M: O(1)            
+
+            T: O(nlogn), M: O(1)
             """
             nums.sort()
             l, r = 0, 1

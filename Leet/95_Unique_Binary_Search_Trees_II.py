@@ -21,6 +21,7 @@ class Solution:
         """[summary]
         Runtime: 83 ms, faster than 32.91% of Python3 online submissions for Unique Binary Search Trees II.
         """
+
         def recur(start, end) -> List[Optional[TreeNode]]:
             if start > end:
                 # BUG: return []
@@ -34,10 +35,10 @@ class Solution:
             # if start == end:
             #     return [TreeNode(start)]
             res = []
-            for v in range(start, end+1):
+            for v in range(start, end + 1):
                 # BUG: root = TreeNode(v)
-                res_l = recur(start, v-1)
-                res_r = recur(v+1, end)
+                res_l = recur(start, v - 1)
+                res_r = recur(v + 1, end)
                 for rl in res_l:  # inner loop
                     for rr in res_r:
                         root = TreeNode(v)

@@ -1,11 +1,11 @@
-'''
+"""
 https://github.com/stevenhalim/cpbook-code/blob/master/ch4/traversal/UVa11838.py
 usage: 1192. Critical Connections in a Network
 
 
 ✅ GOOD Graph (SCC, fancy DFS)
 💡insight
-'''
+"""
 
 import sys
 
@@ -55,16 +55,16 @@ def tarjanSCC(u):
                 break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # graph by: https://www.bilibili.com/video/BV19J411J7AZ
-    with open('scc_in.txt') as f:
+    with open("scc_in.txt") as f:
         V, E, s = map(int, f.readline().split(" "))
         AL = [[] for u in range(V)]
         for _ in range(E):
             u, v = map(int, f.readline().split(" "))
             AL[u].append(v)
 
-        ''' run Tarjan's SCC code here '''
+        """ run Tarjan's SCC code here """
         dfn = [UNVISITED] * V
         low = [0] * V
         visited = [False] * V

@@ -1,8 +1,8 @@
-'''
+"""
 Weekly Contest 275 (Jan 8, 2022)
-'''
-from typing import List
+"""
 from string import ascii_lowercase
+from typing import List
 
 
 class Solution:
@@ -17,11 +17,11 @@ class Solution:
             for s in startWords:
                 for c in ascii_lowercase:
                     if c not in s:
-                        start.add(''.join(sorted(s + c)))
+                        start.add("".join(sorted(s + c)))
 
             can = 0
             for t in targetWords:
-                st = ''.join(sorted(t))
+                st = "".join(sorted(t))
                 if st in start:
                     can += 1
                     print(t)
@@ -32,7 +32,7 @@ class Solution:
 
 sl = Solution()
 print(
-    sl.wordCount(startWords=["ant", "act", "tack"],
-                 targetWords=["tack", "act", "acti"]))
+    sl.wordCount(startWords=["ant", "act", "tack"], targetWords=["tack", "act", "acti"])
+)
 
 print(sl.wordCount(startWords=["ab", "a"], targetWords=["abc", "abcd"]))

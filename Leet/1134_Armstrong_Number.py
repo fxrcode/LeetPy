@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 from math import log10
+from typing import List
 
 
 class Solution:
@@ -18,7 +18,7 @@ class Solution:
             T: O(n), M: O(1)
             """
             nonlocal n
-            k = int(log10(n))+1
+            k = int(log10(n)) + 1
             result = 0
             v = n
             while n:

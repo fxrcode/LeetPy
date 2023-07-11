@@ -1,7 +1,7 @@
-'''
+"""
 💡insight (logic)
 Tag: Brainteaser, Medium
-'''
+"""
 
 
 class Solution:

@@ -1,10 +1,10 @@
-'''
+"""
 FB tag
 tag: Medium, DFS
-'''
+"""
 
-from typing import List
 from heapq import merge
+from typing import List
 
 
 class TreeNode:
@@ -56,6 +56,7 @@ class Solution:
             https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/829720/Python-O(n1-%2B-n2)-inorder-traversal-explained
             T: O(N+M)
             """
+
             def ino(r: TreeNode, lst: list[int]):
                 if r:
                     ino(r.left, lst)
@@ -86,6 +87,7 @@ class Solution:
 
             https://leetcode.com/problems/all-elements-in-two-binary-search-trees/discuss/464167/Why-is-Python-generator-based-inorder-traversal-so-slow
             """
+
             def it(r: TreeNode):
                 if r:
                     yield from it(r.left)

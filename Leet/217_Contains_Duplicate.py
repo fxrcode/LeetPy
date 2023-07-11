@@ -1,14 +1,14 @@
-'''
+"""
 
 https://leetcode.com/explore/learn/card/hash-table/183/combination-with-other-algorithms/1112/
 Leetcode Explore: Hash Table. Practical Application - HashSet
 
 
 tag: Pigeonhole (check 164. Maximum Gap)
-'''
+"""
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:

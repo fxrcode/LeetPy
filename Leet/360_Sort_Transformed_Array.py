@@ -14,7 +14,9 @@ from typing import List
 
 
 class Solution:
-    def sortTransformedArray(self, nums: List[int], a: int, b: int, c: int) -> List[int]:
+    def sortTransformedArray(
+        self, nums: List[int], a: int, b: int, c: int
+    ) -> List[int]:
         def idontknoooo():
             """
             Runtime: 61 ms, faster than 51.25% of Python3 online submissions for Sort Transformed Array.

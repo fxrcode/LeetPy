@@ -1,7 +1,7 @@
-'''
+"""
 ✅ GOOD Recursion
 tag: medium, hash, PegionHole, recursion
-'''
+"""
 
 from typing import List
 
@@ -16,10 +16,11 @@ class Solution:
 
             T: O(K*min(N,2^K))  # K = #cells (in this problem K=8)
             """
+
             def nxt(C):
-                '''
+                """
                 XXX: must output to new list, cuz in-place change will re-change changed states!
-                '''
+                """
                 res = [0] * 8
                 for i in range(1, 7):
                     res[i] = int(C[i - 1] == C[i + 1])
@@ -42,7 +43,7 @@ class Solution:
             return prison_after_days(cells, n)
 
         return dbabichev()
-        '''
+        """
         def fxr_WA():
             def nxt(C):
                 for i in range(1, 7):
@@ -57,7 +58,7 @@ class Solution:
             return cells
 
         return fxr_WA()
-        '''
+        """
 
 
 sl = Solution()

@@ -10,7 +10,9 @@ from typing import List
 
 
 class Solution:
-    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
+    def jobScheduling(
+        self, startTime: List[int], endTime: List[int], profit: List[int]
+    ) -> int:
         def hiepit_dp():
             """
             Runtime: 540 ms, faster than 94.64% of Python3 online submissions for Maximum Profit in Job Scheduling.
@@ -36,4 +38,8 @@ class Solution:
 
 
 sl = Solution()
-print(sl.jobScheduling(startTime=[1, 2, 3, 3], endTime=[3, 4, 5, 6], profit=[50, 10, 40, 70]))
+print(
+    sl.jobScheduling(
+        startTime=[1, 2, 3, 3], endTime=[3, 4, 5, 6], profit=[50, 10, 40, 70]
+    )
+)

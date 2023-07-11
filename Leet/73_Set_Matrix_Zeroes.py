@@ -14,6 +14,7 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+
         def fxr():
             """
             Runtime: 124 ms, faster than 92.61% of Python3 online submissions for Set Matrix Zeroes.
@@ -21,7 +22,7 @@ class Solution:
             T: O(m+n), M: O(mn)
             """
             m, n = len(mat), len(mat[0])
-            M, N = [0]*m, [0]*n
+            M, N = [0] * m, [0] * n
             for r in range(m):
                 for c in range(n):
                     if mat[r][c] == 0:

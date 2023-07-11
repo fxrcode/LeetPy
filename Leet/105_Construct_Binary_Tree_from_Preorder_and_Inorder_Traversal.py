@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/data-structure-tree/133/conclusion/943/
 Leetcode explore Binary Tree: Conclusion
 
 Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
-'''
+"""
 
 # Definition for a binary tree node.
 
@@ -37,9 +37,9 @@ class Solution:
             root = TreeNode(rootV)
             iroot_idx = self.inV2I[rootV]
             nums_left = iroot_idx - il
-            root.left = bottom_up(pl+1, pl+nums_left, il, iroot_idx-1)
-            root.right = bottom_up(pl+nums_left+1, pr, iroot_idx+1, ir)
+            root.left = bottom_up(pl + 1, pl + nums_left, il, iroot_idx - 1)
+            root.right = bottom_up(pl + nums_left + 1, pr, iroot_idx + 1, ir)
             return root
             # recur
 
-        return bottom_up(0, len(preorder)-1, 0, len(inorder)-1)
+        return bottom_up(0, len(preorder) - 1, 0, len(inorder) - 1)

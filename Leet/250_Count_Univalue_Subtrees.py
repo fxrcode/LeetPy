@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.libaoj.in/count-univalue-subtrees.html
 https://leetcode.com/problems/count-univalue-subtrees/
 https://www.lintcode.com/problem/921/description
@@ -29,10 +29,11 @@ Explanation:
             3   2
            / \   \
           4   5   6
-'''
+"""
 
 # Definition of TreeNode:
 from typing import Tuple
+
 from Util import *
 
 
@@ -79,7 +80,7 @@ class Solution:
             return 0
         isuni(root)
         return self.cnt
-        '''
+        """
         def dfs_fxr_WA(cur: TreeNode) -> int:
             # XXX: One month later (Oct 13), I had the same wrong thought!
             # XXX: takeaway: needs review according to Forgetting curve!
@@ -102,7 +103,7 @@ class Solution:
                     cnt_cur += 1
 
             return cnt_cur
-        '''
+        """
 
     def countUnivalSubtrees_CS_Dojo(self, root: TreeNode):
         self.count = 0
@@ -118,11 +119,9 @@ class Solution:
 
             is_uni = True
             if root.left:
-                is_uni = bottom_up(root.left) and is_uni \
-                    and root.left.val == root.val
+                is_uni = bottom_up(root.left) and is_uni and root.left.val == root.val
             if root.right:
-                is_uni = bottom_up(root.right) and is_uni \
-                    and root.right.val == root.val
+                is_uni = bottom_up(root.right) and is_uni and root.right.val == root.val
             self.count += is_uni
             return is_uni
 
@@ -155,7 +154,7 @@ class Solution:
 
         total_count, is_uni = cs_dojo(root)
         return total_count
-        '''
+        """
         BUG: fxr: my init implement, passed 83% test cases
         for t2, my output = 41, but expected 38
         because the logic is wrong: I simply check left/right child, but not left/right subtree for unival check of root!
@@ -182,12 +181,12 @@ class Solution:
                 if lr.val == root.val:
                     cnt += 1
             return cnt
-        '''
+        """
 
 
 sl = Solution()
 
-t1 = '5,1,5,5,5,#,5'
+t1 = "5,1,5,5,5,#,5"
 # t2 = '1,1,-1,1,1,1,1,1,1,1,1,1,1,1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,-1'
 for t in [t1]:
     root = Util.deserialize(t)

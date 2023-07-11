@@ -1,13 +1,13 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
 ✅ GOOD 基本功
-'''
+"""
 
 
-from typing import List
 from collections import Counter
+from typing import List
 
 
 class Solution:
@@ -36,10 +36,10 @@ class Solution:
             i = 0
             while i < len(nums):
                 # return if there's no duplicate
-                if i == len(nums)-1 or nums[i] != nums[i+1]:
+                if i == len(nums) - 1 or nums[i] != nums[i + 1]:
                     return nums[i]
                 # while duplicate exists
-                while i < len(nums)-1 and nums[i] == nums[i+1]:
+                while i < len(nums) - 1 and nums[i] == nums[i + 1]:
                     i += 1
                 # loop invariant: i always point to next unique or out of range
                 i += 1
@@ -57,7 +57,7 @@ class Solution:
             while i < len(nums):
                 while j < len(nums) and nums[j] == ans:
                     j += 1
-                if j-i == 1:
+                if j - i == 1:
                     return ans
                 if j == len(nums):
                     return -1

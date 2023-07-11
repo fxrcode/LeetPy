@@ -1,15 +1,14 @@
-'''
+"""
 tag: easy, DFS, BST
 Lookback:
 - similar to 847. shortest path visiting all nodes?
 - BST dfs trick: low/hi bound.
-'''
+"""
 
 from typing import Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -17,9 +16,7 @@ class TreeNode:
 
 
 class Solution:
-
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-
         def leetcoder289():
             """
             Runtime: 75 ms, faster than 57.45% of Python3 online submissions for Minimum Absolute Difference in BST.
@@ -52,11 +49,11 @@ class Solution:
                 if r.left:
                     ino(r.left)
                 nonlocal pre, mn
-                '''
+                """
                 WA: 187 / 188 test cases passed. [0,null,2236,1277,2776,519]. Expected: 519. Output: 540.
                 BUG: fail for pre == 0!
                 if pre: 
-                '''
+                """
                 if pre is not None:
                     mn = min(mn, r.val - pre)
                 pre = r.val

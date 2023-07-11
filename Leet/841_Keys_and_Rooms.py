@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Implicit DFS
 
 https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1391/
@@ -9,7 +9,7 @@ When you visit a room, you may find a set of distinct keys in it. Each key has a
 
 Given an array rooms where rooms[i] is the set of keys that you can obtain if you visited room i, return true if you can visit all the rooms, or false otherwise.
 
-'''
+"""
 
 
 from typing import List

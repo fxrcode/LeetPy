@@ -7,7 +7,6 @@ TODO [ ] iterative
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -15,9 +14,7 @@ class TreeNode:
 
 
 class Solution:
-
     def invertTree(self, root: TreeNode) -> TreeNode:
-
         def dfs(r: TreeNode) -> TreeNode:
             """
             Runtime: 57 ms, faster than 16.45% of Python3 online submissions for Invert Binary Tree.

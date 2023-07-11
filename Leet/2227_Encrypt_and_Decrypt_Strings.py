@@ -89,6 +89,10 @@ class Encrypter_TLE:
         return res
 """
 
-codec = Encrypter(keys=["a", "b", "c", "d"], values=["ei", "zf", "ei", "am"], dictionary=["abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"])
+codec = Encrypter(
+    keys=["a", "b", "c", "d"],
+    values=["ei", "zf", "ei", "am"],
+    dictionary=["abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"],
+)
 print(codec.encrypt("abcd"))
 print(codec.decrypt("eizfeiam"))

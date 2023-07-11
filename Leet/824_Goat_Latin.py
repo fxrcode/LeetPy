@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (6mo)
-'''
+"""
 
 
 class Solution:
@@ -8,13 +8,14 @@ class Solution:
         """
         learn lee215's good coding style
         """
-        vowal = set('aeiouAEIOU')
+        vowal = set("aeiouAEIOU")
 
         def latin(w, i):
             if w[0] not in vowal:
                 w = w[1:] + w[0]
-            return w + 'ma' + 'a' * (i+1)
-        return ' '.join(latin(w, i) for i, w in enumerate(sentence.split()))
+            return w + "ma" + "a" * (i + 1)
+
+        return " ".join(latin(w, i) for i, w in enumerate(sentence.split()))
 
 
 sl = Solution()

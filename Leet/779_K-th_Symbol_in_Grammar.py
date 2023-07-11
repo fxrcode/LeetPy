@@ -18,15 +18,15 @@ class Solution:
         """
         if n == 1 and k == 1:
             return 0
-        prev = self.kthGrammar(n-1, (k+1)//2)  # prev 0,1
+        prev = self.kthGrammar(n - 1, (k + 1) // 2)  # prev 0,1
         if k % 2:
             i = 0
         else:
             i = 1
         if prev == 0:
-            return int('01'[i])
+            return int("01"[i])
         else:
-            return int('10'[i])
+            return int("10"[i])
 
     # TODO: lee215's math solution
 

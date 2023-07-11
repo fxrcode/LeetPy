@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3228/
 leetcode explore: Array 101. Conclusion
 A school is trying to take an annual photo of all the students. The students are asked to stand in a single file line in non-decreasing order by height. Let this ordering be represented by the integer array expected where expected[i] is the expected height of the ith student in line.
@@ -6,7 +6,7 @@ A school is trying to take an annual photo of all the students. The students are
 You are given an integer array heights representing the current order that the students are standing in. Each heights[i] is the height of the ith student in line (0-indexed).
 
 Return the number of indices where heights[i] != expected[i].
-'''
+"""
 
 
 from typing import List
@@ -23,7 +23,7 @@ class Solution:
         XXX: The origin Counting Sort is : Frequency array, then prefix sum, and shift, to get the correct index, then loop arr reversely to put into output pos, then map[v]--.
         XXX: In here, we just use the counting sort idea, so we only check next bucket if current buckets #'s occurence met!
         """
-        map = [0]*101
+        map = [0] * 101
         for h in heights:
             map[h] += 1
 
@@ -73,11 +73,11 @@ class Solution:
         # Change count[i] so that count[i] now contains actual
         # position of this character in output array
         for i in range(256):
-            count[i] += count[i-1]
+            count[i] += count[i - 1]
 
         # Build the output character array
         for i in range(len(arr)):
-            output[count[ord(arr[i])]-1] = arr[i]
+            output[count[ord(arr[i])] - 1] = arr[i]
             count[ord(arr[i])] -= 1
 
         # Copy the output array to arr, so that arr now

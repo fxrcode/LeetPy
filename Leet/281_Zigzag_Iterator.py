@@ -1,5 +1,5 @@
-from typing import List
 from collections import deque
+from typing import List
 
 
 class ZigzagIterator(object):
@@ -8,6 +8,7 @@ class ZigzagIterator(object):
     Runtime: 68 ms, faster than 22.37% of Python3 online submissions for Zigzag Iterator.
 
     """
+
     def __init__(self, v1, v2):
         self.data = [(len(v), iter(v)) for v in (v1, v2) if v]
 
@@ -25,6 +26,7 @@ class ZigzagIterator_fxr:
     """
     Can't handle after last number
     """
+
     def __init__(self, v1: List[int], v2: List[int]):
         self.its = deque([iter(v1), iter(v2)])
         self.still = True
@@ -53,6 +55,7 @@ class ZigzagIterator_MeiqiGuo:
     XXX: smart usage of deque popleft then append to make it circular!
     BAD: but it uses count so failed in stream iterator
     """
+
     def __init__(self, v1: List[int], v2: List[int]):
         self.v = [deque(v1), deque(v2)]
         self.vec_idx = deque(range(len(self.v)))

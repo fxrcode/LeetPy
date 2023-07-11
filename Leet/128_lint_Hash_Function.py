@@ -1,8 +1,8 @@
-'''
+"""
 https://www.lintcode.com/problem/128/description
 hash function is using 2 constant:
 radix = 33, hash_size = large int (1e6?)
-'''
+"""
 
 
 class Solution:

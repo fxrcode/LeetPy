@@ -37,30 +37,29 @@ def main():
         AL[u].append((v, w))
 
     # Bellman Ford's routine, basically = relax all E edges V-1 times
-    dist = [INF for u in range(V)]               # INF = 1e9 here
+    dist = [INF for u in range(V)]  # INF = 1e9 here
     dist[s] = 0
-    for i in range(0, V-1):                      # total O(V*E)
-        modified = False                         # optimization
-        for u in range(0, V):                    # these two loops = O(E)
-            if (not dist[u] == INF):             # important check
+    for i in range(0, V - 1):  # total O(V*E)
+        modified = False  # optimization
+        for u in range(0, V):  # these two loops = O(E)
+            if not dist[u] == INF:  # important check
                 for v, w in AL[u]:
-                    if (dist[u]+w >= dist[v]):
+                    if dist[u] + w >= dist[v]:
                         continue  # not improving, skip
-                    dist[v] = dist[u]+w          # relax operation
-                    modified = True              # optimization
-        if (not modified):
-            break                 # optimization
+                    dist[v] = dist[u] + w  # relax operation
+                    modified = True  # optimization
+        if not modified:
+            break  # optimization
 
     hasNegativeCycle = False
-    for u in range(0, V):                        # one more pass to check
-        if (not dist[u] == INF):
+    for u in range(0, V):  # one more pass to check
+        if not dist[u] == INF:
             for v, w in AL[u]:
-                if (dist[v] > dist[u] + w):      # should be false
-                    hasNegativeCycle = True      # if true => -ve cycle
-    print("Negative Cycle Exist? {}".format(
-        "Yes" if hasNegativeCycle else "No"))
+                if dist[v] > dist[u] + w:  # should be false
+                    hasNegativeCycle = True  # if true => -ve cycle
+    print("Negative Cycle Exist? {}".format("Yes" if hasNegativeCycle else "No"))
 
-    if (not hasNegativeCycle):
+    if not hasNegativeCycle:
         for u in range(0, V):
             print("SSSP({}, {}) = {}".format(s, u, dist[u]))
 

@@ -11,7 +11,9 @@ from typing import List
 
 
 class Solution:
-    def countRectangles(self, rectangles: List[List[int]], points: List[List[int]]) -> List[int]:
+    def countRectangles(
+        self, rectangles: List[List[int]], points: List[List[int]]
+    ) -> List[int]:
         def a13r1():
             """
             Runtime: 3690 ms, faster than 40.00% of Python3 online submissions for Count Number of Rectangles Containing Each Point.

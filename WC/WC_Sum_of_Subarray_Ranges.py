@@ -1,13 +1,13 @@
-'''
+"""
 Weekly Contest 271 (Dec 11, 2021)
 Only 2/4!
 TLE for this problem (Q2)
 
 Similar to leet #907
-'''
+"""
 
-from typing import List
 from heapq import heapify, heappop
+from typing import List
 
 # https://leetcode.com/discuss/interview-question/787180/segment-tree-implementation-python-range-query-min-max-sum-and-update-segment-tree
 
@@ -69,8 +69,7 @@ class SegmentTree:
         else:
             node = Node()
             mid = start + (end - start) // 2
-            node.left = self.construct_segment_tree(
-                array, start=start, end=mid)
+            node.left = self.construct_segment_tree(array, start=start, end=mid)
             node.right = self.construct_segment_tree(array, start=mid, end=end)
             if node.left is None and node.right is None:
                 node.sum = 0
@@ -110,11 +109,15 @@ class SegmentTree:
             head.sum = new_value
             array[index] = new_value
             return head
-        elif (head.leftEdge <= index <= head.rightEdge) and (head.rightEdge > head.leftEdge):
+        elif (head.leftEdge <= index <= head.rightEdge) and (
+            head.rightEdge > head.leftEdge
+        ):
             left_node = self.update_segment_tree(
-                head=head.left, index=index, new_value=new_value, array=array)
+                head=head.left, index=index, new_value=new_value, array=array
+            )
             right_node = self.update_segment_tree(
-                head=head.right, index=index, new_value=new_value, array=array)
+                head=head.right, index=index, new_value=new_value, array=array
+            )
             head.sum = right_node.sum + left_node.sum
             head.min = min(left_node.min, right_node.min)
             head.max = max(left_node.max, right_node.max)
@@ -134,8 +137,7 @@ class SegmentTree:
             return float("inf")
         elif overlap == self.partial_overlap:
             left_min = self.get_minimum(head=head.left, left=left, right=right)
-            right_min = self.get_minimum(
-                head=head.right, left=left, right=right)
+            right_min = self.get_minimum(head=head.right, left=left, right=right)
             return min(left_min, right_min)
 
     def get_maximum(self, head, left, right):
@@ -150,8 +152,7 @@ class SegmentTree:
             return float("-inf")
         elif overlap == self.partial_overlap:
             left_max = self.get_maximum(head=head.left, left=left, right=right)
-            right_max = self.get_maximum(
-                head=head.right, left=left, right=right)
+            right_max = self.get_maximum(head=head.right, left=left, right=right)
             return max(left_max, right_max)
 
     def get_sum(self, head, left, right):
@@ -172,8 +173,11 @@ class SegmentTree:
     def preorder_traversal(self, head, array):
         if head is None:
             return
-        print("Array = {} Min = {}, Max = {}, Sum = {}".format(array[head.leftEdge:head.rightEdge + 1], head.min,
-                                                               head.max, head.sum))
+        print(
+            "Array = {} Min = {}, Max = {}, Sum = {}".format(
+                array[head.leftEdge : head.rightEdge + 1], head.min, head.max, head.sum
+            )
+        )
         self.preorder_traversal(head=head.left, array=array)
         self.preorder_traversal(head=head.right, array=array)
 
@@ -192,7 +196,7 @@ class Solution:
                 for j in range(i, n):
                     l = min(l, A[j])
                     r = max(r, A[j])
-                res += r-l
+                res += r - l
             return res
 
         def fxr_XYZ123():
@@ -201,8 +205,8 @@ class Solution:
             """
             diff = []
             for i in range(0, len(A), step=2):
-                mn, mx = min(A[i], A[i+1]), max(A[i], A[i+1])
-                diff.append(mx-mn)
+                mn, mx = min(A[i], A[i + 1]), max(A[i], A[i + 1])
+                diff.append(mx - mn)
             heapify(diff)
             sm = 0
             while diff:
@@ -212,16 +216,16 @@ class Solution:
 
         def fxr_segment():
             st = SegmentTree()
-            root = st.construct_segment_tree(
-                array=A, start=0, end=len(A))
+            root = st.construct_segment_tree(array=A, start=0, end=len(A))
             sm = 0
-            for l in range(1, len(A)+1):
-                for i in range(0, len(A)-l+1):
+            for l in range(1, len(A) + 1):
+                for i in range(0, len(A) - l + 1):
                     # ran = nums[i:i+l]
                     # sm += max(ran) - min(ran)
-                    start, end = i, i+l-1
-                    sm += st.get_maximum(root, start, end) - \
-                        st.get_minimum(root, start, end)
+                    start, end = i, i + l - 1
+                    sm += st.get_maximum(root, start, end) - st.get_minimum(
+                        root, start, end
+                    )
             return sm
 
         def fxr_brute():
@@ -235,12 +239,13 @@ class Solution:
                     n = A[i]
                     mn = min(mn, n)
                     mx = max(mx, n)
-                return mx-mn
+                return mx - mn
+
             sm = 0
-            for l in range(1, len(A)+1):
-                for i in range(0, len(A)-l+1):
+            for l in range(1, len(A) + 1):
+                for i in range(0, len(A) - l + 1):
                     # ran = nums[i:i+l]
                     # sm += max(ran) - min(ran)
-                    start, end = i, i+l
+                    start, end = i, i + l
                     sm += mnmx(start, end)
             return sm

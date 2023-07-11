@@ -1,11 +1,11 @@
-'''
+"""
 tag: Brainteaser, Hard
 Similar: 1908. Game of Nim: Sprague-Grundy theorem
-'''
+"""
 
-from typing import List
-from operator import xor
 from functools import reduce
+from operator import xor
+from typing import List
 
 
 class Solution:

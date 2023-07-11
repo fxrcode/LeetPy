@@ -1,4 +1,4 @@
-'''
+"""
 
 ✅ GOOD Stack
 Amazon Top50
@@ -7,15 +7,13 @@ tag: Medium
 Lookback:
 + collision must occur right->left, so use Stack
 + coding detail logic
-'''
+"""
 
 from typing import List
 
 
 class Solution:
-
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-
         def os():
             """
             Runtime: 130 ms, faster than 41.27% of Python3 online submissions for Asteroid Collision.

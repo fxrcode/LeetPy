@@ -14,7 +14,9 @@ class ListNode:
 
 
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         def os1_reverse():
             """
             Runtime: 82 ms, faster than 71.96% of Python3 online submissions for Add Two Numbers II.

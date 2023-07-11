@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 10: DP on String
-'''
+"""
 
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -23,5 +23,5 @@ class Solution:
             for i in range(1, m):
                 for j in range(i):
                     if pairs[j][1] < pairs[i][0]:
-                        T[i] = max(T[i], T[j]+1)
+                        T[i] = max(T[i], T[j] + 1)
             return max(T.values)

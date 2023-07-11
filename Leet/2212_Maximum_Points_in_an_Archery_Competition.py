@@ -44,7 +44,11 @@ class Solution:
             # Backtrack
             # fxr: add parent state, REF: https://stackoverflow.com/questions/29447416/printing-the-path-traversed-in-a-dynamic-programming-solution
             while k < len(aliceArrows) and numArrows > 0:
-                if numArrows > aliceArrows[k] and dp(k + 1, numArrows - aliceArrows[k] - 1) + k > dp(k + 1, numArrows):  # If Bob win
+                if numArrows > aliceArrows[k] and dp(
+                    k + 1, numArrows - aliceArrows[k] - 1
+                ) + k > dp(
+                    k + 1, numArrows
+                ):  # If Bob win
                     par[(k, numArrows)] = (k + 1, numArrows - aliceArrows[k] - 1)
                     ans[k] = aliceArrows[k] + 1
                     numArrows -= aliceArrows[k] + 1
@@ -55,7 +59,9 @@ class Solution:
             remainArrows = orgNumArrows - sum(ans)
             for k in range(len(aliceArrows)):
                 if ans[k] > 0:
-                    ans[k] += remainArrows  # Distribute remain arrows to any section which Bob win -> No change in the result
+                    ans[
+                        k
+                    ] += remainArrows  # Distribute remain arrows to any section which Bob win -> No change in the result
                     break
 
             print(par)

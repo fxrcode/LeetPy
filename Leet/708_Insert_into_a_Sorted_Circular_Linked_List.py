@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/linked-list/213/conclusion/1226/
 Explore Linked List: Conclusion
 
 Given a Circular Linked List node, which is sorted in ascending order, write a function to insert a value insertVal into the list such that it remains a sorted circular list. The given node can be a reference to any single node in the list and may not necessarily be the smallest value in the circular list.
-'''
+"""
 # Definition for a Node.
 
 
@@ -14,7 +14,7 @@ class Node:
 
 
 class Solution:
-    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+    def insert(self, head: "Node", insertVal: int) -> "Node":
         """
         Your runtime beats 61.71 % of python3 submissions.
 
@@ -61,7 +61,7 @@ class Solution:
         prev.next = Node(insertVal, cur)
         return head
 
-    def insert_fxr_WA(self, head: 'Node', insertVal: int) -> 'Node':
+    def insert_fxr_WA(self, head: "Node", insertVal: int) -> "Node":
         """
         TLE for [1] <- 0
         """

@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/binary-search/146/more-practices-ii/1041/
 Leetcode Explore: Binary Search - More Practice II
 
@@ -30,10 +30,10 @@ Lastly here is a list of LeetCode problems that can be solved using the trial an
 668. Kth Smallest Number in Multiplication Table
 644. Maximum Average Subarray II
 378. Kth Smallest Element in a Sorted Matrix
-'''
+"""
 
+from heapq import heapify, heappop, heappush
 from typing import List
-from heapq import heapify, heappush, heappop
 
 
 class Solution:

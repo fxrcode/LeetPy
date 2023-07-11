@@ -33,6 +33,16 @@ class Solution:
 
 
 sl = Solution()
-print(sl.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"]))
-print(sl.countConsistentStrings(allowed="abc", words=["a", "b", "c", "ab", "ac", "bc", "abc"]))
-print(sl.countConsistentStrings(allowed="cad", words=["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"]))
+print(
+    sl.countConsistentStrings(allowed="ab", words=["ad", "bd", "aaab", "baa", "badab"])
+)
+print(
+    sl.countConsistentStrings(
+        allowed="abc", words=["a", "b", "c", "ab", "ac", "bc", "abc"]
+    )
+)
+print(
+    sl.countConsistentStrings(
+        allowed="cad", words=["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"]
+    )
+)

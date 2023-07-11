@@ -1,10 +1,10 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/183/combination-with-other-algorithms/1176/
 Leetcode Explore: Hash Table. Practical Application - HashSet
 Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
 
 required: T: O(N), S: O(1)
-'''
+"""
 
 
 from typing import List

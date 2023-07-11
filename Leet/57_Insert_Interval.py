@@ -11,7 +11,9 @@ from typing import List
 
 
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         def dbabichev():
             I = newInterval
             res, i = [], -1
@@ -25,7 +27,7 @@ class Solution:
                     I[0] = min(I[0], x)
                     I[1] = max(I[1], y)
 
-            return res + [I] + intervals[i+1:]
+            return res + [I] + intervals[i + 1 :]
 
         return dbabichev()
 
@@ -91,4 +93,6 @@ class Solution:
 
 
 sl = Solution()
-print(sl.insert(intervals=[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], newInterval=[4, 8]))
+print(
+    sl.insert(intervals=[[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], newInterval=[4, 8])
+)

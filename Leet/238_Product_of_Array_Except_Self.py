@@ -25,7 +25,7 @@ class Solution:
             m = len(nums)
             res = [1] * m
             for i in range(1, m):
-                res[i] = nums[i-1] * res[i-1]
+                res[i] = nums[i - 1] * res[i - 1]
 
             R = 1
             # XXX: Prefer OS's indexing, use [i] to set consistently!
@@ -33,12 +33,12 @@ class Solution:
                 res[i] = res[i] * R
                 R *= nums[i]
 
-            '''
+            """
             R = 1
             for i in range(m-2, -1, -1):
                 R = R * nums[i+1]
                 res[i] = res[i] * R
-            '''
+            """
             return res
 
         def fxr():
@@ -50,13 +50,13 @@ class Solution:
             m = len(nums)
             l2r = [1] * m
             r2l = [1] * m
-            for i in range(m-1):
-                l2r[i+1] = l2r[i] * nums[i]
+            for i in range(m - 1):
+                l2r[i + 1] = l2r[i] * nums[i]
             print(l2r)
-            for i in range(m-1, 0, -1):
-                r2l[i-1] = r2l[i] * nums[i]
+            for i in range(m - 1, 0, -1):
+                r2l[i - 1] = r2l[i] * nums[i]
             print(r2l)
-            res = list(map(lambda tu: tu[0]*tu[1], zip(l2r, r2l)))
+            res = list(map(lambda tu: tu[0] * tu[1], zip(l2r, r2l)))
             return res
 
         return os()

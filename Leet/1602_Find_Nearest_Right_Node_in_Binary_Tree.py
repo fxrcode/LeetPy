@@ -2,8 +2,8 @@
 Weekly Special (Jan W4)
 """
 
-from typing import List, Optional
 from collections import deque
+from typing import List, Optional
 
 
 class TreeNode:
@@ -14,8 +14,7 @@ class TreeNode:
 
 
 class Solution:
-    def findNearestRightNode(self, root: TreeNode,
-                             u: TreeNode) -> Optional[TreeNode]:
+    def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> Optional[TreeNode]:
         def os_dfs():
             """
             Runtime: 461 ms, faster than 46.87% of Python3 online submissions for Find Nearest Right Node in Binary Tree.

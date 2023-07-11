@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2798/
 Leetcode explore Recursion II: Backtracking
 
 Given two integers n and k, return all possible combinations of k numbers out of the range [1, n].
-'''
+"""
 
 
 from typing import List
@@ -20,14 +20,15 @@ class Solution:
 
         Compare with 46. Permutations/17. Phone letter combinations.
         """
+
         def bt(start_idx, path, res):
             if len(path) == k:
                 res.append(list(path))
                 return
 
             for i in range(start_idx, n):
-                path.append(i+1)
-                bt(i+1, path, res)
+                path.append(i + 1)
+                bt(i + 1, path, res)
                 path.pop()
 
         res = []

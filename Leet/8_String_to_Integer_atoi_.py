@@ -1,17 +1,17 @@
-'''
+"""
 ✅ GOOD FSM (DFA)
 Amazon tag (easy)
 
 Tip: Finite State Machine Designer
 https://madebyevan.com/fsm/
-'''
+"""
 NINF, INF = -int(2**31), int(2**31 - 1)
 
 
 class Solution:
     def myAtoi(self, s: str) -> int:
         def spencerwoo_dfa():
-            '''
+            """
             Runtime: 45 ms, faster than 29.95% of Python3 online submissions for String to Integer (atoi).
 
             https://leetcode.com/problems/string-to-integer-atoi/discuss/798380/Fast-and-simpler-DFA-approach-(Python-3)
@@ -20,7 +20,7 @@ class Solution:
             1: got sign
             2: 0-9
 
-            '''
+            """
             v, st, sig = 0, 0, 1
 
             if not s:
@@ -28,11 +28,11 @@ class Solution:
 
             for c in s:
                 if st == 0:
-                    if c == ' ':
+                    if c == " ":
                         pass
-                    elif c in '+-':
+                    elif c in "+-":
                         st = 1
-                        if c == '-':
+                        if c == "-":
                             sig = -1
                     elif c.isdigit():
                         st = 2
@@ -64,9 +64,9 @@ class Solution:
 
 
 sl = Solution()
-print(sl.myAtoi('42'))
-print(sl.myAtoi('     -42'))
+print(sl.myAtoi("42"))
+print(sl.myAtoi("     -42"))
 print(sl.myAtoi(s="4193 with words"))
-print(sl.myAtoi('+-12'))
+print(sl.myAtoi("+-12"))
 print(sl.myAtoi("00000-42a1234"))
 print(sl.myAtoi("-42a1234"))

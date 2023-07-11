@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (medium)
-'''
+"""
 
 
 class Solution:
@@ -12,23 +12,21 @@ class Solution:
             T: O(N)
             """
             stk = []
-            ps = path.split('/')
+            ps = path.split("/")
             for s in ps:
-                if s == '.' or s == '':
+                if s == "." or s == "":
                     continue
-                elif s == '..':
+                elif s == "..":
                     if stk:
                         stk.pop()
                 else:
                     stk.append(s)
-            return '/' + '/'.join(stk)
+            return "/" + "/".join(stk)
 
         return fxr()
 
 
 sl = Solution()
-paths = [
-    '/home/', "/../", "/home//foo/", "/a/./b/../../c/", "/a/../../b/../c//.//"
-]
+paths = ["/home/", "/../", "/home//foo/", "/a/./b/../../c/", "/a/../../b/../c//.//"]
 for p in paths:
     print(sl.simplifyPath(p))

@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1117/
 Leetcode Explore: Hash Table. Practical Application - HashMap
 Given two strings s and t, determine if they are isomorphic.
@@ -20,7 +20,7 @@ return:
 ['xyz', 'abc', 'def'], 
 ['aab', 'xxy']
 ]
-'''
+"""
 
 
 class Solution:
@@ -31,8 +31,9 @@ class Solution:
         Transform string uniformly to aabbccdd. How? by char's first occur index!
         T: O(n+m), M: O(256)
         """
+
         def num2unicode(n) -> s:
-            return chr(n+48)  # 48 -> '0'
+            return chr(n + 48)  # 48 -> '0'
 
         def occur_1st(s) -> str:
             d = {}
@@ -41,7 +42,8 @@ class Solution:
                 if c not in d:
                     d[c] = i
                 res.append(num2unicode(d[c]))
-            return ''.join(res)
+            return "".join(res)
+
         encode_s = occur_1st(s)
         encode_t = occur_1st(t)
         print(encode_s, encode_t)
@@ -89,6 +91,7 @@ class Solution:
         AC in 1.
         XXX: need 1-to-1 mapping, so two-way mapping
         """
+
         def mp(s, t):
             d = {}
             for i in range(len(s)):
@@ -99,6 +102,7 @@ class Solution:
                     if d[c1] != c2:
                         return False
             return True
+
         if len(s) != len(t):
             return False
         return mp(s, t) and mp(t, s)

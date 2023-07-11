@@ -1,8 +1,8 @@
-'''
+"""
 ✅ GOOD Eval
 Daily Challenge (Dec 25)
 Labuladong
-'''
+"""
 
 
 class Solution:
@@ -17,9 +17,9 @@ class Solution:
                 elif sign == "-":
                     stack.append(-num)
                 elif sign == "*":
-                    stack.append(stack.pop()*num)
+                    stack.append(stack.pop() * num)
                 else:
-                    stack.append(int(stack.pop()/num))
+                    stack.append(int(stack.pop() / num))
                 num = 0
                 sign = s[i]
         return sum(stack)

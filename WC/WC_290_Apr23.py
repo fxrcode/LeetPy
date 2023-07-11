@@ -10,7 +10,9 @@ from typing import List
 
 
 class Solution:
-    def countRectangles(self, rectangles: List[List[int]], points: List[List[int]]) -> List[int]:
+    def countRectangles(
+        self, rectangles: List[List[int]], points: List[List[int]]
+    ) -> List[int]:
         ls = [(i, rectangles[i][0]) for i in range(len(rectangles))]
         hs = [(i, rectangles[i][1]) for i in range(len(rectangles))]
         ls.sort(key=lambda x: x[1])

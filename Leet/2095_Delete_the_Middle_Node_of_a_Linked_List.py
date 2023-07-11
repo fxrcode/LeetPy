@@ -1,8 +1,8 @@
-'''
+"""
 Weekly Contest 270 (Dec 4, 2021)
 
 Q2: Medium
-'''
+"""
 
 # Definition for singly-linked list.
 

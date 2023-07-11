@@ -57,7 +57,9 @@ class Solution:
 
             def dfs(p, q):
                 if p and q:
-                    return p.val == q.val and dfs(p.left, q.left) and dfs(p.right, q.right)
+                    return (
+                        p.val == q.val and dfs(p.left, q.left) and dfs(p.right, q.right)
+                    )
                 return p == q
 
             # if not p and not q:

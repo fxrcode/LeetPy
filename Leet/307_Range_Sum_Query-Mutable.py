@@ -56,4 +56,3 @@ na = NumArray(nums=[1, 3, 5])
 print(na.sumRange(0, 2))
 na.update(1, 2)
 print(na.sumRange(0, 2))
-

@@ -1,11 +1,11 @@
-'''
+"""
 Daily Challenge (Jan 17)
 This problem is similar to Isomorphic Strings.
-'''
+"""
 
-from typing import List
 from collections import defaultdict
 from itertools import zip_longest
+from typing import List
 
 
 class Solution:
@@ -23,8 +23,8 @@ class Solution:
                 return False
             for i, w in enumerate(words):
                 c = pattern[i]
-                char_key = f'char_{c}'
-                char_word = f'word_{w}'
+                char_key = f"char_{c}"
+                char_word = f"word_{w}"
                 if char_key not in map_index:
                     map_index[char_key] = i
                 if char_word not in map_index:
@@ -47,7 +47,7 @@ class Solution:
             for a, b in zip(pattern, s.split()):
                 c = p2s[a]
                 d = s2p[b]
-                if c == d == '':
+                if c == d == "":
                     p2s[a] = b
                     s2p[b] = a
                 elif c != b or d != a:

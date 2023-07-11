@@ -104,4 +104,6 @@ class Solution:
 sl = Solution()
 print(sl.boldWords(words=["ab", "bc"], s="aabcd"))
 print(sl.boldWords(words=["ab", "cb"], s="aabcd"))
-assert (sl.boldWords(["b", "dee", "a", "ee", "c"], "cebcecceab")) == "<b>c</b>e<b>bc</b>e<b>cc</b>e<b>ab</b>"
+assert (
+    sl.boldWords(["b", "dee", "a", "ee", "c"], "cebcecceab")
+) == "<b>c</b>e<b>bc</b>e<b>cc</b>e<b>ab</b>"

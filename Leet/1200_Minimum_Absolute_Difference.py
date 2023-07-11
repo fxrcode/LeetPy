@@ -1,11 +1,11 @@
-'''
+"""
 Daily Challenge (Dec 20)
 
-'''
+"""
 
 
-from typing import List
 from heapq import heapify, heappop
+from typing import List
 
 
 class Solution:
@@ -21,8 +21,8 @@ class Solution:
             arr.sort()
             ret = []
             pq = []
-            for i in range(len(arr)-1):
-                pq.append((arr[i+1] - arr[i], arr[i], arr[i+1]))
+            for i in range(len(arr) - 1):
+                pq.append((arr[i + 1] - arr[i], arr[i], arr[i + 1]))
             heapify(pq)
             mn = pq[0][0]
             while pq and pq[0][0] <= mn:

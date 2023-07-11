@@ -1,25 +1,23 @@
-'''
+"""
 C3.ai mianjing
 tag: medium, 
 Follow-up: Could you solve it in O(n log(k)) time and O(n) extra space?
-'''
+"""
 
-from typing import List
 from collections import Counter
-from heapq import heapify, heappush, heappop, nsmallest
+from heapq import heapify, heappop, heappush, nsmallest
+from typing import List
 
 
 class Solution:
-
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
-
         def liner_3():
             """
             Runtime: 96 ms, faster than 30.65% of Python3 online submissions for Top K Frequent Words.
 
             https://leetcode.com/problems/top-k-frequent-words/discuss/108348/Python-3-solution-with-O(nlogk)-and-O(n)/776726
             T: O(nlogk)
-            
+
             ! nsmallest is super handy with key lambda!
             """
             F = Counter(words)
@@ -32,13 +30,12 @@ class Solution:
 
             https://leetcode.com/problems/top-k-frequent-words/discuss/108348/Python-3-solution-with-O(nlogk)-and-O(n)
             T: O(nlogk)
-            
+
             top K, so minheap (size=k).
             ! must use helper class for `__lt__` so as pop smaller (freq in natural order; break freq tie by reverse-lexi-order)
             """
 
-            class Word():
-
+            class Word:
                 def __init__(self, freq, word) -> None:
                     self.f = freq
                     self.w = word
@@ -97,4 +94,9 @@ class Solution:
 sl = Solution()
 print(sl.topKFrequent(words=["i", "love", "leetcode", "i", "love", "coding"], k=1))
 print(sl.topKFrequent(words=["i", "love", "leetcode", "i", "love", "coding"], k=2))
-print(sl.topKFrequent(words=["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], k=4))
+print(
+    sl.topKFrequent(
+        words=["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"],
+        k=4,
+    )
+)

@@ -13,7 +13,8 @@ class Solution:
         def recur(stair):
             if stair <= 2:
                 return stair
-            return recur(stair-2) + recur(stair-1)
+            return recur(stair - 2) + recur(stair - 1)
+
         return recur(n)
 
     def climbStairs0(self, n: int) -> int:
@@ -30,7 +31,7 @@ class Solution:
             if n < 4:
                 result = n
             else:
-                result = recur(n-1)+recur(n-2)
+                result = recur(n - 1) + recur(n - 2)
             F[n] = result
             return result
 

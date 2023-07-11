@@ -103,4 +103,3 @@ print(sl.carPooling(trips=[[2, 1, 5], [3, 3, 7]], capacity=4))
 print(sl.carPooling(trips=[[2, 1, 5], [3, 3, 7]], capacity=5))
 print(sl.carPooling([[9, 0, 1], [3, 3, 7]], 4))
 print(sl.carPooling([[2, 1, 5], [3, 5, 7]], 3))
-

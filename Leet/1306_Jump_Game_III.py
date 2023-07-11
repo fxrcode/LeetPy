@@ -1,18 +1,16 @@
-'''
+"""
 Daily Challenge (Dec 9)
 
 ✅ GOOD Graph (DFS/BFS)
 💡insight: Graph modeling since problem has "relation" property.
     DFS with visited can detect/prevent cycle!
-'''
-from typing import List
+"""
 from functools import cache
+from typing import List
 
 
 class Solution:
-
     def canReach(self, arr: List[int], start: int) -> bool:
-
         def dfs(cur):
             """
             Your runtime beats 43.15 % of python3 submissions.

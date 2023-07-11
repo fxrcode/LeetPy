@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD inorder DFS
 
 https://leetcode.com/explore/learn/card/recursion-ii/507/beyond-recursion/2899/
@@ -9,7 +9,7 @@ Convert a Binary Search Tree to a sorted Circular Doubly-Linked List in place.
 Similar Inorder Recursion: 285. Inorder Successor in BST.
 XXX: Official solution's GIF is so gooooooooooooooood!
 
-'''
+"""
 
 # Definition for a Node.
 
@@ -22,7 +22,7 @@ class Node:
 
 
 class Solution:
-    def treeToDoublyList(self, root: 'Node') -> 'Node':
+    def treeToDoublyList(self, root: "Node") -> "Node":
         """
         Runtime: 36 ms, faster than 73.66% of Python3 online submissions for Convert Binary Search Tree to Sorted Doubly Linked List.
         T: O(N), M: O(H)

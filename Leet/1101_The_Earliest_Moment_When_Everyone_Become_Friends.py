@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3912/
 Leetcode Explore Graph: Disjoint Set Union (DSU)
 
@@ -8,7 +8,7 @@ Friendship is symmetric. That means if a is friends with b, then b is friends wi
 
 Return the earliest time for which every person became acquainted with every other person. If there is no such earliest time, return -1.
 Tag: medium, UF
-'''
+"""
 
 from typing import List
 

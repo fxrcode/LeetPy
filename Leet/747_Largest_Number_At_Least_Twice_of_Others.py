@@ -1,10 +1,10 @@
-'''
+"""
 Explore Array & String
 https://leetcode.com/explore/learn/card/array-and-string/201/introduction-to-array/1147/
 You are given an integer array nums where the largest integer is unique.
 
 Determine whether the largest element in the array is at least twice as much as every other number in the array. If it is, return the index of the largest element, or return -1 otherwise.
-'''
+"""
 
 
 from typing import List
@@ -28,7 +28,7 @@ class Solution:
             elif n > v[1]:
                 v = [v[0], n]
         # print(v)
-        if v[0] < v[1]*2:
+        if v[0] < v[1] * 2:
             max_idx = -1
         return max_idx
 
@@ -43,7 +43,7 @@ class Solution:
             return -0
         n2i = [(n, i) for i, n in enumerate(nums)]
         n2i.sort(key=lambda tu: tu[0])
-        if n2i[-1][0] >= 2*n2i[-2][0]:
+        if n2i[-1][0] >= 2 * n2i[-2][0]:
             return n2i[-1][1]
         return -1
 

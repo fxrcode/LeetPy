@@ -1,11 +1,11 @@
-'''
+"""
 Weekly Contest 269 (Nov 27, 2021)
 
 [ ] TODO: not AC yet!
-'''
+"""
 
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class UF:
@@ -17,7 +17,7 @@ class UF:
 
     def __init__(self, n) -> None:
         self.p = list(range(n))
-        self.ranks = [0]*n
+        self.ranks = [0] * n
         self.sizes = [1] * n
         self.numdisjoint = n
 
@@ -50,7 +50,9 @@ class UF:
 
 
 class Solution:
-    def findAllPeople_WA(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
+    def findAllPeople_WA(
+        self, n: int, meetings: List[List[int]], firstPerson: int
+    ) -> List[int]:
         # meetings.sort(key=lambda tu: tu[2])
         times = []
         time_to_ppl = defaultdict(set)

@@ -18,7 +18,9 @@ class ListNode:
 
 
 class Solution:
-    def removeNthFromEnd_StefanPochmann(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    def removeNthFromEnd_StefanPochmann(
+        self, head: Optional[ListNode], n: int
+    ) -> Optional[ListNode]:
         """[summary]
         The standard solution, but without a dummy extra node. Instead, I simply handle
         the special case of removing the head right after the fast cursor got

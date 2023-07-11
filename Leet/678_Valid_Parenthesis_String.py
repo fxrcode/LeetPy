@@ -92,8 +92,12 @@ class Solution:
 
 
 sl = Solution()
-print(sl.checkValidString("**(("))  # proof: forward is not enough, since forward is for orphan ')'
-print(sl.checkValidString("))**"))  # example: backward is not enough, since backward is for orphan '('
+print(
+    sl.checkValidString("**((")
+)  # proof: forward is not enough, since forward is for orphan ')'
+print(
+    sl.checkValidString("))**")
+)  # example: backward is not enough, since backward is for orphan '('
 print(sl.checkValidString("()"))
 print(sl.checkValidString("(*)"))
 print(sl.checkValidString("(*))"))

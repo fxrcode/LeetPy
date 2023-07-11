@@ -10,7 +10,9 @@ from typing import List
 
 
 class Solution:
-    def allCellsDistOrder(self, rows: int, cols: int, rCenter: int, cCenter: int) -> List[List[int]]:
+    def allCellsDistOrder(
+        self, rows: int, cols: int, rCenter: int, cCenter: int
+    ) -> List[List[int]]:
         def cenkay_dfs():
             """
             Runtime: 415 ms, faster than 5.67% of Python3 online submissions for Matrix Cells in Distance Order.

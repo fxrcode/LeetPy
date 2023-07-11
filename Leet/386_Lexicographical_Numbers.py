@@ -1,4 +1,4 @@
-'''
+"""
 
 ✅ GOOD DFS, iteration
 Kevin
@@ -7,7 +7,7 @@ tag: medium, DFS
 Lookback:
 - Polya 1st: understand the problem!
 - Learn a complex enough but not too complex example, as GeorgeChryso plot
-'''
+"""
 
 from typing import List
 
@@ -48,8 +48,10 @@ class Solution:
             """
             https://leetcode-cn.com/problems/lexicographical-numbers/solution/386-zi-dian-xu-pai-shu-o1-kong-jian-fu-z-aea2/
             """
+
             def dfs(x):
-                if x > n: return
+                if x > n:
+                    return
                 res.append(x)
                 for nxt in range(x * 10, x * 10 + 10):
                     dfs(nxt)

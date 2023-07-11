@@ -23,7 +23,9 @@ class TreeNode:
 
 
 class Solution:
-    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
+    def trimBST(
+        self, root: Optional[TreeNode], low: int, high: int
+    ) -> Optional[TreeNode]:
         def DBabichev():
             """
             Runtime: 48 ms, faster than 83.75% of Python3 online submissions for Trim a Binary Search Tree.
@@ -89,6 +91,8 @@ class Solution:
 
 # root = TreeNode(1, left=TreeNode(0), right=TreeNode(2))
 # root = TreeNode(1, right=TreeNode(2))
-root = TreeNode(3, left=TreeNode(0, right=TreeNode(2, left=TreeNode(1))), right=TreeNode(4))
+root = TreeNode(
+    3, left=TreeNode(0, right=TreeNode(2, left=TreeNode(1))), right=TreeNode(4)
+)
 sl = Solution()
 sl.trimBST(root, 1, 3)

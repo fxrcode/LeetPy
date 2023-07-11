@@ -1,8 +1,8 @@
 """
 每日一题打卡群 (12/6/2021)
 """
-from typing import List
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -53,7 +53,6 @@ class Solution:
                 value_indices[x].append(i)
 
             def guaranteed(x, indices):
-
                 # Lxxx
                 if prev_larger[indices[0]] >= 0:
                     return False

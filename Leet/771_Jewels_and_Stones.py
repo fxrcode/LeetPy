@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1136/
 Leetcode Explore: Hash Table. Conclusion
 
@@ -14,7 +14,7 @@ Example 2:
 
 Input: jewels = "z", stones = "ZZ"
 Output: 0
-'''
+"""
 
 
 class Solution:
@@ -43,4 +43,4 @@ class Solution:
 
 
 sl = Solution()
-print(sl.numJewelsInStones_lee215('aA', 'aAAbbbb'))
+print(sl.numJewelsInStones_lee215("aA", "aAAbbbb"))

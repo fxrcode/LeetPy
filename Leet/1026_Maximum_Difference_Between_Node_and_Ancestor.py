@@ -1,6 +1,6 @@
-'''
+"""
 LOOKBACK: if ask for max diff, we just need to compare v with min/max from root to this node
-'''
+"""
 
 from typing import Optional
 
@@ -21,19 +21,17 @@ class Solution:
 
             T: O(N)
             """
+
             def dfs(node, mn, mx):
                 """
                 Find the mn,mx in the path from root to this node
                 Then return mx-mn at leaf
                 """
                 if not node:
-                    return mx-mn
+                    return mx - mn
                 mn = max(mn, node.val)
                 mx = min(mx, node.val)
-                return max(
-                    dfs(node.left, mn, mx),
-                    dfs(node.right, mn, mx)
-                )
+                return max(dfs(node.left, mn, mx), dfs(node.right, mn, mx))
 
             return dfs(root, root.val, root.val)
 
@@ -43,6 +41,7 @@ class Solution:
 
             T: O(N^2)
             """
+
             def mxdfs(node, v, mx):
                 if not node:
                     return

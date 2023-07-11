@@ -1,11 +1,11 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/n-ary-tree/130/traversal/925/
 N-ary Tree: Traversal
 
 Given the root of an n-ary tree, return the preorder traversal of its nodes' values.
 
 Nary-Tree input serialization is represented in their level order traversal. Each group of children is separated by the null value (See examples)
-'''
+"""
 # Definition for a Node.
 
 
@@ -19,8 +19,8 @@ class Node:
 
 
 class Solution:
-    def preorder(self, root: 'Node') -> List[int]:
-        '''
+    def preorder(self, root: "Node") -> List[int]:
+        """
         # Easy Recursive: Your runtime beats 65.59 % of python3 submissions.
         def dfs(root: Node, res: List[int]) -> None:
             if not root:
@@ -32,7 +32,7 @@ class Solution:
         res = []
         dfs(root, res)
         return res
-        '''
+        """
 
         res = []
         if not root:

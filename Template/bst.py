@@ -1,11 +1,11 @@
-'''
+"""
 BST & Iterator are related. Same as recursion is related to Tree/Graph
 https://leetcode.com/problems/binary-search-tree-iterator/discuss/52647/Nice-Comparison-(and-short-Solution)
 Example:
 * 173. Binary Search Tree Iterator
 * 230. Kth Smallest Element in a BST
 
-'''
+"""
 
 
 from typing import Optional

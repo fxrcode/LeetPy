@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1122/
 Leetcode Explore: Hash Table. Practical Application - HashSet
 
 Design a logger system that receives a stream of messages along with their timestamps. Each unique message should only be printed at most every 10 seconds (i.e. a message printed at timestamp t will prevent other identical messages from being printed until timestamp t + 10).
-'''
+"""
 from collections import deque
 
 
@@ -37,7 +37,6 @@ class Logger:
 
 
 class Logger_fxr:
-
     def __init__(self):
         self.rate_lim = {}
 
@@ -58,8 +57,8 @@ class Logger_fxr:
             return False
 
 
-'''
+"""
 # Your Logger object will be instantiated and called as such:
 # obj = Logger()
 # param_1 = obj.shouldPrintMessage(timestamp,message)
-'''
+"""

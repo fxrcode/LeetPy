@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/data-structure-tree/134/traverse-a-tree/931/
 Leetcode Explore: Binary Tree - Traverse a Tree
 https://leetcode.com/explore/learn/card/recursion-ii/503/recursion-to-iteration/2784/
@@ -9,13 +9,13 @@ Given the root of a binary tree, return the level order traversal of its nodes' 
 eg.
 * 01-Matrix (init queue with all 0's, to get all 0's shortest distance to 1)
 * Target Sum (lee215 solution using rolling 2 queue for level order)
-'''
+"""
 
 # Definition for a binary tree node.
 
 
-from typing import List, Optional
 from collections import deque
+from typing import List, Optional
 
 
 class TreeNode:
@@ -32,6 +32,7 @@ class Solution:
         T: O(V+E), because Tree's E = V-1, so O(V)
         M: O(2^h) because last level has 2^h nodes, given h the height of tree
         """
+
         def level_qlen():
             res = []
             if not root:

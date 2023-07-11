@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/array-and-string/204/conclusion/1164/
 Leetcode Explore Array & String: Conclusion
 Given an input string s, reverse the order of the words.
@@ -10,7 +10,7 @@ Return a string of the words in reverse order concatenated by a single space.
 Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
 
 
-'''
+"""
 
 
 class Solution:
@@ -19,6 +19,7 @@ class Solution:
         Your runtime beats 33.63 % of python3 submissions.
         https://leetcode.com/problems/reverse-words-in-a-string/discuss/172258/Python-or-Two-Pointers-%2B-No-Cheating-tm
         """
+
         def rev(a, l, r):
             # inclusive l & r
             while l < r:
@@ -29,20 +30,20 @@ class Solution:
         def rev_words(arr):
             l, r = 0, 0
             while r < len(arr):
-                while r < len(arr) and arr[r] != ' ':
+                while r < len(arr) and arr[r] != " ":
                     r += 1
                 # now r right after word
-                rev(arr, l, r-1)
+                rev(arr, l, r - 1)
                 r += 1
                 l = r
 
-        s = ' '.join(s.split())
+        s = " ".join(s.split())
         arr = list(s)
         rev_words(arr)
-        rev(arr, 0, len(arr)-1)
-        return ''.join(arr)
+        rev(arr, 0, len(arr) - 1)
+        return "".join(arr)
 
-    '''
+    """
     def reverseWords_fxr_WRONG(self, s: str) -> str:
         # BUG: My 1st attempt, FAILED due to only 1 space allowed between words in return!
         s = list(s)
@@ -79,7 +80,7 @@ class Solution:
         s = ''.join(s[l:r+1])
         print('['+s+']')
         return s
-    '''
+    """
 
 
 sl = Solution()

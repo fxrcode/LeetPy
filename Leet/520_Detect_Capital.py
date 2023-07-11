@@ -1,7 +1,7 @@
-'''
+"""
 Daily Challenge (Jan 24)
 tag: easy
-'''
+"""
 
 
 class Solution:
@@ -34,6 +34,4 @@ class Solution:
             T: O(N)
             """
             cnt = sum(c.isupper() for c in word)
-            return cnt == len(word) \
-                or cnt == 0 \
-                    or cnt == 1 and word[0].isupper()
+            return cnt == len(word) or cnt == 0 or cnt == 1 and word[0].isupper()

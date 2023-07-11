@@ -1,4 +1,4 @@
-'''
+"""
 
 💡Smart use of Counter to interpretate var mapping, pure var, and int
 Smart use of eval
@@ -6,20 +6,22 @@ Smart use re
 FINAL version of basic calculator: SUPER HARD
 
 Fast.co Karat phone...
-'''
+"""
 
-from typing import List
-from collections import Counter
 import re
+from collections import Counter
+from typing import List
 
 
 class Solution:
-    def basicCalculatorIV(self, expression: str, evalvars: List[str],
-                          evalints: List[int]) -> List[str]:
+    def basicCalculatorIV(
+        self, expression: str, evalvars: List[str], evalints: List[int]
+    ) -> List[str]:
         """
         https://leetcode.com/problems/basic-calculator-iv/discuss/113549/Easy-%3A-P
         XXX: StefanPochmann is KING
         """
+
         class C(Counter):
             def __add__(self, other):
                 self.update(other)
@@ -41,16 +43,16 @@ class Solution:
 
         def f(s):
             s = str(vals.get(s, s))
-            return C({(s, ): 1}) if s.isalpha() else C({(): int(s)})
+            return C({(s,): 1}) if s.isalpha() else C({(): int(s)})
 
-        parsed = re.sub('(\w+)', r'f("\1")', expression)
+        parsed = re.sub("(\w+)", r'f("\1")', expression)
         c = eval(parsed)
 
         ans = []
         sorted_c = sorted(c, key=lambda x: (-len(x), x))
         for x in sorted_c:
             if c[x]:
-                v = '*'.join((str(c[x]), ) + x)
+                v = "*".join((str(c[x]),) + x)
                 ans.append(v)
         return ans
 
@@ -60,7 +62,4 @@ class Solution:
 
 
 sl = Solution()
-print(
-    sl.basicCalculatorIV(expression="e * a * 42 + 5",
-                         evalvars=["x"],
-                         evalints=[1]))
+print(sl.basicCalculatorIV(expression="e * a * 42 + 5", evalvars=["x"], evalints=[1]))

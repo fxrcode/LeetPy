@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 import heapq
+from typing import List
 
 
 class Solution:
@@ -17,7 +17,7 @@ class Solution:
 
             T: O(N+W), M: O(W). N is # of weight, W is max(weight)
             """
-            size = max(weight)+1
+            size = max(weight) + 1
             bucket = [0] * size
             for w in weight:
                 bucket[w] += 1
@@ -25,7 +25,7 @@ class Solution:
             apples, money = 0, 5000
             for w in range(size):
                 if bucket[w] != 0:
-                    take = min(bucket[w], money//w)
+                    take = min(bucket[w], money // w)
                     if take == 0:
                         break
                     apples += take
@@ -68,5 +68,59 @@ class Solution:
 
 
 sl = Solution()
-print(sl.maxNumberOfApples([988, 641, 984, 635, 461, 527, 491, 610, 274, 104, 348, 468, 220, 837, 126, 111, 536, 368, 89, 201, 589, 481,
-      849, 708, 258, 853, 563, 868, 92, 76, 566, 398, 272, 697, 584, 851, 302, 766, 88, 428, 276, 797, 460, 244, 950, 134, 838, 161, 15, 330]))
+print(
+    sl.maxNumberOfApples(
+        [
+            988,
+            641,
+            984,
+            635,
+            461,
+            527,
+            491,
+            610,
+            274,
+            104,
+            348,
+            468,
+            220,
+            837,
+            126,
+            111,
+            536,
+            368,
+            89,
+            201,
+            589,
+            481,
+            849,
+            708,
+            258,
+            853,
+            563,
+            868,
+            92,
+            76,
+            566,
+            398,
+            272,
+            697,
+            584,
+            851,
+            302,
+            766,
+            88,
+            428,
+            276,
+            797,
+            460,
+            244,
+            950,
+            134,
+            838,
+            161,
+            15,
+            330,
+        ]
+    )
+)

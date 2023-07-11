@@ -1,8 +1,8 @@
-'''
+"""
 [ ] REDO
 
 GOOD: char, indexing!
-'''
+"""
 
 
 class Solution:
@@ -22,13 +22,13 @@ class Solution:
         (n-1)/26 = (A+1) * 26^1 + (B+1) * 26^0                         (2)
         """
         cn = columnNumber
-        ans = ''
+        ans = ""
         # my init impl is ugly, and the indexing is confusing!!!
         # for i, c in enumerate(ascii_uppercase):
         #     i2c[i+1] = c
         while cn:
-            ans += chr((cn-1) % 26+ord('A'))
-            cn = (cn-1)//26
+            ans += chr((cn - 1) % 26 + ord("A"))
+            cn = (cn - 1) // 26
         return ans[::-1]
 
 

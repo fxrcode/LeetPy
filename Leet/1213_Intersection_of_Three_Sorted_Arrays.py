@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
@@ -8,19 +8,19 @@ Metacognition:
 
 Lookback:
 * The brute-force is simple intersection!
-'''
+"""
 
 
-from typing import List
-from collections import Counter
 import heapq
+from collections import Counter
+from typing import List
 
 
 class Solution:
     def arraysIntersection(self, A: List[int], B: List[int], C: List[int]) -> List[int]:
         def os_brute():
             ans = []
-            cnt = Counter(A+B+C)
+            cnt = Counter(A + B + C)
             for k in cnt:
                 if cnt[k] == 3:
                     ans.append(k)
@@ -38,7 +38,7 @@ class Solution:
             while i < len(A) and j < len(B) and k < len(C):
                 if A[i] == B[j] == C[k]:
                     res.append(A[i])
-                    i, j, k = i+1, j+1, k+1
+                    i, j, k = i + 1, j + 1, k + 1
                 else:
                     if A[i] < B[j]:
                         i += 1
@@ -59,7 +59,7 @@ class Solution:
             while i < len(A) and j < len(B) and k < len(C):
                 if A[i] == B[j] == C[k]:
                     res.append(A[i])
-                    i, j, k = i+1, j+1, k+1
+                    i, j, k = i + 1, j + 1, k + 1
                 else:
                     tmp = [A[i], B[j], C[k]]
                     mn = min(tmp)
@@ -71,12 +71,17 @@ class Solution:
                     else:
                         k += 1
             return res
+
         # return fxr()
         return os()
 
 
 sl = Solution()
-print(sl.arraysIntersection(A=[1, 2, 3, 4, 5],
-      B=[1, 2, 5, 7, 9], C=[1, 3, 4, 5, 8]))
-print(sl.arraysIntersection(A=[197, 418, 523, 876, 1356], B=[
-      501, 880, 1593, 1710, 1870], C=[521, 682, 1337, 1395, 1764]))
+print(sl.arraysIntersection(A=[1, 2, 3, 4, 5], B=[1, 2, 5, 7, 9], C=[1, 3, 4, 5, 8]))
+print(
+    sl.arraysIntersection(
+        A=[197, 418, 523, 876, 1356],
+        B=[501, 880, 1593, 1710, 1870],
+        C=[521, 682, 1337, 1395, 1764],
+    )
+)

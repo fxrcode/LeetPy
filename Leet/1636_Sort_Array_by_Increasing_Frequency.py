@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/company/google/
 Easy
-'''
-from typing import List
+"""
 from collections import Counter
+from typing import List
 
 
 class Solution:
@@ -27,14 +27,15 @@ class Solution:
             """
             n2f = [[i, 0] for i in range(-100, 101)]
             for n in nums:
-                n2f[n+100][1] += 1
+                n2f[n + 100][1] += 1
             n2f.sort(key=lambda tu: (tu[1], -tu[0]))
 
             res = []
             for n, f in n2f:
                 if f != 0:
-                    res.extend([n]*f)
+                    res.extend([n] * f)
             return res
+
         return fxr()
 
 

@@ -1,6 +1,6 @@
-'''
+"""
 Base version of Weekly Special (Dec W2)
-'''
+"""
 
 # """
 # This is the interface that allows for creating nested lists.
@@ -52,7 +52,7 @@ class NestedInteger:
 class Solution:
     def depthSum(self, nestedList: List[NestedInteger]) -> int:
         def dfs(nl: List[NestedInteger], depth):
-            '''
+            """
             Runtime: 24 ms, faster than 97.22% of Python3 online submissions for Nested List Weight Sum.
 
             NO need of base!!!
@@ -61,7 +61,7 @@ class Solution:
                 return 0
             if all([e.isInteger() for e in nl]):
                 return sum(e.getInteger() * depth for e in nl)
-            '''
+            """
 
             # recurrence relation
             sm = 0
@@ -70,17 +70,17 @@ class Solution:
                 if e.isInteger():
                     sm += e.getInteger() * depth
                 else:
-                    '''
+                    """
                     BUG: careful on function call's paranthesis!!!()
                     sm += dfs(e.getList, depth+1)
-                    '''
-                    sm += dfs(e.getList(), depth+1)
+                    """
+                    sm += dfs(e.getList(), depth + 1)
             return sm
 
         return dfs(nestedList, 1)
 
 
-'''
+"""
 input: [[1,2,3]]
 output: 12
 
@@ -89,4 +89,4 @@ NestedInteger{_integer: 1, _list: []}
 NestedInteger{_integer: 2, _list: []}
 NestedInteger{_integer: 3, _list: []}
 
-'''
+"""

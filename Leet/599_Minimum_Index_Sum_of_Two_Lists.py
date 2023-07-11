@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1177/
 Leetcode Explore: Hash Table. Practical Application - HashMap
 Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
@@ -6,7 +6,7 @@ Suppose Andy and Doris want to choose a restaurant for dinner, and they both hav
 You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
 
 
-'''
+"""
 
 
 from typing import List

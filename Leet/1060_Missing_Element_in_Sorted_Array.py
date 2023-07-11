@@ -1,8 +1,8 @@
-'''
+"""
 
 tag: medium, bisect
 similar: 1539
-'''
+"""
 
 from typing import List
 

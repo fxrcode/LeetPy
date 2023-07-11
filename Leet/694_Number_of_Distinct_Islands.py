@@ -51,6 +51,7 @@ class Solution:
             T: O(MN), M:O(MN)
             """
             m, n = len(grid), len(grid[0])
+
             # dfs to find all cells in the current island
             def dfs(i, j, d):
                 if not (0 <= i < m and 0 <= j < n):

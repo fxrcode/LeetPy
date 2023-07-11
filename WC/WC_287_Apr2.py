@@ -120,7 +120,11 @@ class Solution:
 
 
 sl = Solution()
-codec = sl.Encrypter(keys=["a", "b", "c", "d"], values=["ei", "zf", "ei", "am"], dictionary=["abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"])
+codec = sl.Encrypter(
+    keys=["a", "b", "c", "d"],
+    values=["ei", "zf", "ei", "am"],
+    dictionary=["abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"],
+)
 print(codec.encrypt("abcd"))
 print(codec.decrypt("eizfeiam"))
 # print(sl.maximumCandies(candies=[5, 8, 6], k=3))

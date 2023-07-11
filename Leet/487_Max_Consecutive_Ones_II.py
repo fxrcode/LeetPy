@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3230/
 Leetcode Explore: Array 101. Conclusion
 
@@ -8,7 +8,7 @@ Study Plan: Dynamic Programming
 Given a binary array nums, return the maximum number of consecutive 1's in the array if you can flip at most one 0.
 
 
-'''
+"""
 
 
 from typing import List
@@ -29,7 +29,7 @@ class Solution:
                     pre, cur = cur, 0
                 else:
                     cur += 1
-                maxlen = max(maxlen, pre+1+cur)
+                maxlen = max(maxlen, pre + 1 + cur)
             return maxlen
 
         def bf():
@@ -46,7 +46,7 @@ class Solution:
                     if nums[r] == 0:
                         cnt_0 += 1
                     if cnt_0 <= 1:
-                        max_seq = max(max_seq, r-l+1)
+                        max_seq = max(max_seq, r - l + 1)
             return max_seq
 
         def slide_window():
@@ -71,7 +71,7 @@ class Solution:
                     if d == 0:
                         cnt -= 1
                 # now cnt <= 1
-                max_seq = max(max_seq, r-l)
+                max_seq = max(max_seq, r - l)
             print(max_seq)
             return max_seq
 

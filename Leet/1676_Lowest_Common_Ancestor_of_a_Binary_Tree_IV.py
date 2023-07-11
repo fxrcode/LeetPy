@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (Medium)
-'''
+"""
 
 from typing import List
 
@@ -13,13 +13,15 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode',
-                             nodes: 'List[TreeNode]') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", nodes: "List[TreeNode]"
+    ) -> "TreeNode":
         """
         Runtime: 116 ms, faster than 93.55% of Python3 online submissions for Lowest Common Ancestor of a Binary Tree IV.
 
 
         """
+
         def lca(node):
             if not node:
                 return None

@@ -1,10 +1,10 @@
-'''
+"""
 ✅ GOOD DP (FSM)
 
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 💡insight
-'''
+"""
 
 
 from typing import List
@@ -23,18 +23,18 @@ class Solution:
             """
             # T[i][k][0/1]: ith day, maximum allowed tx allowed, 0:no stock, 1:has stock. T stands for Table (DP)
             N = len(prices)
-            T = [[0]*2 for _ in range(N)]  # N-by-2
+            T = [[0] * 2 for _ in range(N)]  # N-by-2
             for i in range(N):
-                if i-1 == -1:
+                if i - 1 == -1:
                     T[i][0] = 0
                     T[i][1] = -prices[i] - fee
                     continue
-                T[i][0] = max(T[i-1][0], T[i-1][1] + prices[i])
-                T[i][1] = max(T[i-1][1], T[i-1][0] - prices[i]-fee)
-            return T[N-1][0]
+                T[i][0] = max(T[i - 1][0], T[i - 1][1] + prices[i])
+                T[i][1] = max(T[i - 1][1], T[i - 1][0] - prices[i] - fee)
+            return T[N - 1][0]
 
         def fxr():
-            '''
+            """
             AC in 1!
             XXX: Thanks 309. Best Time to Buy and Sell Stock with Cooldown, I learned FSM DP!
 
@@ -43,15 +43,16 @@ class Solution:
 
             OS: At the end of the i-th day, we maintain `cash` (here fxr used sold), the maximum profit we could have if we did not have a share of stock
                 and `hold`, the maximum profit we could have if we owned a share of stock.
-            '''
+            """
             INF = 1e6
             sold, held = 0, -INF
             for p in prices:
                 pre_sold = sold
-                sold = max(sold, held+p)
-                held = max(held, pre_sold-p-fee)
+                sold = max(sold, held + p)
+                held = max(held, pre_sold - p - fee)
                 print(p, sold, held)
             return max(sold, held)
+
         return fxr2()
 
 

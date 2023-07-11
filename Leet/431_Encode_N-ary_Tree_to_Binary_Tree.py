@@ -1,8 +1,8 @@
-'''
+"""
 Leetcode explore N-ary Tree: Recursion
 https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree/
 Design an algorithm to encode an N-ary tree into a binary tree and decode the binary tree to get the original N-ary tree. An N-ary tree is a rooted tree in which each node has no more than N children. Similarly, a binary tree is a rooted tree in which each node has no more than 2 children. There is no restriction on how your encode/decode algorithm should work. You just need to ensure that an N-ary tree can be encoded to a binary tree and this binary tree can be decoded to the original N-nary tree structure.
-'''
+"""
 
 # Definition for a Node.
 
@@ -11,6 +11,7 @@ class Node:
     def __init__(self, val=None, children=None):
         self.val = val
         self.children = children
+
 
 # Definition for a binary tree node.
 
@@ -23,7 +24,7 @@ class TreeNode:
 
 
 class Codec:
-    def encode(self, root: 'Node') -> TreeNode:
+    def encode(self, root: "Node") -> TreeNode:
         # beat 70.59% in lintcode: 1530 · Encode N-ary Tree to Binary Tree
         # Encodes an n-ary tree to a binary tree.
         # https://leetcode.libaoj.in/encode-n-ary-tree-to-binary-tree.html
@@ -46,7 +47,7 @@ class Codec:
 
         return root
 
-    def decode(self, data: TreeNode) -> 'Node':
+    def decode(self, data: TreeNode) -> "Node":
         # Decodes your binary tree to an n-ary tree.
         if not data:
             return None
@@ -57,6 +58,7 @@ class Codec:
             rootNode.children.append(node)
             cur = cur.right
         return rootNode
+
 
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()

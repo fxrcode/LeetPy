@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1360/
 Explore-Queue-Stack: Stack LIFO
 
@@ -12,13 +12,12 @@ void pop() removes the element on the top of the stack.
 int top() gets the top element of the stack.
 int getMin() retrieves the minimum element in the stack.
 
-'''
+"""
 # BUG: Careful on INF, I saw Floyd&Dijkstra bili used 0x3f3f3f3f, and INF=1e9. But it fialed for max_int.
-INF = float('inf')
+INF = float("inf")
 
 
 class MinStack:
-
     def __init__(self):
         """
         initialize your data structure here.

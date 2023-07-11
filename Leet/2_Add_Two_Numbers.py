@@ -16,7 +16,9 @@ class ListNode:
 
 
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         def pochmann():
             """
             Runtime: 121 ms, faster than 23.21% of Python3 online submissions for Add Two Numbers.

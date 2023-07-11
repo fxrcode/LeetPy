@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/queue-stack/232/practical-application-stack/1383/
 Leetcode explore Queue & Stack
 https://leetcode.com/explore/learn/card/recursion-ii/503/recursion-to-iteration/2774/
@@ -7,9 +7,9 @@ Leetcode explore Recursion II: Recursion to Iteeration
 Given the root of a binary tree, return the inorder traversal of its nodes' values.
 
 
-'''
+"""
 
-from typing import Optional, List, Set
+from typing import List, Optional, Set
 
 
 # Definition for a binary tree node.
@@ -132,6 +132,7 @@ class Solution:
         XXX: Actually this 2-color variant DFS derived from CLRS's 3-color-variant DFS!
         https://lucifer.ren/leetcode/thinkings/binary-tree-traversal.html
         """
+
         def inorder(root: Optional[TreeNode]) -> List[int]:
             WHITE, GRAY = 0, 1
             res, stk = [], [(root, WHITE)]
@@ -177,9 +178,9 @@ class Solution:
                         stk.append((cur.left, WHITE))
             return res
 
-        print('in:', inorder(root))
-        print('pre:', preorder(root))
-        print('post:', postorder(root))
+        print("in:", inorder(root))
+        print("pre:", preorder(root))
+        print("post:", postorder(root))
 
     def inorderTraversal_DFS(self, root: Optional[TreeNode]) -> List[int]:
         def dfs(root: TreeNode, inorder: List[int]) -> None:
@@ -204,13 +205,9 @@ yi = TreeNode(1, er, san)
 
 # https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion-and-without-stack/
 # smart tree init
-root = TreeNode(1,
-                right=TreeNode(3),
-                left=TreeNode(2,
-                              left=TreeNode(4),
-                              right=TreeNode(5)
-                              )
-                )
+root = TreeNode(
+    1, right=TreeNode(3), left=TreeNode(2, left=TreeNode(4), right=TreeNode(5))
+)
 
 sl = Solution()
 # print(sl.inorderTraversal_Morris_Leet_Solution(root))

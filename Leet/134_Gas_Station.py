@@ -1,8 +1,8 @@
-'''
+"""
 ✅ GOOD Logic
 Daily Challenge (01212022, 01072023)
 [ ] REDO
-'''
+"""
 
 from typing import List
 
@@ -41,10 +41,12 @@ class Solution:
                 j = i
                 while stops < n:
                     total += gas[j % n] - cost[j % n]
-                    if total < 0: break
+                    if total < 0:
+                        break
                     stops += 1
                     j += 1
-                if stops == n and total >= 0: return i
+                if stops == n and total >= 0:
+                    return i
             return -1
 
         '''

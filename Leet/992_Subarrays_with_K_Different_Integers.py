@@ -1,10 +1,10 @@
-'''
+"""
 💡insight (logic & sliding-window)
 tag: Hard, Sliding Window
 
 Lookback:
 - GraceMeng: so-called sliding window technique needs an aggregated requirement, for example, the window with at most K dinstinct or with at least K dinstinct.
-'''
+"""
 
 from collections import Counter
 from typing import List
@@ -19,6 +19,7 @@ class Solution:
             https://leetcode.com/problems/subarrays-with-k-different-integers/discuss/523136/JavaC%2B%2BPython-Sliding-Window
             T: O(N)
             """
+
             def atMost(K):
                 dist = Counter()
                 l, r = 0, 0
@@ -26,7 +27,8 @@ class Solution:
                 k = 0
                 while r < len(nums):
                     c = nums[r]
-                    if dist[c] == 0: k += 1
+                    if dist[c] == 0:
+                        k += 1
                     dist[c] += 1
                     r += 1
                     while k > K:

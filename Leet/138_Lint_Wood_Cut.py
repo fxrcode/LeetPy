@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/discuss/interview-question/354854/Facebook-or-Phone-Screen-or-Cut-Wood
 Leetcode Explore: Binary Search - More Practice II
 
@@ -28,7 +28,7 @@ Example 4:
 Input: wood = [232, 124, 456], k = 7
 Output: 114
 Explanation: We can cut it into 7 pieces if any piece is 114 long, however we can't cut it into 7 pieces if any piece is 115 long.
-'''
+"""
 
 
 from typing import List
@@ -42,7 +42,7 @@ class Solution:
     """
 
     def woodCut(self, L: List[int], k: int) -> int:
-        '''
+        """
         def f(c) -> bool:
             # BUG: This makes f(c) into F,F,F,T,T,T model, so align with zhijun_liao's template: minimum k, s.t f(k) is True
             count = 0
@@ -61,7 +61,7 @@ class Solution:
                 else:
                     l = mid+1
             return l
-        '''
+        """
 
         def f_fxr(c) -> bool:
             count = 0
@@ -76,12 +76,12 @@ class Solution:
             l, r = 1, min(L)
             res = 0
             while l < r:
-                mid = (l+r)//2
+                mid = (l + r) // 2
                 if f_fxr(mid):
                     # trick: https://leetcode.com/discuss/interview-question/354854/Facebook-or-Phone-Screen-or-Cut-Wood/352665
                     # still using zhijun's template,
                     res = mid
-                    l = mid+1
+                    l = mid + 1
                 else:
                     r = mid
             return res
@@ -95,18 +95,18 @@ class Solution:
             Since template II's return is 1st valid, so first not(f_fxr), therefore, the right answer is l-1!
 
             """
-            l, r = 1, min(L)+1
+            l, r = 1, min(L) + 1
             while l < r:
-                c = (l+r)//2
+                c = (l + r) // 2
                 if f_fxr(c):
                     l = c + 1
                 else:  # in terms of zhijun_liao's template === if not f_fxr(c)
                     r = c
-            return l-1
+            return l - 1
 
         def bf():
             c_mn, c_mx = 1, min(L)
-            for c in range(c_mx, c_mn-1, -1):
+            for c in range(c_mx, c_mn - 1, -1):
                 count = 0
                 for l in L:
                     count += l // c

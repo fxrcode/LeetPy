@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
 from typing import List
@@ -23,9 +23,9 @@ class Solution:
 
             """
             # XXX: careful! I always forgot r = len(arr)-1! missing the '-1'
-            l, r = 0, len(arr)-1
+            l, r = 0, len(arr) - 1
             while l < r:
-                mid = (l+r)//2
+                mid = (l + r) // 2
                 if arr[mid] - mid >= 0:
                     r = mid
                 else:

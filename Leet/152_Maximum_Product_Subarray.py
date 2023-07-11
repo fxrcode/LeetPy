@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 
-'''
+"""
 
 
 from typing import List
@@ -23,8 +23,8 @@ class Solution:
             ans = mx_so_far
             for i in range(1, len(nums)):
                 cur = nums[i]
-                tmp_mx = max(cur, cur*mx_so_far, cur*mn_so_far)
-                mn_so_far = min(cur, cur*mx_so_far, cur*mn_so_far)
+                tmp_mx = max(cur, cur * mx_so_far, cur * mn_so_far)
+                mn_so_far = min(cur, cur * mx_so_far, cur * mn_so_far)
                 mx_so_far = tmp_mx
                 ans = max(ans, mx_so_far)
             return ans
@@ -47,8 +47,8 @@ class Solution:
                 # else:
                 #     F[i] = (F[i-1] if F[i-1] <= 0 else 1) * nums[i]
                 # ans = max(ans, F[i])
-                mn, mx = F[(i-1) % 2]
-                prods = [mn*nums[i], mx*nums[i]]
+                mn, mx = F[(i - 1) % 2]
+                prods = [mn * nums[i], mx * nums[i]]
                 include = prods + [nums[i]]
                 F[i % 2] = [min(include), max(include)]
                 ans = max(ans, *F[i % 2])

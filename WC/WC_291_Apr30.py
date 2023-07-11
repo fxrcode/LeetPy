@@ -11,7 +11,6 @@ from typing import List
 
 class Solution:
     def appealSum(self, s: str) -> int:
-
         pass
 
     def countDistinct(self, nums: List[int], k: int, p: int) -> int:

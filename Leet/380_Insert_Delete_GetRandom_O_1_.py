@@ -1,11 +1,11 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1141/
 Leetcode Explore: Hash Table. Conclusion
 
 Implement the RandomizedSet class:
 
 
-'''
+"""
 from random import choice
 
 
@@ -24,7 +24,7 @@ class RandomizedSet:
         if val in self.v2i:
             return False
         self.l.append(val)
-        self.v2i[val] = len(self.l)-1
+        self.v2i[val] = len(self.l) - 1
         return True
 
     def remove(self, val: int) -> bool:
@@ -57,10 +57,10 @@ class RandomizedSet:
         return choice(self.l)
 
 
-'''
+"""
 # Your RandomizedSet object will be instantiated and called as such:
 # obj = RandomizedSet()
 # param_1 = obj.insert(val)
 # param_2 = obj.remove(val)
 # param_3 = obj.getRandom()
-'''
+"""

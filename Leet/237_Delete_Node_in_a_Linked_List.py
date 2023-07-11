@@ -1,8 +1,8 @@
-'''
+"""
 Top Interview Questions
 
 tag: Easy,
-'''
+"""
 
 
 class ListNode:
@@ -17,6 +17,7 @@ class Solution:
         :type node: ListNode
         :rtype: void Do not return anything, modify node in-place instead.
         """
+
         def OldCodingFarmer():
             """
             Runtime: 40 ms, faster than 77.32% of Python3 online submissions for Delete Node in a Linked List.

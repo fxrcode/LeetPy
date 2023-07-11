@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (Medium)
-'''
+"""
 
 
 class Node:
@@ -12,7 +12,7 @@ class Node:
 
 
 class Solution:
-    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
+    def lowestCommonAncestor(self, p: "Node", q: "Node") -> "Node":
         def os():
             """
             Runtime: 68 ms, faster than 79.32% of Python3 online submissions for Lowest Common Ancestor of a Binary Tree III.

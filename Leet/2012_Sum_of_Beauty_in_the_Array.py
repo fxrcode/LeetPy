@@ -1,6 +1,6 @@
-'''
+"""
 Jingying Mock (Dec 7, 2021)
-'''
+"""
 
 
 from typing import List
@@ -20,17 +20,17 @@ class Solution:
             XXX: learned tilde python indexing, handy in reverse looping! ~0=-1, ~1=-2, ...
             """
             n, sm = len(nums), 0
-            left_mx = [0] + [0]*n
-            right_mn = [0]*n + [INF]
+            left_mx = [0] + [0] * n
+            right_mn = [0] * n + [INF]
             for i, num in enumerate(nums):
-                left_mx[i+1] = max(left_mx[i], num)
+                left_mx[i + 1] = max(left_mx[i], num)
                 # Tilde Python indexing is COOOL
-                right_mn[~i-1] = min(right_mn[~i], nums[~i])
-            for i in range(1, len(nums)-1):
+                right_mn[~i - 1] = min(right_mn[~i], nums[~i])
+            for i in range(1, len(nums) - 1):
                 # BUG: if left_mx[i] < nums[i] < right_mn[i]:
                 #   careful, suffix right_mn[i] means minimum nums[i...-1], not same as left_mx[i]!
-                if left_mx[i] < nums[i] < right_mn[i+1]:
+                if left_mx[i] < nums[i] < right_mn[i + 1]:
                     sm += 2
-                elif nums[i-1] < nums[i] < nums[i+1]:
+                elif nums[i - 1] < nums[i] < nums[i + 1]:
                     sm += 1
             return sm

@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/data-structure-tree/133/conclusion/932/
 Leetcode explore Binary Tree: Conclusion
 
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
-'''
+"""
 # Definition for a binary tree node.
 
 
@@ -15,7 +15,9 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         """
         Runtime: 555 ms, faster than 5.23% of Python3 online submissions for Lowest Common Ancestor of a Binary Tree.
 
@@ -34,6 +36,5 @@ class Solution:
         if root in (None, p, q):
             return root
         # XXX: cool pythonic: return tuple
-        l, r = (self.lowestCommonAncestor(kid, p, q)
-                for kid in (root.left, root.right))
+        l, r = (self.lowestCommonAncestor(kid, p, q) for kid in (root.left, root.right))
         return root if l and r else l or r

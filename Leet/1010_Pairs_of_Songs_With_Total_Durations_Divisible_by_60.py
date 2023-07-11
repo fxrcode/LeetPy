@@ -1,10 +1,10 @@
-'''
+"""
 ✅ GOOD Math (Modulo)
 Daily Challenge (Jan 2)
 
-'''
-from typing import List
+"""
 from collections import defaultdict
+from typing import List
 
 
 class Solution:
@@ -24,7 +24,7 @@ class Solution:
                 if t % 60 == 0:
                     ans += remainders[0]
                 else:
-                    ans += remainders[60-t % 60]
+                    ans += remainders[60 - t % 60]
                 # XXX: only update dict with me after calculating rather precompute!
                 remainders[t % 60] += 1
             return ans
@@ -39,19 +39,19 @@ class Solution:
             for t in time:
                 cntr[t] += 1
 
-            sixties = [i*60 for i in range(500*2//60+1)]
+            sixties = [i * 60 for i in range(500 * 2 // 60 + 1)]
             pairs = 0
             for t in time:
                 for sixty in sixties:
                     if t >= sixty:
                         continue
-                    if sixty == 2*t:
-                        p = cntr[t]-1
+                    if sixty == 2 * t:
+                        p = cntr[t] - 1
                         if p > 0:
-                            print('\t', sixty, p, t)
+                            print("\t", sixty, p, t)
                         pairs += p
                     else:
-                        p = cntr[sixty-t]
+                        p = cntr[sixty - t]
                         if p > 0:
                             print(sixty, p, t)
                         pairs += p

@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/184/comparison-with-other-data-structures/1120/
 Leetcode Explore: Hash Table. Practical Application - HashMap
 Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
-'''
+"""
 from collections import Counter, defaultdict
 from typing import List
 
@@ -38,6 +38,6 @@ class Solution:
 
 
 sl = Solution()
-ss = ['leetcode', 'loveleetcode', 'aabb']
+ss = ["leetcode", "loveleetcode", "aabb"]
 for s in ss:
     print(sl.firstUniqChar(s))

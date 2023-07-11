@@ -13,4 +13,4 @@ class Solution:
                     res.append(w.lower())
                 else:
                     res.append(w.capitalize())
-            return ' '.join(res)
+            return " ".join(res)

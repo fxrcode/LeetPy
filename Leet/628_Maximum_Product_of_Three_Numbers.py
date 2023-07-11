@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Top k elements
 
 Explore Array & String
@@ -7,7 +7,7 @@ Given an integer array nums, find three numbers whose product is maximum and ret
 
 * similar: 414. Third Maximum Number
 
-'''
+"""
 
 
 from typing import List
@@ -23,7 +23,7 @@ class Solution:
         """
         nums.sort()
         n = len(nums)
-        c1 = nums[0]*nums[1]*nums[n-1]
+        c1 = nums[0] * nums[1] * nums[n - 1]
         c2 = nums[-1] * nums[-2] * nums[-3]
         return max(c1, c2)
 
@@ -32,8 +32,8 @@ class Solution:
         WA: [0,0,0] => nan, rather 0.
         Runtime: 276 ms, faster than 35.98% of Python3 online submissions for Maximum Product of Three Numbers.
         """
-        vmx = [float('-inf')]*3
-        vmn = [float('inf')]*2
+        vmx = [float("-inf")] * 3
+        vmn = [float("inf")] * 2
         for n in nums:
             # to update v max
             if n > vmx[0]:
@@ -50,9 +50,9 @@ class Solution:
 
         print(vmx, vmn)
 
-        return max(vmx[0]*vmx[1]*vmx[2], vmn[0]*vmn[1]*vmx[0])
+        return max(vmx[0] * vmx[1] * vmx[2], vmn[0] * vmn[1] * vmx[0])
 
-    '''
+    """
     def maximumProduct_BUG(self, nums: List[int]) -> int:
         def shift(n: int, v: List[int]) -> None:
             if n in v:
@@ -74,7 +74,7 @@ class Solution:
                 shift(n, vp)
             else:
                 shift(-n, vn)
-    '''
+    """
 
 
 nums = [-3, -2, 0, 9]

@@ -1,6 +1,6 @@
-'''
+"""
 FB tag
-'''
+"""
 
 from collections import Counter
 
@@ -18,13 +18,15 @@ class Solution:
             dst = 0
             while r < len(s):
                 c = s[r]
-                if cnt[c] == 0: dst += 1
+                if cnt[c] == 0:
+                    dst += 1
                 cnt[c] += 1
                 r += 1
                 while dst > k:
                     d = s[l]
                     cnt[d] -= 1
-                    if cnt[d] == 0: dst -= 1
+                    if cnt[d] == 0:
+                        dst -= 1
                     l += 1
                 # now dst <= k
                 res = max(res, r - l)
@@ -34,5 +36,5 @@ class Solution:
 
 
 sl = Solution()
-print(sl.lengthOfLongestSubstringKDistinct(s='eceba', k=2))
-print(sl.lengthOfLongestSubstringKDistinct(s='aa', k=1))
+print(sl.lengthOfLongestSubstringKDistinct(s="eceba", k=2))
+print(sl.lengthOfLongestSubstringKDistinct(s="aa", k=1))

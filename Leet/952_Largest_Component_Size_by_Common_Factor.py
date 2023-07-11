@@ -1,4 +1,4 @@
-'''
+"""
 Daily Challenge (Nov 23)
 01:26:14 left
 
@@ -14,19 +14,19 @@ NOTE: Problems based on the intuition of Union and Find (basically always labell
 1722. Minimize Hamming Distance After Swap Operations - https://leetcode.com/problems/minimize-hamming-distance-after-swap-operations/
 1998. GCD Sort of an Array - https://leetcode.com/problems/gcd-sort-of-an-array/
 2076. Process Restricted Friend Requests - https://leetcode.com/problems/process-restricted-friend-requests/
-'''
+"""
 
 
-from typing import List
-from collections import defaultdict
 import math
+from collections import defaultdict
+from typing import List
 
 
 class UF:
     def __init__(self, n) -> None:
         self.p = list(range(n))
-        self.ranks = [0]*n
-        self.sizes = [1]*n
+        self.ranks = [0] * n
+        self.sizes = [1] * n
 
     def find(self, i) -> int:
         if self.p[i] != i:
@@ -59,7 +59,7 @@ class Solution:
                 Took me 1hr to understand to logic of union adjacent prime factors, and the 1-to-1 relation: num -> prime_factor -> group_id
 
             """
-            dsu = UF(max(nums)+1)
+            dsu = UF(max(nums) + 1)
             num_factor_map = {}
 
             def primefactors(n):
@@ -77,8 +77,8 @@ class Solution:
             for n in nums:
                 factors = primefactors(n)
                 num_factor_map[n] = factors[0]
-                for i in range(len(factors)-1):
-                    dsu.union(factors[i], factors[i+1])
+                for i in range(len(factors) - 1):
+                    dsu.union(factors[i], factors[i + 1])
 
             mx = 0
             group_cnt = defaultdict(int)
@@ -102,14 +102,14 @@ class Solution:
                     if k not in vis:
                         recur(k, mp, vis)
 
-                    l = len(vis)-prev
+                    l = len(vis) - prev
                     res = max(l, res)
                     prev = len(vis)
                 return res
 
             mp = defaultdict(list)
             for i in range(len(nums)):
-                for j in range(i+1, len(nums)):
+                for j in range(i + 1, len(nums)):
                     if math.gcd(nums[i], nums[j]) > 1:
                         mp[nums[i]].append(nums[j])
                         mp[nums[j]].append(nums[i])
@@ -121,6 +121,7 @@ class Solution:
             Memory Usage: 43.1 MB, less than 8.93% of Python3 online submissions for Largest Component Size by Common Factor.
             """
             from time import time
+
             dt = time()
 
             n = len(nums)
@@ -134,7 +135,7 @@ class Solution:
                 while n % 2 == 0:
                     out.add(2)
                     n //= 2
-                for i in range(3, int(n**0.5)+1, 2):
+                for i in range(3, int(n**0.5) + 1, 2):
                     if n % i == 0:
                         out.add(i)
                     while n % i == 0:
@@ -153,14 +154,14 @@ class Solution:
                             prime_i_node[fac] = []
                         prime_i_node[fac].append(i)
                 # print(prime_i_node)
-                print("time:", (time() - dt)*1000)
+                print("time:", (time() - dt) * 1000)
                 for prime, inodes in prime_i_node.items():
                     if len(inodes) <= 1:
                         continue
                     for i in range(len(inodes)):
                         if inodes[i] not in edges:
                             edges[inodes[i]] = set()
-                        edges[inodes[i]].add(inodes[(i+1) % len(inodes)])
+                        edges[inodes[i]].add(inodes[(i + 1) % len(inodes)])
 
             def dfs(i, visited):
                 if i in visited:
@@ -195,8 +196,8 @@ class Solution:
             print(nums)
             # uf = {v: v for v in nums}
             # rank = {v: 0 for v in nums}
-            uf = {v: v for v in range(1, max(nums)+1)}
-            rank = {v: 0 for v in range(1, max(nums)+1)}
+            uf = {v: v for v in range(1, max(nums) + 1)}
+            rank = {v: 0 for v in range(1, max(nums) + 1)}
 
             def find(x):
                 # BUG: while x != uf[x]:
@@ -220,15 +221,15 @@ class Solution:
             def common(x, y):
                 if x > y:
                     return common(y, x)
-                for v in range(2, x+1):
+                for v in range(2, x + 1):
                     if x % v + y % v == 0:
                         return v
                 return 0
 
             def primeDecompose(num):
-                """ decompose any positive number into
-                        a series of prime factors.
-                    e.g. 12 = 2 * 2 * 3
+                """decompose any positive number into
+                    a series of prime factors.
+                e.g. 12 = 2 * 2 * 3
                 """
                 factor = 2
                 prime_factors = []
@@ -240,7 +241,8 @@ class Solution:
                         factor += 1
                 prime_factors.append(num)
                 return prime_factors
-            '''
+
+            """
             for i in range(len(nums)):
                 for j in range(i+1, len(nums)):
                     x, y = nums[i], nums[j]
@@ -256,13 +258,13 @@ class Solution:
                 mx = max(mx, groups[uf[v]])
             print(groups)
             return mx
-            '''
+            """
             num_factor_map = {}
             for n in nums:
                 prime_factors = list(set(primeDecompose(n)))
                 num_factor_map[n] = prime_factors[0]
-                for i in range(len(prime_factors)-1):
-                    union(prime_factors[i], prime_factors[i+1])
+                for i in range(len(prime_factors) - 1):
+                    union(prime_factors[i], prime_factors[i + 1])
 
             # print(uf)
             max_size = 0
@@ -285,5 +287,8 @@ print(sl.largestComponentSize(nums=[4, 6, 15, 35]))
 # print(sl.largestComponentSize(nums=[2, 3, 6, 7, 4, 12, 21, 39]))
 print(sl.largestComponentSize([65, 35, 43, 76, 15, 11, 81, 22, 55, 92, 31]))
 print(sl.largestComponentSize([99, 68, 70, 77, 35, 52, 53, 25, 62]))
-print(sl.largestComponentSize(
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]))
+print(
+    sl.largestComponentSize(
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+    )
+)

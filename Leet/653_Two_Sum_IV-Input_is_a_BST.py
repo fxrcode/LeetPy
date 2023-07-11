@@ -1,4 +1,4 @@
-'''
+"""
 FB tag (easy)
 
 BST iterator, yield
@@ -6,10 +6,10 @@ REF: https://stackoverflow.com/a/70617027/3984911
 The yield keyword is used in enumeration/iteration where the function is expected to return more then one output.
 
 TODO: BST iterator (iterative version) Check 173
-'''
+"""
 
-from typing import Optional
 from collections import defaultdict
+from typing import Optional
 
 
 class TreeNode:
@@ -28,6 +28,7 @@ class Solution:
             T: O(N), M: O(H)
             REF: https://leetcode.com/problems/two-sum-iv-input-is-a-bst/discuss/1420711/C%2B%2BJavaPython-3-solutions%3A-HashSet-Stack-Python-yield-Solutions-O(H)-space
             """
+
             def inorder_itr(r):
                 if r:
                     yield from inorder_itr(r.left)
@@ -56,6 +57,7 @@ class Solution:
             Runtime: 128 ms, faster than 25.97% of Python3 online submissions for Two Sum IV - Input is a BST.
 
             """
+
             def inorder(r):
                 if r:
                     inorder(r.left)
@@ -80,6 +82,7 @@ class Solution:
 
             XXX: if a + b = k, say you haven't meet b when you see a, then you'll see a in seen once you meet b.
             """
+
             def dfs(r):
                 if not r:
                     return False

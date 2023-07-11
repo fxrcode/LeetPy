@@ -33,4 +33,6 @@ class Solution:
 
 sl = Solution()
 print(sl.isAlienSorted(words=["hello", "leetcode"], order="hlabcdefgijkmnopqrstuvwxyz"))
-print(sl.isAlienSorted(words=["word", "world", "row"], order="worldabcefghijkmnpqstuvxyz"))
+print(
+    sl.isAlienSorted(words=["word", "world", "row"], order="worldabcefghijkmnpqstuvxyz")
+)

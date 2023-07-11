@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/
 Leetcode Explore Array 101: Searching for Items in array
 
@@ -9,11 +9,11 @@ More formally check if there exists two indices i and j such that :
 i != j
 0 <= i, j < arr.length
 arr[i] == 2 * arr[j]
-'''
+"""
 
 
-from typing import List
 import bisect
+from typing import List
 
 
 class Solution:
@@ -25,7 +25,7 @@ class Solution:
         """
         seen = set()
         for i in arr:
-            if i / 2 in seen or i*2 in seen:
+            if i / 2 in seen or i * 2 in seen:
                 return True
             seen.add(i)
         return False
@@ -43,7 +43,7 @@ class Solution:
         for i in range(len(sarr)):
             pi = bisect.bisect_left(sarr, sarr[i] * 2)
             # XXX: 0 = 0*2, so I need to test if index same
-            if pi < len(sarr) and pi != i and sarr[pi] == sarr[i]*2:
+            if pi < len(sarr) and pi != i and sarr[pi] == sarr[i] * 2:
                 print(sarr[i], sarr[pi])
                 return True
         return False

@@ -28,4 +28,8 @@ class Solution:
 
 sl = Solution()
 print(sl.merge([[1, 4], [1, 5]]))
-assert sl.merge(intervals=[[1, 3], [2, 6], [8, 10], [15, 18]]) == [[1, 6], [8, 10], [15, 18]]
+assert sl.merge(intervals=[[1, 3], [2, 6], [8, 10], [15, 18]]) == [
+    [1, 6],
+    [8, 10],
+    [15, 18],
+]

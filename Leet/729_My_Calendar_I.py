@@ -29,7 +29,9 @@ class MyCalendar:
 
         n = len(self.calendar)
         # similar to closest item in sorted list
-        if (i < n and __overlap(event, self.calendar[i])) or (i > 0 and __overlap(event, self.calendar[i - 1])):
+        if (i < n and __overlap(event, self.calendar[i])) or (
+            i > 0 and __overlap(event, self.calendar[i - 1])
+        ):
             return False
         self.calendar.add(event)
         return True

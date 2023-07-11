@@ -58,12 +58,20 @@ class Solution:
                         bal += 1 if c == op else -1
                     else:
                         wild += 1
-                    if wild + bal < 0:  # if unmatched locked ')' can't be matched w/ wild (left->right)
+                    if (
+                        wild + bal < 0
+                    ):  # if unmatched locked ')' can't be matched w/ wild (left->right)
                         return False
-                return bal <= wild  # check if unmatched locked '(' can be matched w/ wild (left->right)
+                return (
+                    bal <= wild
+                )  # check if unmatched locked '(' can be matched w/ wild (left->right)
 
             # left-to-right only will fail for ["))((", "0011"]
-            return len(s) % 2 == 0 and validate(s, locked, "(") and validate(s[::-1], locked[::-1], ")")
+            return (
+                len(s) % 2 == 0
+                and validate(s, locked, "(")
+                and validate(s[::-1], locked[::-1], ")")
+            )
 
         return votrubac_greedy()
 

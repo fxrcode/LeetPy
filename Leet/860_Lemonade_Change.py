@@ -61,5 +61,8 @@ class Solution:
 sl = Solution()
 # assert sl.lemonadeChange(bills=[5, 5, 5, 10, 20]) == True
 # assert sl.lemonadeChange(bills=[5, 5, 10, 10, 20]) == False
-assert sl.lemonadeChange([5, 5, 10, 20, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 20, 5, 20, 5]) == True
+assert (
+    sl.lemonadeChange([5, 5, 10, 20, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 20, 5, 20, 5])
+    == True
+)
 assert sl.lemonadeChange([5, 5, 5, 5, 20, 20, 5, 5, 20, 5]) == False

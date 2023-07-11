@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 ✅ GOOD DP (1D)
-'''
+"""
 
 
 from functools import cache
@@ -17,11 +17,13 @@ class Solution:
 
             T: O(N), M: O(N)
             """
+
             @cache
             def rob_from(i):
                 if i >= len(nums):
                     return 0
-                return max(nums[i] + rob_from(i+2), rob_from(i+1))
+                return max(nums[i] + rob_from(i + 2), rob_from(i + 1))
+
             return rob_from(0)
 
         def os_tabular():
@@ -33,10 +35,10 @@ class Solution:
             if not nums:
                 return 0
             n = len(nums)
-            dp = [0]*(n+1)
-            dp[n-1] = nums[n-1]
-            for i in range(n-2, -1, -1):
-                dp[i] = max(dp[i+1], dp[i+2]+nums[i])
+            dp = [0] * (n + 1)
+            dp[n - 1] = nums[n - 1]
+            for i in range(n - 2, -1, -1):
+                dp[i] = max(dp[i + 1], dp[i + 2] + nums[i])
             return dp[0]
 
         def os_tabular_optimized():
@@ -49,8 +51,8 @@ class Solution:
                 return 0
             n = len(nums)
             dp_i_1, dp_i_2 = 0, 0
-            for i in range(n-1, -1, -1):
-                dp = max(dp_i_1, dp_i_2+nums[i])
+            for i in range(n - 1, -1, -1):
+                dp = max(dp_i_1, dp_i_2 + nums[i])
                 dp_i_1, dp_i_2 = dp, dp_i_1
             return dp
 
@@ -69,10 +71,10 @@ class Solution:
             F = [0 for _ in range(len(nums))]
             for i in range(len(nums)):
                 F[i] = max(
-                    (F[i-2] if i >= 2 else 0) + nums[i],
-                    (F[i-1] if i >= 1 else 0)
+                    (F[i - 2] if i >= 2 else 0) + nums[i], (F[i - 1] if i >= 1 else 0)
                 )
             return F[-1]
+
         '''
         F = {}
 

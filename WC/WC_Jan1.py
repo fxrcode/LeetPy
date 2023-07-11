@@ -1,6 +1,6 @@
-from typing import List
-from heapq import heapify, heappop
 from collections import defaultdict
+from heapq import heapify, heappop
+from typing import List
 
 
 class Solution:
@@ -12,12 +12,12 @@ class Solution:
         for b in bank:
             ones = 0
             for c in b:
-                if c == '1':
+                if c == "1":
                     ones += 1
             devs.append(ones)
         ans = 0
         for i, j in zip(devs, devs[1:]):
-            ans += i*j
+            ans += i * j
         return ans
 
     def asteroidsDestroyed(self, mass: int, asteroids: List[int]) -> bool:
@@ -65,7 +65,7 @@ class Solution:
 
         def dfs(u, colr):
             if u == 5:
-                print('hei')
+                print("hei")
             colr[u] = GRAY
             for v in AL[u]:
                 if colr[v] == 0:

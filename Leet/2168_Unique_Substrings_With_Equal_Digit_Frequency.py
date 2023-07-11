@@ -30,7 +30,9 @@ class Solution:
                     mx_cnt = max(mx_cnt, cnt[digit])
                     # BUG: s_hash = (s_hash * D + digit) % MOD
                     s_hash = (s_hash * D + digit + 1) % MOD
-                    if mx_cnt * unique == j - i + 1:  # if max frequency * unique digits == the substring length, meaning each digits have the same frequency
+                    if (
+                        mx_cnt * unique == j - i + 1
+                    ):  # if max frequency * unique digits == the substring length, meaning each digits have the same frequency
                         print(s_hash, i, j)
                         s_set.add(s_hash)
             return len(s_set)

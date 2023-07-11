@@ -37,7 +37,11 @@ class Solution:
 
             def is_same(r, s):
                 if r and s:
-                    return r.val == s.val and is_same(r.left, s.left) and is_same(r.right, s.right)
+                    return (
+                        r.val == s.val
+                        and is_same(r.left, s.left)
+                        and is_same(r.right, s.right)
+                    )
                 return r == s
 
             def dfs(r, s):
@@ -132,7 +136,9 @@ class Solution:
 
 # root = TreeNode(3, left=TreeNode(4, left=TreeNode(1), right=TreeNode(2)), right=TreeNode(5))
 # subRoot = TreeNode(4, left=TreeNode(1), right=TreeNode(2))
-root = TreeNode(3, left=TreeNode(4, left=TreeNode(1)), right=TreeNode(5, left=TreeNode(2)))
+root = TreeNode(
+    3, left=TreeNode(4, left=TreeNode(1)), right=TreeNode(5, left=TreeNode(2))
+)
 subRoot = TreeNode(3, left=TreeNode(1), right=TreeNode(2))
 sl = Solution()
 print(sl.isSubtree(root, subRoot))

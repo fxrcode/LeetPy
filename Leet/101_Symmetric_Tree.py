@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/534/
 Leetcode Explore: Binary Tree - Solve problem recursively
 
 Given the root of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).
-'''
+"""
 
 # Definition for a binary tree node.
 
@@ -11,7 +11,6 @@ from typing import Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -19,7 +18,6 @@ class TreeNode:
 
 
 class Solution:
-
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         """
         Your runtime beats 84.78 % of python3 submissions.

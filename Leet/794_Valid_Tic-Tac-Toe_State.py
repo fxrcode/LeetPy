@@ -19,7 +19,11 @@ class Solution:
 
             def win(p: str) -> bool:
                 return (
-                    any((board[i][0] == p and board[i][1] == p and board[i][2] == p) or (board[0][i] == p and board[1][i] == p and board[2][i] == p) for i in range(3))
+                    any(
+                        (board[i][0] == p and board[i][1] == p and board[i][2] == p)
+                        or (board[0][i] == p and board[1][i] == p and board[2][i] == p)
+                        for i in range(3)
+                    )
                     or (board[0][0] == p and board[1][1] == p and board[2][2] == p)
                     or (board[0][2] == p and board[1][1] == p and board[2][0] == p)
                 )
@@ -89,5 +93,9 @@ print(sl.validTicTacToe(board=["O  ", "   ", "   "]))
 print(sl.validTicTacToe(board=["XOX", " X ", "   "]))
 print(sl.validTicTacToe(board=["XOX", "O O", "XOX"]))
 assert (sl.validTicTacToe(["XXX", "OOX", "OOX"])) == True
-assert (sl.validTicTacToe(["XXX", "XOO", "OO "])) == False  # 105 / 109 test cases passed.
-assert (sl.validTicTacToe(["XXO", "XOX", "OXO"])) == False  # 108 / 109 test cases passed.
+assert (
+    sl.validTicTacToe(["XXX", "XOO", "OO "])
+) == False  # 105 / 109 test cases passed.
+assert (
+    sl.validTicTacToe(["XXO", "XOX", "OXO"])
+) == False  # 108 / 109 test cases passed.

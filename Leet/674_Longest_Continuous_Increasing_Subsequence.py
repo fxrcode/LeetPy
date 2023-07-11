@@ -17,9 +17,9 @@ class Solution:
             """
             ans = anchor = 0
             for i in range(len(nums)):
-                if i and nums[i-1] >= nums[i]:
+                if i and nums[i - 1] >= nums[i]:
                     anchor = i
-                ans = max(ans, i-anchor+1)
+                ans = max(ans, i - anchor + 1)
             return ans
 
         def fxr():
@@ -29,12 +29,12 @@ class Solution:
             AC in 1
             """
             l = 0
-            mx = nums[0]-1
+            mx = nums[0] - 1
             ans = 1
             for r, v in enumerate((nums)):
                 if v <= mx:
                     l = r
                 else:
-                    ans = max(ans, r-l+1)
+                    ans = max(ans, r - l + 1)
                 mx = v
             return ans

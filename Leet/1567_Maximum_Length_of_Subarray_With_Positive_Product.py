@@ -1,11 +1,11 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
@@ -27,7 +27,7 @@ class Solution:
             ans = F[0][1]
 
             for i in range(1, N):
-                max_neg, max_pos = F[i-1]
+                max_neg, max_pos = F[i - 1]
                 if A[i] == 0:
                     F[i] = [0, 0]
                 elif A[i] > 0:
@@ -53,7 +53,7 @@ print(sl.getMaxLen(nums=[0, 1, -2, -3, -4]))
 print(sl.getMaxLen(nums=[-1, -2, -3, 0, 1]))
 print(sl.getMaxLen([-1, 2]))
 print(sl.getMaxLen(nums=[1, 2, 3, 5, -6, 4, 0, 10]))
-'''
+"""
 def slide_win():
     l, r = 0, 0
     N = len(nums)
@@ -75,4 +75,4 @@ def slide_win():
             l += 1
             if d < 0:
                 neg_cnt -= 1
-'''
+"""

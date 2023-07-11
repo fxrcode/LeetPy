@@ -27,7 +27,10 @@ class Solution:
             di = 0
             ans = []
             for _ in range(m * n):
-                if not (0 <= x + dx < m and 0 <= y + dy < n) or matrix[x + dx][y + dy] == "*":
+                if (
+                    not (0 <= x + dx < m and 0 <= y + dy < n)
+                    or matrix[x + dx][y + dy] == "*"
+                ):
                     di = (di + 1) % 4
                     dx, dy = DIR[di]
                 ans.append(matrix[x][y])

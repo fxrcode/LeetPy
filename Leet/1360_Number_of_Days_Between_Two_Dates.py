@@ -1,6 +1,6 @@
-'''
+"""
 tag: Easy,
-'''
+"""
 
 from datetime import datetime
 
@@ -13,6 +13,7 @@ class Solution:
 
             https://leetcode.com/problems/number-of-days-between-two-dates/discuss/517582/Python-Magical-Formula/810920
             """
+
             def isleap(year):
                 if year % 4 != 0:
                     return False
@@ -25,7 +26,7 @@ class Solution:
             days = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
             def f(date):
-                y, m, d = map(int, date.split('-'))
+                y, m, d = map(int, date.split("-"))
                 x = 365 * (y - 1971) + sum(map(isleap, range(1971, y)))
                 return x + d + sum(days[:m]) + (m > 2 and isleap(y))
 

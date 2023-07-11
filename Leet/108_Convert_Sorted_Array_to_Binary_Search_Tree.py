@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/143/appendix-height-balanced-bst/1015/
 Leetcode Explore Binary Search Tree: Conclusion
 
@@ -8,7 +8,7 @@ Given an integer array nums where the elements are sorted in ascending order, co
 NOTE:
 * How to Traverse the Tree. DFS: Preorder, Inorder, Postorder; BFS.
 * Construct BST from Inorder Traversal: Why the Solution is Not Unique
-'''
+"""
 # Definition for a binary tree node.
 
 
@@ -24,7 +24,6 @@ class TreeNode:
 
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-
         def dfs(nums, i, j) -> TreeNode:
             """
             Your runtime beats 10.71 % of python3 submissions.
@@ -38,11 +37,11 @@ class Solution:
                 return None
             if i == j:
                 return TreeNode(nums[i])
-            mid = (i+j)//2
-            l = dfs(nums, i, mid-1)
-            r = dfs(nums, mid+1, j)
+            mid = (i + j) // 2
+            l = dfs(nums, i, mid - 1)
+            r = dfs(nums, mid + 1, j)
             root = TreeNode(nums[mid])
             root.left, root.right = l, r
             return root
 
-        return dfs(nums, 0, len(nums)-1)
+        return dfs(nums, 0, len(nums) - 1)

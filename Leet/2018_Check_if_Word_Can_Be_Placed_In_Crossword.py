@@ -24,7 +24,9 @@ class Solution:
                     q = "".join(row).split("#")
                     for w in words:
                         for s in q:
-                            if len(s) == n and all(ss in (" ", ww) for ss, ww in zip(s, w)):
+                            if len(s) == n and all(
+                                ss in (" ", ww) for ss, ww in zip(s, w)
+                            ):
                                 return True
             return False
 

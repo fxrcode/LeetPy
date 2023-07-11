@@ -7,10 +7,10 @@ def addSpaces(s, spaces):
     print(spaces)
     for i, c in enumerate(s):
         if spaces and i == spaces[-1]:
-            ans.append(' ')
+            ans.append(" ")
             spaces.pop()
         ans.append(c)
-    return ''.join(ans)
+    return "".join(ans)
 
 
 # print(addSpaces(s="EnjoyYourCoffee", spaces=[5, 9]))
@@ -20,9 +20,12 @@ def getDescentPeriods(self, prices: List[int]) -> int:
     cnt = 0
     period = 1
     i = 1
-    def f(n): return n*(n+1)//2
+
+    def f(n):
+        return n * (n + 1) // 2
+
     while i < len(prices):
-        if prices[i-1] == prices[i]+1:
+        if prices[i - 1] == prices[i] + 1:
             period += 1
         else:
             cnt += f(period)
@@ -38,12 +41,15 @@ def minOperations(nums: List[int], s, k) -> int:
     """
     cnt = 0
     prev = nums[s]
-    for i in range(s+k, len(nums), k):
+    for i in range(s + k, len(nums), k):
         cur = nums[i]
         if cur < prev:
             prev = prev
             cnt += 1
-            print(i, prev,)
+            print(
+                i,
+                prev,
+            )
 
         else:
             prev = cur
@@ -59,7 +65,7 @@ def kIncreasing(arr: List[int], k: int) -> int:
     cnt = 0
     for i in range(k):
         cnt += minOperations(arr, i, k)
-        print('\t', i)
+        print("\t", i)
     return cnt
 
 

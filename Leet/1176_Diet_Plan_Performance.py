@@ -9,7 +9,9 @@ from typing import List
 
 
 class Solution:
-    def dietPlanPerformance(self, calories: List[int], k: int, lower: int, upper: int) -> int:
+    def dietPlanPerformance(
+        self, calories: List[int], k: int, lower: int, upper: int
+    ) -> int:
         def rock_slide_win():
             """
             Runtime: 235 ms, faster than 74.39% of Python3 online submissions for Diet Plan Performance.

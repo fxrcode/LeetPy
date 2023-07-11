@@ -86,4 +86,24 @@ sl = Solution()
 print(sl.longestPalindrome(words=["lc", "cl", "gg"]))
 print(sl.longestPalindrome(words=["ab", "ty", "yt", "lc", "cl", "ab"]))
 print(sl.longestPalindrome(words=["cc", "ll", "xx", "xx"]))
-assert sl.longestPalindrome(["dd", "aa", "bb", "dd", "aa", "dd", "bb", "dd", "aa", "cc", "bb", "cc", "dd", "cc"]) == 22
+assert (
+    sl.longestPalindrome(
+        [
+            "dd",
+            "aa",
+            "bb",
+            "dd",
+            "aa",
+            "dd",
+            "bb",
+            "dd",
+            "aa",
+            "cc",
+            "bb",
+            "cc",
+            "dd",
+            "cc",
+        ]
+    )
+    == 22
+)

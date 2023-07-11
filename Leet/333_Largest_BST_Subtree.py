@@ -46,7 +46,11 @@ class Solution:
                 r_n, r_min, r_max = dfs(T.right)
 
                 if l_max < T.val < r_min:
-                    return l_n + r_n + 1, min(l_min, T.val), max(r_max, T.val)  # BST trick
+                    return (
+                        l_n + r_n + 1,
+                        min(l_min, T.val),
+                        max(r_max, T.val),
+                    )  # BST trick
                 else:
                     # BUG: return 0, -inf, +inf
                     return max(l_n, r_n), float("-inf"), float("inf")  # BST trick

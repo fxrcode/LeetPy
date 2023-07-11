@@ -1,11 +1,11 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/binary-search/136/template-analysis/1061/
 Leetcode Explore: Binary Search - Template Analysis
 
 This is an interactive problem.
 
 You have a sorted array of unique elements and an unknown size. You do not have an access to the array but you can use the ArrayReader interface to access it. You can call get(i) that:
-'''
+"""
 
 # """
 # This is ArrayReader's API interface.
@@ -35,7 +35,7 @@ class Solution:
             r = r * 2
 
         while l < r:
-            mid = (l+r)//2
+            mid = (l + r) // 2
             if reader.get(mid) >= target:
                 r = mid
             else:
@@ -47,14 +47,14 @@ class Solution:
         Your runtime beats 9.53 % of python3 submissions.
 
         """
-        INV = 2**31-1
+        INV = 2**31 - 1
         l = r = 0
         while reader.get(r) != INV and reader.get(r) < target:
             l = r
             r = 1 if r == 0 else r * 2
 
         while l < r:
-            mid = (l+r)//2
+            mid = (l + r) // 2
             if reader.get(mid) >= target:
                 r = mid
             else:

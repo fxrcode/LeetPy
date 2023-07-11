@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/company/google/
 Easy
-'''
+"""
 
 
 class Solution:
@@ -12,8 +12,8 @@ class Solution:
 
             AC in 10min
             """
-            vowels = set(list('aeiouAEIOU'))
-            i, j = 0, len(s)-1
+            vowels = set(list("aeiouAEIOU"))
+            i, j = 0, len(s) - 1
 
             res = list(s)
             while i < j:
@@ -22,10 +22,11 @@ class Solution:
                 while i < j and s[j] not in vowels:
                     j -= 1
                 res[i], res[j] = res[j], res[i]
-                i, j = i+1, j-1
-            return ''.join(res)
+                i, j = i + 1, j - 1
+            return "".join(res)
+
         return fxr()
 
 
 sl = Solution()
-print(sl.reverseVowels('hello'))
+print(sl.reverseVowels("hello"))

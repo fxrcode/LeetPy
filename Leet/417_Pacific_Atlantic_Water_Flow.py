@@ -6,8 +6,9 @@ Neetcode Blind Curated 75
 """
 
 
-from typing import List
 from collections import deque
+from typing import List
+
 DIR = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
 
@@ -23,10 +24,10 @@ class Solution:
             atlan = set()
             pacif = set()
             for r in range(mn[0]):
-                atlan.add((r, mn[1]-1))
+                atlan.add((r, mn[1] - 1))
                 pacif.add((r, 0))
             for c in range(mn[1]):
-                atlan.add((mn[0]-1, c))
+                atlan.add((mn[0] - 1, c))
                 pacif.add((0, c))
 
             def bfs(q):
@@ -36,10 +37,13 @@ class Solution:
                     # XXX: becase reachable is empty initially, need to add root here. OW. I need to init reachable beforehand
                     reachable.add((r, c))
                     for dx, dy in DIR:
-                        x, y = r+dx, c+dy
-                        if 0 <= x < mn[0] and 0 <= y < mn[1] \
-                                and (x, y) not in reachable \
-                                and heights[x][y] >= heights[r][c]:
+                        x, y = r + dx, c + dy
+                        if (
+                            0 <= x < mn[0]
+                            and 0 <= y < mn[1]
+                            and (x, y) not in reachable
+                            and heights[x][y] >= heights[r][c]
+                        ):
                             # reachable.add((x, y))
                             q.append((x, y))
                 return reachable
@@ -64,20 +68,23 @@ class Solution:
             atlan = set()
             pacif = set()
             for r in range(mn[0]):
-                atlan.add((r, mn[1]-1))
+                atlan.add((r, mn[1] - 1))
                 pacif.add((r, 0))
             for c in range(mn[1]):
-                atlan.add((mn[0]-1, c))
+                atlan.add((mn[0] - 1, c))
                 pacif.add((0, c))
 
             def dfs(r, c, visited):
                 # XXX: DAMN, forgot dfs again! Memorize UCB algorithm!
                 visited.add((r, c))
                 for dx, dy in DIR:
-                    x, y = r+dx, c+dy
-                    if 0 <= x < mn[0] and 0 <= y < mn[1] \
-                            and (x, y) not in visited \
-                            and heights[x][y] >= heights[r][c]:
+                    x, y = r + dx, c + dy
+                    if (
+                        0 <= x < mn[0]
+                        and 0 <= y < mn[1]
+                        and (x, y) not in visited
+                        and heights[x][y] >= heights[r][c]
+                    ):
                         dfs(x, y, visited)
 
             reachable_atlan = set()
@@ -105,10 +112,10 @@ class Solution:
             atlan = set()
             pacif = set()
             for r in range(mn[0]):
-                atlan.add((r, mn[1]-1))
+                atlan.add((r, mn[1] - 1))
                 pacif.add((r, 0))
             for c in range(mn[1]):
-                atlan.add((mn[0]-1, c))
+                atlan.add((mn[0] - 1, c))
                 pacif.add((0, c))
 
             def bt(r, c, visited, ocean):
@@ -116,10 +123,13 @@ class Solution:
                     return True
                 ans = False
                 for dx, dy in DIR:
-                    x, y = r+dx, c+dy
-                    if 0 <= x < mn[0] and 0 <= y < mn[1] \
-                            and (x, y) not in visited \
-                            and heights[x][y] <= heights[r][c]:
+                    x, y = r + dx, c + dy
+                    if (
+                        0 <= x < mn[0]
+                        and 0 <= y < mn[1]
+                        and (x, y) not in visited
+                        and heights[x][y] <= heights[r][c]
+                    ):
                         visited.add((x, y))
                         if bt(x, y, visited, ocean):
                             ans = True
@@ -146,23 +156,24 @@ class Solution:
             atlan_true = set()
             pacif_true = set()
             # atlan
-            atlan = [[False]*n for _ in range(m)]
+            atlan = [[False] * n for _ in range(m)]
             for c in range(n):
                 atlan[-1][c] = True
-                atlan_true.add((m-1, c))
+                atlan_true.add((m - 1, c))
             for r in range(m):
                 atlan[r][-1] = True
-                atlan_true.add((r, n-1))
-            for r in reversed(range(m-1)):
-                for c in reversed(range(n-1)):
-                    for (rr, cc) in [(r, c+1), (r+1, c)]:
-                        atlan[r][c] |= ((heights[r][c] >= heights[rr][cc])
-                                        and atlan[rr][cc])
+                atlan_true.add((r, n - 1))
+            for r in reversed(range(m - 1)):
+                for c in reversed(range(n - 1)):
+                    for rr, cc in [(r, c + 1), (r + 1, c)]:
+                        atlan[r][c] |= (heights[r][c] >= heights[rr][cc]) and atlan[rr][
+                            cc
+                        ]
                     if atlan[r][c]:
                         atlan_true.add((r, c))
 
             # pacific
-            pacif = [[False]*n for _ in range(m)]
+            pacif = [[False] * n for _ in range(m)]
             for c in range(n):
                 pacif[0][c] = True
                 pacif_true.add((0, c))
@@ -172,9 +183,10 @@ class Solution:
 
             for r in range(1, m):
                 for c in range(1, n):
-                    for (rr, cc) in [(r, c-1), (r-1, c)]:
-                        pacif[r][c] |= ((heights[r][c] >= heights[rr][cc])
-                                        and pacif[rr][cc])
+                    for rr, cc in [(r, c - 1), (r - 1, c)]:
+                        pacif[r][c] |= (heights[r][c] >= heights[rr][cc]) and pacif[rr][
+                            cc
+                        ]
                     if pacif[r][c]:
                         pacif_true.add((r, c))
 

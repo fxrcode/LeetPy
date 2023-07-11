@@ -1,10 +1,10 @@
-'''
+"""
 ✅ GOOD Hash (Counter)
 tag: medium, hash
 
 Lookback:
 - Do Smart, not simulation!
-'''
+"""
 
 from collections import Counter
 from typing import List
@@ -19,12 +19,12 @@ class Solution:
 
             T: 0(N^2)
             """
+
             def req(a, b):
                 return not (b <= 0.5 * a + 7 or b > a or b > 100 and a < 100)
 
             c = Counter(ages)
-            return sum(c[a] * (c[b] - (a == b)) for a in c for b in c
-                       if req(a, b))
+            return sum(c[a] * (c[b] - (a == b)) for a in c for b in c if req(a, b))
 
         return lee215()
 

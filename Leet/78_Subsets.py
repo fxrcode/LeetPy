@@ -1,14 +1,12 @@
-'''
+"""
 Daily Challenge (Feb 13, 2022)
 tag: medium, Backtracking
-'''
+"""
 from typing import List
 
 
 class Solution:
-
     def subsets(self, nums: List[int]) -> List[List[int]]:
-
         def os_backtrack():
             """
             generate power set by size order

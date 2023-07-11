@@ -1,4 +1,4 @@
-'''
+"""
 
 ✅ GOOD DP (subsets)
 Problem 465 Optimal Account Balancing
@@ -12,15 +12,13 @@ Problem 1494 Parallel Courses II
 Problem 1655 Distribute Repeating Integers
 Problem 1659 Maximize Grid Happiness
 Problem 1681. Minimum Incompatibility
-'''
+"""
 from collections import defaultdict
 from functools import cache
 
 
 class Solution:
-
     def countArrangement(self, n: int) -> int:
-
         def dbabichev_bitmask():
             """
             Runtime: 108 ms, faster than 90.79% of Python3 online submissions for Beautiful Arrangement.
@@ -33,16 +31,17 @@ class Solution:
             def dfs(bm, place):
                 """
                 bm is binary mask for visited numbers.
-                pl is current place we want to fill. 
+                pl is current place we want to fill.
                 XXX: Idea is to start from the end, and fill places in opposite direction, because for big numbers we potentially have less candidates.
                 """
                 if place == 0:
-                    print(bm, f'{bm:b}')
+                    print(bm, f"{bm:b}")
                     return 1
                 S = 0
                 for i in range(n):  # try all number (i+1) in [1,2,3..n]
-                    if not bm & (1 << i) \
-                        and ((i + 1) % place == 0 or place % (i + 1) == 0):   # pl is the place to fill number (i+1) in perm list
+                    if not bm & (1 << i) and (
+                        (i + 1) % place == 0 or place % (i + 1) == 0
+                    ):  # pl is the place to fill number (i+1) in perm list
                         S += dfs(bm ^ (1 << i), place - 1)
                 return S
 

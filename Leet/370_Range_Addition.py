@@ -22,4 +22,3 @@ class Solution:
 
 sl = Solution()
 print(sl.getModifiedArray(length=5, updates=[[1, 3, 2], [2, 4, 3], [0, 2, -2]]))
-

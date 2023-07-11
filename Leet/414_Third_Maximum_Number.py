@@ -1,15 +1,15 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3231/
 leetcode explore: Array 101. Conclusion
 Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.
 
 * similar: 628. Maximum Product of Three Numbers
 
-'''
+"""
 
 
+from heapq import heappop, heappush, heappushpop
 from typing import List
-from heapq import heappush, heappop, heappushpop
 
 
 class Solution:
@@ -28,7 +28,7 @@ class Solution:
         Tip #5: Test your solution on a few examples - 15:09
         """
         # 1st max, 2nd max, 3rd max
-        v = [float('-inf')]*3
+        v = [float("-inf")] * 3
         for n in nums:
             # diff from 628. Maximum Product of Three Numbers, which don't need to check if n in v
             if n in v:
@@ -40,7 +40,7 @@ class Solution:
                 v = [v[0], n, v[1]]
             elif n > v[2]:
                 v = [v[0], v[1], n]
-        if float('-inf') in v:
+        if float("-inf") in v:
             return max(nums)
         else:
             return v[2]
@@ -81,7 +81,7 @@ class Solution:
         tmp = sorted(set(nums), reverse=True)
         if len(tmp) < 3:
             return tmp[0]
-        return tmp[3-1]
+        return tmp[3 - 1]
 
 
 sl = Solution()

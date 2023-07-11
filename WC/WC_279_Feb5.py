@@ -1,15 +1,15 @@
-'''
+"""
 WC 279
 Feb 5, 2022
 
 Lookback
 -
-'''
+"""
 
+from bisect import bisect_left, bisect_right
 from functools import cache
 from itertools import zip_longest
 from typing import List
-from bisect import bisect_left, bisect_right
 
 
 class Solution:
@@ -20,7 +20,8 @@ class Solution:
         for e, o in zip_longest(even, odd):
             if e:
                 ans.append(e)
-            if o: ans.append(o)
+            if o:
+                ans.append(o)
         return ans
 
     def smallestNumber(self, num: int) -> int:
@@ -33,14 +34,14 @@ class Solution:
         if sign > 0:
             # min + 000 + rest
             mn = s[zr]
-            rest = s[zr + 1:]
+            rest = s[zr + 1 :]
             # print(mn, rest)
-            return int(str(mn) + '0' * zeros + ''.join(map(str, rest)))
+            return int(str(mn) + "0" * zeros + "".join(map(str, rest)))
         else:
             # rev + 000
             rest = s[zr:][::-1]
             # print(rest)
-            return -int(''.join(map(str, rest)) + '0' * zeros)
+            return -int("".join(map(str, rest)) + "0" * zeros)
 
     def minimumTime(self, s: str) -> int:
         """
@@ -48,16 +49,17 @@ class Solution:
 
         12 / 88 test cases passed.
         """
+
         def build(s):
             rf = []
-            s += '$'
+            s += "$"
             i, j = 0, 0
             while i < len(s) - 1:
                 j = i
                 while s[j] == s[i]:
                     j += 1
                 # s[j] != s[i]
-                if s[i] == '1':
+                if s[i] == "1":
                     rf.append(j - i)
                 else:
                     rf.append(0)
@@ -117,11 +119,11 @@ class Bitset:
         sb = []
         for i in range(self.sz):
             if i not in self.O:
-                sb.append('0')
+                sb.append("0")
             else:
-                sb.append('1')
+                sb.append("1")
 
-        return ''.join(sb)
+        return "".join(sb)
 
 
 # v = '76005'

@@ -17,7 +17,9 @@ class ListNode:
 
 
 class Solution:
-    def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         def os_recur():
             """
             Runtime: 63 ms, faster than 30.18% of Python3 online submissions for Merge Two Sorted Lists.

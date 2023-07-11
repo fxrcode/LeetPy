@@ -1,13 +1,12 @@
-'''
+"""
 FB tag (Medium)
-'''
+"""
 
-from typing import List, Optional
 from collections import defaultdict
+from typing import List, Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -15,9 +14,7 @@ class TreeNode:
 
 
 class Solution:
-
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-
         def post_height():
             """
             Runtime: 61 ms, faster than 5.07% of Python3 online submissions for Find Leaves of Binary Tree.

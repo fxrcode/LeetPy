@@ -12,7 +12,9 @@ from typing import List
 
 
 class Solution:
-    def shoppingOffers(self, price: List[int], special: List[List[int]], needs: List[int]) -> int:
+    def shoppingOffers(
+        self, price: List[int], special: List[List[int]], needs: List[int]
+    ) -> int:
         def sl3635():
             """
             Runtime: 60 ms, faster than 96.93% of Python3 online submissions for Shopping Offers.
@@ -65,8 +67,15 @@ class Solution:
 
 sl = Solution()
 print(sl.shoppingOffers(price=[2, 5], special=[[3, 0, 5], [1, 2, 10]], needs=[3, 2]))
-assert sl.shoppingOffers(price=[2, 3, 4], special=[[1, 1, 0, 4], [2, 2, 1, 9]], needs=[1, 2, 1]) == 11
+assert (
+    sl.shoppingOffers(
+        price=[2, 3, 4], special=[[1, 1, 0, 4], [2, 2, 1, 9]], needs=[1, 2, 1]
+    )
+    == 11
+)
 assert sl.shoppingOffers([2, 3, 4], [[1, 1, 0, 4], [2, 2, 1, 9]], [0, 0, 0]) == 0
 print(sl.shoppingOffers([0, 0, 0], [[1, 1, 0, 4], [2, 2, 1, 9]], [1, 1, 1]))
 assert (sl.shoppingOffers([9, 9], [[1, 1, 1]], [2, 2])) == 2
-assert sl.shoppingOffers([2, 3], [[1, 0, 1], [0, 1, 2]], [1, 1]) == 3  # 56 / 64 test cases passed.
+assert (
+    sl.shoppingOffers([2, 3], [[1, 0, 1], [0, 1, 2]], [1, 1]) == 3
+)  # 56 / 64 test cases passed.

@@ -1,6 +1,6 @@
-'''
+"""
 FB tag (easy)
-'''
+"""
 
 
 class Solution:

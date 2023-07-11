@@ -1,10 +1,10 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 6: 1D DP
 
 [ ] REDO
-'''
+"""
 
 
 from typing import List
@@ -22,5 +22,5 @@ class Solution:
             dp = [1] + [0] * target
             for p in prob:
                 for k in range(target, -1, -1):
-                    dp[k] = (dp[k-1] if k else 0) * p + dp[k] * (1-p)
+                    dp[k] = (dp[k - 1] if k else 0) * p + dp[k] * (1 - p)
             return dp[target]

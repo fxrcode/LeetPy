@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 ✅ GOOD Linked-List (traver + delete)
-'''
+"""
 # Definition for singly-linked list.
 
 
@@ -19,7 +19,7 @@ class Solution:
             p = head
             i = 0
             while p:
-                if i < m-1:
+                if i < m - 1:
                     i += 1
                 else:
                     j = 0
@@ -41,12 +41,12 @@ class Solution:
                 return None
 
             mtail = mnhead = node
-            for _ in range(m-1):
+            for _ in range(m - 1):
                 mtail = mtail.next
                 if not mtail:
                     return node
 
-            for _ in range(m+n):
+            for _ in range(m + n):
                 mnhead = mnhead.next
                 if not mnhead:
                     break

@@ -90,7 +90,6 @@ class Solution:
             minHeap = [(0, 0, src)]
 
             while minHeap:
-
                 cost, stops, node = heappop(minHeap)
 
                 # If destination is reached, return the cost to get here

@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1179/
 Leetcode Explore: Hash Table. Conclusion
 Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.
-'''
+"""
 
 from collections import defaultdict
 

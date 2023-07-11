@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD DFS
 
 Daily Challenge (Jan 11)
@@ -9,7 +9,7 @@ Lookback:
 + preorder recursive, iterative, Enumeration (os) vs Divide&Conquer (lee215).
 
 [ ] REDO
-'''
+"""
 
 from typing import Optional
 
@@ -27,6 +27,7 @@ class Solution:
             """
             Divide & conquer recursion
             """
+
             def dp(r, val):
                 if not r:
                     return 0
@@ -41,6 +42,7 @@ class Solution:
 
             T: O(N)
             """
+
             def preorder(r: TreeNode, cur_num):
                 nonlocal root_to_leaf
                 # XXX: snippet: check if leaf node
@@ -61,6 +63,7 @@ class Solution:
 
             T:O(N)
             """
+
             def dfs(r: TreeNode, path, res):
                 if not r:
                     return

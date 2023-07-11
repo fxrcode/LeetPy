@@ -1,6 +1,6 @@
-from typing import List
-from functools import cache
 from collections import defaultdict
+from functools import cache
+from typing import List
 
 
 class Solution:
@@ -10,7 +10,9 @@ class Solution:
             mx = max(mx, len(s.split()))
         return mx
 
-    def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
+    def findAllRecipes(
+        self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]
+    ) -> List[str]:
         """
         ["ju","fzjnm","x","e","zpmcz","h","q"]
         [["d"],["hveml","f","cpivl"],["cpivl","zpmcz","h","e","fzjnm","ju"],["cpivl","hveml","zpmcz","ju","h"],["h","fzjnm","e","q","x"],["d","hveml","cpivl","q","zpmcz","ju","e","x"],["f","hveml","cpivl"]]
@@ -35,7 +37,7 @@ class Solution:
             # if d[0] == 10:
             #     return False
             color[r] = 1
-            print('\t:', r)
+            print("\t:", r)
             for ing in r2i[r]:
                 if ing in sup:
                     continue
@@ -74,12 +76,12 @@ class Solution:
         pass
 
     def abbreviateProduct(self, left: int, right: int) -> str:
-        '''
+        """
         TLE:
-        '''
+        """
         prod = 1
         tens = 0
-        for v in range(left, right+1):
+        for v in range(left, right + 1):
             prod *= v
             while prod and prod % 10 == 0:
                 prod //= 10
@@ -87,11 +89,11 @@ class Solution:
 
         sp = str(prod)
         if len(sp) <= 10:
-            return sp + 'e' + str(tens)
+            return sp + "e" + str(tens)
         else:
             f5 = sp[:5]
             l5 = sp[-5:]
-            return str(f5) + '...' + str(l5) + 'e' + str(tens)
+            return str(f5) + "..." + str(l5) + "e" + str(tens)
 
 
 sl = Solution()

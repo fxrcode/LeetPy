@@ -1,16 +1,17 @@
-'''
+"""
 Q1,Q2 AC
 Q3 TLE
 Q4 WA
-'''
+"""
 
 from collections import defaultdict
 from typing import List
 
 
 class Solution:
-    def subStrHash(self, s: str, power: int, modulo: int, k: int,
-                   hashValue: int) -> str:
+    def subStrHash(
+        self, s: str, power: int, modulo: int, k: int, hashValue: int
+    ) -> str:
         """
         Runtime: 8547 ms, faster than 9.09% of Python3 online submissions for Find Substring With Given Hash Value.
 
@@ -20,24 +21,24 @@ class Solution:
         i = 0
         p = 1
         while i < k:
-            h += (ord(s[i]) - ord('a') + 1) * p
+            h += (ord(s[i]) - ord("a") + 1) * p
             i += 1
             p *= power
 
         p //= power
         # h %= modulo
-        print('\t', h)
+        print("\t", h)
 
         if h % modulo == hashValue:
             return s[:k]
 
         while i < len(s):
-            h -= (ord(s[i - k]) - ord('a') + 1)
+            h -= ord(s[i - k]) - ord("a") + 1
             h //= power
-            h += (ord(s[i]) - ord('a') + 1) * p
+            h += (ord(s[i]) - ord("a") + 1) * p
             print(h)
             if h % modulo == hashValue:
-                return s[i - k + 1:i + 1]
+                return s[i - k + 1 : i + 1]
             i += 1
 
     def groupStrings(self, words: List[str]) -> List[int]:
@@ -79,8 +80,12 @@ class Solution:
                 x = ws[i]
                 y = ws[j]
                 # add, reomve 1
-                if len(x) + 1 == len(y) and x.intersection(y) == x\
-                    or len(x) - 1 == len(y) and y.intersection(x) == y:
+                if (
+                    len(x) + 1 == len(y)
+                    and x.intersection(y) == x
+                    or len(x) - 1 == len(y)
+                    and y.intersection(x) == y
+                ):
                     # print('\t', i, j)
                     union(i, j)
                 # replace
@@ -99,7 +104,7 @@ class Solution:
 
 
 sl = Solution()
-print(sl.subStrHash('leetcode', 7, 20, 2, 0))
+print(sl.subStrHash("leetcode", 7, 20, 2, 0))
 print(sl.subStrHash(s="fbxzaad", power=31, modulo=100, k=3, hashValue=32))
 # print(sl.groupStrings(words=["a", "b", "ab", "cde"]))
 # print(sl.groupStrings(words=["a", "ab", "abc"]))

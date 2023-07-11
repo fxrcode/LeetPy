@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD BFS
 
 https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1388/
@@ -10,11 +10,11 @@ The distance between two adjacent cells is 1.
 XXX: tip 1: Q: how to calculate the distance of 2 cells? Ans: abs(r1-r2) + abs(c1-c2)
 XXX: tip 2: Q: how to use BFS to calculate sssp from 1 to 0? Ans: rather bfs from 1 to reach 0 which make lavel 1's step = 0, then 1.
             We can reverse the bfs's source/destination by bfs from 0 to 1, then level 1 = 0, level 2 = 1!
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
@@ -44,7 +44,7 @@ class Solution:
             for _ in range(len(q)):
                 x, y = q.popleft()
                 for i in range(4):
-                    xx, yy = x+DIR[i], y+DIR[i+1]
+                    xx, yy = x + DIR[i], y + DIR[i + 1]
                     if (0 <= xx < R and 0 <= yy < C) and (xx, yy) not in visited:
                         visited.add((xx, yy))
                         q.append((xx, yy))

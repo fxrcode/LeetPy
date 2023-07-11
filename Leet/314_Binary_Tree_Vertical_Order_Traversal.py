@@ -1,18 +1,17 @@
-'''
+"""
 FB tag (Top50)
 tag: Medium, BFS
 
 Similar:
 - 655.
 - 662
-'''
+"""
 
-from typing import List, Optional
 from collections import defaultdict, deque
+from typing import List, Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -20,9 +19,7 @@ class TreeNode:
 
 
 class Solution:
-
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-
         def os_bfs():
             """
             Runtime: 38 ms, faster than 43.12% of Python3 online submissions for Binary Tree Vertical Order Traversal.

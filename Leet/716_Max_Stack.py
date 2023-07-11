@@ -1,9 +1,9 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
 Jingying: Amazon OA (simpler than LRU), use doubly-list & heap & dict
-'''
+"""
 INF = 1e8
 
 
@@ -43,7 +43,7 @@ class MaxStack:
             self.push(tmp.pop())
         return mx
 
-    '''
+    """
     def popMax_WA(self) -> int:
         # BUG: My 1st attempt, this is WRONG, it should only pop the max item, not all to the max! eg. [5,1]=>[1]!
         # Interview Tip: Practice Overriding Your Brains "Assume" Mode!
@@ -51,7 +51,7 @@ class MaxStack:
         while self.peekMax() != self.top():
             self.pop()
         return self.pop()
-    '''
+    """
 
 
 ms = MaxStack()

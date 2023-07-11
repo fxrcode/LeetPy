@@ -39,7 +39,11 @@ class Solution:
             """
             watermark, d = 0, {s: 0 for s in sound}
             for ch in soundOfAnimals:
-                if ch not in sound or ch != sound[0] and d[ch] == d[sound[sound.index(ch) - 1]]:
+                if (
+                    ch not in sound
+                    or ch != sound[0]
+                    and d[ch] == d[sound[sound.index(ch) - 1]]
+                ):
                     return -1
                 else:
                     d[ch] += 1

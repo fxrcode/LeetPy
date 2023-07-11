@@ -1,9 +1,9 @@
-'''
+"""
 ✅ GOOD DFS (post-order)
 
 https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/141/basic-operations-in-a-bst/1003/
 Leetcode Explore Binary Search Tree: Basic Ops
-'''
+"""
 from typing import Optional
 
 
@@ -15,8 +15,9 @@ class TreeNode:
 
 
 class Solution:
-    def insertIntoBST_recur(self, root: Optional[TreeNode],
-                            val: int) -> Optional[TreeNode]:
+    def insertIntoBST_recur(
+        self, root: Optional[TreeNode], val: int
+    ) -> Optional[TreeNode]:
         """
         Runtime: 189 ms, faster than 21.22% of Python3 online submissions for Insert into a Binary Search Tree.
 
@@ -26,6 +27,7 @@ class Solution:
         XXX: think about recursion I learned from CS 106B 2015, but the base case might not be in 1st line!
             flexibly use template, rather owned by (or stuck in) template!
         """
+
         def dfs(node: TreeNode) -> TreeNode:
             if not node:
                 return TreeNode(val)
@@ -64,8 +66,9 @@ class Solution:
         return root
     '''
 
-    def insertIntoBST_iter(self, root: Optional[TreeNode],
-                           val: int) -> Optional[TreeNode]:
+    def insertIntoBST_iter(
+        self, root: Optional[TreeNode], val: int
+    ) -> Optional[TreeNode]:
         node = TreeNode(val)
         if not root:
             return node
@@ -85,8 +88,7 @@ class Solution:
             pre.right = node
         return root
 
-    def insertIntoBST(self, root: Optional[TreeNode],
-                      val: int) -> Optional[TreeNode]:
+    def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         """
         Your runtime beats 69.54 % of python3 submissions.
 

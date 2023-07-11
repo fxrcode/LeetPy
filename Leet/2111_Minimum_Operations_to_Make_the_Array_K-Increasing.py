@@ -1,4 +1,4 @@
-'''
+"""
 Weekly Contest 272 (Dec 18, 2021)
 
 Q4: LIS in Disguise
@@ -9,10 +9,10 @@ Lookback:
 similar:
 - 300. Longest Increasing Subsequence
 - 1909.Remove One Element to Make the Array Strictly Increasing
-'''
+"""
 
-from typing import List
 from bisect import bisect_right
+from typing import List
 
 
 class Solution:

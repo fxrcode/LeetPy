@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 from collections import Counter
+from typing import List
 
 
 class Solution:

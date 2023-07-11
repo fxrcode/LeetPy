@@ -50,6 +50,8 @@ class Solution:
 
 
 sl = Solution()
-print(sl.evaluate(s="(name)is(age)yearsold", knowledge=[["name", "bob"], ["age", "two"]]))  # == "bobistwoyearsold"
+print(
+    sl.evaluate(s="(name)is(age)yearsold", knowledge=[["name", "bob"], ["age", "two"]])
+)  # == "bobistwoyearsold"
 print(sl.evaluate(s="hi(name)", knowledge=[["a", "b"]]))
 print(sl.evaluate(s="(a)(a)(a)aaa", knowledge=[["a", "yes"]]))

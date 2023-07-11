@@ -53,7 +53,9 @@ class Solution:
 
             def evaluate(expr):
                 print(expr)
-                tokens = expr.replace("+", "#+").replace("-", "#-").split("#")  # For example: "x+5-3+x" is replaced to "x#+5#-3#+x" then split by "#"
+                tokens = (
+                    expr.replace("+", "#+").replace("-", "#-").split("#")
+                )  # For example: "x+5-3+x" is replaced to "x#+5#-3#+x" then split by "#"
                 print(tokens)
                 res = [0] * 2
                 for token in tokens:
@@ -64,7 +66,9 @@ class Solution:
                     elif token == "-x":
                         res[0] -= 1
                     elif "x" in token:
-                        res[0] += int(token[: token.index("x")])  # For example: "3x" or "-5x" or "+6x"
+                        res[0] += int(
+                            token[: token.index("x")]
+                        )  # For example: "3x" or "-5x" or "+6x"
                     else:
                         res[1] += int(token)
                 return res
@@ -134,5 +138,7 @@ class Solution:
 
 
 sl = Solution()
-for eq in ["x+5-13+13x=6+15x-2"]:  # , "x=x", "2x=x", "1-10x+9=-10-20x+30", "x-10=x+20"]:
+for eq in [
+    "x+5-13+13x=6+15x-2"
+]:  # , "x=x", "2x=x", "1-10x+9=-10-20x+30", "x-10=x+20"]:
     print(sl.solveEquation(eq))

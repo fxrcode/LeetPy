@@ -3,8 +3,8 @@
 每日一题打卡群 (12/3/2021)
 """
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:

@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Backtrack
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
@@ -10,14 +10,13 @@ Lookback:
 
 Similar:
 - 131. Palindrome Partitioning
-'''
+"""
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
-
     def wordBreak_os_backtrack(self, s: str, wordDict: List[str]) -> bool:
         """[summary]
         Runtime: 40 ms, faster than 65.14% of Python3 online submissions for Word Break.

@@ -1,6 +1,6 @@
-'''
+"""
 Daily Challenge (Dec 27)
-'''
+"""
 from math import floor, log2
 
 

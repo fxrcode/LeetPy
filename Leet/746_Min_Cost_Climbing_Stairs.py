@@ -33,8 +33,8 @@ class Solution:
             """
             if stair < 2:
                 return 0
-            j1 = reach(stair-1) + cost[stair-1]
-            j2 = reach(stair-2) + cost[stair-2]
+            j1 = reach(stair - 1) + cost[stair - 1]
+            j2 = reach(stair - 2) + cost[stair - 2]
             return min(j1, j2)
 
         return reach(len(cost))
@@ -50,8 +50,8 @@ class Solution:
             """
             if i < 2:
                 return 0
-            one_step = rec(i-1) + cost[i-1]
-            two_step = rec(i-2) + cost[i-2]
+            one_step = rec(i - 1) + cost[i - 1]
+            two_step = rec(i - 2) + cost[i - 2]
             ans = min(one_step, two_step)
             return ans
 

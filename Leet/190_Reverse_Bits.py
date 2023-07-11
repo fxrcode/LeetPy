@@ -21,7 +21,7 @@ class Solution:
             b converts the number to its binary representation
 
             """
-            oribin = '{0:032b}'.format(n)
+            oribin = "{0:032b}".format(n)
             reversebin = oribin[::-1]
             return int(reversebin, 2)
 
@@ -31,14 +31,15 @@ class Solution:
 
             """
             print(n)
-            print('{0:032b}'.format(n))
+            print("{0:032b}".format(n))
             ret, power = 0, 31
             while n:
                 ret += (n & 1) << power
                 n = n >> 1
                 power -= 1
-            print('{0:032b'.format(n))
+            print("{0:032b".format(n))
             return ret
+
         # return os_bit_reverse(n)
         return fxr(n)
 

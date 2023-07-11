@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
 
-'''
+"""
 
 
 from typing import List
@@ -15,12 +15,13 @@ class Solution:
 
         T: O(N), M: O(1)
         """
+
         def rob_range(start, end):
             dp_i_1, dp_i_2 = 0, 0
             # although for internal dp can be refered outside of for, but in case loop range is EMPTY!
             dp = 0
-            for i in range(end, start-1, -1):
-                dp = max(dp_i_1, dp_i_2+nums[i])
+            for i in range(end, start - 1, -1):
+                dp = max(dp_i_1, dp_i_2 + nums[i])
                 dp_i_1, dp_i_2 = dp, dp_i_1
             return dp
 
@@ -28,8 +29,8 @@ class Solution:
         if N == 1:
             return nums[0]
         return max(
-            rob_range(0, N-2),
-            rob_range(1, N-1),
+            rob_range(0, N - 2),
+            rob_range(1, N - 1),
         )
 
         '''

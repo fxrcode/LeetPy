@@ -1,14 +1,13 @@
-'''
+"""
 
 GOOD (Rejection Sampling)
 Tag: Probability and Statistics
 
 [ ] REDO
-'''
+"""
 
 
 class Solution:
-
     @staticmethod
     def rand7():
         # The rand7() API is already defined for you.

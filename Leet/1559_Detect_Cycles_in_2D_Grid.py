@@ -82,7 +82,12 @@ class Solution:
                 for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                     xx, yy = x + dx, y + dy
                     # !no back edge (u->v->w), so don't choose u === w.
-                    if 0 <= xx < m and 0 <= yy < n and grid[xx][yy] == grid[x][y] and (xx, yy) != fa:
+                    if (
+                        0 <= xx < m
+                        and 0 <= yy < n
+                        and grid[xx][yy] == grid[x][y]
+                        and (xx, yy) != fa
+                    ):
                         w = (xx, yy)
                         if dfs(w, v):  # early termination to speedup
                             return True

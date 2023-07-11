@@ -16,7 +16,6 @@ from typing import Optional
 
 
 class TreeNode:
-
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
@@ -24,9 +23,7 @@ class TreeNode:
 
 
 class Solution:
-
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-
         def bottom_up(r: TreeNode) -> int:
             """
             Your runtime beats 49.98 % of python3 submissions.
@@ -72,7 +69,6 @@ class Solution:
         res, depth = 0, 0
 
         def max_depth(root):
-
             def traverse(node):
                 nonlocal res, depth
 
@@ -91,5 +87,7 @@ class Solution:
 
 
 sl = Solution()
-root = TreeNode(3, left=TreeNode(8), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7)))
+root = TreeNode(
+    3, left=TreeNode(8), right=TreeNode(20, left=TreeNode(15), right=TreeNode(7))
+)
 sl.maxDepth_labuladong(root)

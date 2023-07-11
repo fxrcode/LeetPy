@@ -81,7 +81,12 @@ class Solution:
                 if not r:
                     return False
                 if h.val == r.val:
-                    return dp(h.next, r.left) or dp(h.next, r.right) or dp(head, r.left) or dp(head, r.right)
+                    return (
+                        dp(h.next, r.left)
+                        or dp(h.next, r.right)
+                        or dp(head, r.left)
+                        or dp(head, r.right)
+                    )
                 else:
                     return dp(head, r.left) or dp(head, r.right)
 

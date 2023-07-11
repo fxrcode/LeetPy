@@ -53,7 +53,7 @@ class MyCircularQueueWithSize:
             return -1
         # BUG: for rear, the item is at rear-1.
         # Thanks python 0-1 => -1, means the 1st item from end.
-        return self.q[self.rear-1]
+        return self.q[self.rear - 1]
 
     def isEmpty(self) -> bool:
         return self.size == 0

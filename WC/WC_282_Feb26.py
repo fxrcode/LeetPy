@@ -1,16 +1,16 @@
-'''
+"""
 Weekly Contest (Feb 26, 2022)
 3/4 in 30min.
-'''
+"""
 
 from collections import Counter, deque
 from typing import List
 
 
 class Solution:
-
-    def minimumFinishTime(self, tires: List[List[int]], changeTime: int, numLaps: int) -> int:
-
+    def minimumFinishTime(
+        self, tires: List[List[int]], changeTime: int, numLaps: int
+    ) -> int:
         def bfs():
             q = deque([(i, 1, f, numLaps - 1) for i, (f, r) in enumerate(tires)])
             seen = set(q)

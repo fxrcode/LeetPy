@@ -15,7 +15,9 @@ from typing import List
 
 
 class Solution:
-    def closestCost(self, baseCosts: List[int], toppingCosts: List[int], target: int) -> int:
+    def closestCost(
+        self, baseCosts: List[int], toppingCosts: List[int], target: int
+    ) -> int:
         def lenchen1112():
             """
             https://leetcode.com/problems/closest-dessert-cost/discuss/1085820/Python3-top-down-dp
@@ -27,17 +29,18 @@ class Solution:
             """
 
             @cache
-            def fn(i, cost):
+            def dfs(i, cost):
                 if cost >= target or i == len(tC):
                     return cost
-                return min(fn(i + 1, cost), fn(i + 1, cost + tC[i]), key=closest)
+                return min(
+                    [dfs(i + 1, cost + tC[i] * j) for j in range(3)], key=closest
+                )
 
-            tC = toppingCosts * 2
+            tC = toppingCosts
             closest = lambda x: (abs(x - target), x)
-            ans = 1e6
-            for b in baseCosts:
-                ans = min(ans, fn(0, b), key=closest)
-            return ans
+            return min([dfs(0, b) for b in baseCosts], key=closest)
+
+        return lenchen1112()
 
         def base3():
             """
@@ -81,13 +84,17 @@ class Solution:
                 """
                 if x < 0 or i == len(tC):
                     return 0
-                ops = [tC[i] * pick + dp(i + 1, x - tC[i] * pick) for pick in range(2 + 1)]
+                ops = [
+                    tC[i] * pick + dp(i + 1, x - tC[i] * pick) for pick in range(2 + 1)
+                ]
                 print(i, x, ops)
                 return min(ops, key=lambda y: (abs(y - x), y))
 
             ans = 1e6
             for bc in baseCosts:
-                ans = min(ans, bc + dp(0, target - bc), key=lambda x: (abs(x - target), x))
+                ans = min(
+                    ans, bc + dp(0, target - bc), key=lambda x: (abs(x - target), x)
+                )
             return ans
 
         def fxr():
@@ -124,8 +131,7 @@ class Solution:
 
         # return base3()
         # return ye15_a()
-        # return lenchen1112()
-        return fxr()
+        # return fxr()
 
 
 sl = Solution()

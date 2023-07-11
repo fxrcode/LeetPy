@@ -1,9 +1,9 @@
-'''
+"""
 Weekly Contest 269 (Nov 27, 2021)
-'''
+"""
 
-from typing import List
 from bisect import bisect_left, bisect_right
+from typing import List
 
 
 class Solution:

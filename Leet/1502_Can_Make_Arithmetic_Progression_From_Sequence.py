@@ -26,4 +26,6 @@ class Solution:
 
         def rock_sort(A):
             A.sort()
-            return all(A[i - 2] - A[i - 1] == A[i - 1] - A[i] for i in range(2, len(arr)))
+            return all(
+                A[i - 2] - A[i - 1] == A[i - 1] - A[i] for i in range(2, len(arr))
+            )

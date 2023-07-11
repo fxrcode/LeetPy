@@ -1,9 +1,9 @@
-'''
+"""
 FB tag (medium)
 
 Similar: 9. Palindrome Number
 
-'''
+"""
 
 
 class Solution:
@@ -23,7 +23,7 @@ class Solution:
         def fxr():
             """
             Your runtime beats 31.23 % of python3 submissions.
-            
+
             """
             sig = 1 if x >= 0 else -1
             n = abs(x)
@@ -33,7 +33,7 @@ class Solution:
                 rev = rev * 10 + m
 
                 if sig < 0:
-                    if rev * sig < -2**31:
+                    if rev * sig < -(2**31):
                         return 0
                 else:
                     if rev > 2**31 - 1:

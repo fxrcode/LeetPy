@@ -1,11 +1,11 @@
-'''
+"""
 手把手刷二叉树系列完结篇
 后序位置的特殊之处
 
 # two properties of Tree
 * height
 * depth
-'''
+"""
 
 from typing import Optional
 
@@ -26,7 +26,7 @@ class Solution:
 
         return post(root)
 
-    def diameter(self, root: 'TreeNode') -> int:
+    def diameter(self, root: "TreeNode") -> int:
         def labuladong_post():
             """
             O(N)

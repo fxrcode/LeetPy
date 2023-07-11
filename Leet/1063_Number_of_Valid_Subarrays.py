@@ -1,12 +1,12 @@
-'''
+"""
 每日一题打卡群 (12/1/2021)
 
 REF:
 https://docs.google.com/presentation/d/1r4uWF4SkO8jQlZkqnJ57ZWP2p-T-OOZh8_jMCotYsPI/edit#slide=id.p
 https://www.bilibili.com/video/BV17z4y1y7tS?from=search&seid=8486234178848924416
-'''
-from typing import AnyStr, List
+"""
 from functools import cache
+from typing import AnyStr, List
 
 
 class Solution:
@@ -21,7 +21,7 @@ class Solution:
             stk = []
             nse = [0] * len(nums)
             ans = 0
-            for i in range(len(nums)-1, -1, -1):
+            for i in range(len(nums) - 1, -1, -1):
                 while stk and nums[stk[-1]] >= nums[i]:
                     stk.pop()
                 nse[i] = len(nums) if not stk else stk[-1]

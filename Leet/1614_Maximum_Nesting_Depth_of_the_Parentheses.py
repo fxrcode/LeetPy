@@ -1,4 +1,4 @@
-'''
+"""
 FB tag (easy)
 
 Parentheses Problem Foundation
@@ -12,7 +12,7 @@ Here is a ladder of parentheses problem, in order of problem number.
 1021. Remove Outermost Parentheses
 921.  Minimum Add to Make Parentheses Valid
 856.  Score of Parentheses
-'''
+"""
 
 
 class Solution:
@@ -26,10 +26,10 @@ class Solution:
             mx = 0
             stk = []
             for c in s:
-                if c == '(':
+                if c == "(":
                     stk.append(c)
                     mx = max(mx, len(stk))
-                elif c == ')':
+                elif c == ")":
                     stk.pop()
             return mx
 
@@ -42,9 +42,9 @@ class Solution:
             """
             mx = cur = 0
             for c in s:
-                if c == '(':
+                if c == "(":
                     cur += 1
                     mx = max(mx, cur)
-                elif c == ')':
+                elif c == ")":
                     cur -= 1
             return mx

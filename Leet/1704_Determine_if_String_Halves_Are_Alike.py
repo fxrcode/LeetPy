@@ -11,7 +11,9 @@ class Solution:
             # Runtime: 59 ms, faster than 29.72% of Python3 online submissions for Determine if String Halves Are Alike.
             nonlocal s
             s, n, VOWS = s.lower(), len(s), set("aeiou")
-            return sum(c in VOWS for c in s[: n // 2]) == sum(c in VOWS for c in s[n // 2 :])
+            return sum(c in VOWS for c in s[: n // 2]) == sum(
+                c in VOWS for c in s[n // 2 :]
+            )
 
         def fxr():
             # Runtime: 43 ms, faster than 67.82% of Python3 online submissions for Determine if String Halves Are Alike.

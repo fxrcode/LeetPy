@@ -21,14 +21,21 @@ class Solution:
             if left >= 2:
                 ans = max(ans, dp(left - 2, p), dp(left - 2, p + 2))
             if left >= 3:
-                ans = max(ans, dp(left - 3, p + 1), dp(left - 3, p + 3), max(nums[p : p + 3] + [-1]) if p < len(nums) else -1)
+                ans = max(
+                    ans,
+                    dp(left - 3, p + 1),
+                    dp(left - 3, p + 3),
+                    max(nums[p : p + 3] + [-1]) if p < len(nums) else -1,
+                )
             # if left >= 4:
             #     ans = max(ans, dp(left - 4, p), dp(left - 4, p + 4))
             return ans
 
         return dp(k, 0)
 
-    def digArtifacts(self, n: int, artifacts: List[List[int]], dig: List[List[int]]) -> int:
+    def digArtifacts(
+        self, n: int, artifacts: List[List[int]], dig: List[List[int]]
+    ) -> int:
         dig = set([(i, j) for i, j in dig])
         cnt = 0
         for r1, c1, r2, c2 in artifacts:
@@ -52,7 +59,36 @@ print(sl.maximumTop(nums=[5, 2, 2, 4, 0, 6], k=4))
 print(sl.maximumTop(nums=[2], k=1))
 print(sl.maximumTop([99, 95, 68, 24, 18], 69))
 print(sl.maximumTop([2], 1))
-print(sl.maximumTop([73, 63, 62, 16, 95, 92, 93, 52, 89, 36, 75, 79, 67, 60, 42, 93, 93, 74, 94, 73, 35, 86, 96], 59))
+print(
+    sl.maximumTop(
+        [
+            73,
+            63,
+            62,
+            16,
+            95,
+            92,
+            93,
+            52,
+            89,
+            36,
+            75,
+            79,
+            67,
+            60,
+            42,
+            93,
+            93,
+            74,
+            94,
+            73,
+            35,
+            86,
+            96,
+        ],
+        59,
+    )
+)
 print(sl.maximumTop([18], 3))
 
 # nums = [2, 2, 2, 2, 2]

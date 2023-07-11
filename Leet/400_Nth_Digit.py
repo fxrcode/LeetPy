@@ -1,8 +1,8 @@
-'''
+"""
 ✅ GOOD Math
 FB tag (medium)
 [ ] REDO
-'''
+"""
 
 
 class Solution:

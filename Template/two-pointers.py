@@ -18,7 +18,7 @@ class Solution:
     """
 
     def partition(self, A, start, end):
-        """ [i -> ... <- j]
+        """[i -> ... <- j]
         pointers merge from both side to meeting point
         example: 9chap partition template for quicksort/select
         """
@@ -27,7 +27,7 @@ class Solution:
 
         left, right = start, end
         # key point 1: pivot is the value, not the index
-        pivot = A[(start+end) // 2]
+        pivot = A[(start + end) // 2]
 
         # key point 2: every time you compare left&right, it should
         # left <= right, rather left < right
@@ -42,12 +42,12 @@ class Solution:
                 right -= 1
 
     def separate(self, A, meet):
-        """ [...  <- i,j ->  ...]
+        """[...  <- i,j ->  ...]
         leaving 2 pointers from meeting point
         ex: palindrome
         """
         left = meet
-        right = meet+1
+        right = meet + 1
         while left >= 0 and right < len(A):
             #
             if A[left] == 42 and A[right] == -42:
@@ -104,6 +104,5 @@ class Solution:
         return new_list
 
     def sfc_foo(self, A, slow, fast):
-        """dummy method for slow/fast chasing pattern
-        """
+        """dummy method for slow/fast chasing pattern"""
         return True

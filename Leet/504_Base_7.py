@@ -1,6 +1,6 @@
-'''
+"""
 
-'''
+"""
 
 
 class Solution:
@@ -16,7 +16,7 @@ class Solution:
                 ans += time * m
                 time *= 10
             ret = str(ans)
-            return '-' * (num < 0) + ret
+            return "-" * (num < 0) + ret
 
         return fxr()
 

@@ -47,7 +47,17 @@ class Solution:
                 n = len(mat)
                 for i in range(n // 2):
                     for j in range((n + 1) // 2):
-                        mat[i][j], mat[j][n - i - 1], mat[n - i - 1][n - j - 1], mat[n - j - 1][i] = mat[n - j - 1][i], mat[i][j], mat[j][n - i - 1], mat[n - i - 1][n - j - 1]
+                        (
+                            mat[i][j],
+                            mat[j][n - i - 1],
+                            mat[n - i - 1][n - j - 1],
+                            mat[n - j - 1][i],
+                        ) = (
+                            mat[n - j - 1][i],
+                            mat[i][j],
+                            mat[j][n - i - 1],
+                            mat[n - i - 1][n - j - 1],
+                        )
                 # [(i, j), (j, n - i - 1), (n - i - 1, n - j - 1), (n - j - 1, i)]
 
             n = len(mat)
@@ -99,7 +109,15 @@ class Solution:
 
 sl = Solution()
 print(sl.findRotation(mat=[[1]], target=[[0]]))
-print(sl.findRotation([[1, 1, 1], [0, 0, 0], [0, 0, 0]], [[0, 1, 0], [0, 0, 0], [1, 0, 1]]))
+print(
+    sl.findRotation(
+        [[1, 1, 1], [0, 0, 0], [0, 0, 0]], [[0, 1, 0], [0, 0, 0], [1, 0, 1]]
+    )
+)
 print(sl.findRotation(mat=[[0, 1], [1, 0]], target=[[1, 0], [0, 1]]))
 print(sl.findRotation(mat=[[0, 1], [1, 1]], target=[[1, 0], [0, 1]]))
-print(sl.findRotation(mat=[[0, 0, 0], [0, 1, 0], [1, 1, 1]], target=[[1, 1, 1], [0, 1, 0], [0, 0, 0]]))
+print(
+    sl.findRotation(
+        mat=[[0, 0, 0], [0, 1, 0], [1, 1, 1]], target=[[1, 1, 1], [0, 1, 0], [0, 0, 0]]
+    )
+)

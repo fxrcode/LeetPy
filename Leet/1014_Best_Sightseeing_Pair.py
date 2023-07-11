@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=edfymn3
 Study Plan: Dynamic Programming
-'''
+"""
 
 
 from typing import List
@@ -24,7 +24,7 @@ class Solution:
                 # here v-i is actually the `A[j]-j` in formula
                 res = max(res, best_i + v - i)
                 # update optimal `A[i]+i`
-                best_i = max(best_i, v+i)
+                best_i = max(best_i, v + i)
             return res
 
         return jinjiren()

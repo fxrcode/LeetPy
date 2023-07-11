@@ -1,13 +1,14 @@
-'''
+"""
 Explore Trie
 tag: Medium, Trie
 
 Lookback:
 + when prefix-str, do Trie
 + use func! rather spaghetti code!!!
-'''
+"""
 
 from typing import List
+
 """
 class Node:
     def __init__(self) -> None:
@@ -23,11 +24,12 @@ class Solution:
 
             REF: https://leetcode.com/problems/replace-words/discuss/105755/Python-Straightforward-with-Explanation-(Prefix-hash-Trie-solutions)/464114
             """
+
             def insert(s):
                 p = trie
                 for c in s:
                     p = p.setdefault(c, {})
-                p['#'] = s
+                p["#"] = s
 
             def replace(s):
                 p = trie
@@ -36,23 +38,26 @@ class Solution:
                     p = p.get(c)
                     if not p:
                         return s
-                    if '#' in p:
-                        return p['#']
+                    if "#" in p:
+                        return p["#"]
                 return s
 
             trie = {}
             for root in dictionary:
                 insert(root)
             print(trie)
-            return ' '.join(map(replace, sentence.split()))
+            return " ".join(map(replace, sentence.split()))
 
         return Talse()
 
 
 sl = Solution()
 print(
-    sl.replaceWords(dictionary=["cat", "bat", "rat"],
-                    sentence="c the cattle was rattled by the battery"))
+    sl.replaceWords(
+        dictionary=["cat", "bat", "rat"],
+        sentence="c the cattle was rattled by the battery",
+    )
+)
 print(
-    sl.replaceWords(dictionary=["a", "b", "c"],
-                    sentence="aadsfasf absbs bbab cadsfafs"))
+    sl.replaceWords(dictionary=["a", "b", "c"], sentence="aadsfasf absbs bbab cadsfafs")
+)

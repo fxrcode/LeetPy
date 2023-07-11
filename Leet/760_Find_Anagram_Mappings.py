@@ -7,8 +7,8 @@ LeetCode Curated Algo 170
 """
 
 
-from typing import List
 from collections import defaultdict, deque
+from typing import List
 
 
 class Solution:

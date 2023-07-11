@@ -1,4 +1,4 @@
-'''
+"""
 
 ✅ GOOD Sliding Window
 tag: Medium, Sliding Window
@@ -6,26 +6,24 @@ tag: Medium, Sliding Window
 Lookback
 - inner while => loop invariant win keep unique only, so no re-process win as I did
 - contract if r-l==k!
-'''
+"""
 
 from collections import defaultdict
 
 
 class Solution:
-
     def numKLenSubstrNoRepeats(self, s: str, k: int) -> int:
-
         def teampark():
             """
             Runtime: 93 ms, faster than 28.61% of Python3 online submissions for Find K-Length Substrings With No Repeated Characters.
-            
+
             https://leetcode.com/problems/find-k-length-substrings-with-no-repeated-characters/discuss/464681/Python-with-Explanation-and-Thought-Process-(Leetcode-is-Easy!)
             T: O(N)
             """
             if k > len(s):
                 return 0
             freq = [0] * 26
-            o = lambda c: ord(c) - ord('a')
+            o = lambda c: ord(c) - ord("a")
             l, r = 0, 0
             res = 0
             while r < len(s):
@@ -76,4 +74,4 @@ class Solution:
 
 sl = Solution()
 print(sl.numKLenSubstrNoRepeats(s="havefunonleetcode", k=5))
-print(sl.numKLenSubstrNoRepeats(s='home', k=5))
+print(sl.numKLenSubstrNoRepeats(s="home", k=5))

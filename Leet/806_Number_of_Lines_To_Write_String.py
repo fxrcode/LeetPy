@@ -30,5 +30,67 @@ class Solution:
 
 
 sl = Solution()
-print(sl.numberOfLines(widths=[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], s="abcdefghijklmnopqrstuvwxyz"))
-assert sl.numberOfLines(widths=[4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], s="bbbcccdddaaa") == [2, 4]
+print(
+    sl.numberOfLines(
+        widths=[
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+        ],
+        s="abcdefghijklmnopqrstuvwxyz",
+    )
+)
+assert sl.numberOfLines(
+    widths=[
+        4,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+    ],
+    s="bbbcccdddaaa",
+) == [2, 4]

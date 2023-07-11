@@ -1,7 +1,7 @@
-'''
+"""
 Daily Challenge (Dec 10)
 
-'''
+"""
 from functools import cache
 
 
@@ -24,6 +24,7 @@ class Solution:
             https://leetcode.com/problems/domino-and-tromino-tiling/discuss/1620975/C%2B%2BPython-Simple-Solution-w-Images-and-Explanation-or-Optimization-from-Brute-Force-to-DP
             DFS requires careful definition of func,state,return. Then find recurrence relation!
             """
+
             @cache
             def dfs(i, previous_gap):
                 # base
@@ -36,8 +37,9 @@ class Solution:
                         return 0
                 # recurrence
                 if previous_gap:
-                    return dfs(i+1, False) + dfs(i+1, True)
-                return dfs(i+1, False) + dfs(i+2, False)+2*dfs(i+2, True)
+                    return dfs(i + 1, False) + dfs(i + 1, True)
+                return dfs(i + 1, False) + dfs(i + 2, False) + 2 * dfs(i + 2, True)
+
             # BUG: return int(dfs(0, False) % (1e9+7)). Notice python scientific form is float, so I got wrong for some case, eg. n=50
             return dfs(0, False) % 1_000_000_007
 

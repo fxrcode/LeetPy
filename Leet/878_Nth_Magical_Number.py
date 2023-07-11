@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Binary Search (generic bisect)
 
 Division problems:
@@ -17,7 +17,7 @@ Daily Challenge (Dec 11)
 A positive integer is magical if it is divisible by either a or b.
 
 Given the three integers n, a, and b, return the nth magical number. Since the answer may be very large, return it modulo 10^9 + 7.
-'''
+"""
 
 from math import lcm
 
@@ -31,16 +31,17 @@ class Solution:
             济公学院: 2/4 -- 二分搜索例题精讲
             https://www.youtube.com/watch?v=jTiki726mpI
             """
+
             def f(v, n, A, B):
                 """
                 !if there're >= N magicall int which are <= v
                 Go for an example, ie a,b=4,2. Then you can easily find math of #count
                 """
-                return v//A + v//B - v//lcm(A, B) >= n
+                return v // A + v // B - v // lcm(A, B) >= n
 
-            l, r = 0, n*min(a, b)
+            l, r = 0, n * min(a, b)
             while l < r:
-                m = (l+r)//2
+                m = (l + r) // 2
                 if f(m, n, a, b):
                     r = m
                 else:

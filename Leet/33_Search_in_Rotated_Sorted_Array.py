@@ -67,7 +67,9 @@ class Solution:
                 # XXX: check if mid is same side of target?
                 #       careful in >, <=. if both in left, must use `nums[0] <= target,nums[mid]`, since nums[0] is inclusive in left side!
                 v_mid = None
-                if (nums[0] > target and nums[0] > nums[mid]) or (nums[0] <= target and nums[0] <= nums[mid]):
+                if (nums[0] > target and nums[0] > nums[mid]) or (
+                    nums[0] <= target and nums[0] <= nums[mid]
+                ):
                     v_mid = nums[mid]
                 else:  # if not same side, encode to -INF for left, and INF for right
                     if target < nums[0]:

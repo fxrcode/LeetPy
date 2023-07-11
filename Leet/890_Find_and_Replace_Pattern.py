@@ -46,5 +46,9 @@ class Solution:
 
 
 sl = Solution()
-print(sl.findAndReplacePattern(words=["abc", "deq", "mee", "aqq", "dkd", "ccc"], pattern="abb"))
+print(
+    sl.findAndReplacePattern(
+        words=["abc", "deq", "mee", "aqq", "dkd", "ccc"], pattern="abb"
+    )
+)
 print(sl.findAndReplacePattern(words=["a", "b", "c"], pattern="a"))

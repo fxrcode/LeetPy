@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Backtrack (2D Matrix)
 
 https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2794/
@@ -7,7 +7,7 @@ Leetcode explore Recursion II: Backtracking
 You are controlling a robot that is located somewhere in a room. The room is modeled as an m x n binary grid where 0 represents a wall and 1 represents an empty slot.
 
 
-'''
+"""
 """
 # This is the robot's control interface.
 # You should not implement it, or speculate about its implementation
@@ -79,9 +79,9 @@ class Solution:
             robot.clean()
 
             for i in range(4):
-                nd = (d+i) % 4
+                nd = (d + i) % 4
                 dx, dy = DIR[nd]
-                xx, yy = x+dx, y+dy
+                xx, yy = x + dx, y + dy
                 # recurive if not visit and reachable
                 if (xx, yy) not in visited and robot.move():
                     bt(xx, yy, nd)

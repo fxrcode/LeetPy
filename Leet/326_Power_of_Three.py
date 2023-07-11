@@ -1,9 +1,9 @@
-'''
+"""
 Top Interview Questions
 tag: math, Easy
 
 [ ] TODO: base conversion
-'''
+"""
 
 
 class Solution:
@@ -14,6 +14,7 @@ class Solution:
             Runtime: 111 ms, faster than 45.60% of Python3 online submissions for Power of Three.
             T: O(log3(n))， M: O(1)
             """
+
             def iter(n):
                 if n < 1:
                     return False
@@ -30,8 +31,10 @@ class Solution:
             Runtime: 174 ms, faster than 13.53% of Python3 online submissions for Power of Three.
             T: O(log3(n))， M: O(log3(n))
             """
+
             def rec(n):
-                if n <= 1: return n == 1
+                if n <= 1:
+                    return n == 1
                 return n % 3 == 0 and rec(n // 3)
 
             return rec(n)

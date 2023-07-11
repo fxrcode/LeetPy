@@ -17,11 +17,11 @@ class Solution:
                 return 0
 
             numbers = {}
-            for p in range(2, int(n**0.5)+1):
+            for p in range(2, int(n**0.5) + 1):
                 if p not in numbers:
                     # why start from p*p rather 2*p, because all lower has been filter out in lower p!
-                    for multiple in range(p*p, n, p):
+                    for multiple in range(p * p, n, p):
                         numbers[multiple] = 1
 
             # exclude "1" and the number "n" itself
-            return n - len(numbers)-2
+            return n - len(numbers) - 2

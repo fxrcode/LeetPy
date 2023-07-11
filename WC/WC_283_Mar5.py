@@ -21,7 +21,6 @@ class Solution:
             return nums
 
         def helper(A):
-
             stk = []
             for i in range(len(nums)):
                 while stk and gcd(stk[-1], nums[i]) > 1:

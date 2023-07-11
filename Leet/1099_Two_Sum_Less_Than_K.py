@@ -1,12 +1,12 @@
-'''
+"""
 https://leetcode.com/problem-list/552y65ke/
 LeetCode Curated Algo 170
 
-'''
+"""
 
 
-from typing import List
 from bisect import bisect_left
+from typing import List
 
 
 class Solution:
@@ -18,7 +18,7 @@ class Solution:
             T: O(nlogn), M: O(n)
             """
             nums.sort()
-            l, r = 0, len(nums)-1
+            l, r = 0, len(nums) - 1
             ans = -1
             while l < r:
                 slr = nums[l] + nums[r]
@@ -43,7 +43,7 @@ class Solution:
             ans = -1
             nums.sort()
             for i in range(len(nums)):
-                j = bisect_left(nums, k-nums[i], i+1)
+                j = bisect_left(nums, k - nums[i], i + 1)
                 if j > i:
                     ans = max(ans, nums[i] + nums[j])
             return ans

@@ -1,10 +1,10 @@
-'''
+"""
 ✅ GOOD Dict
 
 https://stackoverflow.com/questions/34305003/difference-between-dictionary-and-ordereddict
 From 3.8+, orderedDict is no need any more! Dict = OrderedDict!
 
-'''
+"""
 
 
 class LRUCache:

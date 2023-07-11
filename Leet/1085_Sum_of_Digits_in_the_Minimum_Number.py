@@ -1,8 +1,8 @@
-'''
+"""
 tag: easy
 
 similar: 258.Add Digits
-'''
+"""
 
 from typing import List
 

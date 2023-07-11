@@ -1,4 +1,4 @@
-'''
+"""
 Google interview: given a list of rectangles, can you use a subset or all of them to tile a sqaure? Retrun bool.
 How are you going to represent the rectangle object? Since the question is verbal with open design
 
@@ -7,7 +7,7 @@ Ref: 1240. Tiling a Rectangle with the Fewest Squares
 
 TODO: I implemented backtracking to try all subsets of rectangles for a square.
 FOLLOWUP: you can reuse rectangles or cut large rectangle to smaller one.
-'''
+"""
 
 
 class RectangleSquare:
@@ -21,7 +21,7 @@ class RectangleSquare:
             row_sum += rec[0]
             col_sum += rec[1]
         square_max = min(row_sum, col_sum)
-        for s in range(1, square_max+1):
+        for s in range(1, square_max + 1):
             sqr = [[0 for _ in range(s)] for _ in range(s)]
             pass
         return False
@@ -30,18 +30,19 @@ class RectangleSquare:
     def search(sqr, rect):
         # return ALL cord of left-up cornor to put the rect, if not found, return []
         def all_0(sqr, r, c, r_end, c_end):
-            for i in range(r, r_end+1):
-                for j in range(c, c_end+1):
+            for i in range(r, r_end + 1):
+                for j in range(c, c_end + 1):
                     if sqr[i][j] != 0:
                         return False
             return True
+
         res = []
         S = len(sqr)
         rec_r, rec_c = rect
         for r in range(S):
             for c in range(S):
-                r_end = r + rec_r-1
-                c_end = c + rec_c-1
+                r_end = r + rec_r - 1
+                c_end = c + rec_c - 1
                 if r_end < S and c_end < S and all_0(sqr, r, c, r_end, c_end):
                     res.append((r, c))
         return res
@@ -49,10 +50,10 @@ class RectangleSquare:
     @staticmethod
     def update_sqr(sqr, bit, r, c, r_end, c_end):
         # set rectangle in sqr to bit (eg. 0->1), and area: [r,r_end] & [c,c_end] all inclusive
-        for i in range(r, r_end+1):
-            for j in range(c, c_end+1):
+        for i in range(r, r_end + 1):
+            for j in range(c, c_end + 1):
                 if sqr[i][j] == bit:
-                    raise Exception(f'{(i,j)} is alraedy equal to bit {bit}')
+                    raise Exception(f"{(i,j)} is alraedy equal to bit {bit}")
                 sqr[i][j] = bit
 
     @staticmethod
@@ -70,9 +71,9 @@ class RectangleSquare:
         for i in range(S):
             for j in range(S):
                 if sqr[i][j] == 0:
-                    print('.', end='')
+                    print(".", end="")
                 else:
-                    print('x', end='')
+                    print("x", end="")
             print()
         print()
 
@@ -99,36 +100,32 @@ class RectangleSquare:
             opt_coords = RectangleSquare.search(sqr, rectangles[i])
 
             if not opt_coords:
-                print(
-                    f'cant fit rectangle {i}: {rectangles[i]} in sqr, try next rect')
+                print(f"cant fit rectangle {i}: {rectangles[i]} in sqr, try next rect")
                 # try next
-                if self.backtrack(sqr, rectangles, i+1, path, ans):
+                if self.backtrack(sqr, rectangles, i + 1, path, ans):
                     return True
 
             else:
-                print(f'before pick: {i}')
+                print(f"before pick: {i}")
                 RectangleSquare.plot_sqr(sqr)
-                print(
-                    f'try rectangle {i}: {rectangles[i]} at {opt_coords}')
+                print(f"try rectangle {i}: {rectangles[i]} at {opt_coords}")
                 # for cord in searched space, make decision
                 for coord in opt_coords:
                     r, c = coord
-                    print(
-                        f'pick rec {i}: {rectangles[i]} to put at {(r,c)}')
-                    r_end, c_end = r + \
-                        rectangles[i][0] - 1, c+rectangles[i][1]-1
+                    print(f"pick rec {i}: {rectangles[i]} to put at {(r,c)}")
+                    r_end, c_end = r + rectangles[i][0] - 1, c + rectangles[i][1] - 1
                     #   update sqr to mark the rectangle part to 1, and update path
                     RectangleSquare.update_sqr(sqr, 1, r, c, r_end, c_end)
                     RectangleSquare.plot_sqr(sqr)
                     path[i] = (r, c)
                     #   recursive to try next rectangle
-                    if self.backtrack(sqr, rectangles, i+1, path, ans):
+                    if self.backtrack(sqr, rectangles, i + 1, path, ans):
                         # XXX: Stop recursion once we got 1 solution: https://github.com/jiajunhua/labuladong-fucking-algorithm
                         return True
                     #   backtrack the marked part to 0, undo path update
                     RectangleSquare.update_sqr(sqr, 0, r, c, r_end, c_end)
                     del path[i]
-                    print(f'remove rec {i}: {rectangles[i]} at {(r,c)} ')
+                    print(f"remove rec {i}: {rectangles[i]} at {(r,c)} ")
                     RectangleSquare.plot_sqr(sqr)
 
     """
@@ -189,7 +186,10 @@ def build_sqr(s):
 sl = RectangleSquare()
 # rectangles = [(2, 1), (1, 1), (1, 2), (3, 1), (2, 1)]
 # rectangles = [(3, 1), (2, 1), (1, 1), (2, 2), (3, 1), (1, 2)]
-rectangles = [(1, 2), (2, 2), ]
+rectangles = [
+    (1, 2),
+    (2, 2),
+]
 ans = []
 sl.backtrack(build_sqr(2), rectangles, 0, {}, ans)
 print(ans)

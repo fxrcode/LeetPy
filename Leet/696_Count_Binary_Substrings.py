@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Logic
 logic: re-state, rather simulation!
 similar in Stefan's interval merge
@@ -8,7 +8,7 @@ tag: easy, 2ptr
 
 Lookback
 - UNDERSTAND problem, then restart it.
-'''
+"""
 from collections import defaultdict
 
 

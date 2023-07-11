@@ -1,10 +1,10 @@
-'''
+"""
 💡insight sort
 tag: medium, sort
 
 Lookback:
 - taolu: sort to remove concern of one field. 
-'''
+"""
 
 from typing import List
 
@@ -14,7 +14,7 @@ class Solution:
         def os_cn_sort():
             """
             Runtime: 3625 ms, faster than 31.79% of Python3 online submissions for The Number of Weak Characters in the Game.
-            
+
             https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game/solution/you-xi-zhong-ruo-jiao-se-de-shu-liang-by-3d2g/
             """
             properties.sort(key=lambda x: (-x[0], x[1]))

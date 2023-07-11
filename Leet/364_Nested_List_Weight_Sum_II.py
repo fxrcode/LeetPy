@@ -1,8 +1,8 @@
-'''
+"""
 
 Weekly Special (Dec W2)
 TODO: BFS
-'''
+"""
 # """
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
@@ -62,9 +62,9 @@ class Solution:
             """
 
             def dfs(nl: List[NestedInteger], depth, mxdep, simple_sm):
-                '''
+                """
                 do sum(elem) into addsup, and return elem * depth
-                '''
+                """
                 mxdep[0] = max(mxdep[0], depth)
                 weighted_sm = 0
                 for e in nl:
@@ -72,14 +72,13 @@ class Solution:
                         simple_sm[0] += e.getInteger()
                         weighted_sm += e.getInteger() * depth
                     else:
-                        weighted_sm += dfs(e.getList(),
-                                           depth+1, mxdep, simple_sm)
+                        weighted_sm += dfs(e.getList(), depth + 1, mxdep, simple_sm)
                 return weighted_sm
 
             mxdep = [1]
             addsup = [0]
             weighted_sm = dfs(nl, 1, mxdep, addsup)
-            return (mxdep[0]+1)*addsup[0] - weighted_sm
+            return (mxdep[0] + 1) * addsup[0] - weighted_sm
 
         def fxr_brute(nl: List[NestedInteger]):
             """
@@ -88,11 +87,12 @@ class Solution:
             Ac in 1
             Metacognition: brute force idea: 1st dfs to get mxdep, then 2nd dfs get weight so as to calculate sum
             """
+
             def dfs_f1(nl: List[NestedInteger], depth, mxdep):
                 mxdep[0] = max(mxdep[0], depth)
                 for e in nl:
                     if not e.isInteger():
-                        dfs_f1(e.getList(), depth+1, mxdep)
+                        dfs_f1(e.getList(), depth + 1, mxdep)
 
             def dfs_f2(nl: List[NestedInteger], depth, mxdep):
                 res = 0
@@ -101,8 +101,9 @@ class Solution:
                     if e.isInteger():
                         res += e.getInteger() * weig
                     else:
-                        res += dfs_f2(e.getList(), depth+1, mxdep)
+                        res += dfs_f2(e.getList(), depth + 1, mxdep)
                 return res
+
             mxdep = [1]
             dfs_f1(nestedList, 1, mxdep)
             return dfs_f2(nestedList, 1, mxdep)

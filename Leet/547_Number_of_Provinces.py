@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/featured/card/graph/618/disjoint-set/3845/
 Leetcode Explore Graph: Disjoint Set
 
@@ -7,7 +7,7 @@ A province is a group of directly or indirectly connected cities and no other ci
 You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
 
 TODO: As 济公学院 says, there's no problems in Leetcode can be solved in UF only. It can always be solved by BFS/DFS.
-'''
+"""
 
 
 from typing import List
@@ -36,7 +36,7 @@ class Solution:
         # In implementation, we don't necessory create a dedicate UF class, implement find/union/connected/rank[], etc.
         #   eg. in here, we just need to implement find. And just `run` union once when traverse right upper cornor of Matrix!
         for i in range(n):
-            for j in range(i+1, n):
+            for j in range(i + 1, n):
                 if isConnected[i][j] == 1:
                     # uf[find(i)] = find(j)
                     # set y parent to x

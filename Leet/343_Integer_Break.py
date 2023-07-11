@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 14: Classic Dynamic Programming Problems
-'''
+"""
 import timeit
 from functools import cache
 
@@ -14,11 +14,11 @@ class Solution:
             https://leetcode.com/problems/integer-break/discuss/484055/RZ-O(n-2)-DP-solution-and-O(n)-solution-based-on-math
             Runtime: 28 ms, faster than 90.97% of Python3 online submissions for Integer Break.
             """
-            f = [0]*(n+1)
+            f = [0] * (n + 1)
             f[1] = 1
-            for i in range(2, n+1):
-                for j in range(1, i//2+1):
-                    tmp = max(j, f[j]) * max(i-j, f[i-j])
+            for i in range(2, n + 1):
+                for j in range(1, i // 2 + 1):
+                    tmp = max(j, f[j]) * max(i - j, f[i - j])
                     f[i] = max(f[i], tmp)
             return f[n]
 
@@ -49,8 +49,8 @@ class Solution:
             """
             nonlocal n
             if n <= 3:
-                return n-1
-            num_3 = n//3
+                return n - 1
+            num_3 = n // 3
             rem = n % 3
             if rem == 1:
                 rem = 4
@@ -64,13 +64,15 @@ class Solution:
             only need factors 2 or 3, and as much 3's as possible.
 
             """
+
             @cache
             def twothree(i):
                 if i <= 3:
-                    return i-1
+                    return i - 1
                 if i == 4:
                     return 4
-                return max(twothree(i-2)*2, twothree(i-3)*3)
+                return max(twothree(i - 2) * 2, twothree(i - 3) * 3)
+
             return twothree(n)
 
         def fxr_backtrack():
@@ -92,8 +94,8 @@ class Solution:
                     if k >= 2:
                         ans[0] = max(ans[0], prod)
                 # recur
-                for i in range(start, n+1):
-                    bt(i, n-i, prod*i, k+1, ans)
+                for i in range(start, n + 1):
+                    bt(i, n - i, prod * i, k + 1, ans)
 
             bt(1, n, 1, 0, ans)
             return ans[0]
@@ -109,8 +111,8 @@ class Solution:
                     ans[0] = max(ans[0], product)
                     return
                 # recur
-                for i in range(1, n+1):
-                    bt(n-i, product*i, k+1)
+                for i in range(1, n + 1):
+                    bt(n - i, product * i, k + 1)
 
             bt(n, 1, 0)
             return ans[0]

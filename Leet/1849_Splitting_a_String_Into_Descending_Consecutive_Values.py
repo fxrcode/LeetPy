@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Backtrack (multi-state)
 kevin: partition-type problem (Backtrack/DP)
 
@@ -6,7 +6,7 @@ tag: medium, backtrack, DP
 
 lookback:
 - get strong in dfs w/ args & return
-'''
+"""
 
 
 class Solution:
@@ -17,6 +17,7 @@ class Solution:
 
             XXX: real backtrack rather template! cuz we need these info to judge!
             """
+
             def solve(s, i, l, prev, splits):
                 """[summary]
 
@@ -33,7 +34,7 @@ class Solution:
                 if i == len(s) and splits >= 2:
                     return True
                 while i + l <= len(s):
-                    cur = int(s[i:i + l])
+                    cur = int(s[i : i + l])
                     l += 1
                     if prev != -1 and cur != prev - 1:
                         continue
@@ -50,6 +51,7 @@ class Solution:
             Runtime: 57 ms, faster than 26.32% of Python3 online submissions for Splitting a String Into Descending Consecutive Values.
 
             """
+
             def bt(s, path, res):
                 print(s, path, res)
                 if not s:

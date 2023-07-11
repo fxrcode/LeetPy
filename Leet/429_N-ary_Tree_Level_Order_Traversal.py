@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/n-ary-tree/130/traversal/915/
 N-ary Tree: Traversal
 https://leetcode.com/explore/learn/card/graph/620/breadth-first-search-in-graph/3897/
@@ -7,7 +7,7 @@ Leetcode Explore Graph: BFS
 Given an n-ary tree, return the level order traversal of its nodes' values.
 
 Nary-Tree input serialization is represented in their level order traversal, each group of children is separated by the null value (See examples).
-'''
+"""
 
 # Definition for a Node.
 
@@ -23,7 +23,7 @@ class Node:
 
 
 class Solution:
-    def levelOrder(self, root: 'Node') -> List[List[int]]:
+    def levelOrder(self, root: "Node") -> List[List[int]]:
         """
         Your runtime beats 66.06 % of python3 submissions.
         AC in 1.

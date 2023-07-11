@@ -63,7 +63,10 @@ class Solution:
                     return 0
                 if i == j:
                     return cardPoints[i]
-                return max(cardPoints[i] + dp(i + 1, j, k - 1), cardPoints[j] + dp(i, j - 1, k - 1))
+                return max(
+                    cardPoints[i] + dp(i + 1, j, k - 1),
+                    cardPoints[j] + dp(i, j - 1, k - 1),
+                )
 
             return dp(0, len(cardPoints) - 1, k)
 

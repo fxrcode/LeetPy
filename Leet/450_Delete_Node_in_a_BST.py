@@ -1,10 +1,10 @@
-'''
+"""
 Daily Challenge (Nov 22)
 
 https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/142/conclusion/1018/
 Leetcode Explore Binary Search Tree: Basic Ops
 
-'''
+"""
 # Definition for a binary tree node.
 
 
@@ -50,7 +50,9 @@ class Solution:
             root.right = self.deleteNode(root.right, succ.val)
         return root
 
-    def deleteNode_fxr_WA(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+    def deleteNode_fxr_WA(
+        self, root: Optional[TreeNode], key: int
+    ) -> Optional[TreeNode]:
         # BUG: https://stackoverflow.com/questions/29809910/reassigning-variables-in-python
         #      you don't understand python var re-assignment.
 
@@ -117,11 +119,11 @@ def debu():
     print(id(b))
 
 
-root = TreeNode(5,
-                left=TreeNode(3,
-                              left=TreeNode(2),
-                              right=TreeNode(4)),
-                right=TreeNode(6, right=TreeNode(7)))
+root = TreeNode(
+    5,
+    left=TreeNode(3, left=TreeNode(2), right=TreeNode(4)),
+    right=TreeNode(6, right=TreeNode(7)),
+)
 
 sl = Solution()
 # sl.deleteNode_fxr_WA(root, 3)

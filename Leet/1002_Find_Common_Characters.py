@@ -1,7 +1,7 @@
-'''
+"""
 
 tag: Easy, Hash
-'''
+"""
 
 from collections import Counter
 from typing import List

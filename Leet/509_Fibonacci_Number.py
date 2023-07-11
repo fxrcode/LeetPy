@@ -13,7 +13,7 @@ class Solution:
         # Runtime: 24 ms, faster than 95.76% of Python3 online submissions for Fibonacci Number.
         if n < 2:
             return n
-        return self.fib(n-1)+self.fib(n-2)
+        return self.fib(n - 1) + self.fib(n - 2)
 
     def fib0(self, n: int) -> int:
         """[summary]
@@ -28,7 +28,7 @@ class Solution:
             if n < 2:
                 result = n
             else:
-                result = recur(n-1) + recur(n-2)
+                result = recur(n - 1) + recur(n - 2)
             F[n] = result
             return result
 

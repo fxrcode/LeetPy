@@ -1,8 +1,8 @@
-'''
+"""
 ✅ GODD logic (impl)
 similar: 1657
 tag: Easy
-'''
+"""
 
 from collections import Counter
 
@@ -16,8 +16,10 @@ class Solution:
             If A == B, we need swap two same characters. Check is duplicated char in A.
             In other cases, we find index for A[i] != B[i]. There should be only 2 diffs and it's our one swap.
             """
-            if len(A) != len(B): return False
-            if A == B and len(set(A)) < len(A): return True
+            if len(A) != len(B):
+                return False
+            if A == B and len(set(A)) < len(A):
+                return True
             dif = [(a, b) for a, b in zip(A, B) if a != b]
             return len(dif) == 2 and dif[0] == dif[1][::-1]
 

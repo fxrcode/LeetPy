@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD UF!
 
 https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3914/
@@ -10,14 +10,16 @@ You are also given some queries, where queries[j] = [Cj, Dj] represents the jth 
 
 XXX: some post said it's too difficult for two coding questions in 45 min phone interview. BUt it is indeed asked in FB.
     So you have to have strategy and get prepared.
-'''
+"""
 
 
 from typing import List
 
 
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+    def calcEquation(
+        self, equations: List[List[str]], values: List[float], queries: List[List[str]]
+    ) -> List[float]:
         """
         REF: https://leetcode.com/problems/evaluate-division/discuss/270993/Python-BFS-and-UF(detailed-explanation)
         By: WangQiuc
@@ -33,7 +35,7 @@ class Solution:
             p, xr = uf.setdefault(x, (x, 1.0))
             if x != p:
                 r, pr = find(p)
-                uf[x] = (r, xr*pr)
+                uf[x] = (r, xr * pr)
             return uf[x]
 
         # if root(x) = root(y), equations "x / y" doable as (x/root(x)) / (y/root(y)) = xr / yr
@@ -44,7 +46,7 @@ class Solution:
             if not ratio:
                 return xr / yr if root_x == root_y else -1.0
             if root_x != root_y:
-                uf[root_x] = (root_y, yr/xr*ratio)
+                uf[root_x] = (root_y, yr / xr * ratio)
 
         # XXX: step 1. Build up UF
         for (x, y), v in zip(equations, values):
@@ -59,6 +61,9 @@ class Solution:
 
 
 sl = Solution()
-ret = sl.calcEquation(equations=[["a", "b"], ["b", "c"]], values=[2.0, 3.0],
-                      queries=[["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"]])
+ret = sl.calcEquation(
+    equations=[["a", "b"], ["b", "c"]],
+    values=[2.0, 3.0],
+    queries=[["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"]],
+)
 print(ret)

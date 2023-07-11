@@ -1,13 +1,13 @@
-'''
+"""
 Explore Array & String: 2D Array
 https://leetcode.com/explore/learn/card/array-and-string/202/introduction-to-2d-array/1167/
 Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
 
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
@@ -21,10 +21,10 @@ class Solution:
         d = {}
         for i in range(len(mat)):
             for j in range(len(mat[0])):
-                if i+j not in d:
-                    d[i+j] = [mat[i][j]]
+                if i + j not in d:
+                    d[i + j] = [mat[i][j]]
                 else:
-                    d[i+j].append(mat[i][j])
+                    d[i + j].append(mat[i][j])
 
         res = []
         # due to Python3 dict ordered by insertion, it's in i+j = 0, 1, 2, ...
@@ -52,7 +52,7 @@ class Solution:
                 x, y = q.popleft()
                 cur_level.append(mat[x][y])
                 for dx, dy in [(0, 1), (1, 0)]:
-                    xx, yy = x+dx, y+dy
+                    xx, yy = x + dx, y + dy
                     if xx < R and yy < C and (xx, yy) not in visited:
                         q.append((xx, yy))
                         visited.add((xx, yy))

@@ -2,8 +2,8 @@
 Reservior Sampling
 """
 
-from typing import List
 import random
+from typing import List
 
 
 class Solution:

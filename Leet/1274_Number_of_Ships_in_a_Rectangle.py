@@ -1,39 +1,35 @@
-'''
+"""
 Weekly Special (W2 Feb2022)
 tag: hard? Divide-conquer
-'''
+"""
 
 
 class Sea(object):
-
-    def hasShips(self, topRight: 'Point', bottomLeft: 'Point') -> bool:
+    def hasShips(self, topRight: "Point", bottomLeft: "Point") -> bool:
         pass
 
 
 class Point(object):
-
     def __init__(self, x: int, y: int):
         self.x = x
         self.y = y
 
 
 class Solution(object):
-
-    def countShips(self, sea: 'Sea', topRight: 'Point', bottomLeft: 'Point') -> int:
-
-        def count(sea: 'Sea', P: Point, Q: Point):
+    def countShips(self, sea: "Sea", topRight: "Point", bottomLeft: "Point") -> int:
+        def count(sea: "Sea", P: Point, Q: Point):
             """
             Runtime: 53 ms, faster than 64.52% of Python3 online submissions for Number of Ships in a Rectangle.
 
             XXX: https://leetcode.com/problems/number-of-ships-in-a-rectangle/discuss/440773/python-divide-and-conquer-with-picture-explanation
             Note mx+1 vs mx for different quadrant
             ![](../pics/1274_Quad.png)
-            
+
             draw ascii table: https://ozh.github.io/ascii-tables/
             +---+---+
             | 2 | 1 |
             +---+---+
-            
+
             +---+---+
             | 3 | 4 |
             +---+---+

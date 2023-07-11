@@ -1,5 +1,5 @@
-from typing import List
 from collections import deque
+from typing import List
 
 
 class TreeNode:
@@ -8,7 +8,7 @@ class TreeNode:
         self.left, self.right = None, None
 
 
-SEP, NIL = ',', '#'
+SEP, NIL = ",", "#"
 
 
 class Util:
@@ -21,7 +21,7 @@ class Util:
         if not str:
             return None
 
-        nodes = str.split(',')
+        nodes = str.split(",")
         root = TreeNode(nodes[0])
         q = deque([root])
 
@@ -46,4 +46,4 @@ class Util:
         return root
 
 
-Util.deserialize('1,2,3,#,#,4,5')
+Util.deserialize("1,2,3,#,#,4,5")

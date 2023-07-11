@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Bisect
 https://leetcode.com/explore/learn/card/binary-search/144/more-practices/1031/
 Leetcode Explore: Binary Search - Conclusion
@@ -13,7 +13,7 @@ tag: Hard, bisect
 Similar:
 81. Search in Rotated Sorted Array II
 
-'''
+"""
 
 from typing import List
 
@@ -47,5 +47,5 @@ class Solution:
 
 sl = Solution()
 sl.findMin(nums=[2, 2, 2, 0, 1])
-print('hello')
+print("hello")
 sl.findMin(nums=[2, 0, 1, 1, 3])

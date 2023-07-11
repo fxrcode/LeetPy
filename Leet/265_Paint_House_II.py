@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 
@@ -6,11 +6,11 @@ Follow up: Could you solve it in O(nk) runtime?
 Metacognition: When you analyze a concrete example, the goal is to find pattern/property of this problem,
     but how to make sure this concrete case is generalize enough to show the exact pattern/property?
     eg. Greedy is mostly wrong since the cases you came up is not generalized, so your greedy algs got WA.
-'''
+"""
 
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -32,8 +32,7 @@ class Solution:
                 cur_row = costs[i]
                 min_cost = min(prev_row)
                 min_color = prev_row.index(min_cost)
-                second_min_cost = min(
-                    prev_row[:min_color] + prev_row[min_color+1:])
+                second_min_cost = min(prev_row[:min_color] + prev_row[min_color + 1 :])
                 print(min_cost, min_color, second_min_cost)
                 for c in range(k):
                     cur_row[c] += min_cost if c != min_color else second_min_cost
@@ -55,9 +54,7 @@ class Solution:
                     return 0
                 notc = list(range(k))
                 notc.remove(c)
-                remain = min(
-                    [paint(i+1, nc) for nc in notc]
-                )
+                remain = min([paint(i + 1, nc) for nc in notc])
                 return remain + costs[i][c]
 
             return min([paint(0, c) for c in range(k)])

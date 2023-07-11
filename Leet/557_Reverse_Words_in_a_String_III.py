@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/array-and-string/204/conclusion/1165/
 Leetcode Explore Array & String: Conclusion
 Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
@@ -7,7 +7,7 @@ All the words in s are separated by a single space.
 s does not contain any leading or trailing spaces.
 There is at least one word in s.
 
-'''
+"""
 
 
 class Solution:
@@ -22,6 +22,7 @@ class Solution:
         Returns:
             str: [description]
         """
+
         def rev(s, l, r):
             while l < r:
                 s[l], s[r] = s[r], s[l]
@@ -32,15 +33,15 @@ class Solution:
         l, r = 0, 0
         s = list(s)
         while r < n:
-            while r < n and s[r] != ' ':
+            while r < n and s[r] != " ":
                 r += 1
             # r: right after word
-            rev(s, l, r-1)
+            rev(s, l, r - 1)
             # because only 1 space between words
             r += 1
             l = r
 
-        return ''.join(s)
+        return "".join(s)
 
 
 sl = Solution()

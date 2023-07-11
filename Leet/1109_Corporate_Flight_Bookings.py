@@ -32,4 +32,3 @@ class Solution:
 
 sl = Solution()
 print(sl.corpFlightBookings(bookings=[[1, 2, 10], [2, 3, 20], [2, 5, 25]], n=5))
-

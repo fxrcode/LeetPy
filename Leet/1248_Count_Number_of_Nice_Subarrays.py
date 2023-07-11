@@ -1,8 +1,8 @@
-'''
+"""
 💡insight (logic & sliding-window)
 Amazon Top50
 tag: Medium, Sliding Window
-'''
+"""
 
 from collections import Counter
 from typing import List
@@ -17,16 +17,19 @@ class Solution:
             similar: 1248. exactly(K) = atMost(K) - atMost(K-1)
             T: O(N)
             """
+
             def atMost(K):
                 res, l, r = 0, 0, 0
                 o = 0
                 while r < len(nums):
                     c = nums[r]
-                    if c & 1: o += 1
+                    if c & 1:
+                        o += 1
                     r += 1
                     while o > K:
                         d = nums[l]
-                        if d & 1: o -= 1
+                        if d & 1:
+                            o -= 1
                         l += 1
                     res += r - l + 1
                 return res

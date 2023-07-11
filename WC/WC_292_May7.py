@@ -47,11 +47,17 @@ class Solution:
                 return
             if pressedKeys[i] in four:
                 for streak in range(1, 5):
-                    if i + streak <= len(pressedKeys) and len(set(pressedKeys[i : i + streak])) == 1:
+                    if (
+                        i + streak <= len(pressedKeys)
+                        and len(set(pressedKeys[i : i + streak])) == 1
+                    ):
                         bt(i + streak, path + [pressedKeys[i : i + streak]], res)
             else:
                 for streak in range(1, 4):
-                    if i + streak <= len(pressedKeys) and len(set(pressedKeys[i : i + streak])) == 1:
+                    if (
+                        i + streak <= len(pressedKeys)
+                        and len(set(pressedKeys[i : i + streak])) == 1
+                    ):
                         bt(i + streak, path + [pressedKeys[i : i + streak]], res)
 
         res = [0]
@@ -84,7 +90,11 @@ class Solution:
 
 
 sl = Solution()
-print(sl.hasValidPath(grid=[["(", "(", "("], [")", "(", ")"], ["(", "(", ")"], ["(", "(", ")"]]))
+print(
+    sl.hasValidPath(
+        grid=[["(", "(", "("], [")", "(", ")"], ["(", "(", ")"], ["(", "(", ")"]]
+    )
+)
 print(
     sl.hasValidPath(
         [

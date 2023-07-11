@@ -31,7 +31,7 @@ class Solution:
                 return ans
 
             cnt = {5: 0, 10: 0}
-            for i in range(1, n+1):
+            for i in range(1, n + 1):
                 for div in [10, 5]:
                     while i % div == 0:
                         i = i // div

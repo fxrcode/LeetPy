@@ -42,7 +42,9 @@ class Codec:
             ser.append(str(T.val))
             for k in T.kids:
                 dfs(k)
-            ser.append("!")  # indicates no more children, continue serialization from parent
+            ser.append(
+                "!"
+            )  # indicates no more children, continue serialization from parent
 
         dfs(root)
         return ",".join(ser)
@@ -94,7 +96,14 @@ class Codec:
           9
 """
 codec = Codec()
-root = Node(1, kids=[Node(2, kids=[Node(5)]), Node(3, kids=[Node(6), Node(7, kids=[Node(9)])]), Node(4, kids=[Node(8)])])
+root = Node(
+    1,
+    kids=[
+        Node(2, kids=[Node(5)]),
+        Node(3, kids=[Node(6), Node(7, kids=[Node(9)])]),
+        Node(4, kids=[Node(8)]),
+    ],
+)
 rs = codec.serialize(root)
 rd = codec.deserialize(rs)
 rrs = codec.serialize(rd)

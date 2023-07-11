@@ -1,9 +1,9 @@
-'''
+"""
 Labuladong: Divide & Conquer
 
-'''
-from typing import List
+"""
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -18,17 +18,17 @@ class Solution:
             ans = []
 
             for i, c in enumerate(expr):
-                if c in '+-*':
+                if c in "+-*":
                     l = labuladong(expr[:i])
-                    r = labuladong(expr[i+1:])
+                    r = labuladong(expr[i + 1 :])
                     for a in l:
                         for b in r:
-                            if c == '+':
-                                ans.append(a+b)
-                            elif c == '-':
-                                ans.append(a-b)
+                            if c == "+":
+                                ans.append(a + b)
+                            elif c == "-":
+                                ans.append(a - b)
                             else:
-                                ans.append(a*b)
+                                ans.append(a * b)
 
             if not ans:
                 ans.append(int(expr))

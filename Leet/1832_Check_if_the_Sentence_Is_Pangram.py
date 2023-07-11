@@ -1,11 +1,11 @@
-'''
+"""
 Facebook tag
 
 tag: Easy, bit manipulation, hash
 
 Lookback:
 - when you see limited state => bit manipulation (eg. DFS w/ bitmask)
-'''
+"""
 
 
 class Solution:
@@ -19,7 +19,7 @@ class Solution:
             """
             tmp, need = 0, (1 << 26) - 1
             for c in sentence:
-                tmp |= 1 << (ord(c) - ord('a'))
+                tmp |= 1 << (ord(c) - ord("a"))
                 if tmp == need:
                     return True
             return tmp == need

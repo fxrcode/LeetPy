@@ -1,7 +1,7 @@
-'''
+"""
 https://leetcode.com/company/google/
 Easy
-'''
+"""
 
 
 class Solution:
@@ -12,8 +12,8 @@ class Solution:
 
             T: O(N)
             """
-            d1 = '01869'
-            d2 = '01896'
+            d1 = "01869"
+            d2 = "01896"
             mp = {}
             for a, b in zip(d1, d2):
                 mp[a] = b

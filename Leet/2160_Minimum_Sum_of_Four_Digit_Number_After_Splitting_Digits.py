@@ -1,11 +1,11 @@
-'''
+"""
 tag: easy, math, DFS
 
 similar: 258.Add Digits
 Lookback
 - find pattern before coding!
 - math problem generally can solve with logic, rather brute force enumeration 
-'''
+"""
 
 from itertools import permutations
 
@@ -41,14 +41,14 @@ class Solution:
             Runtime: 44 ms, faster than 56.09% of Python3 online submissions for Minimum Sum of Four Digit Number After Splitting Digits.
 
             """
+
             def sum2slice(lis):
                 # return sum(int(''.join(map(int, lis))))
-                return sum(int(''.join(map(str, li))) for li in lis)
+                return sum(int("".join(map(str, li))) for li in lis)
 
             def bt(A, used, news, res):
                 if len(used) == 4:
-                    mn = min(
-                        sum2slice((news[:i], news[i:])) for i in range(1, 4))
+                    mn = min(sum2slice((news[:i], news[i:])) for i in range(1, 4))
                     print(used, news, mn)
                     res.append(mn)
                     return
@@ -65,7 +65,7 @@ class Solution:
             res = []
             bt(A, set(), [], res)
             return min(res)
-            '''
+            """
             Runtime: 79 ms, faster than 5.30% of Python3 online submissions for Minimum Sum of Four Digit Number After Splitting Digits.
 
             perms = permutations([int(c) for c in str(num)])
@@ -75,7 +75,7 @@ class Solution:
                 mn = min(mn,
                          min(sum2slice((p[:i], p[i:])) for i in range(1, 4)))
             return mn
-            '''
+            """
 
         return fxr()
 

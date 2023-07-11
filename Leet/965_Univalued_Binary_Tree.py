@@ -1,6 +1,6 @@
-'''
+"""
 🌸Huahua Tree List (type: 100. Same Tree)
-'''
+"""
 
 
 from typing import Optional
@@ -42,4 +42,5 @@ class Solution:
             if node.right:
                 bl &= node.right.val == node.val
             return bl
+
         return fxr_dfs(root)

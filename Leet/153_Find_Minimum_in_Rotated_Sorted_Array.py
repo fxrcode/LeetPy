@@ -1,11 +1,11 @@
-'''
+"""
 ✅ GOOD Bisect
 https://leetcode.com/explore/learn/card/binary-search/126/template-ii/949/
 Leetcode Explore: Binary Search - Template II
 
 Given the sorted rotated array nums of unique elements, return the minimum element of this array.
 tag: medium, bisect
-'''
+"""
 
 from typing import List
 

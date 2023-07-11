@@ -1,8 +1,8 @@
-'''
+"""
 https://leetcode.com/study-plan/dynamic-programming/?progress=r5nylos
 Study Plan: Dynamic Programming
 Day 8: DP on String
-'''
+"""
 from collections import defaultdict
 
 
@@ -28,20 +28,23 @@ class Solution:
 
             # XXX: careful on index (-1) for base case
             for i in range(m):
-                T[i, -1] = T[i-1, -1] + ord(s1[i])
+                T[i, -1] = T[i - 1, -1] + ord(s1[i])
             for j in range(n):
-                T[-1, j] = T[-1, j-1] + ord(s2[j])
+                T[-1, j] = T[-1, j - 1] + ord(s2[j])
 
             for i in range(m):
                 for j in range(n):
                     if s1[i] == s2[j]:
-                        T[i, j] = T[i-1, j-1]
+                        T[i, j] = T[i - 1, j - 1]
                     else:
-                        T[i, j] = min(T[i-1, j] + ord(s1[i]),
-                                      T[i, j-1] + ord(s2[j]),)
+                        T[i, j] = min(
+                            T[i - 1, j] + ord(s1[i]),
+                            T[i, j - 1] + ord(s2[j]),
+                        )
                         #   T[i-1, j-1] + ord(s1[i]) + ord(s2[j]))
             print(T)
-            return T[m-1, n-1]
+            return T[m - 1, n - 1]
+
         return fxr_lcs()
 
 

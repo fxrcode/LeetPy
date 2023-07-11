@@ -1,9 +1,9 @@
-'''
+"""
 
 https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/142/conclusion/1012/
 Leetcode Explore Binary Search Tree: Conclusion
 
-'''
+"""
 
 # Definition for a binary tree node.
 
@@ -16,8 +16,9 @@ class TreeNode:
 
 
 class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode',
-                             q: 'TreeNode') -> 'TreeNode':
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         def lca_sol(cur: TreeNode) -> TreeNode:
             if cur.val > max(p.val, q.val):
                 return lca_sol(cur.left)

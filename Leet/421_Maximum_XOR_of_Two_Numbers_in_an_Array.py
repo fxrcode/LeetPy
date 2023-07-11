@@ -1,9 +1,9 @@
-'''
+"""
 ✅ GOOD Trie
 Daily Challenge (Jan 27)
 
 tag: medium, trie
-'''
+"""
 
 from typing import List
 

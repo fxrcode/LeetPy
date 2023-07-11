@@ -1,4 +1,4 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3910/
 Leetcode Explore Graph: Disjoint Set
 
@@ -10,7 +10,7 @@ In all of them, I check one of these tree characterizations:
 * Has n-1 edges and is acyclic.
 * Has n-1 edges and is connected.
 
-'''
+"""
 
 
 from typing import List
@@ -37,7 +37,8 @@ class Solution:
                     return False
                 uf[find(j)] = find(i)
             # return sum(i == f for i, f in uf.items()) == 1
-            return len(edges) == n-1
+            return len(edges) == n - 1
+
         return fxr_1()
 
 

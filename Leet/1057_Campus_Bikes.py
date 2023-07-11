@@ -14,7 +14,9 @@ from typing import List
 
 
 class Solution:
-    def assignBikes(self, workers: List[List[int]], bikes: List[List[int]]) -> List[int]:
+    def assignBikes(
+        self, workers: List[List[int]], bikes: List[List[int]]
+    ) -> List[int]:
         def os_pq():
             """
             Runtime: 888 ms, faster than 81.58% of Python3 online submissions for Campus Bikes.

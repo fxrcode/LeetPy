@@ -1,7 +1,7 @@
-'''
+"""
 Coding basic
 [ ] REDO
-'''
+"""
 
 
 class Solution:
@@ -13,9 +13,9 @@ class Solution:
             T: O(N)
             """
             if n <= 1:
-                return '1'
+                return "1"
             s = dfs(n - 1)
-            i, ret = 0, ''
+            i, ret = 0, ""
             while i < len(s):
                 count = 1
                 while i + 1 < len(s) and s[i + 1] == s[i]:

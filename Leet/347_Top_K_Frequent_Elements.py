@@ -1,16 +1,16 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1133/
 Leetcode Explore: Hash Table. Conclusion
 
 Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
 
-'''
+"""
 
 
-from typing import List
 from collections import Counter, defaultdict
-from heapq import heapify, heappush, heappop, heappushpop
+from heapq import heapify, heappop, heappush, heappushpop
 from random import randint
+from typing import List
 
 
 class Solution:
@@ -21,6 +21,7 @@ class Solution:
         k-th somethings pattern: use Hoare linear selection
         Time: O(N), Space: O(N)
         """
+
         def partit(nums, l, r):
             # in-place action, partition nums[l:r]
             # pick a random pivot index, then move it to the ned
@@ -30,7 +31,7 @@ class Solution:
             nums[ri], nums[r] = nums[r], nums[ri]
 
             # lomuto
-            s = l-1
+            s = l - 1
             # loop invariant: [0,s] < pivot
             for f in range(l, r):
                 # if nums[f] < pivot:
@@ -38,8 +39,8 @@ class Solution:
                     s += 1
                     nums[s], nums[f] = nums[f], nums[s]
             # swap
-            nums[s+1], nums[r] = nums[r], nums[s+1]
-            return s+1
+            nums[s + 1], nums[r] = nums[r], nums[s + 1]
+            return s + 1
 
         # print(partit(nums, 0, len(nums)-1))
 
@@ -50,9 +51,9 @@ class Solution:
             if k == pi:
                 return nums[k]
             elif k < pi:
-                return quick_select(nums, l, pi-1, k)
+                return quick_select(nums, l, pi - 1, k)
             else:
-                return quick_select(nums, pi+1, r, k)
+                return quick_select(nums, pi + 1, r, k)
 
         # for k in range(len(nums)):
         #     print(quick_select(nums, 0, len(nums)-1, k))
@@ -66,7 +67,7 @@ class Solution:
         n2f = list(ctr.items())
 
         res = []
-        for i in range(len(n2f)-1, len(n2f)-k-1, -1):
+        for i in range(len(n2f) - 1, len(n2f) - k - 1, -1):
             res.append(n2f[i][0])
         return res
 

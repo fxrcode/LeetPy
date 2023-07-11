@@ -13,9 +13,7 @@ from typing import List
 
 
 class Solution:
-
     def summaryRanges(self, nums: List[int]) -> List[str]:
-
         def stefan():
             """
             Runtime: 48 ms, faster than 10.20% of Python3 online submissions for Summary Ranges.

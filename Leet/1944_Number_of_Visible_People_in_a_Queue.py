@@ -33,4 +33,3 @@ class Solution:
 
 sl = Solution()
 print(sl.canSeePersonsCount(heights=[10, 6, 8, 5, 11, 9]))
-

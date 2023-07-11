@@ -1,4 +1,4 @@
-'''
+"""
 
 Daily Challenge (Dec 12)
 
@@ -13,16 +13,14 @@ Meta-cognition
 
 similar:
 - 1774
-'''
+"""
 
-from typing import List
 from functools import cache
+from typing import List
 
 
 class Solution:
-
     def canPartition(self, nums: List[int]) -> bool:
-
         def os_memo():
             """
             with @cache: Runtime: 1344 ms, faster than 50.61% of Python3 online submissions for Partition Equal Subset Sum.

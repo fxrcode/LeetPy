@@ -4,12 +4,12 @@ from typing import List
 class Solution:
     def findPoisonedDuration_WRONG(self, timeSeries: List[int], duration: int) -> int:
         res = duration
-        pre_l, pre_r = timeSeries[0], timeSeries[0]+duration
+        pre_l, pre_r = timeSeries[0], timeSeries[0] + duration
         for cur_l in timeSeries[1:]:
             if pre_r < cur_l:
                 res += duration
             else:
-                res += (cur_l - pre_l)
+                res += cur_l - pre_l
 
         return res
 
@@ -22,7 +22,7 @@ class Solution:
         if len(timeSeries) < 1:
             return 0
 
-        res, start, end = 0, timeSeries[0], timeSeries[0]+duration
+        res, start, end = 0, timeSeries[0], timeSeries[0] + duration
 
         for i in range(1, len(timeSeries)):
             if timeSeries[i] > end:

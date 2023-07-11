@@ -1,10 +1,10 @@
-'''
+"""
 https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1126/
 Leetcode Explore: Hash Table. Practical Application - Design the Key
 Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
 
-'''
+"""
 
 
 from typing import List
@@ -22,9 +22,10 @@ class Solution:
             2. finally memorize how nested list comprehension works, eg. loop box in sudoku
             3. transpost matrix by zip(*matrix), because zip() is like k-merge! and *() unpack matrix into rows.
         """
+
         def _valid_unit(box: List[List[str]]) -> bool:
             # helper function
-            unit = [i for i in box if i != '.']
+            unit = [i for i in box if i != "."]
             # check if all unique is basic skill as reverse linked list
             return len(set(unit)) == len(unit)
 
@@ -47,8 +48,9 @@ class Solution:
             for r in (0, 3, 6):
                 for c in (0, 3, 6):
                     # XXX: nested list comprehension is easy, just same way we write regular loop, just move element logic from inner to loop to front of list!
-                    box = [board[x][y]
-                           for x in range(r, r+3) for y in range(c, c+3)]
+                    box = [
+                        board[x][y] for x in range(r, r + 3) for y in range(c, c + 3)
+                    ]
                     if not _valid_unit(box):
                         return False
             return True
@@ -60,10 +62,11 @@ class Solution:
         Your runtime beats 8.50 % of python3 submissions.
         AC in 1 but so slooooooooooow!
         """
+
         def check_and_set(dic, r, c):
             if not board[r][c].isdigit():
                 return True
-            v = int(board[r][c])-1
+            v = int(board[r][c]) - 1
             if dic[v] == 1:
                 return False
             else:
@@ -91,39 +94,59 @@ class Solution:
                     return False
             clear_dic(col)
 
-        binner = [[1, 1], [1, 4], [1, 7], [4, 1], [
-            4, 4], [4, 7], [7, 1], [7, 4], [7, 7]]
-        boxdir = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
-                  (0, 0), (0, 1), (1, -1), (1, 0), (1, 1)]
+        binner = [
+            [1, 1],
+            [1, 4],
+            [1, 7],
+            [4, 1],
+            [4, 4],
+            [4, 7],
+            [7, 1],
+            [7, 4],
+            [7, 7],
+        ]
+        boxdir = [
+            (-1, -1),
+            (-1, 0),
+            (-1, 1),
+            (0, -1),
+            (0, 0),
+            (0, 1),
+            (1, -1),
+            (1, 0),
+            (1, 1),
+        ]
         # check 9 box
         for x, y in binner:
             for dx, dy in boxdir:
-                if not check_and_set(box, x+dx, y+dy):
+                if not check_and_set(box, x + dx, y + dy):
                     return False
             clear_dic(box)
         return True
 
 
 sl = Solution()
-board = \
-    [["5", "3", ".", ".", "7", ".", ".", ".", "."],
-     ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-        [".", "9", "8", ".", ".", ".", ".", "6", "."],
-        ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-        ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-        ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-        [".", "6", ".", ".", ".", ".", "2", "8", "."],
-        [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-        [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
+board = [
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+]
 
-board1 = \
-    [["8", "3", ".", ".", "7", ".", ".", ".", "."],
-     ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-        [".", "9", "8", ".", ".", ".", ".", "6", "."],
-        ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-        ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
-        ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-        [".", "6", ".", ".", ".", ".", "2", "8", "."],
-        [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-        [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
+board1 = [
+    ["8", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+]
 print(sl.isValidSudoku_forum_clue(board1))

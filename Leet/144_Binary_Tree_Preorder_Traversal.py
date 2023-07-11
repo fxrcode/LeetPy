@@ -1,7 +1,7 @@
-'''
+"""
 手把手刷二叉树系列完结篇
 
-'''
+"""
 
 from typing import List, Optional
 
@@ -75,13 +75,13 @@ class Solution:
             return dp(root)
 
 
-root = TreeNode(1,
-                left=TreeNode(2,
-                              left=TreeNode(5),
-                              right=TreeNode(4,
-                                             left=TreeNode(6),
-                                             right=TreeNode(7))),
-                right=TreeNode(3, left=TreeNode(8), right=TreeNode(9)))
+root = TreeNode(
+    1,
+    left=TreeNode(
+        2, left=TreeNode(5), right=TreeNode(4, left=TreeNode(6), right=TreeNode(7))
+    ),
+    right=TreeNode(3, left=TreeNode(8), right=TreeNode(9)),
+)
 # root = TreeNode(1,
 #                 left=TreeNode(2),
 #                 right=TreeNode(3,

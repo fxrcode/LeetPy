@@ -1,9 +1,9 @@
-'''
+"""
 Daily Challenge (Nov 30)
 
-'''
-from typing import List
+"""
 from collections import deque
+from typing import List
 
 
 class TrieNode:
@@ -41,7 +41,7 @@ class StreamChecker:
 
         def qry():
             tail = self.root
-            for i in range(len(self.q)-1, -1, -1):
+            for i in range(len(self.q) - 1, -1, -1):
                 c = self.q[i]
                 if c not in tail.kids:
                     return False
@@ -49,11 +49,12 @@ class StreamChecker:
                 if tail.is_word:
                     return True
             return False
+
         return qry()
 
 
-'''
+"""
 # Your StreamChecker object will be instantiated and called as such:
 # obj = StreamChecker(words)
 # param_1 = obj.query(letter)
-'''
+"""

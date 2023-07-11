@@ -1,7 +1,7 @@
-'''
+"""
 Daily Challenge (Dec 8)
 
-'''
+"""
 from typing import List, Optional
 
 

@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD recursion (772. calculator family)
 https://leetcode.com/explore/learn/card/queue-stack/239/conclusion/1379/
 Leetcode explore Queue & Stack: Conclusion
@@ -6,12 +6,11 @@ Leetcode explore Queue & Stack: Conclusion
 Given an encoded string, return its decoded string.
 
 The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.
-'''
+"""
 from collections import deque
 
 
 class Solution:
-
     def decodeString_iter(self, s: str) -> str:
         """
         Runtime: 32 ms, faster than 58.89% of Python3 online submissions for Decode String.
@@ -19,13 +18,13 @@ class Solution:
         https://leetcode.com/problems/decode-string/discuss/87662/Python-solution-using-stack
         """
         stk = []
-        cur_str = ''
+        cur_str = ""
         k = 0
         for c in s:
-            if c == '[':
+            if c == "[":
                 stk.append((cur_str, k))
-                cur_str, k = '', 0
-            elif c == ']':
+                cur_str, k = "", 0
+            elif c == "]":
                 last_str, last_k = stk.pop()
                 # BUG: cur_string += last_str * last_k
                 cur_str = last_str + last_k * cur_str
@@ -45,11 +44,11 @@ class Solution:
         """
 
         def recur(s):
-            res = ''
+            res = ""
             k = 0
             while s:
                 c = s.popleft()
-                if c == '[':
+                if c == "[":
                     inner = recur(s)
                     res += k * inner
                     k = 0

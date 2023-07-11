@@ -1,10 +1,10 @@
-'''
+"""
 💡✅ GOOD Logic
 tag: sort, Kevin, FB, Greedy
 Lookback:
 
 [ ] REDO
-'''
+"""
 
 from typing import List
 
@@ -42,6 +42,4 @@ class Solution:
 
 
 sl = Solution()
-print(
-    sl.reconstructQueue(
-        people=[[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]]))
+print(sl.reconstructQueue(people=[[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]]))

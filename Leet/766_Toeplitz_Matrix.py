@@ -1,4 +1,4 @@
-'''
+"""
 ✅ GOOD Matrix (loop)
 💡insight
 
@@ -7,11 +7,11 @@ FB tag (6mo)
 Follow up:
 * What if the matrix is stored on disk, and the memory is limited such that you can only load at most one row of the matrix into the memory at once?
 * What if the matrix is so large that you can only load up a partial row into the memory at once?
-'''
+"""
 
 
-from typing import List
 from collections import deque
+from typing import List
 
 
 class Solution:
@@ -39,9 +39,9 @@ class Solution:
 
         def fxr():
             m, n = len(M), len(M[0])
-            for i in range(m-1):
-                for j in range(n-1):
-                    if M[i][j] != M[i+1][j+1]:
+            for i in range(m - 1):
+                for j in range(n - 1):
+                    if M[i][j] != M[i + 1][j + 1]:
                         return False
             return True
 

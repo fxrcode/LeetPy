@@ -1,9 +1,9 @@
-'''
+"""
 Explore Trie
 tag: medium, Google
 
 Lookback: careful on requirement, it says if key exist, need to update val accordingly.
-'''
+"""
 from collections import defaultdict
 from email.policy import default
 
@@ -21,6 +21,7 @@ class MapSum:
     T: insert: O(K), sum: O(P)
     # K: len of key string, P: len of prefix string
     """
+
     def __init__(self):
         self.root = Node()
         self.kv = defaultdict(int)
@@ -41,9 +42,9 @@ class MapSum:
 
 
 ms = MapSum()
-ms.insert('apple', 3)
-print(ms.sum('ap'))
-ms.insert('app', 2)
-ms.insert('apple', 2)
-print(ms.sum('ap'))
-print(ms.sum('appl'))
+ms.insert("apple", 3)
+print(ms.sum("ap"))
+ms.insert("app", 2)
+ms.insert("apple", 2)
+print(ms.sum("ap"))
+print(ms.sum("appl"))
