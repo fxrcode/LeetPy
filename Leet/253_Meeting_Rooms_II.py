@@ -34,13 +34,13 @@ class Solution:
             """
             # stores the end time of intervals
             pq = []
-            for s, f in sorted(intervals, key=lambda x: x[0]):
+            for s, e in sorted(intervals, key=lambda x: x[0]):
                 if pq and s >= pq[0]:
                     # means two intervals can use the same room
-                    heapq.heappushpop(pq, f)
+                    heapq.heappushpop(pq, e)
                 else:
                     # a new room is allocated
-                    heapq.heappush(pq, f)
+                    heapq.heappush(pq, e)
             # Q: why len here, rather check max during push/pop?
             #   ans: I pop when course with no conflict, rather course in heapq finished!
             #       so heapq will record max depth of open intervals (Def from Princeton lec)
@@ -74,9 +74,9 @@ class Solution:
             https://leetcode.com/problems/meeting-rooms-ii/discuss/203658/HashMapTreeMap-resolves-Scheduling-Problem
             """
             sd = SortedDict()
-            for s, f in intervals:
+            for s, e in intervals:
                 sd[s] = sd.setdefault(s, 0) + 1
-                sd[f] = sd.setdefault(f, 0) - 1
+                sd[e] = sd.setdefault(e, 0) - 1
             room, k = 0, 0
             for _, v in sd.items():
                 room += v

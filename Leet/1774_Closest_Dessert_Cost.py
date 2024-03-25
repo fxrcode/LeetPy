@@ -142,3 +142,4 @@ sl = Solution()
 # print(sl.closestCost(baseCosts=[2, 3], toppingCosts=[4, 5, 100], target=18))
 # print(sl.closestCost(baseCosts=[3, 10], toppingCosts=[2, 5], target=9))
 print(sl.closestCost([5, 77, 38, 61, 97], [62, 7, 100, 30, 16, 84], 73))
+assert sl.closestCost([1], [8,10], 10) == 9

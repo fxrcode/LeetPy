@@ -7,13 +7,10 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    },
+      "source.organizeImports": "explicit"
+    }
   },
-  "isort.args": [
-    "--profile",
-    "black"
-  ],
+  "isort.args": ["--profile", "black"],
   "python.languageServer": "Pylance",
   "python.linting.pylintEnabled": false,
   // "python.analysis.typeCheckingMode": "basic",
@@ -23,7 +20,7 @@
   //     "--max-line-length=100"
   // ],
   // "editor.parameterHints": true,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": true,
   "vim.handleKeys": {
     "<C-c>": false,
     "<C-v>": false,
@@ -32,15 +29,11 @@
     "<C-x>": false,
     "<C-y>": false,
     "<C-b>": false,
-    "<C-a>": false,
+    "<C-a>": false
   },
   "editor.fontFamily": "Iosevka", // "Fira Code"
   "editor.fontSize": 13,
-  "terminal.integrated.fontFamily": "Iosevka Term", // "MesloLGM Nerd Font"
+  "terminal.integrated.fontFamily": "MesloLGS NF", // "Iosevka Term", 
   "terminal.integrated.fontSize": 12,
-  "cSpell.words": [
-    "Leetcode",
-    "Lookback",
-    "popleft"
-  ], // "MesloLGM Nerd Font"
+  "cSpell.words": ["Leetcode", "Lookback", "popleft"] // "MesloLGM Nerd Font"
 }
