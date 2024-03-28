@@ -7,6 +7,7 @@ Introduction to Algorithms
 Recursion I
 https://leetcode.com/explore/featured/card/recursion-i/251/scenario-i-recurrence-relation/2378/
 """
+
 # Definition for singly-linked list.
 from typing import Optional
 
@@ -43,12 +44,12 @@ class Solution:
         NeetCode linked-list playlist
         """
 
-        def recur(head: ListNode) -> Optional[ListNode]:
+        def traverse(head: ListNode) -> Optional[ListNode]:
             if not head or not head.next:
                 return head
-            p = recur(head.next)
+            p = traverse(head.next)
             head.next.next = head
             head.next = None
             return p
 
-        return recur(head)
+        return traverse(head)

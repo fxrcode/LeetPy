@@ -2,7 +2,7 @@
 tag: Medium, slide-window, bisect
 Lookback:
 - convert multiply into log plus
-- 1st time seeing find upper bound st. < k => bisect_right(A, x-1e-9)
+- 1st time seeing find upper bound st. < k => bisect_right(A, x - 1e-9)
 """
 
 from bisect import bisect_right
@@ -24,7 +24,7 @@ class Solution:
                 return 0
             k = log(k)
 
-            prefix = [0]
+            prefix = [0.0]
             for x in nums:
                 prefix.append(prefix[-1] + log(x))
 
@@ -33,6 +33,7 @@ class Solution:
                 # find max prefix[j] st. prefix[j]-prefix[i] < k
                 j = bisect_right(prefix, x + k - 1e-9, i + 1)
                 ans += j - i - 1
+                print(i, j, ans)
             return ans
 
         return os_bisect()
@@ -67,4 +68,4 @@ class Solution:
 
 sl = Solution()
 print(sl.numSubarrayProductLessThanK(nums=[10, 5, 2, 6], k=100))
-print(sl.numSubarrayProductLessThanK([1, 1, 1], 1))
+# print(sl.numSubarrayProductLessThanK([1, 1, 1], 1))

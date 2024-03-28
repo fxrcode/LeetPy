@@ -49,11 +49,36 @@ class Solution:
         left = meet
         right = meet + 1
         while left >= 0 and right < len(A):
-            #
             if A[left] == 42 and A[right] == -42:
                 break
             left -= 1
             right += 1
+
+    def slide_window_lzl124631x(A: list[int]):
+        """
+        C++ Maximum Sliding Window Cheatsheet Template!
+        https://leetcode.com/problems/frequency-of-the-most-frequent-element/discuss/1175088/C%2B%2B-Maximum-Sliding-Window-Cheatsheet-Template!
+        """
+
+        def invalid() -> bool:
+            pass
+
+        N = len(A)
+        l, r, ans = 0, 0, 0
+        while r < N:
+            s = A[r]
+            r += 1
+            # CODE: use A[j] to update state which might make the window invalid
+            while (
+                l < r and invalid()
+            ):  # when invalid, keep shrinking the left edge until it's valid again
+                e = A[l]
+                l += 1
+                # CODE: update state using A[i]
+            ans = max(
+                ans, r - l
+            )  # the window [l, r) is the maximum window we've found thus far
+        return ans
 
     def sliding_window(self, A):
         """
